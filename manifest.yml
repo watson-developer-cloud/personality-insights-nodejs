@@ -1,3 +1,8 @@
+---
+declared-services:
+- personality-insights-service:
+    label: personality_insights
+    plan: "IBM Watson Personality Insights Monthly Plan"
 applications:
 - services:
   - personality-insights-service
