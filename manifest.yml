@@ -5,9 +5,9 @@ declared-services:
     plan: 'IBM Watson Personality Insights Monthly Plan'
 
 applications:
-- services:
-  - personality-insights-service
-  name: personality-insights-nodejs
+- name: personality-insights-nodejs
   command: node app.js
   path: .
   memory: 256M
+  services:
+  - personality-insights-service
