@@ -1,0 +1,113 @@
+.img-container img {
+  width: 100%;
+  height: auto;
+}
+
+.top-nav {
+  background-color: #404041;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.top-nav a {
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: underline;
+  color: white;
+}
+.top-nav a:hover {
+  color: #E0E0E0;
+}
+
+.top-nav .right {
+  float: right;
+  margin-right: 20px;
+}
+.top-nav .left {
+  float: left;
+}
+.top-nav .fork:before {
+  content: ' ';
+  background: url('../images/fork-icon.svg') no-repeat;
+  height: 16px;
+  width: 16px;
+  vertical-align: text-bottom;
+  display: inline-block;
+  margin-right: 3px;
+}
+.header {
+  padding-bottom:0px;
+  margin-bottom: 0px;
+}
+.header h2 {
+  font-weight: 400;
+}
+.header h3 {
+  color: #00b2ef;
+  font-weight: 400;
+}
+.avatar {
+  padding-right: 0px;
+}
+.avatar img {
+  margin-top: 9px;
+}
+.header a {
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: underline;
+  color: #404041;
+  display: block;
+  margin-left: 20px;
+  margin-bottom: 3px;
+}
+.header a:hover {
+  color: #777677;
+}
+
+.model_title {
+    font-weight: bold;
+    padding-left: 0px;
+    padding-top: 5px;
+}
+
+.model_trait {
+    padding-left: 10px;
+}
+
+.model_name {
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+.theader {
+    background-color: #bbb;
+    font-weight: bold;
+    padding-left: 0px;
+    padding-bottom: 5px;
+}
+.col540px {
+    height: 540px;
+    overflow: auto;
+}
+
+.errorMsg {
+    font-weight: bold;
+    color: red;
+}
+
+.results > .row {
+  clear: left;
+}
+
+#vizcontainer svg {
+  min-width: 480px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Portrait tablets and small desktops */
+@media (max-width: 991px) {
+    .col540px {
+        height: 100%;
+    }
+}

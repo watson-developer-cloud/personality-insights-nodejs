@@ -1,0 +1,1590 @@
+{
+	"Extraversion_plus_Agreeableness_plus": [{
+		"word": "social",
+		"perceived_negatively": false
+	},
+	{
+		"word": "energetic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "enthusiastic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "communicative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "vibrant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "spirited",
+		"perceived_negatively": false
+	},
+	{
+		"word": "magnetic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "zestful",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Agreeableness_minus": [{
+		"word": "opinionated",
+		"perceived_negatively": false
+	},
+	{
+		"word": "forceful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "domineering",
+		"perceived_negatively": true
+	},
+	{
+		"word": "boastful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "bossy",
+		"perceived_negatively": true
+	},
+	{
+		"word": "dominant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cunning",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Agreeableness_plus": [{
+		"word": "unaggressive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "humble",
+		"perceived_negatively": false
+	},
+	{
+		"word": "submissive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "timid",
+		"perceived_negatively": false
+	},
+	{
+		"word": "compliant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "naïve",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Agreeableness_minus": [{
+		"word": "skeptical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "wary of others",
+		"perceived_negatively": false
+	},
+	{
+		"word": "seclusive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "uncommunicative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unsociable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "glum",
+		"perceived_negatively": true
+	},
+	{
+		"word": "detached",
+		"perceived_negatively": true
+	},
+	{
+		"word": "aloof",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Conscientiousness_plus": [{
+		"word": "active",
+		"perceived_negatively": false
+	},
+	{
+		"word": "competitive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "persistent",
+		"perceived_negatively": false
+	},
+	{
+		"word": "ambitious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "purposeful",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Conscientiousness_minus": [{
+		"word": "boisterous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "mischievous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "exhibitionistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "gregarious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "demonstrative",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Conscientiousness_plus": [{
+		"word": "restrained",
+		"perceived_negatively": false
+	},
+	{
+		"word": "serious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "discreet",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cautious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "principled",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Conscientiousness_minus": [{
+		"word": "indirect",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unenergetic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "sluggish",
+		"perceived_negatively": true
+	},
+	{
+		"word": "nonpersistent",
+		"perceived_negatively": true
+	},
+	{
+		"word": "vague",
+		"perceived_negatively": true
+	}],
+	"Extraversion_plus_Neuroticism_plus": [{
+		"word": "explosive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "wordy",
+		"perceived_negatively": true
+	},
+	{
+		"word": "extravagant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "volatile",
+		"perceived_negatively": true
+	},
+	{
+		"word": "flirtatious",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Neuroticism_minus": [{
+		"word": "confident",
+		"perceived_negatively": false
+	},
+	{
+		"word": "bold",
+		"perceived_negatively": false
+	},
+	{
+		"word": "assured",
+		"perceived_negatively": false
+	},
+	{
+		"word": "uninhibited",
+		"perceived_negatively": false
+	},
+	{
+		"word": "courageous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "brave",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-satisfied",
+		"perceived_negatively": false
+	},
+	{
+		"word": "vigorous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "strong",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Neuroticism_plus": [{
+		"word": "guarded",
+		"perceived_negatively": false
+	},
+	{
+		"word": "pessimistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "secretive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cowardly",
+		"perceived_negatively": true
+	},
+	{
+		"word": "secretive",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Neuroticism_minus": [{
+		"word": "tranquil",
+		"perceived_negatively": false
+	},
+	{
+		"word": "sedate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "placid",
+		"perceived_negatively": false
+	},
+	{
+		"word": "impartial",
+		"perceived_negatively": false
+	},
+	{
+		"word": "unassuming",
+		"perceived_negatively": false
+	},
+	{
+		"word": "acquiescent",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Openness_plus": [{
+		"word": "expressive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "candid",
+		"perceived_negatively": false
+	},
+	{
+		"word": "dramatic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "spontaneous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "witty",
+		"perceived_negatively": false
+	},
+	{
+		"word": "opportunistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "independent",
+		"perceived_negatively": false
+	}],
+	"Extraversion_plus_Openness_minus": [{
+		"word": "verbose",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unscrupulous",
+		"perceived_negatively": true
+	},
+	{
+		"word": "pompous",
+		"perceived_negatively": true
+	}],
+	"Extraversion_minus_Openness_plus": [{
+		"word": "inner-directed",
+		"perceived_negatively": false
+	},
+	{
+		"word": "introspective",
+		"perceived_negatively": false
+	},
+	{
+		"word": "meditative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "contemplating",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-examining",
+		"perceived_negatively": false
+	}],
+	"Extraversion_minus_Openness_minus": [{
+		"word": "somber",
+		"perceived_negatively": false
+	},
+	{
+		"word": "meek",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unadventurous",
+		"perceived_negatively": true
+	},
+	{
+		"word": "passive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "apathetic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "docile",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_plus_Conscientiousness_plus": [{
+		"word": "helpful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cooperative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "considerate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "respectful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "polite",
+		"perceived_negatively": false
+	},
+	{
+		"word": "reasonable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "courteous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "thoughtful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "loyal",
+		"perceived_negatively": false
+	},
+	{
+		"word": "moral",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_plus_Conscientiousness_minus": [{
+		"word": "unpretentious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-effacing",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_minus_Conscientiousness_plus": [{
+		"word": "strict",
+		"perceived_negatively": false
+	},
+	{
+		"word": "rigid",
+		"perceived_negatively": false
+	},
+	{
+		"word": "stern",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_minus_Conscientiousness_minus": [{
+		"word": "inconsiderate",
+		"perceived_negatively": true
+	},
+	{
+		"word": "impolite",
+		"perceived_negatively": true
+	},
+	{
+		"word": "distrustful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "uncooperative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "thoughtless",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_plus_Neuroticism_plus": [{
+		"word": "sentimental",
+		"perceived_negatively": false
+	},
+	{
+		"word": "affectionate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "sensitive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "soft",
+		"perceived_negatively": false
+	},
+	{
+		"word": "passionate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "romantic",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_plus_Neuroticism_minus": [{
+		"word": "generous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "pleasant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "tolerant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "peaceful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "flexible",
+		"perceived_negatively": false
+	},
+	{
+		"word": "easy-going",
+		"perceived_negatively": false
+	},
+	{
+		"word": "fair",
+		"perceived_negatively": false
+	},
+	{
+		"word": "charitable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "trustful",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_minus_Neuroticism_plus": [{
+		"word": "critical",
+		"perceived_negatively": true
+	},
+	{
+		"word": "selfish",
+		"perceived_negatively": true
+	},
+	{
+		"word": "ill-tempered",
+		"perceived_negatively": true
+	},
+	{
+		"word": "antagonistic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "grumpy",
+		"perceived_negatively": true
+	},
+	{
+		"word": "bitter",
+		"perceived_negatively": true
+	},
+	{
+		"word": "disagreeable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "demanding",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_minus_Neuroticism_minus": [{
+		"word": "insensitive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unaffectionate",
+		"perceived_negatively": true
+	},
+	{
+		"word": "passionless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unemotional",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_plus_Openness_plus": [{
+		"word": "genial",
+		"perceived_negatively": false
+	},
+	{
+		"word": "tactful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "diplomatic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "deep",
+		"perceived_negatively": false
+	},
+	{
+		"word": "idealistic",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_plus_Openness_minus": [{
+		"word": "dependent",
+		"perceived_negatively": true
+	},
+	{
+		"word": "simple",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_minus_Openness_plus": [{
+		"word": "shrewd",
+		"perceived_negatively": false
+	},
+	{
+		"word": "eccentric",
+		"perceived_negatively": false
+	},
+	{
+		"word": "individualistic",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_minus_Openness_minus": [{
+		"word": "coarse",
+		"perceived_negatively": true
+	},
+	{
+		"word": "tactless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "curt",
+		"perceived_negatively": true
+	},
+	{
+		"word": "narrow-minded",
+		"perceived_negatively": true
+	},
+	{
+		"word": "callous",
+		"perceived_negatively": true
+	},
+	{
+		"word": "ruthless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "uncharitable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "vindictive",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_plus_Openness_plus": [{
+		"word": "excitable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "passionate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "sensual",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_plus_Openness_minus": [{
+		"word": "easily rattled",
+		"perceived_negatively": false
+	},
+	{
+		"word": "easily irked",
+		"perceived_negatively": false
+	},
+	{
+		"word": "apprehensive",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_minus_Openness_plus": [{
+		"word": "heartfelt",
+		"perceived_negatively": false
+	},
+	{
+		"word": "versatile",
+		"perceived_negatively": false
+	},
+	{
+		"word": "creative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "intellectual",
+		"perceived_negatively": false
+	},
+	{
+		"word": "insightful",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_minus_Openness_minus": [{
+		"word": "imperturbable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "insensitive",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_plus_Conscientiousness_plus": [{
+		"word": "particular",
+		"perceived_negatively": false
+	},
+	{
+		"word": "high-strung",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_plus_Conscientiousness_minus": [{
+		"word": "compulsive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "nosey",
+		"perceived_negatively": true
+	},
+	{
+		"word": "self-indulgent",
+		"perceived_negatively": true
+	},
+	{
+		"word": "forgetful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "impulsive",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_minus_Conscientiousness_plus": [{
+		"word": "rational",
+		"perceived_negatively": false
+	},
+	{
+		"word": "objective",
+		"perceived_negatively": false
+	},
+	{
+		"word": "steady",
+		"perceived_negatively": false
+	},
+	{
+		"word": "logical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "decisive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "poised",
+		"perceived_negatively": false
+	},
+	{
+		"word": "concise",
+		"perceived_negatively": false
+	},
+	{
+		"word": "thorough",
+		"perceived_negatively": false
+	},
+	{
+		"word": "economical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-disciplined",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_minus_Conscientiousness_minus": [{
+		"word": "informal",
+		"perceived_negatively": false
+	},
+	{
+		"word": "low-key",
+		"perceived_negatively": false
+	}],
+	"Openness_plus_Conscientiousness_plus": [{
+		"word": "analytical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "perceptive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "informative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "articulate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "dignified",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cultured",
+		"perceived_negatively": false
+	}],
+	"Openness_plus_Conscientiousness_minus": [{
+		"word": "unconventional",
+		"perceived_negatively": false
+	},
+	{
+		"word": "quirky",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Conscientiousness_plus": [{
+		"word": "conventional",
+		"perceived_negatively": false
+	},
+	{
+		"word": "traditional",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Conscientiousness_minus": [{
+		"word": "shortsighted",
+		"perceived_negatively": true
+	},
+	{
+		"word": "foolhardy",
+		"perceived_negatively": false
+	},
+	{
+		"word": "illogical",
+		"perceived_negatively": true
+	},
+	{
+		"word": "immature",
+		"perceived_negatively": true
+	},
+	{
+		"word": "haphazard",
+		"perceived_negatively": true
+	},
+	{
+		"word": "lax",
+		"perceived_negatively": false
+	},
+	{
+		"word": "flippant",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_plus_Extraversion_plus": [{
+		"word": "effervescent",
+		"perceived_negatively": false
+	},
+	{
+		"word": "happy",
+		"perceived_negatively": false
+	},
+	{
+		"word": "friendly",
+		"perceived_negatively": false
+	},
+	{
+		"word": "merry",
+		"perceived_negatively": false
+	},
+	{
+		"word": "jovial",
+		"perceived_negatively": false
+	},
+	{
+		"word": "humorous",
+		"perceived_negatively": false
+	}],
+	"Agreeableness_minus_Extraversion_plus": [{
+		"word": "bullheaded",
+		"perceived_negatively": true
+	},
+	{
+		"word": "abrupt",
+		"perceived_negatively": true
+	},
+	{
+		"word": "crude",
+		"perceived_negatively": true
+	},
+	{
+		"word": "combative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "rough",
+		"perceived_negatively": true
+	},
+	{
+		"word": "sly",
+		"perceived_negatively": false
+	},
+	{
+		"word": "manipulative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "gruff",
+		"perceived_negatively": true
+	},
+	{
+		"word": "devious",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_plus_Extraversion_minus": [{
+		"word": "soft-hearted",
+		"perceived_negatively": false
+	},
+	{
+		"word": "agreeable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "obliging",
+		"perceived_negatively": false
+	},
+	{
+		"word": "humble",
+		"perceived_negatively": false
+	},
+	{
+		"word": "lenient",
+		"perceived_negatively": true
+	}],
+	"Agreeableness_minus_Extraversion_minus": [{
+		"word": "cynical",
+		"perceived_negatively": true
+	},
+	{
+		"word": "wary of others",
+		"perceived_negatively": true
+	},
+	{
+		"word": "seclusive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "detached",
+		"perceived_negatively": true
+	},
+	{
+		"word": "impersonal",
+		"perceived_negatively": true
+	},
+	{
+		"word": "glum",
+		"perceived_negatively": true
+	}],
+	"Conscientiousness_plus_Extraversion_plus": [{
+		"word": "ambitious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "alert",
+		"perceived_negatively": false
+	},
+	{
+		"word": "firm",
+		"perceived_negatively": false
+	},
+	{
+		"word": "purposeful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "competitive",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Extraversion_plus": [{
+		"word": "unruly",
+		"perceived_negatively": true
+	},
+	{
+		"word": "boisterous",
+		"perceived_negatively": false
+	},
+	{
+		"word": "reckless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "devil-may-care",
+		"perceived_negatively": true
+	},
+	{
+		"word": "demonstrative",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_plus_Extraversion_minus": [{
+		"word": "cautious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "confident",
+		"perceived_negatively": false
+	},
+	{
+		"word": "punctual",
+		"perceived_negatively": false
+	},
+	{
+		"word": "formal",
+		"perceived_negatively": false
+	},
+	{
+		"word": "thrifty",
+		"perceived_negatively": false
+	},
+	{
+		"word": "principled",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Extraversion_minus": [{
+		"word": "indecisive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "aimless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "wishy-washy",
+		"perceived_negatively": false
+	},
+	{
+		"word": "noncommittal",
+		"perceived_negatively": false
+	},
+	{
+		"word": "unambitious",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_plus_Extraversion_plus": [{
+		"word": "excitable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "wordy",
+		"perceived_negatively": true
+	},
+	{
+		"word": "flirtatious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "explosive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "extravagant",
+		"perceived_negatively": false
+	},
+	{
+		"word": "volatile",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_minus_Extraversion_plus": [{
+		"word": "unselfconscious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "weariless",
+		"perceived_negatively": false
+	},
+	{
+		"word": "indefatigable",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_plus_Extraversion_minus": [{
+		"word": "guarded",
+		"perceived_negatively": false
+	},
+	{
+		"word": "fretful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "insecure",
+		"perceived_negatively": true
+	},
+	{
+		"word": "pessimistic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "secretive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "fearful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "negativistic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "self-critical",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_minus_Extraversion_minus": [{
+		"word": "unassuming",
+		"perceived_negatively": false
+	},
+	{
+		"word": "unexcitable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "placid",
+		"perceived_negatively": false
+	},
+	{
+		"word": "tranquil",
+		"perceived_negatively": false
+	}],
+	"Openness_plus_Extraversion_plus": [{
+		"word": "worldly",
+		"perceived_negatively": false
+	},
+	{
+		"word": "theatrical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "eloquent",
+		"perceived_negatively": false
+	},
+	{
+		"word": "inquisitive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "intense",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Extraversion_plus": [{
+		"word": "verbose",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unscrupulous",
+		"perceived_negatively": true
+	},
+	{
+		"word": "pompous",
+		"perceived_negatively": true
+	}],
+	"Openness_plus_Extraversion_minus": [{
+		"word": "introspective",
+		"perceived_negatively": false
+	},
+	{
+		"word": "meditative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "contemplating",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-examining",
+		"perceived_negatively": false
+	},
+	{
+		"word": "inner-directed",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Extraversion_minus": [{
+		"word": "predictable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "unimaginative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "somber",
+		"perceived_negatively": false
+	},
+	{
+		"word": "apathetic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unadventurous",
+		"perceived_negatively": true
+	}],
+	"Conscientiousness_plus_Agreeableness_plus": [{
+		"word": "dependable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "responsible",
+		"perceived_negatively": false
+	},
+	{
+		"word": "reliable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "mannerly",
+		"perceived_negatively": false
+	},
+	{
+		"word": "considerate",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Agreeableness_plus": [{
+		"word": "unpretentious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-effacing",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_plus_Agreeableness_minus": [{
+		"word": "stern",
+		"perceived_negatively": true
+	},
+	{
+		"word": "strict",
+		"perceived_negatively": false
+	},
+	{
+		"word": "rigid",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Agreeableness_minus": [{
+		"word": "rash",
+		"perceived_negatively": true
+	},
+	{
+		"word": "uncooperative",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unreliable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "distrustful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "thoughtless",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_plus_Agreeableness_plus": [{
+		"word": "emotional",
+		"perceived_negatively": false
+	},
+	{
+		"word": "gullible",
+		"perceived_negatively": true
+	},
+	{
+		"word": "affectionate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "sensitive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "soft",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_minus_Agreeableness_plus": [{
+		"word": "patient",
+		"perceived_negatively": false
+	},
+	{
+		"word": "relaxed",
+		"perceived_negatively": false
+	},
+	{
+		"word": "undemanding",
+		"perceived_negatively": false
+	},
+	{
+		"word": "down-to-earth",
+		"perceived_negatively": false
+	},
+	{
+		"word": "optimistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "conceitless",
+		"perceived_negatively": false
+	},
+	{
+		"word": "uncritical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "unpretentious",
+		"perceived_negatively": false
+	}],
+	"Neuroticism_plus_Agreeableness_minus": [{
+		"word": "temperamental",
+		"perceived_negatively": true
+	},
+	{
+		"word": "irritable",
+		"perceived_negatively": true
+	},
+	{
+		"word": "quarrelsome",
+		"perceived_negatively": true
+	},
+	{
+		"word": "impatient",
+		"perceived_negatively": true
+	},
+	{
+		"word": "grumpy",
+		"perceived_negatively": true
+	},
+	{
+		"word": "crabby",
+		"perceived_negatively": true
+	},
+	{
+		"word": "cranky",
+		"perceived_negatively": true
+	}],
+	"Neuroticism_minus_Agreeableness_minus": [{
+		"word": "unemotional",
+		"perceived_negatively": true
+	},
+	{
+		"word": "insensitive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "unaffectionate",
+		"perceived_negatively": true
+	},
+	{
+		"word": "passionless",
+		"perceived_negatively": true
+	}],
+	"Openness_plus_Agreeableness_plus": [{
+		"word": "idealistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "diplomatic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "deep",
+		"perceived_negatively": false
+	},
+	{
+		"word": "tactful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "genial",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Agreeableness_plus": [{
+		"word": "simple",
+		"perceived_negatively": true
+	},
+	{
+		"word": "dependent",
+		"perceived_negatively": true
+	}],
+	"Openness_plus_Agreeableness_minus": [{
+		"word": "shrewd",
+		"perceived_negatively": false
+	},
+	{
+		"word": "eccentric",
+		"perceived_negatively": false
+	},
+	{
+		"word": "individualistic",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Agreeableness_minus": [{
+		"word": "coarse",
+		"perceived_negatively": true
+	},
+	{
+		"word": "tactless",
+		"perceived_negatively": true
+	},
+	{
+		"word": "curt",
+		"perceived_negatively": true
+	},
+	{
+		"word": "narrow-minded",
+		"perceived_negatively": true
+	},
+	{
+		"word": "callous",
+		"perceived_negatively": true
+	}],
+	"Openness_plus_Neuroticism_plus": [{
+		"word": "passionate",
+		"perceived_negatively": false
+	},
+	{
+		"word": "excitable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "sensual",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Neuroticism_plus": [{
+		"word": "easily rattled",
+		"perceived_negatively": false
+	},
+	{
+		"word": "easily irked",
+		"perceived_negatively": false
+	},
+	{
+		"word": "apprehensive",
+		"perceived_negatively": false
+	}],
+	"Openness_plus_Neuroticism_minus": [{
+		"word": "creative",
+		"perceived_negatively": false
+	},
+	{
+		"word": "intellectual",
+		"perceived_negatively": false
+	},
+	{
+		"word": "insightful",
+		"perceived_negatively": false
+	},
+	{
+		"word": "versatile",
+		"perceived_negatively": false
+	},
+	{
+		"word": "inventive",
+		"perceived_negatively": false
+	}],
+	"Openness_minus_Neuroticism_minus": [{
+		"word": "imperturbable",
+		"perceived_negatively": false
+	},
+	{
+		"word": "insensitive",
+		"perceived_negatively": true
+	}],
+	"Conscientiousness_plus_Neuroticism_plus": [{
+		"word": "particular",
+		"perceived_negatively": false
+	},
+	{
+		"word": "high-strung",
+		"perceived_negatively": true
+	}],
+	"Conscientiousness_minus_Neuroticism_plus": [{
+		"word": "scatterbrained",
+		"perceived_negatively": true
+	},
+	{
+		"word": "inconsistent",
+		"perceived_negatively": true
+	},
+	{
+		"word": "erratic",
+		"perceived_negatively": true
+	},
+	{
+		"word": "forgetful",
+		"perceived_negatively": true
+	},
+	{
+		"word": "impulsive",
+		"perceived_negatively": true
+	},
+	{
+		"word": "frivolous",
+		"perceived_negatively": true
+	}],
+	"Conscientiousness_plus_Neuroticism_minus": [{
+		"word": "thorough",
+		"perceived_negatively": false
+	},
+	{
+		"word": "steady",
+		"perceived_negatively": false
+	},
+	{
+		"word": "consistent",
+		"perceived_negatively": false
+	},
+	{
+		"word": "self-disciplined",
+		"perceived_negatively": false
+	},
+	{
+		"word": "logical",
+		"perceived_negatively": false
+	},
+	{
+		"word": "decisive",
+		"perceived_negatively": false
+	},
+	{
+		"word": "controlled",
+		"perceived_negatively": false
+	},
+	{
+		"word": "concise",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Neuroticism_minus": [{
+		"word": "informal",
+		"perceived_negatively": false
+	},
+	{
+		"word": "low-key",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_plus_Openness_plus": [{
+		"word": "sophisticated",
+		"perceived_negatively": false
+	},
+	{
+		"word": "perfectionistic",
+		"perceived_negatively": false
+	},
+	{
+		"word": "industrious",
+		"perceived_negatively": false
+	},
+	{
+		"word": "dignified",
+		"perceived_negatively": false
+	},
+	{
+		"word": "refined",
+		"perceived_negatively": false
+	},
+	{
+		"word": "cultured",
+		"perceived_negatively": false
+	},
+	{
+		"word": "foresighted",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Openness_plus": [{
+		"word": "unconventional",
+		"perceived_negatively": false
+	},
+	{
+		"word": "quirky",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_plus_Openness_minus": [{
+		"word": "traditional",
+		"perceived_negatively": false
+	},
+	{
+		"word": "conventional",
+		"perceived_negatively": false
+	}],
+	"Conscientiousness_minus_Openness_minus": [{
+		"word": "foolhardy",
+		"perceived_negatively": false
+	},
+	{
+		"word": "illogical",
+		"perceived_negatively": true
+	},
+	{
+		"word": "immature",
+		"perceived_negatively": true
+	},
+	{
+		"word": "haphazard",
+		"perceived_negatively": true
+	},
+	{
+		"word": "lax",
+		"perceived_negatively": false
+	},
+	{
+		"word": "flippant",
+		"perceived_negatively": true
+	}]
+}

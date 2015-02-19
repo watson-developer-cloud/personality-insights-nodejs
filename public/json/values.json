@@ -1,0 +1,112 @@
+{
+	"Self-transcendence": [{
+		"Term": "Helping others",
+		"LowDescription": "You think people can handle their own business without interference",
+		"HighDescription": "You think it is important to take care of the people around you"
+	},
+	{
+		"Term": "Fairness",
+		"LowDescription": "You believe that people create their own opportunities",
+		"HighDescription": "You believe in social justice and equality for all"
+	},
+	{
+		"Term": "Social justice",
+		"LowDescription": "You believe that people create their own opportunities",
+		"HighDescription": "You believe in social justice and equality for all"
+	},
+	{
+		"Term": "Equality",
+		"LowDescription": "You believe that people create their own opportunities",
+		"HighDescription": "You believe in social justice and equality for all"
+	},
+	{
+		"Term": "Community service",
+		"LowDescription": "You think people can handle their own business without interference",
+		"HighDescription": "You think it is important to take care of the people around you"
+	}],
+	"Conservation": [{
+		"Term": "Tradition",
+		"LowDescription": "You care more about making your own path than following what others have done",
+		"HighDescription": "You highly respect the groups you belong to and follow their guidance"
+	},
+	{
+		"Term": "Harmony",
+		"LowDescription": "You decide what is right based on your beliefs, not what other people think",
+		"HighDescription": "You know rules are there for a reason, and you try never to break them"
+	},
+	{
+		"Term": "Humility",
+		"LowDescription": "You decide what is right based on your beliefs, not what other people think",
+		"HighDescription": "You see worth in deferring to others"
+	},
+	{
+		"Term": "Social norms",
+		"LowDescription": "You decide what is right based on your beliefs, not what other people think",
+		"HighDescription": "You know rules are there for a reason, and you try never to break them"
+	},
+	{
+		"Term": "Security",
+		"LowDescription": "You believe that security is worth sacrificing to achieve other goals",
+		"HighDescription": "You believe that safety and security are important things to safeguard"
+	},
+	{
+		"Term": "Safety",
+		"LowDescription": "You believe that safety is worth sacrificing to achieve other goals",
+		"HighDescription": "You believe that safety and security are important things to safeguard"
+	}],
+	"Self-enhancement": [{
+		"Term": "Achieving success",
+		"LowDescription": "You make decisions with little regard for how they show off your talents",
+		"HighDescription": "You seek out opportunities to improve yourself and demonstrate that you are a capable person"
+	},
+	{
+		"Term": "Gaining social status",
+		"LowDescription": "You are comfortable with your social status and don't feel a strong need to improve it",
+		"HighDescription": "You put substantial effort into improving your status and public image"
+	},
+	{
+		"Term": "Ambition",
+		"LowDescription": "You are comfortable with your social status and don't feel a strong need to improve it",
+		"HighDescription": "You feel it is important to push forward towards  goals"
+	},
+	{
+		"Term": "High achievement",
+		"LowDescription": "You make decisions with little regard for how they show off your talents",
+		"HighDescription": "You seek out opportunities to improve yourself and demonstrate that you are a capable person"
+	}],
+	"Hedonism": [{
+		"Term": "Taking pleasure in life",
+		"LowDescription": "You prefer activities with a purpose greater than just personal enjoyment",
+		"HighDescription": "You are highly motivated to enjoy life to its fullest"
+	}],
+	"Openness-to-change": [{
+		"Term": "Independence",
+		"LowDescription": "You welcome when others direct your activities for you",
+		"HighDescription": "You like to set your own goals to decide how to best achieve them"
+	},
+	{
+		"Term": "Excitement",
+		"LowDescription": "You would rather stick with things you already know you like than risk trying something new and risky",
+		"HighDescription": "You are eager to search out new and exciting experiences"
+	},
+	{
+		"Term": "Creativity",
+		"LowDescription": "You would rather stick with things you already know you like than risk trying something new and risky",
+		"HighDescription": "You are eager to search out new and exciting experiences"
+	},
+	{
+		"Term": "Curiosity",
+		"LowDescription": "You would rather stick with things you already know you like than risk trying something new and risky",
+		"HighDescription": "You are eager to search out new and exciting experiences"
+	},
+	{
+		"Term": "Self-direction",
+		"LowDescription": "You welcome when others direct your activities for you",
+		"HighDescription": "You like to set your own goals to decide how to best achieve them"
+	},
+	{
+		"Term": "Freedom",
+		"LowDescription": "You welcome when others direct your activities for you",
+		"HighDescription": "You like to set your own goals to decide how to best achieve them"
+	}]
+}

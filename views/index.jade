@@ -1,0 +1,65 @@
+//- index.jade
+extends ./layout.jade
+
+block row-content
+  div.row
+    div.col-lg-6.col-md-6.col-xs-12
+      h2 Try the service
+      div.well
+        div.form-group.row
+          div.col-lg-12.col-xs-12
+            textarea.content.form-control(rows='8', required='true',
+              placeholder='Please enter the text to analyze (minimum of 100 words)...')
+              |#{content}
+            div.text-right
+              span.wordsCount.small
+        div.form-group.row
+          div.col-lg-4.col-lg-push-4.col-xs-4
+            button.btn.btn-block.clear-btn(type='button') Clear
+          div.col-lg-4.col-lg-push-4.col-xs-4.col-xs-push-4
+            button.btn.btn-block.analysis-btn(type='button') Analyze
+    div.col-lg-6.col-md-6.col-xs-12
+      div.row
+        div.form-group.row.loading.text-center.loading(style='display:none;')
+          h2 &nbsp;
+          img(src='images/watson.gif')
+        div.form-group.row.error(style='display: none;')
+          h2 &nbsp;
+          div.well
+            p.errorMsg
+      div.results(style='display: none;')
+        h3(style='height: 29px;') Your Personality*
+        div.well
+          div.summary-div
+          div.text-right(style='color: gray')
+            em.small *Compared to most people who participated in our surveys.
+    div.results(style='display: none;')
+      div.row
+        div.col-lg-5.col-md-5.col-xs-12
+          h3 Data Behind Your Personality
+          div.col540px.well.traits(style='display: none;')
+        div.col-lg-7.col-xs-12.col-md-7
+          h3 Visualization of Personality Data
+          div.well#vizcontainer
+
+    //- templates to avoid to create HTML in javascript
+    div.hidden
+      div#header-template
+        div.row.theader
+          .col-lg-5.col-xs-5
+            span Name
+          .col-lg-7.col-xs-7.text-right
+            span Value ± Sampling Error
+
+      div#trait-template
+        div.row
+          .tname.col-lg-7.col-xs-7
+            span
+          .tvalue.col-lg-5.col-xs-5.text-right
+            span
+
+      div#model-template
+        div.row
+          .col-lg-12.col-xs-12.text-center
+            span
+

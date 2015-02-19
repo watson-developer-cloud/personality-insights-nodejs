@@ -1,0 +1,74 @@
+/* Personality widget - theme-independent */
+
+.personalityWidget {
+/*	border: 1px dotted blue;*/
+}
+
+.personalityWidget svg circle {
+	cursor: move;
+}
+
+.personalityWidget svg g.sector {
+	cursor: pointer;
+}
+
+.sector_leaf_text{
+	font-family:Arial;
+	font-weight: 500;
+}
+
+.sector_nonleaf_text{
+	font-family:Arial;
+	font-weight: 500;
+}
+
+.sector_nonleaf_text:hover{
+	font-weight: 600;
+}
+
+.personalityWidget .information {
+	text-align: center;
+	margin-top: 25%;
+	height: 100%;
+}
+
+.personalityWidget .error img {
+	display: none;
+}
+
+.personalityWidget .message {
+	display: inline;
+}
+
+.personalityWidget .error {
+	color: red;
+}
+
+.personalityWidget .chartDiv {
+	position: relative;
+}
+
+.personalityWidget .arc1 {
+	stroke-opacity:0.5;
+}
+
+.personalityWidget .arc2 {
+	stroke-opacity:0.5;
+	stroke-dasharray: 1,1;
+}
+
+.personalityWidget .tooltip {
+	position: absolute;
+	height: 30px;
+	top: 0;
+	left: 0;
+	padding-right: 3px;
+	font-style: italic;
+}
+
+.personalityWidget .toolbar {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
