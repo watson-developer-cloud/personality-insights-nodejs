@@ -19,7 +19,7 @@
 var express = require('express'),
   app = express(),
   bluemix = require('./config/bluemix'),
-  PersonalityInsights = require('./personality-insights'),
+  watson = require('watson-developer-cloud-alpha'),
   extend = require('util')._extend,
   fs = require('fs'),
   dummy_text = fs.readFileSync('mobydick.txt');
@@ -30,13 +30,14 @@ require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
 var credentials = extend({
+    version: 'v2',
     url: '<url>',
     username: '<username>',
     password: '<password>'
 }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
 // Create the service wrapper
-var personalityInsights = new PersonalityInsights(credentials);
+var personalityInsights = new watson.personality_insights(credentials);
 
 // render index page
 app.get('/', function(req, res) {
@@ -45,7 +46,10 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
   personalityInsights.profile(req.body, function(err, profile) {
-    if (err){
+    if (err) {
+      if (err.message){
+        err = { error: err.message };
+      }
       return res.status(err.code || 500).json(err || 'Error processing the request');
     }
     else
