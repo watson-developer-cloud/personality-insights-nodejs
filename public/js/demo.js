@@ -34,8 +34,8 @@ $(document).ready(function() {
    * Clear the "textArea"
    */
   $('.clear-btn').click(function(){
+    $('.clear-btn').blur();
     $content.val('');
-    $content.focus();
     updateWordsCount();
   });
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
    * 3. Call the methods to display the results
    */
   $('.analysis-btn').click(function(){
-    $content.focus();
+    $('.analysis-btn').blur();
     $loading.show();
     $error.hide();
     $traits.hide();
