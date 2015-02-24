@@ -2,7 +2,7 @@
 declared-services:
   personality-insights-service:
     label: personality_insights
-    plan: 'IBM Watson Personality Insights Monthly Plan*'
+    plan: 'IBM Watson Personality Insights Monthly Plan'
 
 applications:
 - name: personality-insights-nodejs
