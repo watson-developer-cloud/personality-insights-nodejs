@@ -161,6 +161,7 @@ $(document).ready(function() {
     var paragraphs = [
       assembleTraits(data.tree.children[0]),
       assembleFacets(data.tree.children[0]),
+      assembleNeeds(data.tree.children[1]),
       assembleValues(data.tree.children[2])
     ];
     var div = $('.summary-div');

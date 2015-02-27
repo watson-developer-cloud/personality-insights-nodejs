@@ -1,0 +1,14 @@
+{
+	"Structure": ["organization", "straightforwardness", "clarity", "reliability"],	
+	"Practicality": ["efficiency", "practicality", "high value", "convenience"],
+	"Challenge": ["prestige", "competition", "glory"],
+	"Self-expression": ["self-expression", "personal empowerment", "personal strength"],
+	"Excitement": ["revelry", "anticipation", "exhiliration"],
+	"Curiosity": ["discovery", "mastery", "gaining knowledge"],
+	"Liberty": ["modernity", "expanding possibility", "escape", "spontaneity", "novelty"],
+	"Ideal": ["sophistication", "spirituality", "superiority", "fulfillment"],
+	"Harmony": ["well-being", "courtesy", "politeness"],
+	"Love": ["connectedness", "affinity"],
+	"Closeness": ["belongingness", "nostalgia", "intimacy"],
+	"Stability": ["stability", "authenticity", "trustworthiness"]
+}
