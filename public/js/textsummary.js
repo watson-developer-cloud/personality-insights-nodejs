@@ -20,6 +20,7 @@
 var circumplexData = {};
 var facetsData = {};
 var valuesData = {};
+var needsData = {};
 
 $.ajax({
   dataType: 'json',
@@ -51,10 +52,30 @@ $.ajax({
   }
 });
 
+$.ajax({
+  dataType: 'json',
+  type: 'GET',
+  contentType: 'application/json',
+  url: 'json/needs.json',
+  success: function(response) {
+    needsData = response;
+  }
+});
+
 function compareByRelevance(o1, o2) {
   if (Math.abs(0.5 - o1.percentage) > Math.abs(0.5 - o2.percentage)) {
-    return -1;
+    return -1; // A trait with 1% is more interesting than one with 60%.
   } else if (Math.abs(0.5 - o1.percentage) < Math.abs(0.5 - o2.percentage)) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function compareByValue(o1, o2) {
+  if (Math.abs(o1.percentage) > Math.abs(o2.percentage)) {
+    return -1; // 100 % has precedence over 99%
+  } else if (Math.abs(o1.percentage) < Math.abs(o2.percentage)) {
     return 1;
   } else {
     return 0;
@@ -249,6 +270,53 @@ function assembleValues(valuesTree) {
   return sentences;
 }
 
+/**
+ * Assemble the list of needs and sort them based on value.
+ */
+function assembleNeeds(needsTree) {
+  var sentences = [];
+  var needsList = [];
+
+  needsTree.children[0].children.forEach(function(p) {
+    needsList.push({
+      id: p.id,
+      percentage: p.percentage
+    });
+  });
+  needsList.sort(compareByValue);
+
+  // Get the words required.
+  var word = getWordsForNeed(needsList[0])[0];
+  var sentence;
+
+  // Form the right sentence for the single need.
+  switch (intervalFor(needsList[0].percentage)) {
+    case 0:
+      sentence = 'Experiences that make you feel high '.
+      concat(word).
+      concat(' are generally unappealing to you.');
+      break;
+    case 1:
+      sentence = 'Experiences that give a sense of '.
+      concat(word).
+      concat(' hold some appeal to you.');
+      break;
+    case 2:
+      sentence = 'You are motivated to seek out experiences that provide a strong feeling of '.
+      concat(word).
+      concat('.');
+      break;
+    case 3:
+      sentence = 'More than most people, your choices are driven by a desire for '.
+      concat(word).
+      concat('.');
+      break;
+  }
+  sentences.push(sentence);
+
+  return sentences;
+}
+
 function getCircumplexAdjective(p1, p2, order) {
   // Sort the personality traits in the order the JSON file stored it.
   var ordered = [p1, p2].sort(function(o1, o2) {
@@ -307,6 +375,12 @@ function getInfoForValue(v) {
     term: data.Term.toLowerCase(),
     description: d
   };
+}
+
+function getWordsForNeed(n) {
+  // Assemble the identifier as the JSON file stored it.
+  var traitMult = needsData[n.id];
+  return traitMult;
 }
 
 function intervalFor(p) {
