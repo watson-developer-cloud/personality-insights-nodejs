@@ -1,0 +1,23 @@
+{
+"YOU_ARE_TERM": "Eres {0}.",
+"YOU_ARE_TERM_TERM": "Eres {0} y {1}.",
+"YOU_ARE_TERM_TERM_TERM": "Eres {0}, {1} y {2}.",
+"YOU_ARE_TERM_DESC": "Eres {0}: {1}.",
+"AND_YOU_ARE_TERM_DESC": "Y eres {0}: {1}.",
+"AND_DESC": "Y {0}.",
+"QUAL0_WORD": "un poquito {0}",
+"QUAL1_WORD": "algo {0}",
+"QUAL2_WORD": "puede ser visto como {0}",
+"QUARTILE0_NAME_NAME": "En comparación con otra gente, te preocupa relativamente poco tanto {0} como {1}.",
+"QUARTILE1_NAME_NAME": "Ni {0} ni {1} te resultan particularmente motivadores.",
+"QUARTILE2_NAME_NAME": "Valoras tanto {0} como {1} un poco más que el resto de la gente.",
+"QUARTILE3_NAME_NAME": "Consideras que tanto {0} como {1} guían una buena parte de lo que haces.",
+"QUARTILE0_NAME_DESC": "En comparación con otra gente, te preocupa relativamente poco {0}: {1}.",
+"QUARTILE1_NAME_DESC": "No te motiva particularmente {0}: {1}.",
+"QUARTILE2_NAME_DESC": "Valoras {0} un poco más que el resto de la gente: {1}.",
+"QUARTILE3_NAME_DESC": "Consideras que {0} guía una buena parte de lo que haces: {1}."
+"NEEDS_QUARTILE0" : "Las experiencias que dan un sentido de {0} no te agradan en general.",
+"NEEDS_QUARTILE1" : "Experiencias que den el sentido de {0} tienen cierto atractivo para ti.",
+"NEEDS_QUARTILE2" : "Te motiva buscar experiencias que den un buen sentido de {0}.",
+"NEEDS_QUARTILE3" : "Más que la mayoría, a tus elecciones las guía el sentido de {0}."
+}

@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/* jslint jquery:true, browser:true */
 'use strict';
 
 $(document).ready(function() {
-
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png'; // Can be blank
@@ -50,6 +49,12 @@ $(document).ready(function() {
   $content.bind('paste', function(e) {
     setTimeout(updateWordsCount, 100);
   });
+
+  /**
+   * Start downloading the language's text strings for summarization.
+   */  
+  var lang = (navigator.language || navigator.userLanguage).split('-')[0];
+  initLang(lang);
 
   /**
    * 1. Create the request

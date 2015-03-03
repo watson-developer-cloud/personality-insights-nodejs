@@ -1,0 +1,212 @@
+{
+	"Friendliness": {
+		"Big5": "Extraversion",
+		"LowTerm": "Reservado",
+		"HighTerm": "Amigable",
+		"LowDescription": "Eres una persona privada y no dejas entrar a la gente",
+		"HighDescription": "Haces amigos fácilmente y te sientes cómodo entre la gente"
+	},
+	"Gregariousness": {
+		"Big5": "Extraversion",
+		"LowTerm": "Independiente",
+		"HighTerm": "Sociable",
+		"LowDescription": "Tienes un fuerte deseo de tener tiempo para tí mismo",
+		"HighDescription": "Disfrutas del tiempo en compañía de otros"
+	},
+	"Assertiveness": {
+		"Big5": "Extraversion",
+		"LowTerm": "Recatado",
+		"HighTerm": "Asertivo",
+		"LowDescription": "Prefieres escuchar antes que hablar, especialmente en situaciones grupales",
+		"HighDescription": "Tiendes a expresarte y tomar control de las situaciones, y estás cómodo liderando grupos"
+	},
+	"Activity-level": {
+		"Big5": "Extraversion",
+		"LowTerm": "Relajado",
+		"HighTerm": "Energético",
+		"LowDescription": "Aprecias un ritmo de vida relajado",
+		"HighDescription": "Disfrutas un cronograma veloz y ocupado, con muchas actividades"
+	},
+	"Excitement-seeking": {
+		"Big5": "Extraversion",
+		"LowTerm": "Calmo",
+		"HighTerm": "Deseoso de emociones",
+		"LowDescription": "Prefieres actividades tranquilas, calmas y seguras",
+		"HighDescription": "Te emociona tomar riesgos y te aburres si no hay acción alrededor"
+	},
+	"Cheerfulness": {
+		"Big5": "Extraversion",
+		"LowTerm": "Solemne",
+		"HighTerm": "Alegre",
+		"LowDescription": "Eres en general serio y no haces muchas bromas",
+		"HighDescription": "Eres una persona alegre y compartes tu alegría con el mundo"
+	},
+	"Trust": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Cauteloso con los demás",
+		"HighTerm": "Confiado de los demás",
+		"LowDescription": "Eres cauteloso de las intenciones de los demás y no confías fácilmente",
+		"HighDescription": "Crees en lo mejor de los demás y confías fácilmente en la gente"
+	},
+	"Cooperation": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Terco",
+		"HighTerm": "Acomodaticio",
+		"LowDescription": "No te importa contradecir a los demás",
+		"HighDescription": "Eres fácil de complacer y tratas de evitar la confrontación"
+	},
+	"Altruism": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Enfocado en tí mismo",
+		"HighTerm": "Altruista",
+		"LowDescription": "Te preocupa más cuidarte a tí mismo que tomarte tiempo para los demás",
+		"HighDescription": "Te sientes satisfecho con ayudar a los demás y te esfuerzas en hacerlo"
+	},
+	"Morality": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Comprometido",
+		"HighTerm": "Intransigente",
+		"LowDescription": "Estás cómodo usando todos los medios disponibles para obtener lo que quieres",
+		"HighDescription": "Piensas que es incorrecto tomar ventaja de los demás para salir adelante"
+	},
+	"Modesty": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Orgulloso",
+		"HighTerm": "Modesto",
+		"LowDescription": "Te mantienes con alta autoestima, satisfecho con quien eres",
+		"HighDescription": "Te resulta incómodo ser el centro de atención"
+	},
+	"Sympathy": {
+		"Big5": "Agreeableness",
+		"LowTerm": "Curtido",
+		"HighTerm": "Empático",
+		"LowDescription": "Piensas que la gente generalmente debería confiar más en sí misma que en los demás",
+		"HighDescription": "Piensas que los demás sienten y son compasivos con los demás"
+	},
+	"Self-efficacy": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Inseguro de sí mismo",
+		"HighTerm": "Seguro de sí mismo",
+		"LowDescription": "Frecuentemente dudas de tus habilidades para lograr tus objetivos",
+		"HighDescription": "Piensas que tienes la habilidad para triunfar en las tareas que te propones"
+	},
+	"Orderliness": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Desestructurado",
+		"HighTerm": "Organizado",
+		"LowDescription": "No le dedicas mucho tiempo la organización de tu vida diaria",
+		"HighDescription": "Sientes una necesidad de estructura en tu vida"
+	},
+	"Dutifulness": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Despreocupado",
+		"HighTerm": "Obediente",
+		"LowDescription": "Haces lo que quieres, haciendo caso omiso de las reglas y obligaciones",
+		"HighDescription": "Tomas las reglas y obligaciones seriamente, aún cuando te son inconvenientes"
+	},
+	"Achievement-striving": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Satisfecho",
+		"HighTerm": "Impulsado",
+		"LowDescription": "Estás satisfecho con tus logros y no sientes la necesidad de tener objetivos ambiciosos",
+		"HighDescription": "Te pones objetivos importantes y trabajas duro para cumplirlos"
+	},
+	"Self-discipline": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Intermitente",
+		"HighTerm": "Persistente",
+		"LowDescription": "Te da trabajo apegarte a tareas difíciles por un período largo de tiempo",
+		"HighDescription": "Puedes abordar y completar tareas difíciles"
+	},
+	"Cautiousness": {
+		"Big5": "Conscientiousness",
+		"LowTerm": "Audaz",
+		"HighTerm": "Prudente",
+		"LowDescription": "Prefieres tomar acción inmediatamente antes que invertir el tiempo tomando decisiones",
+		"HighDescription": "Piensas cuidadosamente cada decisión antes de tomarla"
+	},
+	"Anxiety": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Tranquilo",
+		"HighTerm": "Ansioso",
+		"LowDescription": "Tiendes a sentirte calmo y seguro de tí mismo",
+		"HighDescription": "Tiendes a preocuparte por cosas que podrían pasar"
+	},
+	"Anger": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Apacible",
+		"HighTerm": "Ardiente",
+		"LowDescription": "Toma mucho trabajo enojarte",
+		"HighDescription": "Tienes un temperamento ardiente, especialmente cuando las cosas no salen a tu manera"
+	},
+	"Depression": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Contento",
+		"HighTerm": "Melancólico",
+		"LowDescription": "Estás en general cómodo con tí mismo tal como eres",
+		"HighDescription": "Piensas bastante seguido sobre las cosas con las que no estás feliz"
+	},
+	"Self-consciousness": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Confiado",
+		"HighTerm": "Auto-consciente",
+		"LowDescription": "Eres difícil de avergonzar y confiado la mayor parte del tiempo",
+		"HighDescription": "Eres sensible sobre lo que otros podrían estar pensando de tí"
+	},
+	"Immoderation": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Sereno",
+		"HighTerm": "Hedonista",
+		"LowDescription": "Tienes control sobre tus deseos, que no son particularmente intensos",
+		"HighDescription": "Sientes tus deseos con intensidad y te tientas fácilmente con ellos"
+	},
+	"Vulnerability": {
+		"Big5": "Neuroticism",
+		"LowTerm": "Calmo bajo presión",
+		"HighTerm": "Susceptible al stress",
+		"LowDescription": "Manejas eventos inesperados en forma calma y efectiva",
+		"HighDescription": "Te abruman fácilmente las situaciones estresantes"
+	},
+	"Imagination": {
+		"Big5": "Openness",
+		"LowTerm": "Práctico",
+		"HighTerm": "Imaginativo",
+		"LowDescription": "Prefieres los hechos sobre la fantasía",
+		"HighDescription": "Tu imaginación vuela libre"
+	},
+	"Artistic-interests": {
+		"Big5": "Openness",
+		"LowTerm": "Despreocupado por el arte",
+		"HighTerm": "Apreciativo del arte",
+		"LowDescription": "Te preocupan menos las actividades artísticas o creativas que al común de la gente",
+		"HighDescription": "Disfrutas la belleza y buscas experiencias creativas"
+	},
+	"Emotionality": {
+		"Big5": "Openness",
+		"LowTerm": "Desapasionado",
+		"HighTerm": "Emocionalmente consciente",
+		"LowDescription": "No piensas o hablas con frecuencia sobre tus propias emociones",
+		"HighDescription": "Eres consciente de tus sentimientos y de cómo expresarlos"
+	},
+	"Adventurousness": {
+		"Big5": "Openness",
+		"LowTerm": "Consistente",
+		"HighTerm": "Aventurero",
+		"LowDescription": "Disfrutas de las rutinas familiares y prefieres no salirte de ellas",
+		"HighDescription": "Estás ansioso por experimentar nuevas cosas"
+	},
+	"Intellect": {
+		"Big5": "Openness",
+		"LowTerm": "Concreto",
+		"HighTerm": "Filosófico",
+		"LowDescription": "Prefieres lidiar con el mundo tal como es, raramente considerando ideas abstractas",
+		"HighDescription": "Eres abierto a nuevas ideas, te intrigan y amas explorarlas"
+	},
+	"Liberalism": {
+		"Big5": "Openness",
+		"LowTerm": "Respetuoso de la autoridad",
+		"HighTerm": "Desafiante a la autoridad",
+		"LowDescription": "Prefieres seguir con las tradiciones para mantener un sentido de estabilidad",
+		"HighDescription": "Prefieres desafiar a la autoridad y los valores tradicionales para ayudar a crear cambios positivos"
+	}
+}

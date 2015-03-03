@@ -1,0 +1,14 @@
+{
+	"Estructura": ["organización", "ser directo", "cridad", "confiabilidad"],	
+	"Practicidad": ["eficiencia", "practicidad", "valor agregado", "conveniencia"],
+	"Desafío": ["prestigio", "competencia", "gloria"],
+	"Auto-expresión": ["auto-expresión", "empoderamiento personal", "fuerza individual"],
+	"Emoción": ["regocijo", "anticipación", "cebración"],
+	"Curiosidad": ["descubrimiento", "conseguir pericia", "adquirir conocimiento"],
+	"Libertad": ["modernidad", "expandir posibilidades", "poder escapar", "espontaneidad", "novedad"],
+	"Refinación": ["sofisticación", "espiritualidad", "superioridad", "logro"],
+	"Armonía": ["bienestar", "cortesía", "civilidad"],
+	"Amor": ["afinidad", "conexión"],
+	"Cercanía": ["pertenencia", "nostalgia", "intimidad"],
+	"Estabilidad": ["estabilidad", "autenticidad", "integridad"]
+}
