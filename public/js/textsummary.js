@@ -28,7 +28,7 @@ function download(feature, lang, success_function) {
 }
 
 var strings = {};
-function init(lang) {
+function initLang(lang) {
   // Download all objects and continue. It is presumed that all will
   // stop downloading fast enough.
   download('messages', lang, function(response) {
@@ -317,9 +317,11 @@ function getMessageTemplate(id) {
 
 // This is a poor man's version of printf, which nicely does the job.
 function format(str) {
+  // Keep all the arguments except for the string.
+  var args = Array.prototype.slice.call(arguments, 1);
   return str.replace(/{(\d+)}/g, function(match, number) { 
-    return typeof arguments[number + 1] != 'undefined' ?
-      arguments[number] :
+    return typeof args[number] != 'undefined' ?
+      args[number] :
       match;
   });
 }
