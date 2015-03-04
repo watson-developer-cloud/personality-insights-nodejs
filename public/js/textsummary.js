@@ -1,7 +1,7 @@
 /**
  * Copyright 2014 IBM Corp. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,55 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/* jslint jquery:true */
 'use strict';
 
-// Download all static data.
-var circumplexData = {};
-var facetsData = {};
-var valuesData = {};
-var needsData = {};
+// These functions load the strings for the given language.
+function download(feature, lang, success_function) {
+  return $.ajax({
+    dataType: 'json',
+    type: 'GET',
+    contentType: 'application/json',
+    url: format('json/{0}_{1}.json', feature, lang),
+    success: success_function
+  });
+}
 
-$.ajax({
-  dataType: 'json',
-  type: 'GET',
-  contentType: 'application/json',
-  url: 'json/traits.json',
-  success: function(response) {
-    circumplexData = response;
-  }
-});
+var strings = {};
+function initLang(lang) {
+  // Download all objects and continue. It is presumed that all will
+  // stop downloading fast enough.
+  download('messages', lang, function(response) {
+    strings.messagesData = response;
+  });
 
-$.ajax({
-  dataType: 'json',
-  type: 'GET',
-  contentType: 'application/json',
-  url: 'json/facets.json',
-  success: function(response) {
-    facetsData = response;
-  }
-});
+  download('traits', lang, function(response) {
+    strings.traitsData = response;
+  });
 
-$.ajax({
-  dataType: 'json',
-  type: 'GET',
-  contentType: 'application/json',
-  url: 'json/values.json',
-  success: function(response) {
-    valuesData = response;
-  }
-});
+  download('facets', lang, function(response) {
+    strings.facetsData = response;
+  });
 
-$.ajax({
-  dataType: 'json',
-  type: 'GET',
-  contentType: 'application/json',
-  url: 'json/needs.json',
-  success: function(response) {
-    needsData = response;
-  }
-});
+  download('values', lang, function(response) {
+    strings.valuesData = response;
+  });
 
+  download('needs', lang, function(response) {
+    strings.needsData = response;
+  });
+}
+
+// These two functions sort features based on its percentage.
 function compareByRelevance(o1, o2) {
   if (Math.abs(0.5 - o1.percentage) > Math.abs(0.5 - o2.percentage)) {
     return -1; // A trait with 1% is more interesting than one with 60%.
@@ -82,6 +73,7 @@ function compareByValue(o1, o2) {
   }
 }
 
+// These functions assemble the sentences for each summarization.
 function assembleTraits(personalityTree) {
   var sentences = [];
   var big5elements = [];
@@ -104,27 +96,30 @@ function assembleTraits(personalityTree) {
     relevantBig5 = [big5elements[0], big5elements[1]];
   }
 
-  var adj, adj1, adj2, adj3;
+  var t, adj, adj1, adj2, adj3;
 
   switch (relevantBig5.length) {
     case 2:
       // Report 1 adjective.
+      t = getMessageTemplate('YOU_ARE_TERM');
       adj = getCircumplexAdjective(relevantBig5[0], relevantBig5[1], 0);
-      sentences.push('You are ' + adj + '.');
+      sentences.push(format(t, adj));
       break;
     case 3:
       // Report 2 adjectives.
+      t = getMessageTemplate('YOU_ARE_TERM_TERM');
       adj1 = getCircumplexAdjective(relevantBig5[0], relevantBig5[1], 0);
       adj2 = getCircumplexAdjective(relevantBig5[1], relevantBig5[2], 1);
-      sentences.push('You are ' + adj1 + ' and ' + adj2 + '.');
+      sentences.push(format(t, adj1, adj2));
       break;
     case 4:
     case 5:
       // Report 3 adjectives.
+      t = getMessageTemplate('YOU_ARE_TERM_TERM_TERM');
       adj1 = getCircumplexAdjective(relevantBig5[0], relevantBig5[1], 0);
       adj2 = getCircumplexAdjective(relevantBig5[1], relevantBig5[2], 1);
       adj3 = getCircumplexAdjective(relevantBig5[2], relevantBig5[3], 2);
-      sentences.push('You are ' + adj1 + ', ' + adj2 + ' and ' + adj3 + '.');
+      sentences.push(format(t, adj1, adj2, adj3));
       break;
   }
 
@@ -150,9 +145,10 @@ function assembleFacets(personalityTree) {
 
   // Assemble an adjective and description for the two most important facets.
   var info = getFacetInfo(facetElements[0]);
-  sentences.push('You are ' + info.term + ': ' + info.description + '.');
+  var t = getMessageTemplate('YOU_ARE_TERM_DESC');
+  sentences.push(format(t, info.term, info.description));
   info = getFacetInfo(facetElements[1]);
-  sentences.push('You are ' + info.term + ': ' + info.description + '.');
+  sentences.push(format(t, info.term, info.description));
 
   // If all the facets correspond to the same feature, continue until a
   // different parent feature is found.
@@ -163,14 +159,12 @@ function assembleFacets(personalityTree) {
     }
   }
   info = getFacetInfo(facetElements[i]);
-  sentences.push('And you are ' + info.term + ': ' + info.description + '.');
+  t = getMessageTemplate('AND_YOU_ARE_TERM_DESC');
+  sentences.push(format(t, info.term, info.description));
 
   return sentences;
 }
 
-/**
- * Assemble the list of values and sort them based on relevance.
- */
 function assembleValues(valuesTree) {
   var sentences = [];
   var valuesList = [];
@@ -190,89 +184,31 @@ function assembleValues(valuesTree) {
   var info1 = getInfoForValue(valuesList[0]);
   var info2 = getInfoForValue(valuesList[1]);
 
-  var sentence;
+  var t, t_id;
 
   if (sameQI) {
     // Assemble the first 'both' sentence.
-    switch (intervalFor(valuesList[0].percentage)) {
-      case 0:
-        sentence = 'You are relatively unconcerned with both '.
-        concat(info1.term).
-        concat(' and ').
-        concat(info2.term).
-        concat('.');
-        break;
-      case 1:
-        sentence = 'You don\'t find either '.
-        concat(info1.term).
-        concat(' or ').
-        concat(info2.term).
-        concat(' to be particularly motivating for you.');
-        break;
-      case 2:
-        sentence = 'You value both '.
-        concat(info1.term).
-        concat(' and ').
-        concat(info2.term).
-        concat(' a bit.');
-        break;
-      case 3:
-        sentence = 'You consider both '.
-        concat(info1.term).
-        concat(' and ').
-        concat(info2.term).
-        concat(' to guide a large part of what you do.');
-        break;
-    }
-    sentences.push(sentence);
+    t_id = format('QUARTILE{0}_NAME_NAME', intervalFor(valuesList[0].percentage));
+    t = getMessageTemplate(t_id); 
+    sentences.push(format(t, info1.term, info2.term));
 
     // Assemble the final strings in the correct format.
     sentences.push(info1.description + '.');
-    sentences.push('And ' + info2.description.toLowerCase() + '.');
+    t = getMessageTemplate('AND_DESC'); 
+    sentences.push(format(t, info2.description.toLowerCase()));
   } else {
     var valuesInfo = [info1, info2];
     for (var i = 0; i < valuesInfo.length; i++) {
       // Process it this way because the code is the same.
-      switch (intervalFor(valuesList[i].percentage)) {
-        case 0:
-          sentence = 'You are relatively unconcerned with '.
-          concat(valuesInfo[i].term).
-          concat(': ').
-          concat(valuesInfo[i].description.toLowerCase()).
-          concat('.');
-          break;
-        case 1:
-          sentence = 'You don\'t find '.
-          concat(valuesInfo[i].term).
-          concat(' to be particularly motivating for you: ').
-          concat(valuesInfo[i].description.toLowerCase()).
-          concat('.');
-          break;
-        case 2:
-          sentence = 'You value '.
-          concat(valuesInfo[i].term).
-          concat(' a bit more: ').
-          concat(valuesInfo[i].description.toLowerCase()).
-          concat('.');
-          break;
-        case 3:
-          sentence = 'You consider '.
-          concat(valuesInfo[i].term).
-          concat(' to guide a large part of what you do: ').
-          concat(valuesInfo[i].description.toLowerCase()).
-          concat('.');
-          break;
-      }
-      sentences.push(sentence);
+      t_id = format('QUARTILE{0}_NAME_DESC', intervalFor(valuesList[i].percentage));
+      t = getMessageTemplate(t_id); 
+      sentences.push(format(t, valuesInfo[i].term, valuesInfo[i].description.toLowerCase()));
     }
   }
 
   return sentences;
 }
 
-/**
- * Assemble the list of needs and sort them based on value.
- */
 function assembleNeeds(needsTree) {
   var sentences = [];
   var needsList = [];
@@ -287,37 +223,25 @@ function assembleNeeds(needsTree) {
 
   // Get the words required.
   var word = getWordsForNeed(needsList[0])[0];
-  var sentence;
 
   // Form the right sentence for the single need.
-  switch (intervalFor(needsList[0].percentage)) {
-    case 0:
-      sentence = 'Experiences that make you feel high '.
-      concat(word).
-      concat(' are generally unappealing to you.');
-      break;
-    case 1:
-      sentence = 'Experiences that give a sense of '.
-      concat(word).
-      concat(' hold some appeal to you.');
-      break;
-    case 2:
-      sentence = 'You are motivated to seek out experiences that provide a strong feeling of '.
-      concat(word).
-      concat('.');
-      break;
-    case 3:
-      sentence = 'More than most people, your choices are driven by a desire for '.
-      concat(word).
-      concat('.');
-      break;
-  }
-  sentences.push(sentence);
+  var t, t_id;
+  t_id = format('NEEDS_QUARTILE{0}', intervalFor(needsList[0].percentage));
+  t = getMessageTemplate(t_id);
+  sentences.push(format(t, word));
 
   return sentences;
 }
 
+function intervalFor(p) {
+  // The MIN handles the special case for 100%.
+  return Math.min(Math.floor(p * 4), 3);
+}
+
+// From here on, all functions have to do with getting the correct strings.
 function getCircumplexAdjective(p1, p2, order) {
+  var traitsData = strings.traitsData;
+
   // Sort the personality traits in the order the JSON file stored it.
   var ordered = [p1, p2].sort(function(o1, o2) {
     var i1 = 'EANOC'.indexOf(o1.id.charAt(0));
@@ -331,7 +255,7 @@ function getCircumplexAdjective(p1, p2, order) {
   concat(ordered[1].id).
   concat(ordered[1].percentage > 0.5 ? '_plus' : '_minus');
 
-  var traitMult = circumplexData[identifier][0];
+  var traitMult = traitsData[identifier][0];
 
   if (traitMult.perceived_negatively) {
     switch (order) {
@@ -348,6 +272,7 @@ function getCircumplexAdjective(p1, p2, order) {
 }
 
 function getFacetInfo(f) {
+  var facetsData = strings.facetsData;
   var data = facetsData[f.id.replace('_', '-').replace(' ', '-')];
   var t, d;
 
@@ -367,6 +292,7 @@ function getFacetInfo(f) {
 }
 
 function getInfoForValue(v) {
+  var valuesData = strings.valuesData;
   var data = valuesData[v.id.replace(/[_ ]/g, '-')][0];
   var d = v.percentage > 0.5 ? data.HighDescription : data.LowDescription;
 
@@ -378,12 +304,24 @@ function getInfoForValue(v) {
 }
 
 function getWordsForNeed(n) {
-  // Assemble the identifier as the JSON file stored it.
+  var needsData = strings.needsData;
   var traitMult = needsData[n.id];
   return traitMult;
 }
 
-function intervalFor(p) {
-  // The MIN handles the special case for 100%.
-  return Math.min(Math.floor(p * 4), 3);
+function getMessageTemplate(id) {
+  var messagesData = strings.messagesData;
+  var message = messagesData[id];
+  return message;
+}
+
+// This is a poor man's version of printf, which nicely does the job.
+function format(str) {
+  // Keep all the arguments except for the string.
+  var args = Array.prototype.slice.call(arguments, 1);
+  return str.replace(/{(\d+)}/g, function(match, number) { 
+    return typeof args[number] != 'undefined' ?
+      args[number] :
+      match;
+  });
 }

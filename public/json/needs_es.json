@@ -1,0 +1,14 @@
+{
+	"Structure": ["organización", "ser directo", "cridad", "confiabilidad"],	
+	"Practicality": ["eficiencia", "practicidad", "valor agregado", "conveniencia"],
+	"Challenge": ["prestigio", "competencia", "gloria"],
+	"Self-expression": ["auto-expresión", "empoderamiento personal", "fuerza individual"],
+	"Excitement": ["regocijo", "anticipación", "cebración"],
+	"Curiosity": ["descubrimiento", "conseguir pericia", "adquirir conocimiento"],
+	"Liberty": ["modernidad", "expandir posibilidades", "poder escapar", "espontaneidad", "novedad"],
+	"Ideal": ["sofisticación", "espiritualidad", "superioridad", "logro"],
+	"Harmony": ["bienestar", "cortesía", "civilidad"],
+	"Love": ["afinidad", "conexión"],
+	"Closeness": ["pertenencia", "nostalgia", "intimidad"],
+	"Stability": ["estabilidad", "autenticidad", "integridad"]
+}

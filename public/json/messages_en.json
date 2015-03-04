@@ -1,0 +1,23 @@
+{
+"YOU_ARE_TERM": "You are {0}.",
+"YOU_ARE_TERM_TERM": "You are {0} and {1}.",
+"YOU_ARE_TERM_TERM_TERM": "You are {0}, {1} and {2}.",
+"YOU_ARE_TERM_DESC": "You are {0}: {1}.",
+"AND_YOU_ARE_TERM_DESC": "And you are {0}: {1}.",
+"AND_DESC": "And {0}.",
+"QUAL0_WORD": "a bit {0}",
+"QUAL1_WORD": "somewhat {0}",
+"QUAL2_WORD": "can be perceived as {0}",
+"QUARTILE0_NAME_NAME": "You are relatively unconcerned with both {0} and {1}.",
+"QUARTILE1_NAME_NAME": "You don't find either {0} or {1} to be particularly motivating for you.",
+"QUARTILE2_NAME_NAME": "You value both {0} and {1} a bit.",
+"QUARTILE3_NAME_NAME": "You consider both {0} and {1} to guide a large part of what you do.",
+"QUARTILE0_NAME_DESC": "You are relatively unconcerned with {0}: {1}.",
+"QUARTILE1_NAME_DESC": "You don't fing {0} to be particularly motivating for you: {1}.",
+"QUARTILE2_NAME_DESC": "You value {0} a bit more: {1}.",
+"QUARTILE3_NAME_DESC": "You consider {0} to guide a large part of what you do: {1}.",
+"NEEDS_QUARTILE0" : "Experiences that make you feel high {0} are generally unappealing to you.",
+"NEEDS_QUARTILE1" : "Experiences that give a sense of {0} hold some appeal to you.",
+"NEEDS_QUARTILE2" : "You are motivated to seek out experiences that provide a strong feeling of {0}.",
+"NEEDS_QUARTILE3" : "Your choices are driven greatly by a desire for {0}."
+}

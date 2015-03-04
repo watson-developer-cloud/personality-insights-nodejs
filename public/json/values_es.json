@@ -1,0 +1,112 @@
+{
+	"Self-transcendence": [{
+		"Term": "Ayudar a los demás",
+		"LowDescription": "Piensas que la gente puede manejar sus asuntos sin interferencia",
+		"HighDescription": "Crees importante cuidar a la gente a tu alrededor"
+	},
+	{
+		"Term": "Justicia",
+		"LowDescription": "Crees que la gente crea sus propias oportunidades",
+		"HighDescription": "Crees en la justicia social y la igualdad para todos"
+	},
+	{
+		"Term": "Justicia social",
+		"LowDescription": "Crees que la gente crea sus propias oportunidades",
+		"HighDescription": "Crees en la justicia social y la igualdad para todos"
+	},
+	{
+		"Term": "Igualdad",
+		"LowDescription": "Crees que la gente crea sus propias oportunidades",
+		"HighDescription": "Crees en la justicia social y la igualdad para todos"
+	},
+	{
+		"Term": "Servicio comunitario",
+		"LowDescription": "Piensas que la gente puede manejar sus asuntos sin interferencia",
+		"HighDescription": "Crees importante cuidar a la gente a tu alrededor"
+	}],
+	"Conservation": [{
+		"Term": "Tradición",
+		"LowDescription": "Te importa más hacer tu propio camino que seguir el de los demás",
+		"HighDescription": "Tienes mucho respeto por los grupos a los que perteneces y sigues su guía"
+	},
+	{
+		"Term": "Harmonía",
+		"LowDescription": "Tú decides lo que está bien basándote en tus creencias, no en lo que piensan los demás",
+		"HighDescription": "Tú sabes que las reglas existen por una razón, e intentas nunca romperlas"
+	},
+	{
+		"Term": "Humildad",
+		"LowDescription": "Tú decides lo que está bien basándote en tus creencias, no en lo que piensan los demás",
+		"HighDescription": "Ves el valor en referirte a los demás"
+	},
+	{
+		"Term": "Normas sociales",
+		"LowDescription": "Tú decides lo que está bien basándote en tus creencias, no en lo que piensan los demás",
+		"HighDescription": "Tú sabes que las reglas existen por una razón, e intentas nunca romperlas"
+	},
+	{
+		"Term": "Seguridad",
+		"LowDescription": "Crees que vale sacrificar la seguridad en pos de conseguir tus objetivos",
+		"HighDescription": "Crees que la seguridad es algo importante de mantener"
+	},
+	{
+		"Term": "Seguridad",
+		"LowDescription": "Crees que vale sacrificar la seguridad en pos de conseguir tus objetivos",
+		"HighDescription": "Crees que la seguridad es algo importante de mantener"
+	}],
+	"Self-enhancement": [{
+		"Term": "Lograr el éxito",
+		"LowDescription": "Tomas decisiones con atención a cuánto demuestran tus talentos",
+		"HighDescription": "Buscas oportunidades de mejorarte a tí mismo y demostrar que eres una persona capaz"
+	},
+	{
+		"Term": "Ganar estatus social",
+		"LowDescription": "Estás cómodo con tu estatus social y no sientes una gran necesidad de mejorarlo",
+		"HighDescription": "Pones un esfuerzo considerable en mejorar tu estatus e imagen pública"
+	},
+	{
+		"Term": "Ambición",
+		"LowDescription": "Estás cómodo con tu estatus social y no sientes una gran necesidad de mejorarlo",
+		"HighDescription": "Sientes que es importante pujar hacia tus objetivos"
+	},
+	{
+		"Term": "Logro de objetivos",
+		"LowDescription": "Tomas decisiones con atención a cuánto demuestran tus talentos",
+		"HighDescription": "Buscas oportunidades de mejorarte a tí mismo y demostrar que eres una persona capaz"
+	}],
+	"Hedonism": [{
+		"Term": "Tomar placer en la vida",
+		"LowDescription": "Prefieres las actividades con propósito por sobre el gozo personal",
+		"HighDescription": "Te motiva altamente disfrutar la vida en su plenitud"
+	}],
+	"Openness-to-change": [{
+		"Term": "Independencia",
+		"LowDescription": "Apruebas que los demás dirijan las actividades por tí",
+		"HighDescription": "Te gusta poner tus propios objetivos y decidir la mejor forma de cumplirlos"
+	},
+	{
+		"Term": "Entusiasmo",
+		"LowDescription": "Preferirías quedarte con las cosas que ya sabes que te gustan en vez de arriesgarte a intentar algo nuevo y riesgoso",
+		"HighDescription": "Estás ansioso por buscar experiencias nuevas y emocionantes"
+	},
+	{
+		"Term": "Creatividad",
+		"LowDescription": "Preferirías quedarte con las cosas que ya sabes que te gustan en vez de arriesgarte a intentar algo nuevo y riesgoso",
+		"HighDescription": "Estás ansioso por buscar experiencias nuevas y emocionantes"
+	},
+	{
+		"Term": "Curiosidad",
+		"LowDescription": "Preferirías quedarte con las cosas que ya sabes que te gustan en vez de arriesgarte a intentar algo nuevo y riesgoso",
+		"HighDescription": "Estás ansioso por buscar experiencias nuevas y emocionantes"
+	},
+	{
+		"Term": "Autodirección",
+		"LowDescription": "Apruebas que los demás dirijan las actividades por tí",
+		"HighDescription": "Te gusta poner tus propios objetivos y decidir la mejor forma de cumplirlos"
+	},
+	{
+		"Term": "Libertad",
+		"LowDescription": "Apruebas que los demás dirijan las actividades por tí",
+		"HighDescription": "Te gusta poner tus propios objetivos y decidir la mejor forma de cumplirlos"
+	}]
+}
