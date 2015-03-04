@@ -1,14 +1,14 @@
 {
-	"Estructura": ["organización", "ser directo", "cridad", "confiabilidad"],	
-	"Practicidad": ["eficiencia", "practicidad", "valor agregado", "conveniencia"],
-	"Desafío": ["prestigio", "competencia", "gloria"],
-	"Auto-expresión": ["auto-expresión", "empoderamiento personal", "fuerza individual"],
-	"Emoción": ["regocijo", "anticipación", "cebración"],
-	"Curiosidad": ["descubrimiento", "conseguir pericia", "adquirir conocimiento"],
-	"Libertad": ["modernidad", "expandir posibilidades", "poder escapar", "espontaneidad", "novedad"],
-	"Refinación": ["sofisticación", "espiritualidad", "superioridad", "logro"],
-	"Armonía": ["bienestar", "cortesía", "civilidad"],
-	"Amor": ["afinidad", "conexión"],
-	"Cercanía": ["pertenencia", "nostalgia", "intimidad"],
-	"Estabilidad": ["estabilidad", "autenticidad", "integridad"]
+	"Structure": ["organización", "ser directo", "cridad", "confiabilidad"],	
+	"Practicality": ["eficiencia", "practicidad", "valor agregado", "conveniencia"],
+	"Challenge": ["prestigio", "competencia", "gloria"],
+	"Self-expression": ["auto-expresión", "empoderamiento personal", "fuerza individual"],
+	"Excitement": ["regocijo", "anticipación", "cebración"],
+	"Curiosity": ["descubrimiento", "conseguir pericia", "adquirir conocimiento"],
+	"Liberty": ["modernidad", "expandir posibilidades", "poder escapar", "espontaneidad", "novedad"],
+	"Ideal": ["sofisticación", "espiritualidad", "superioridad", "logro"],
+	"Harmony": ["bienestar", "cortesía", "civilidad"],
+	"Love": ["afinidad", "conexión"],
+	"Closeness": ["pertenencia", "nostalgia", "intimidad"],
+	"Stability": ["estabilidad", "autenticidad", "integridad"]
 }
