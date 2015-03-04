@@ -200,7 +200,7 @@ function assembleValues(valuesTree) {
     var valuesInfo = [info1, info2];
     for (var i = 0; i < valuesInfo.length; i++) {
       // Process it this way because the code is the same.
-      t_id = format('QUARTILE{0}_NAME_DESC', intervalFor(valuesList[0].percentage));
+      t_id = format('QUARTILE{0}_NAME_DESC', intervalFor(valuesList[i].percentage));
       t = getMessageTemplate(t_id); 
       sentences.push(format(t, valuesInfo[i].term, valuesInfo[i].description.toLowerCase()));
     }
