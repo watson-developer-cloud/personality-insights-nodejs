@@ -19,7 +19,7 @@
 var express = require('express'),
   app = express(),
   bluemix = require('./config/bluemix'),
-  watson = require('watson-developer-cloud-alpha'),
+  watson = require('watson-developer-cloud'),
   extend = require('util')._extend,
   fs = require('fs'),
   dummy_text = fs.readFileSync('mobydick.txt');
