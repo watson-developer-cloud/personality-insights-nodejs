@@ -37,7 +37,7 @@ var credentials = extend({
 }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
 // Create the service wrapper
-var personalityInsights = new watson.personality_insights(credentials);
+var personalityInsights = watson.personality_insights(credentials);
 
 // render index page
 app.get('/', function(req, res) {
