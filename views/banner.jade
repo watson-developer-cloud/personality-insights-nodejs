@@ -1,0 +1,33 @@
+//- banner.jade
+div.row.service-container
+  div.col-lg-12.service-header
+    div.row.top-nav
+      div.container
+        h3.heading.left IBM 
+          span.text-right Watson Developer Cloud
+        nav.top-nav--nav
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html") Services
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/") Docs
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html") App Gallery
+          li.top-nav--nav-item
+            a(href="https://developer.ibm.com/watson/") Community
+    div.row.header
+      div.container
+        div.avatar.img-container.col-lg-2.col-md-2.col-sm-2.hidden-xs
+          img.service-icon(src='/images/app.png')
+        div.col-lg-10.col-md-10.col-sm-10.col-xs-12.dialog-description
+          h1(style="font-size:50px;").service-title Personality Insights
+          p The IBM Watson Personality Insights service uses linguistic analytics to
+            | extract a spectrum of cognitive and social characteristics from
+            | the text data that a person generates through blogs,
+            | tweets, forum posts, and more.
+          div.resource
+            img.link-icon(src='/images/link.svg')
+            strong Resources:
+          div.resource-item-container
+            a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/apis/#!/personality-insights') API Overview
+            a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/') Documentation
+            a.resource-item(href='https://github.com/watson-developer-cloud/personality-insights-nodejs') Fork on Github
