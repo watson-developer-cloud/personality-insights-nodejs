@@ -22,8 +22,11 @@ var express = require('express'),
   watson = require('watson-developer-cloud'),
   extend = require('util')._extend,
   fs = require('fs'),
-  dummy_text = fs.readFileSync('mobydick.txt');
-
+  dummy_text = fs.readFileSync('mobydick.txt'),
+  i18n = require('i18next');
+  
+// i18n settings
+require('./config/i18n')(app);
 
 // Bootstrap application settings
 require('./config/express')(app);

@@ -1,0 +1,33 @@
+{
+    "application": {
+        "title" : "Personality Insights",
+        "name"  : "Personality Insights NodeJS Starter Application",
+        "label" : {
+            "documentation"    : "Documentation",
+            "apiDetails"       : "API Details",
+            "contactUs"        : "Contact Us",
+            "keepExploring"    : "Keep Exploring",
+            "watsonCommunity"  : "Watson Community",
+            "learnMore"        : "Learn more about this service",
+            "tryTheService"    : "Try the service",
+            "fork"             : "Fork",
+            "yourPersonality"  : "Your Personality",
+            "comparedFootNote" : "Compared to most people who participated in our surveys.",
+            "name"             : "Name",
+            "samplingError"    : "Sampling Error",
+            "value"            : "Value",
+            "personalityVisualizationData" : "Visualization of Personality Data",
+            "personalityData"              : "Data Behind Your Personality"
+        },
+        
+        "input" : {
+            "placeHolder"  : "Please enter English text to analyze (minimum of 100 words)...",
+            "clear"        : "Clear",
+            "analyze"      : "Analyze"
+        }
+    },
+    "service" : {
+        "description" : "The Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through text messages, tweets, posts, and more."
+    }
+    
+}
