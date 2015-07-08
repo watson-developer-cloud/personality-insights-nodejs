@@ -52,7 +52,10 @@ function RateLimit(options) {
 
       if (hits[ip] >= options.max) {
         // 429 status = Too Many Requests (RFC 6585)
-        return res.status(429).end('Too many requests, please try again later.');
+        return res.status(429).json({
+          error: 'Too many requests, please try again later.',
+          code: 429
+        });
       }
 
       var delay = hits[ip] * options.delayMs;

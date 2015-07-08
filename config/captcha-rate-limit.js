@@ -34,8 +34,8 @@ module.exports = function (app) {
   });
 
   var captchaKeys = {
-    site: '6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV',
-    secret: '6LcRbQkTAAAAAKETiHpCDSGDwzj3h8p4hJOGV0wU'
+    site: process.env.CAPTCHA_SITE || '<captcha-key-site>',
+    secret: process.env.CAPTCHA_SECRET || '<captcha-key-secret>',
   };
 
   return {
@@ -55,7 +55,7 @@ module.exports = function (app) {
           if (body.success)
             limiter.reset(req, res, next);
           else
-            res.status(409).json({error:'Wrong captcha'});
+            res.status(409).json({error:'Wrong captcha', code:409});
         });
       } else
         next();
