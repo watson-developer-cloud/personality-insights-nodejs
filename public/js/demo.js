@@ -20,17 +20,18 @@ $(document).ready(function() {
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
-    personImageUrl = 'images/app.png'; // Can be blank
+    personImageUrl = 'images/app.png', // Can be blank
+    language = 'en'; // language selection
 
   // Jquery variables
-  var $content      = $('.content'),
-    $loading        = $('.loading'),
-    $error          = $('.error'),
-    $errorMsg       = $('.errorMsg'),
-    $traits         = $('.traits'),
-    $results        = $('.results'),
-    $captcha        = $('.captcha'),
-    $language   = $('#language-select');
+  var $content = $('.content'),
+    $loading   = $('.loading'),
+    $error     = $('.error'),
+    $errorMsg  = $('.errorMsg'),
+    $traits    = $('.traits'),
+    $results   = $('.results'),
+    $captcha   = $('.captcha'),
+    $language  = $('#language-select');
 
   /**
    * Clear the "textArea"
@@ -49,7 +50,7 @@ $(document).ready(function() {
   /**
    * Update words count on copy/past
    */
-  $content.bind('paste', function(e) {
+  $content.bind('paste', function() {
     setTimeout(updateWordsCount, 100);
   });
 
@@ -82,7 +83,7 @@ $(document).ready(function() {
       data: {
         recaptcha: recaptcha,
         text: $content.val(),
-        lang: $language.val()
+        language: language
       },
       url: '/',
       dataType: 'json',
@@ -107,7 +108,7 @@ $(document).ready(function() {
 
         var error;
         try {
-          error = JSON.parse(xhr.responseText);
+          error = JSON.parse(xhr.responseText || {});
         } catch(e) {}
         showError(error.error || error);
       }
@@ -315,14 +316,11 @@ function showVizualization(theProfile) {
 
   function onSampleTextChange() {
     var isEnglish = $('#english_radio').is(':checked');
-    var language = isEnglish ? 'en' : 'es';
-    $.get('/text/' + language + '.txt').done(function(text){
+    language = isEnglish ? 'en' : 'es';
+
+    $.get('/text/' + language + '.txt').done(function(text) {
       $content.val(text);
       updateWordsCount();
-      // selecting the Language dropdown
-      $('#language-select option').filter(function() { 
-        return ($(this).prop('value') == language);
-      }).prop('selected', true);
     });
   }
 
