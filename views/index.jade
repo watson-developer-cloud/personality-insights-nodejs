@@ -9,25 +9,26 @@ block row-content
         div.well
           div.form-group.row
             div.col-lg-12.col-xs-12
-              textarea.content.form-control(rows='12', required='true',
+              textarea.content.form-control(rows='12', required='true', name='text'
                 placeholder='Please enter the text to analyze (minimum of 100 words)...')
                 |#{content}
               div.text-right
                 span.wordsCount.small
+          div.form-group.row.captcha(style='display:none;margin-bottom:10px;')
+            div.col-lg-12.col-md-12.col-xs-12.g-recaptcha(data-sitekey='6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV')
           div.form-group.row
-            div.col-lg-4.col-lg-push-4.col-xs-4
+            div.col-lg-4.col-xs-4
               button.btn.btn-block.clear-btn(type='button') Clear
             div.col-lg-4.col-lg-push-4.col-xs-4.col-xs-push-4
               button.btn.btn-block.analysis-btn(type='button') Analyze
       div.col-lg-6.col-md-6.col-xs-12
-        div.row
-          div.form-group.row.loading.text-center.loading(style='display:none;')
-            h2 &nbsp;
-            img(src='images/watson.gif')
-          div.form-group.row.error(style='display: none;')
-            h2 &nbsp;
-            div.well
-              p.errorMsg
+        div.form-group.row.loading.text-center.loading(style='display:none;')
+          h2 &nbsp;
+          img(src='images/watson.gif')
+        div.form-group.row.error(style='display: none;')
+          h2 &nbsp;
+          div.well
+            p.errorMsg
         div.results(style='display: none;')
           h3(style='height: 40px;') Your Personality*
           div.well

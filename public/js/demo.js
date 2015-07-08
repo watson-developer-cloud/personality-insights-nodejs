@@ -24,11 +24,12 @@ $(document).ready(function() {
 
   // Jquery variables
   var $content = $('.content'),
-    $loading = $('.loading'),
-    $error = $('.error'),
-    $errorMsg = $('.errorMsg'),
-    $traits = $('.traits'),
-    $results = $('.results');
+    $loading   = $('.loading'),
+    $error     = $('.error'),
+    $errorMsg  = $('.errorMsg'),
+    $traits    = $('.traits'),
+    $results   = $('.results'),
+    $captcha   = $('.captcha');
 
   /**
    * Clear the "textArea"
@@ -58,7 +59,19 @@ $(document).ready(function() {
    */
   $('.analysis-btn').click(function(){
     $('.analysis-btn').blur();
+
+    // check if the captcha is active and the user complete it
+    var recaptcha = grecaptcha.getResponse();
+
+    // reset the captcha
+    grecaptcha.reset();
+
+    if ($captcha.css('display') === 'table' && recaptcha === '')
+      return;
+
+
     $loading.show();
+    $captcha.hide();
     $error.hide();
     $traits.hide();
     $results.hide();
@@ -66,6 +79,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       data: {
+        recaptcha: recaptcha,
         text: $content.val()
       },
       url: '/',
@@ -85,6 +99,10 @@ $(document).ready(function() {
       },
       error: function(xhr) {
         $loading.hide();
+
+        if (xhr && xhr.status === 429)
+          $captcha.css('display','table');
+
         var error;
         try {
           error = JSON.parse(xhr.responseText);
