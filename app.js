@@ -20,9 +20,7 @@ var express  = require('express'),
   app        = express(),
   bluemix    = require('./config/bluemix'),
   watson     = require('watson-developer-cloud'),
-  extend     = require('util')._extend,
-  rateLimit = require('./config/captcha-rate-limit')(app);
-
+  extend     = require('util')._extend;
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -44,8 +42,7 @@ app.get('/', function(req, res) {
 
 // 1. Check if we have a captcha and reset the limit
 // 2. pass the request to the rate limit
-app.post('/', rateLimit.check, rateLimit.limit,
-  function(req, res, next) {
+app.post('/', function(req, res, next) {
     personalityInsights.profile(req.body, function(err, profile) {
       if (err)
         return next(err);
