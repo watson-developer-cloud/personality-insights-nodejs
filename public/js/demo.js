@@ -316,7 +316,6 @@ function showVizualization(theProfile) {
   function onSampleTextChange() {
     var isEnglish = $('#english_radio').is(':checked');
     var language = isEnglish ? 'en' : 'es';
-    console.log(language);
     $.get('/text/' + language + '.txt').done(function(text){
       $content.val(text);
       updateWordsCount();

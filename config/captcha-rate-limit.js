@@ -34,8 +34,8 @@ module.exports = function (app) {
   });
 
   var captchaKeys = {
-    site: '<captcha-site-key>',
-    secret: '<captcha-secret-key>'
+    site: '6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV',
+    secret: '6LcRbQkTAAAAAKETiHpCDSGDwzj3h8p4hJOGV0wU'
   };
 
   return {
