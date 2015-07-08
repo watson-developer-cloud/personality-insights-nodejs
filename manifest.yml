@@ -1,13 +1,13 @@
 ---
 declared-services:
-  personality-insights-service:
+  personality-insights-service-standard:
     label: personality_insights
-    plan: 'IBM Watson Personality Insights Monthly Plan'
+    plan: standard
 
 applications:
-- name: personality-insights-captcha
+- name: personality-insights-demo
   command: node app.js
   path: .
-  memory: 256M
+  memory: 1G
   services:
-  - personality-insights-service
+  - personality-insights-service-standard
