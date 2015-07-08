@@ -29,7 +29,7 @@ module.exports = function (app) {
   var limiter = rateLimit({
     windowMs: 60 * 1000,
     delayMs: 0,
-    max: 2,
+    max: 4,
     global: false
   });
 

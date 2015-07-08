@@ -1,10 +1,11 @@
 //- banner.jade
 div.row.service-container
   div.col-lg-12.service-header
-    div.row.top-nav
+    div.row.top-nav.navbar-fixed-top
       div.container
-        h3.heading.left IBM 
-          span.text-right Watson Developer Cloud
+        a.top-nav--logo-link(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/")
+          h3.heading.left IBM 
+            span.top-nav--logo-wdc Watson Developer Cloud
         nav.top-nav--nav
           li.top-nav--nav-item
             a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html") Services
@@ -31,3 +32,4 @@ div.row.service-container
             a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/apis/#!/personality-insights') API Overview
             a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/') Documentation
             a.resource-item(href='https://github.com/watson-developer-cloud/personality-insights-nodejs') Fork on Github
+            a.resource-item(href='https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs.git') Fork and Deploy on Bluemix

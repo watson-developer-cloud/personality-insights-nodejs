@@ -21,8 +21,6 @@ var express  = require('express'),
   bluemix    = require('./config/bluemix'),
   watson     = require('watson-developer-cloud'),
   extend     = require('util')._extend,
-  fs         = require('fs'),
-  dummy_text = fs.readFileSync('mobydick.txt'),
   rateLimit = require('./config/captcha-rate-limit')(app);
 
 
@@ -42,14 +40,14 @@ var personalityInsights = watson.personality_insights(credentials);
 
 // render index page
 app.get('/', function(req, res) {
-  res.render('index', { content: dummy_text });
+  res.render('index');
 });
 
 // 1. Check if we have a captcha and reset the limit
 // 2. pass the request to the rate limit
 app.post('/', rateLimit.check, rateLimit.limit,
   function(req, res, next) {
-    personalityInsights.profile({ text: req.body.text }, function(err, profile) {
+    personalityInsights.profile({ text: req.body.text, language:req.body.lang }, function(err, profile) {
       if (err)
         return next(err);
       else

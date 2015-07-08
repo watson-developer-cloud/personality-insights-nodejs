@@ -23,13 +23,14 @@ $(document).ready(function() {
     personImageUrl = 'images/app.png'; // Can be blank
 
   // Jquery variables
-  var $content = $('.content'),
-    $loading   = $('.loading'),
-    $error     = $('.error'),
-    $errorMsg  = $('.errorMsg'),
-    $traits    = $('.traits'),
-    $results   = $('.results'),
-    $captcha   = $('.captcha');
+  var $content      = $('.content'),
+    $loading        = $('.loading'),
+    $error          = $('.error'),
+    $errorMsg       = $('.errorMsg'),
+    $traits         = $('.traits'),
+    $results        = $('.results'),
+    $captcha        = $('.captcha'),
+    $language   = $('#language-select');
 
   /**
    * Clear the "textArea"
@@ -80,7 +81,8 @@ $(document).ready(function() {
       type: 'POST',
       data: {
         recaptcha: recaptcha,
-        text: $content.val()
+        text: $content.val(),
+        lang: $language.val()
       },
       url: '/',
       dataType: 'json',
@@ -310,6 +312,17 @@ function showVizualization(theProfile) {
     $('.wordsCount').css('color',wordsCount < 100 ? 'red' : 'gray');
     $('.wordsCount').text(wordsCount + ' words');
   }
+
+  function onSampleTextChange() {
+    var isEnglish = $('#english_radio').is(':checked');
+    var language = isEnglish ? 'en' : 'es';
+    $.get('/text/' + language + '.txt').done(function(text){
+      $content.val(text);
+      updateWordsCount();
+    });
+  }
+
+  onSampleTextChange();
   $content.keyup(updateWordsCount);
-  updateWordsCount();
+  $('.sample-radio').change(onSampleTextChange);
 });
