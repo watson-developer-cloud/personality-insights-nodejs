@@ -93,6 +93,7 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 ## License
 
   This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).
+  This sample code uses d3 and jquery, both distributed under a MIT license.
 
 ## Contributing
 
