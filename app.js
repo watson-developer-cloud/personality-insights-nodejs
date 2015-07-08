@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
 // 2. pass the request to the rate limit
 app.post('/', rateLimit.check, rateLimit.limit,
   function(req, res, next) {
-    personalityInsights.profile({ text: req.body.text, language:req.body.lang }, function(err, profile) {
+    personalityInsights.profile(req.body, function(err, profile) {
       if (err)
         return next(err);
       else
