@@ -316,9 +316,14 @@ function showVizualization(theProfile) {
   function onSampleTextChange() {
     var isEnglish = $('#english_radio').is(':checked');
     var language = isEnglish ? 'en' : 'es';
+    console.log(language);
     $.get('/text/' + language + '.txt').done(function(text){
       $content.val(text);
       updateWordsCount();
+      // selecting the Language dropdown
+      $('#language-select option').filter(function() { 
+        return ($(this).prop('value') == language);
+      }).prop('selected', true);
     });
   }
 

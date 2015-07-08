@@ -1,6 +1,10 @@
 .btn {
   height: 2.5em;
   padding: 0em;
+  margin-bottom: 0em;
+}
+.btn-block {
+  margin-bottom: 0em;
 }
 .content {
   margin-bottom: 0px;
