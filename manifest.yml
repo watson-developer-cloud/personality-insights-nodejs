@@ -5,7 +5,7 @@ declared-services:
     plan: standard
 
 applications:
-- name: personality-insights-demo
+- name: personality-insights-livedemo
   command: node app.js
   path: .
   memory: 1G
