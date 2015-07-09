@@ -1,13 +1,13 @@
 ---
 declared-services:
-  personality-insights-service-standard:
+  Personality Insights_pstg-30:
     label: personality_insights
     plan: standard
 
 applications:
-- name: personality-insights-nodejs
+- name: watson-pi-demo
   command: node app.js
   path: .
   memory: 256M
   services:
-  - personality-insights-service-standard
+  - Personality Insights_pstg-30
