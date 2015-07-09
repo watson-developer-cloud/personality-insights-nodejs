@@ -103,14 +103,20 @@ $(document).ready(function() {
       error: function(xhr) {
         $loading.hide();
 
-        if (xhr && xhr.status === 429)
-          $captcha.css('display','table');
-
         var error;
         try {
           error = JSON.parse(xhr.responseText || {});
         } catch(e) {}
-        showError(error.error || error);
+
+        if (xhr && xhr.status === 429){
+          $captcha.css('display','table');
+          $('.errorMsg').css('color','black');
+          error.error = 'Complete the captcha to proceed';
+        } else {
+          $('.errorMsg').css('color','red');
+        }
+
+        showError(error ? (error.error || error): '');
       }
     });
   });

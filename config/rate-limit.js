@@ -36,7 +36,7 @@ function RateLimit(options) {
     limit: function limit(req, res, next) {
       var ip = options.global ? 'global' : req.ip;
 
-      if (typeof hits[ip] !== 'number') {
+      if (typeof hits[ip] !== 'number' || isNaN(hits[ip])) {
         hits[ip] = 0; // first one's free ;)
       } else {
         hits[ip]++;
