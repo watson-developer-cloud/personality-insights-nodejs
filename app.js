@@ -57,3 +57,6 @@ require('./config/error-handler')(app);
 var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port);
 console.log('listening at:', port);
+
+require("cf-deployment-tracker-client").track();
+
