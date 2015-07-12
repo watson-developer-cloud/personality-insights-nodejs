@@ -20,15 +20,14 @@ var extend = require('util')._extend;
 
 function RateLimit(options) {
 
-
   // this is shared by all endpoints that use this instance
   var hits = {};
+  var timeouts = {};
 
   options = extend({}, options, {
-    // window, delay, and max apply per-ip unless global is set to true
     windowMs: 60 * 1000, // miliseconds - how long to keep records of requests in memory
-    delayMs: 1000, // milliseconds - base delay applied to the response - multiplied by number of recent hits from user's IP
-    max: 5, // max number of recent connections during `window` miliseconds before sending a 400 response
+    delayMs: 0, // milliseconds - base delay applied to the response - multiplied by number of recent hits from user's IP
+    max: 3, // max number of recent connections during `window` miliseconds before sending a 400 response
     global: false // if true, IP address is ignored and setting is applied equally to all requests
   });
 
@@ -42,7 +41,8 @@ function RateLimit(options) {
         hits[ip]++;
       }
 
-      setTimeout(function() {
+      clearTimeout(timeouts[ip]);
+      timeouts[ip] = setTimeout(function() {
         // cleanup
         hits[ip]--;
         if (hits[ip] <=0 ) {
@@ -56,15 +56,20 @@ function RateLimit(options) {
           error: 'Too many requests, please try again later.',
           code: 429
         });
+      } else {
+        var delay = hits[ip] * options.delayMs;
+        setTimeout(next, delay);
       }
-
-      var delay = hits[ip] * options.delayMs;
-      setTimeout(next, delay);
     },
 
     reset: function reset(req, res, next) {
       var ip = options.global ? 'global' : req.ip;
+
+      clearTimeout(timeouts[ip]);
+
       delete hits[ip];
+      delete timeouts[ip];
+
       next();
     }
   };
