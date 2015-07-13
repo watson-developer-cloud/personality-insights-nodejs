@@ -26,8 +26,8 @@ function RateLimit(options) {
 
   options = extend({}, options, {
     windowMs: 60 * 1000, // miliseconds - how long to keep records of requests in memory
-    delayMs: 0, // milliseconds - base delay applied to the response - multiplied by number of recent hits from user's IP
-    max: 3, // max number of recent connections during `window` miliseconds before sending a 400 response
+    delayMs: 500, // milliseconds - base delay applied to the response - multiplied by number of recent hits from user's IP
+    max: 5, // max number of recent connections during `window` miliseconds before sending a 400 response
     global: false // if true, IP address is ignored and setting is applied equally to all requests
   });
 
@@ -40,8 +40,8 @@ function RateLimit(options) {
       } else {
         hits[ip]++;
       }
+      console.log('limit:', ip, ':', hits[ip]);
 
-      clearTimeout(timeouts[ip]);
       timeouts[ip] = setTimeout(function() {
         // cleanup
         hits[ip]--;
@@ -64,7 +64,7 @@ function RateLimit(options) {
 
     reset: function reset(req, res, next) {
       var ip = options.global ? 'global' : req.ip;
-
+      console.log('reset:', ip, ':', hits[ip]);
       clearTimeout(timeouts[ip]);
 
       delete hits[ip];
