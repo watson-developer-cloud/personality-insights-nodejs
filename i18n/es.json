@@ -1,7 +1,7 @@
 {
     "application": {
         "title": "Personality Insights",
-        "name": "Aplicación inicial en NodeJS de Personality Insights",
+        "name": "Personality Insights",
         "label": {
             "documentation": "Documentación",
             "apiOverview": "Resumen de la API",
