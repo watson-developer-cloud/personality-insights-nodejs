@@ -24,7 +24,7 @@
             "resources" : "Recursos",
             "services"  : "Servicios",
             "docs"       : "Documentación",
-            "appGallery" : "Galería de Aplicaciones",
+            "appGallery" : "Galería de Aplicaciones"
         },
         "input": {
             "placeHolder": "Por favor, ingrese el texto a analizar (mínimo de 100 palabras)...",
