@@ -288,8 +288,8 @@ function showVizualization(theProfile) {
   function updateWordsCount() {
     var text = $content.val();
     var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCount').css('color',wordsCount < 100 ? 'red' : 'gray');
-    $('.wordsCount').text(wordsCount + ' words');
+    $('.wordsCountFootnote').css('color',wordsCount < 100 ? 'red' : 'gray');
+    $('.wordsCount').text(wordsCount);
   }
 
   function onSampleTextChange() {

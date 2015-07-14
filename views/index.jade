@@ -22,8 +22,9 @@ block row-content
               textarea.content.form-control(rows='12', required='true', name='text'
                 placeholder=t('application.input.placeHolder'))
                 |#{content}
-              div.text-right
+              div.text-right.wordsCountFootnote
                 span.wordsCount.small
+                span.small=" " + t('application.label.words')
           div.form-group.row.buttons-container
             div.col-lg-4.col-xs-4
               button.btn.btn-block.clear-btn(type='button')=t('application.input.clear')

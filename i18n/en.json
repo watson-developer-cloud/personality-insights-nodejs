@@ -24,7 +24,8 @@
             "resources"  : "Resources",
             "services"   : "Services",
             "docs"       : "Docs",
-            "appGallery" : "App Gallery"
+            "appGallery" : "App Gallery",
+            "words" : "words"
         },
         
         "input" : {
