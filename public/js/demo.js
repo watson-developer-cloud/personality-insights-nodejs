@@ -158,12 +158,7 @@ $(document).ready(function() {
    */
   function showTextSummary(data) {
     console.log('showTextSummary()');
-    var paragraphs = [
-      assembleTraits(data.tree.children[0]),
-      assembleFacets(data.tree.children[0]),
-      assembleNeeds(data.tree.children[1]),
-      assembleValues(data.tree.children[2])
-    ];
+    var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
     div.empty();
     paragraphs.forEach(function(sentences) {

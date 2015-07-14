@@ -1,0 +1,24 @@
+{
+  "phrase": {
+    "You are %s": "Usted es %s",
+    "You are %s and %s": "Usted es %s y %s",
+    "You are %s, %s and %s": "Usted es %s, %s y %s",
+    "And you are %s": "Y usted es %s",
+    "You are relatively unconcerned with %s": "Usted es relativamente indiferente con %s",
+    "You are relatively unconcerned with both %s and %s": "Usted es relativamente indiferente con %s y %s",
+    "You don't find %s to be particularly motivating for you": "Usted no encuentra a %s particularmente motivante para usted",
+    "You don't find either %s or %s to be particularly motivating for you": "Usted no encuentra a %s o %s particularmente motivantes para usted",
+    "You value both %s a bit": "Usted valora a %s un poco",
+    "You value both %s and %s a bit": "Usted valora a %s y %s un poco",
+    "You consider %s to guide a large part of what you do" : "Usted considera que %s lo guia en gran parte de lo que hace",
+    "You consider both %s and %s to guide a large part of what you do" : "Usted considera que %s y %s lo guian en gran parte de lo que hace",
+    "And %s": "Y %s",
+    "Experiences that make you feel high %s are generally unappealing to you": "No le agradan las experiencias que le dan una gran sensación de %s",
+    "Experiences that give a sense of %s hold some appeal to you": "Le agradan las experiencias que le dan una sensación de %s",
+    "You are motivated to seek out experiences that provide a strong feeling of %s": "Está motivado a buscar experiencias que lo provean de una fuerte sensación de %s",
+    "Your choices are driven by a desire for %s" : "Sus elecciones están determinadas por un deseo de %s",
+    "a bit %s": "un poco %s",
+    "somewhat %s" : "algo %s",
+    "can be perceived as %s": "puede ser percibido como %s"
+  }
+}

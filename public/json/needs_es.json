@@ -1,0 +1,66 @@
+{
+    "Stability": [
+        "estabilidad", 
+        "autenticidad", 
+        "integridad"
+    ], 
+    "Practicality": [
+        "eficiencia", 
+        "practicidad", 
+        "valor agregado", 
+        "conveniencia"
+    ], 
+    "Love": [
+        "afinidad", 
+        "conexión"
+    ], 
+    "Self-expression": [
+        "auto-expresión", 
+        "empoderamiento personal", 
+        "fortaleza personal"
+    ], 
+    "Challenge": [
+        "prestigio", 
+        "competencia", 
+        "gloria"
+    ], 
+    "Closeness": [
+        "pertenencia", 
+        "nostalgia", 
+        "intimidad"
+    ], 
+    "Liberty": [
+        "modernidad", 
+        "expansión de posibilidades", 
+        "poder escapar", 
+        "espontaneidad", 
+        "novedad"
+    ], 
+    "Excitement": [
+        "regocijo", 
+        "anticipación", 
+        "cebración"
+    ], 
+    "Ideal": [
+        "sofisticación", 
+        "espiritualidad", 
+        "superioridad", 
+        "realización"
+    ], 
+    "Harmony": [
+        "bienestar", 
+        "cortesía", 
+        "civilidad"
+    ], 
+    "Curiosity": [
+        "descubrimiento", 
+        "maestría", 
+        "adquisición de conocimiento"
+    ], 
+    "Structure": [
+        "organización", 
+        "franqueza", 
+        "claridad", 
+        "confiabilidad"
+    ]
+}

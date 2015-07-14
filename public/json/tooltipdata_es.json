@@ -1,0 +1,206 @@
+{
+  "Anxiety": {
+    "type": "personalidad",
+    "msg": "El sistema de \"lucha o huida\" del cerebro en individuos ansiosos es muy a menudo comprometido facilmente. Por lo tanto, las personas que puntúan alto en esta característica frecuentemente sienten que algo desagradable, amenazante o peligroso está a punto de suceder."
+  },
+  "Harmony": {
+    "type": "necesidades",
+    "msg": "Apreciación por otras personas, sus puntos de vista y sus sentimientos."
+  },
+  "Adventurousness": {
+    "type": "personalidad",
+    "msg": "Puntuaciones altas de esta faceta están deseosas de probar nuevas actividades, y experimentar cosas diferentes. Encuentran aburrida la familiaridad y la rutina."
+  },
+  "Trust": {
+    "type": "personalidad",
+    "msg": "Las personas que puntúan alto en esta faceta fundamentalmente asumen que la mayoría de la gente es justa, honesta y tiene buenas intenciones. Consideran a la gente por su valor y que están dispuestos a perdonar y olvidar."
+  },
+  "Agreeableness": {
+    "type": "personalidad",
+    "msg": "Tendencia a ser compasivo y cooperativo con los demás."
+  },
+  "Vulnerability": {
+    "type": "personalidad",
+    "msg": "Puntuaciones altas de esta faceta de la personalidad tienen dificultades para hacer frente al estrés. Experimentan pánico, confusión e impotencia cuando están bajo presión o cuando se enfrentan a situaciones de emergencia."
+  },
+  "Ideal": {
+    "type": "necesidades",
+    "msg": "Deseo por la perfección y un sentido de comunidad."
+  },
+  "Self-expression": {
+    "type": "necesidades",
+    "msg": "Descubrimiento y afirmación de la identidad propia."
+  },
+  "Curiosity": {
+    "type": "necesidades",
+    "msg": "Deseo de busqueda, descubrimiento y crecimiento."
+  },
+  "Liberalism": {
+    "type": "personalidad",
+    "msg": "Disposición a desafiar la autoridad, la convención y los valores tradicionales."
+  },
+  "Depression": {
+    "type": "personalidad",
+    "msg": "Esta faceta mide diferencias normales en la forma en que las personas reaccionan a los altibajos de la vida."
+  },
+  "Neuroticism": {
+    "type": "personalidad",
+    "msg": "Medida en que la emoción de una persona es sensible al medio ambiente."
+  },
+  "Excitement-seeking": {
+    "type": "personalidad",
+    "msg": "Las personas con puntuaciones altas en esta faceta de la personalidad se aburren fácilmente sin altos niveles de estimulación."
+  },
+  "Self-enhancement": {
+    "type": "valores",
+    "msg": "Seeking personal success for oneself."
+  },
+  "Self-efficacy": {
+    "type": "personalidad",
+    "msg": "Describe la confianza de una persona en su capacidad para lograr cosas."
+  },
+  "Cautiousness": {
+    "type": "personalidad",
+    "msg": "Describe la disposición a pensar cuidadosamente en las posibilidades antes de actuar."
+  },
+  "Conscientiousness": {
+    "type": "personalidad",
+    "msg": "Tendencia de una persona a actuar de manera organizada o espontánea."
+  },
+  "Activity level": {
+    "type": "personalidad",
+    "msg": "Las personas activas llevan una vida trepidante y ocupada. Hacen cosas y se mueven rápidamente, con energía, vigor y están involucradas en muchas actividades."
+  },
+  "Achievement striving": {
+    "type": "personalidad",
+    "msg": "Las personas que puntúan alto en esta faceta se esfuerzan mucho por alcanzar la excelencia. Sumotivaciónn por ser reconocidos como exitosos las mantiene en el camino a medida que trabajan duro para alcanzar sus metas."
+  },
+  "Imagination": {
+    "type": "personalidad",
+    "msg": "Para las personas imaginativas el mundo real a menudo es demasiado simple y ordinario. Puntuaciones altas para esta faceta usan la fantasía, no como un escape, sino como una forma de crear por sí mismos un mundo interior más rico e interesante."
+  },
+  "Sympathy": {
+    "type": "personalidad",
+    "msg": "Las personas que puntúan alto para esta faceta son de corazón tierno y compasivo."
+  },
+  "Altruism": {
+    "type": "personalidad",
+    "msg": "Las personas altruistas encuentran realmente gratificante ayudar a otras personas. Estas personas consideran que hacer cosas por los demás es una forma de auto-cumplimiento en lugar de auto-sacrificio."
+  },
+  "PREFIX_Conservation": {
+    "type": "valores",
+    "msg": "Enfatiza la auto-limitación, el orden y la resitencia al cambio."
+  },
+  "Hedonism": {
+    "type": "valores",
+    "msg": "Busqueda del placer y de la gratificación de los sentidos."
+  },
+  "Openness to change": {
+    "type": "valores",
+    "msg": "Hace énfasis en la independencia en las acciones, los pensamientos y los sentimientos y la disposición a nuevas experiencias."
+  },
+  "Love": {
+    "type": "necesidades",
+    "msg": "Contacto social, ya sea uno a uno o de uno hacia muchos. Cualquier marca involucrada en reunir gente"
+  },
+  "Morality": {
+    "type": "personalidad",
+    "msg": "Puntuaciones altas para esta faceta no ven ninguna necesidad de pretensión o manipulación cuando se trata de los demás y, por lo tanto, son sinceros, francos y genuinos."
+  },
+  "Cooperation": {
+    "type": "personalidad",
+    "msg": "A las personas con alto valor de Cooperación no les gusta la confrontación. Están perfectamente dispuestas a comprometer o negar sus propias necesidades con el fin de llevarse bien con los demás."
+  },
+  "Extraversion": {
+    "type": "personalidad",
+    "msg": "Tendencia a buscar la estimulación en compañía de otros."
+  },
+  "Artistic interests": {
+    "type": "personalidad",
+    "msg": "Puntuaciones altas en esta área aman la belleza, tanto en el arte como en la naturaleza. Se sienten fácilmente involucradas y absorbidas en eventos artísticos y naturales."
+  },
+  "Assertiveness": {
+    "type": "personalidad",
+    "msg": "A las personas con puntuaciones altas de Asertividad les gusta tomar y dirigir las actividades de los demás. Tienden a ser líderes en los grupos."
+  },
+  "Self-transcendence": {
+    "type": "valores",
+    "msg": "Muestra interés por el bien común y los intereses ajenos."
+  },
+  "Openness": {
+    "type": "personalidad",
+    "msg": "El grado en que una persona está abierta a experimentar una variedad de actividades."
+  },
+  "Practicality": {
+    "type": "necesidades",
+    "msg": "Deseo por la realización del trabajo, las habilidades y la eficiencia. También cubre la expresión corporal y la experiencia."
+  },
+  "Cheerfulness": {
+    "type": "personalidad",
+    "msg": "Esta faceta mide la capacidad de una persona para experimentar una serie de sentimientos positivos como felicidad, entusiasmo, optimismo y alegría."
+  },
+  "Intellect": {
+    "type": "personalidad",
+    "msg": "El intelecto y los intereses artísticos son los dos aspectos más importantes y centrales de la apertura a la experiencia."
+  },
+  "Gregariousness": {
+    "type": "personalidad",
+    "msg": "Las personas gregarias encuentran la compañía de otros gratamente estimulante y gratificante. Disfrutan la emoción de las multitudes."
+  },
+  "Emotionality": {
+    "type": "personalidad",
+    "msg": "Las personas que puntúan alto en este aspecto tienen buen acceso y conocimiento de sus propios sentimientos."
+  },
+  "Closeness": {
+    "type": "necesidades",
+    "msg": "Se relaciona con la familia y el establecimiento de un hogar."
+  },
+  "Friendliness": {
+    "type": "personalidad",
+    "msg": "Las personas amistosas genuinamente quieren a los demás y demuestran abiertamente sentimientos positivos hacia ellos."
+  },
+  "Self-discipline": {
+    "type": "personalidad",
+    "msg": "La autodisciplina, también llamada 'fuerza de voluntad', se refiere a la capacidad de persistir en las tareas difíciles o desagradables hasta que se completen."
+  },
+  "Modesty": {
+    "type": "personalidad",
+    "msg": "Las personas con alto valor de Modestia son poco pretenciosas, más bien humildes. Sin embargo, es importante entender que no necesariamente carecen de confianza en sí mismas y autoestima."
+  },
+  "Excitement": {
+    "type": "necesidades",
+    "msg": "Getting out there and living life, upbeat emotions, and having fun."
+  },
+  "Stability": {
+    "type": "necesidades",
+    "msg": "Un equivalente en el mundo físico. Tiene el sentido de algo sensible, intentado y probado."
+  },
+  "Anger": {
+    "type": "personalidad",
+    "msg": "Esta faceta mide la tendencia a sentirse enojado. Estas personas expresan disgusto y hostilidad según su nivel de Amabilidad."
+  },
+  "Liberty": {
+    "type": "necesidades",
+    "msg": "Deseo por la moda, por las cosas nuevas, como también por la necesidad de escapar."
+  },
+  "Dutifulness": {
+    "type": "personalidad",
+    "msg": "Esta faceta de la personalidad refleja la fuerza del sentido del deber y la obligación de una persona."
+  },
+  "Challenge": {
+    "type": "necesidades",
+    "msg": "La necesidad de lograr, de triunfar, de asumir un reto."
+  },
+  "Self-consciousness": {
+    "type": "personalidad",
+    "msg": "Las personas tímidas son sensibles a lo que otros piensan de ellas. Su preocupación por el rechazo y el ridículo las hacen sentir tímidas e incómodas alrededor de otros. Son fácilmente avergonzadas."
+  },
+  "Immoderation": {
+    "type": "personalidad",
+    "msg": "Las personas que puntúan en el rango alto de esta faceta sienten fuertes deseos y creen que tienen una gran dificultad para resistir, a pesar de que saben que es probable que se arrepentirán más tarde. Tienden a orientarse hacia los placeres y recompensas a corto plazo en lugar de consecuencias a largo plazo."
+  },
+  "Orderliness": {
+    "type": "personalidad",
+    "msg": "Las personas con puntuaciones altas en esta faceta son bien organizadas, ordenadas y limpias."
+  }
+}
