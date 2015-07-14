@@ -4,30 +4,38 @@
         "name": "Aplicación inicial en NodeJS de Personality Insights",
         "label": {
             "documentation": "Documentación",
-            "apiDetails": "Detalles de la API",
+            "apiOverview": "Resumen de la API",
             "learnMore": "Aprenda más acerca de este servicio",
-            "fork": "Fork",
+            "fork": "Fork en Github",
             "contactUs": "Contáctenos",
-            "watsonCommunity": "Comunidad Watson",
+            "community": "Comunidad",
             "keepExploring": "Continúe explorando",
-            "tryTheService": "Pruebe este servicio",
             "yourPersonality": "Su personalidad",
             "comparedFootNote": "Comparada con la mayoría de las personas que participaron en nuestras encuestas.",
             "personalityData": "Los datos detrás de su personalidad",
             "personalityVisualizationData": "Visualización de los datos de personalidad",
             "name": "Nombre",
             "value": "Valor",
-            "samplingError": "Error de muestreo"
+            "samplingError": "Error de muestreo",
+            "spanish": "Español",
+            "english": "Inglés",
+            "chooseLanguage": "Elije un idioma",
+            "forkAndDeployBluemix": "Fork y Deploy en Bluemix",
+            "resources" : "Recursos",
+            "services"  : "Servicios",
+            "docs"       : "Documentación",
+            "appGallery" : "Galería de Aplicaciones",
         },
         "input": {
             "placeHolder": "Por favor, ingrese el texto a analizar (mínimo de 100 palabras)...",
             "clear": "Borrar",
-            "analyze": "Analizar"
+            "analyze": "Analizar",
+            "title":"Texto de entrada"
         }
     },
     "service": {
         "description": [
-            "El servicio Watson Personality Insights utiliza análisis lingüístico para extraer un espectro",
+            "El servicio IBM Watson Personality Insights utiliza análisis lingüístico para extraer un espectro",
             "de características cognitivas y sociales de la información textual que una persona genera a través",
             "de mensajes de texto, tweets, publicaciones, y más."
         ]

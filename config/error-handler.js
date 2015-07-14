@@ -16,25 +16,25 @@
 
 'use strict';
 
-// Module dependencies
-var express    = require('express'),
-  errorhandler = require('errorhandler'),
-  bodyParser   = require('body-parser');
-
 module.exports = function (app) {
 
-  // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  // catch 404 and forward to error handler
+  app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.code = 404;
+    err.message = 'Not Found';
+    next(err);
+  });
 
-  // Setup static public directory
-  app.use(express.static(__dirname + '/../public'));
-  app.set('view engine', 'jade');
-  app.set('views', __dirname + '/../views');
+  // error handler
+  app.use(function(err, req, res, next) {
+    var error = {
+      code: err.code || 500,
+      error: err.error || err.message
+    };
+    console.log('error:', error);
 
-  // Add error handling in dev
-  if (!process.env.VCAP_SERVICES) {
-    app.use(errorhandler());
-  }
+    res.status(error.code).json(error);
+  });
 
 };

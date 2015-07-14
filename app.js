@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 IBM Corp. All Rights Reserved.
+ * Copyright 2015 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,13 @@
 
 'use strict';
 
-var express = require('express'),
-  app = express(),
-  bluemix = require('./config/bluemix'),
-  watson = require('watson-developer-cloud'),
-  extend = require('util')._extend,
-  fs = require('fs'),
-  dummy_text = fs.readFileSync('mobydick.txt'),
-  i18n = require('i18next');
-  
-// i18n settings
+var express  = require('express'),
+  app        = express(),
+  bluemix    = require('./config/bluemix'),
+  watson     = require('watson-developer-cloud'),
+  extend     = require('util')._extend;
+
+//i18n settings
 require('./config/i18n')(app);
 
 // Bootstrap application settings
@@ -33,10 +30,9 @@ require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
 var credentials = extend({
-    version: 'v2',
-    url: '<url>',
-    username: '<username>',
-    password: '<password>'
+  version: 'v2',
+  username: '<username>',
+  password: '<password>'
 }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
 // Create the service wrapper
@@ -44,21 +40,22 @@ var personalityInsights = watson.personality_insights(credentials);
 
 // render index page
 app.get('/', function(req, res) {
-  res.render('index', { content: dummy_text });
+  res.render('index');
 });
 
-app.post('/', function(req, res) {
-  personalityInsights.profile(req.body, function(err, profile) {
-    if (err) {
-      if (err.message){
-        err = { error: err.message };
-      }
-      return res.status(err.code || 500).json(err || 'Error processing the request');
-    }
-    else
-      return res.json(profile);
-  });
+// 1. Check if we have a captcha and reset the limit
+// 2. pass the request to the rate limit
+app.post('/', function(req, res, next) {
+    personalityInsights.profile(req.body, function(err, profile) {
+      if (err)
+        return next(err);
+      else
+        return res.json(profile);
+    });
 });
+
+// error-handler settings
+require('./config/error-handler')(app);
 
 var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port);

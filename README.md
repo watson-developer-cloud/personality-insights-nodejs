@@ -35,7 +35,7 @@ applications:
 5. Create the Personality Insights service in Bluemix
 
   ```sh
-  $ cf create-service personality_insights "IBM Watson Personality Insights Monthly Plan" personality-insights-service
+  $ cf create-service personality_insights standard personality-insights-service
   ```
 
 6. Push it live!
@@ -92,7 +92,8 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).
+  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).  
+  This sample code uses d3 and jQuery, both distributed under MIT license.
 
 ## Contributing
 

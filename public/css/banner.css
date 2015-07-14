@@ -1,0 +1,161 @@
+.img-container img {
+  width: 130px;
+  height: auto;
+}
+
+.service-container {
+    margin: auto;
+}
+.service-header {
+    padding: 0px;
+}
+
+.top-nav {
+  background-color: #323232;
+  padding-top: 15px;
+}
+.top-nav .heading {
+  margin: 0px;
+  color: #FDFDFD;
+  font-weight: 200;
+  font-size: 19px;
+}
+.top-nav .heading span {
+  font-weight: 500;
+}
+.top-nav a {
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: underline;
+  color: white;
+}
+.top-nav a:hover {
+  color: #E0E0E0;
+}
+.top-nav .right {
+  float: right;
+  margin-right: 20px;
+}
+.top-nav .heading {
+  float: left;
+}
+.top-nav .top-nav--logo-link:hover .top-nav--logo-wdc {
+  color: #5aaafa;
+}
+.top-nav--nav {
+  display: inline-block;
+  float: right;
+}
+.top-nav--nav-item {
+  display: inline-block;
+  float: left;
+  margin-left: 1.8rem;
+  padding-bottom: 1.5rem;
+}
+.top-nav--nav-item a {
+  text-decoration: none;
+  color: #c7c7c7;
+  font-size: 16px;
+  font-weight: 400;
+}
+.top-nav--nav-item a:hover {
+  color: white;
+  padding-bottom: calc(1.5rem - 2px);
+  border-bottom: 4px solid #5aaafa;
+}
+@media screen and (max-width: 630px) {
+  .top-nav .heading {
+    float: none;
+  }
+  .top-nav--nav {
+    display: block;
+    float: none;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .top-nav--nav-item {
+    display: block;
+    float: none;
+    margin-left: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .top-nav--nav-item a:hover {
+    border-bottom: none;
+  }
+}
+.header {
+  padding-bottom:0px;
+  margin-bottom: 0px;
+  position: relative;
+}
+.header h2 {
+  font-weight: 400;
+}
+.header h3 {
+  color: #00b2ef;
+  font-weight: 400;
+}
+
+.avatar {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.header a {
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: underline;
+  color: #404041;
+  display: block;
+  margin-bottom: 3px;
+}
+.header a:hover {
+  color: #777677;
+}
+
+.left {
+  font-weight: 400;
+  color: #fdfdfd;
+  font-size: 1rem;
+}
+
+.header {
+  background-color: #f4f4f4!important;
+  border-bottom: 2px solid #ececec!important;
+}
+
+.service-title {
+  color: #325c80!important;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.service-icon {
+  margin-top: 1.5rem!important;
+}
+
+.resource {
+  font-size: 1.5rem;
+}
+
+.link-icon {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.resource-item-container {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+
+.resource-item {
+  color: #A53725!important;
+  display: inline-block!important;
+  margin-right: 2rem;
+}
+
+.no-padding {
+  padding-left: 0px!important;
+}

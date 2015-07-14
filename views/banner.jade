@@ -1,0 +1,32 @@
+//- banner.jade
+div.row.service-container
+  div.col-lg-12.service-header
+    div.row.top-nav.navbar-fixed-top
+      div.container
+        a.top-nav--logo-link(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/")
+          h3.heading.left IBM 
+            span.top-nav--logo-wdc Watson Developer Cloud
+        nav.top-nav--nav
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html")=t('application.label.services')
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/")=t('application.label.docs')
+          li.top-nav--nav-item
+            a(href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html")=t('application.label.appGallery')
+          li.top-nav--nav-item
+            a(href="https://developer.ibm.com/watson/")=t('application.label.community')
+    div.row.header
+      div.container
+        div.avatar.img-container.col-lg-2.col-md-2.col-sm-2.hidden-xs
+          img.service-icon(src='/images/app.png')
+        div.col-lg-10.col-md-10.col-sm-10.col-xs-12.dialog-description
+          h1(style="font-size:50px;").service-title=t('application.name')
+          p=t('service.description')
+          div.resource
+            img.link-icon(src='/images/link.svg')
+            strong=t('application.label.resources') + ":"
+          div.resource-item-container
+            a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/apis/#!/personality-insights')= t('application.label.apiOverview')
+            a.resource-item(href='http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/')= t('application.label.documentation')
+            a.resource-item(href='https://github.com/watson-developer-cloud/personality-insights-nodejs')= t('application.label.fork')
+            a.resource-item(href='https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs.git')= t('application.label.forkAndDeployBluemix')

@@ -4,30 +4,38 @@
         "name"  : "Personality Insights NodeJS Starter Application",
         "label" : {
             "documentation"    : "Documentation",
-            "apiDetails"       : "API Details",
+            "apiOverview"      : "API Overview",
             "contactUs"        : "Contact Us",
             "keepExploring"    : "Keep Exploring",
-            "watsonCommunity"  : "Watson Community",
+            "community"        : "Community",
             "learnMore"        : "Learn more about this service",
-            "tryTheService"    : "Try the service",
-            "fork"             : "Fork",
+            "fork"             : "Fork on Github",
             "yourPersonality"  : "Your Personality",
             "comparedFootNote" : "Compared to most people who participated in our surveys.",
             "name"             : "Name",
             "samplingError"    : "Sampling Error",
             "value"            : "Value",
             "personalityVisualizationData" : "Visualization of Personality Data",
-            "personalityData"              : "Data Behind Your Personality"
+            "personalityData"              : "Data Behind Your Personality",
+            "spanish": "Spanish",
+            "english": "English",
+            "chooseLanguage": "Choose Language",
+            "forkAndDeployBluemix": "Fork and Deploy on Bluemix",
+            "resources"  : "Resources",
+            "services"   : "Services",
+            "docs"       : "Docs",
+            "appGallery" : "App Gallery"
         },
         
         "input" : {
             "placeHolder"  : "Please enter English text to analyze (minimum of 100 words)...",
             "clear"        : "Clear",
-            "analyze"      : "Analyze"
+            "analyze"      : "Analyze",
+            "title"        : "Input Text"
         }
     },
     "service" : {
-        "description" : "The Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through text messages, tweets, posts, and more."
+        "description" : "The IBM Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through blogs, tweets, forum posts, and more."
     }
     
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 IBM Corp. All Rights Reserved.
+ * Copyright 2015 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,15 +20,16 @@ $(document).ready(function() {
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
-    personImageUrl = 'images/app.png'; // Can be blank
+    personImageUrl = 'images/app.png', // Can be blank
+    language = 'en'; // language selection
 
   // Jquery variables
   var $content = $('.content'),
-    $loading = $('.loading'),
-    $error = $('.error'),
-    $errorMsg = $('.errorMsg'),
-    $traits = $('.traits'),
-    $results = $('.results');
+    $loading   = $('.loading'),
+    $error     = $('.error'),
+    $errorMsg  = $('.errorMsg'),
+    $traits    = $('.traits'),
+    $results   = $('.results');
 
   /**
    * Clear the "textArea"
@@ -47,7 +48,7 @@ $(document).ready(function() {
   /**
    * Update words count on copy/past
    */
-  $content.bind('paste', function(e) {
+  $content.bind('paste', function() {
     setTimeout(updateWordsCount, 100);
   });
 
@@ -58,6 +59,7 @@ $(document).ready(function() {
    */
   $('.analysis-btn').click(function(){
     $('.analysis-btn').blur();
+
     $loading.show();
     $error.hide();
     $traits.hide();
@@ -66,7 +68,8 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       data: {
-        text: $content.val()
+        text: $content.val(),
+        language: language
       },
       url: '/',
       dataType: 'json',
@@ -85,9 +88,10 @@ $(document).ready(function() {
       },
       error: function(xhr) {
         $loading.hide();
+
         var error;
         try {
-          error = JSON.parse(xhr.responseText);
+          error = JSON.parse(xhr.responseText || {});
         } catch(e) {}
         showError(error.error || error);
       }
@@ -287,6 +291,18 @@ function showVizualization(theProfile) {
     $('.wordsCount').css('color',wordsCount < 100 ? 'red' : 'gray');
     $('.wordsCount').text(wordsCount + ' words');
   }
+
+  function onSampleTextChange() {
+    var isEnglish = $('#english_radio').is(':checked');
+    language = isEnglish ? 'en' : 'es';
+
+    $.get('/text/' + language + '.txt').done(function(text) {
+      $content.val(text);
+      updateWordsCount();
+    });
+  }
+
+  onSampleTextChange();
   $content.keyup(updateWordsCount);
-  updateWordsCount();
+  $('.sample-radio').change(onSampleTextChange);
 });
