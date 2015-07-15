@@ -1,0 +1,206 @@
+{
+  "Anxiety": {
+    "type": "personality",
+    "msg": "The 'fight-or-flight' system of the brain of anxious individuals is too easily and too often engaged. Therefore, people who score high in this area often feel like something unpleasant, threatening or dangerous is about to happen."
+  },
+  "Harmony": {
+    "type": "needs",
+    "msg": "Appreciating other people, their viewpoints and their feelings."
+  },
+  "Adventurousness": {
+    "type": "personality",
+    "msg": "High scorers for this area are eager to try new activities, and experience different things. They find familiarity and routine boring."
+  },
+  "Trust": {
+    "type": "personality",
+    "msg": "People who score high in this area fundamentally assume that most people are fair, honest and have good intentions. They take people at face value and they are willing to forgive and forget."
+  },
+  "Agreeableness": {
+    "type": "personality",
+    "msg": "A tendency to be compassionate and cooperative towards others."
+  },
+  "Vulnerability": {
+    "type": "personality",
+    "msg": "High scorers for this area of personality have difficulty in coping with stress. They experience panic, confusion and helplessness when under pressure or when facing emergency situations."
+  },
+  "Ideal": {
+    "type": "needs",
+    "msg": "A desire for perfection and a sense of community."
+  },
+  "Self-expression": {
+    "type": "needs",
+    "msg": "Discovering and asserting one's own identity."
+  },
+  "Curiosity": {
+    "type": "needs",
+    "msg": "A desire to discover, find out and grow."
+  },
+  "Liberalism": {
+    "type": "personality",
+    "msg": "A readiness to challenge authority, convention and traditional values."
+  },
+  "Depression": {
+    "type": "personality",
+    "msg": "This facet measures normal differences in the way that people react to life's ups and downs."
+  },
+  "Neuroticism": {
+    "type": "personality",
+    "msg": "The extent to which a person's emotion is sensitive to the environment."
+  },
+  "Excitement-seeking": {
+    "type": "personality",
+    "msg": "High scorers for this area of personality are easily bored without high levels of stimulation."
+  },
+  "Self-enhancement": {
+    "type": "values",
+    "msg": "Seeking personal success for oneself."
+  },
+  "Self-efficacy": {
+    "type": "personality",
+    "msg": "Describes an individual's confidence in their ability to accomplish things."
+  },
+  "Cautiousness": {
+    "type": "personality",
+    "msg": "Describes the disposition to think carefully through possibilities before acting."
+  },
+  "Conscientiousness": {
+    "type": "personality",
+    "msg": "A tendency that a person acts in an organized or spontaneous way."
+  },
+  "Activity level": {
+    "type": "personality",
+    "msg": "Active individuals lead fast-paced and busy lives. They do things and move about quickly, energetically, vigorously and they are involved in many activities."
+  },
+  "Achievement striving": {
+    "type": "personality",
+    "msg": "Individuals who score high in this area strive hard to achieve excellence. Their drive to be recognised as successful keeps them on track as they work hard to achieve their goals."
+  },
+  "Imagination": {
+    "type": "personality",
+    "msg": "To imaginative individuals the real world is often too plain and ordinary. High scorers for this facet use fantasy, not as an escape, but as a way of creating for themselves, a more richer and interesting inner-world."
+  },
+  "Sympathy": {
+    "type": "personality",
+    "msg": "People who score high for this area are tender-hearted and compassionate."
+  },
+  "Altruism": {
+    "type": "personality",
+    "msg": "Altruistic people find helping other people genuinely rewarding. Altruistic people find that doing things for others is a form of self-fulfilment rather than self-sacrifice.."
+  },
+  "Conservation": {
+    "type": "values",
+    "msg": "Emphasizing self-restriction, order and resistance to change."
+  },
+  "Hedonism": {
+    "type": "values",
+    "msg": "Seeking pleasure and sensuous gratification for oneself."
+  },
+  "Openness to change": {
+    "type": "values",
+    "msg": "Emphasizing independent action, thought and feeling and readiness for new experience."
+  },
+  "Love": {
+    "type": "needs",
+    "msg": "Social contact, whether one to one or one to many. Any brand involved in bringing people together is tapping this need."
+  },
+  "Morality": {
+    "type": "personality",
+    "msg": "High scorers for this facet see no need for pretence or manipulation when dealing with others and are therefore candid, frank and genuine."
+  },
+  "Cooperation": {
+    "type": "personality",
+    "msg": "Individuals who score high for Compliance dislike confrontations. They are perfectly willing to compromise or to deny their own needs in order to get along with others."
+  },
+  "Extraversion": {
+    "type": "personality",
+    "msg": "A tendency to seek stimulation in the company of others."
+  },
+  "Artistic interests": {
+    "type": "personality",
+    "msg": "High scorers in this area love beauty, both in art and in nature. They become easily involved and absorbed in artistic and natural events."
+  },
+  "Assertiveness": {
+    "type": "personality",
+    "msg": "High scorers for Assertiveness like to charge and direct the activities of others. They tend to be leaders in groups."
+  },
+  "Self-transcendence": {
+    "type": "values",
+    "msg": "Showing concern for the welfare and interests of others."
+  },
+  "Openness": {
+    "type": "personality",
+    "msg": "The extent to which a person is open to experience a variety of activities."
+  },
+  "Practicality": {
+    "type": "needs",
+    "msg": "A desire for getting the job done, skill and efficiency. It also covers physical expression and experience."
+  },
+  "Cheerfulness": {
+    "type": "personality",
+    "msg": "This facet measures a person's ability to experience a range of positive feelings, including happiness, enthusiasm, optimism and joy."
+  },
+  "Intellect": {
+    "type": "personality",
+    "msg": "Intellect and artistic interests are the two most important, central aspects of Openness to Experience.."
+  },
+  "Gregariousness": {
+    "type": "personality",
+    "msg": "Gregarious people find the company of others pleasantly stimulating and rewarding. They enjoy the excitement of crowds."
+  },
+  "Emotionality": {
+    "type": "personality",
+    "msg": "People who score high for this facet have good access to and awareness of their own feelings."
+  },
+  "Closeness": {
+    "type": "needs",
+    "msg": "Being connected to family and setting up home."
+  },
+  "Friendliness": {
+    "type": "personality",
+    "msg": "Friendly people genuinely like other people and openly demonstrate positive feelings toward others."
+  },
+  "Self-discipline": {
+    "type": "personality",
+    "msg": "Self-discipline, called 'will-power' by many people, refers to the ability to persist at difficult or unpleasant tasks until they are completed."
+  },
+  "Modesty": {
+    "type": "personality",
+    "msg": "High scorers are unassuming, rather self-effacing and humble. However it is important to understand that they are not necessarily lacking in self-confidence or self-esteem."
+  },
+  "Excitement": {
+    "type": "needs",
+    "msg": "Getting out there and living life, upbeat emotions, and having fun."
+  },
+  "Stability": {
+    "type": "needs",
+    "msg": "An equivalent in the physical world. It has the sense of something sensible, tried and tested."
+  },
+  "Anger": {
+    "type": "personality",
+    "msg": "This facet measures the tendency to feel angry. Whether or not a person expresses annoyance and hostility depends on his or her level of Agreeableness."
+  },
+  "Liberty": {
+    "type": "needs",
+    "msg": "A desire for fashion, new things, as well as the need for escape."
+  },
+  "Dutifulness": {
+    "type": "personality",
+    "msg": "This facet of personality reflects the strength of a person's sense of duty and obligation."
+  },
+  "Challenge": {
+    "type": "needs",
+    "msg": "The urge to achieve, to succeed, to take up a challenge."
+  },
+  "Self-consciousness": {
+    "type": "personality",
+    "msg": "Self-conscious individuals are sensitive about what others think of them. Their concern about rejection and ridicule cause them to feel shy and uncomfortable around others. They are easily embarrassed."
+  },
+  "Immoderation": {
+    "type": "personality",
+    "msg": "People who score in the high range for Immoderation feel strong cravings and urges that they have difficulty resisting - even though they know that they are likely to regret it later. They tend to be oriented toward short-term pleasures and rewards rather than long-term consequences."
+  },
+  "Orderliness": {
+    "type": "personality",
+    "msg": "People with high scores in this area are well-organised, tidy and neat."
+  }
+}

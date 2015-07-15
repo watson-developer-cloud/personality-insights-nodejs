@@ -162,12 +162,7 @@ $(document).ready(function() {
    */
   function showTextSummary(data) {
     console.log('showTextSummary()');
-    var paragraphs = [
-      assembleTraits(data.tree.children[0]),
-      assembleFacets(data.tree.children[0]),
-      assembleNeeds(data.tree.children[1]),
-      assembleValues(data.tree.children[2])
-    ];
+    var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
     div.empty();
     paragraphs.forEach(function(sentences) {
@@ -293,8 +288,8 @@ function showVizualization(theProfile) {
   function updateWordsCount() {
     var text = $content.val();
     var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCount').css('color',wordsCount < 100 ? 'red' : 'gray');
-    $('.wordsCount').text(wordsCount + ' words');
+    $('.wordsCountFootnote').css('color',wordsCount < 100 ? 'red' : 'gray');
+    $('.wordsCount').text(wordsCount);
   }
 
   function onSampleTextChange() {
