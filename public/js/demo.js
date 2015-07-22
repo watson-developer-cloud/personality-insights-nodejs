@@ -163,7 +163,7 @@ $(document).ready(function() {
           .find('span').html(elem.id).end()
           .end()
           .find('.tvalue')
-            .find('span').html(elem.value === '' ?  '' : (elem.value + ' (± '+ elem.sampling_error+')'))
+            .find('span').html(elem.value === '' ?  '' : elem.value)
             .end()
           .end()
           .appendTo(table);
