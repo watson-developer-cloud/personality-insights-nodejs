@@ -140,7 +140,7 @@ $(document).ready(function() {
           .find('span').html(elem.id).end()
           .end()
           .find('.tvalue')
-            .find('span').html(elem.value === '' ?  '' : (elem.value + ' (± '+ elem.sampling_error+')'))
+            .find('span').html(elem.value === '' ?  '' : (elem.value))
             .end()
           .end()
           .appendTo(table);
@@ -271,8 +271,7 @@ function showVizualization(theProfile) {
           arr.push({
             'id': t.name,
             'title': t.children ? true : false,
-            'value': (typeof (t.percentage) !== 'undefined') ? Math.floor(t.percentage * 100) + '%' : '',
-            'sampling_error': (typeof (t.sampling_error) !== 'undefined') ? Math.floor(t.sampling_error * 100) + '%' : ''
+            'value': (typeof (t.percentage) !== 'undefined') ? Math.floor(t.percentage * 100) + '%' : ''
           });
         }
         if (t.children && t.id !== 'sbh') {
