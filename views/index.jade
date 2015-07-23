@@ -5,30 +5,31 @@ block row-content
   .container
     div.row
       div.col-lg-6.col-md-12.col-xs-12
-        h2 Input Text
+        h2=t('application.input.title')
         div.well
           div.form-group.row
             div.col-lg-12.col-xs-12(style='padding:0px;')
-              label.col-lg-6.col-md-6.col-xs-6.control-label Choose Language:
+              label.col-lg-6.col-md-6.col-xs-6.control-label=t('application.label.chooseLanguage') + ":"
               div.col-lg-6.col-md-6.col-xs-6.sample-radio-list
                 div.sample-radio-container
                   label
                     input#english_radio.sample-radio(type='radio', name='sample_text', value='en', checked)
-                    | English
+                    span=t('application.label.english')
                 div.sample-radio-container
                   label
                     input.sample-radio(type='radio', name='sample_text', value='es')
-                    | Spanish
+                    span=t('application.label.spanish')
               textarea.content.form-control(rows='12', required='true', name='text'
-                placeholder='Please enter the text to analyze (minimum of 100 words)...')
+                placeholder=t('application.input.placeHolder'))
                 |#{content}
-              div.text-right
+              div.text-right.wordsCountFootnote
                 span.wordsCount.small
+                span.small=" " + t('application.label.words')
           div.form-group.row.buttons-container
             div.col-lg-4.col-xs-4
-              button.btn.btn-block.clear-btn(type='button') Clear
+              button.btn.btn-block.clear-btn(type='button')=t('application.input.clear')
             div.col-lg-4.col-lg-push-4.col-xs-4.col-xs-push-4
-              button.btn.btn-block.analysis-btn(type='button') Analyze
+              button.btn.btn-block.analysis-btn(type='button')=t('application.input.analyze')
       div.col-lg-6.col-md-12.col-xs-12
         div.form-group.row.loading.text-center.loading(style='display:none;')
           h2 &nbsp;
@@ -38,18 +39,18 @@ block row-content
           div.well
             p.errorMsg
         div.results(style='display: none;')
-          h2 Your Personality*
+          h2= t('application.label.yourPersonality') + "*"
           div.well
             div.summary-div
             div.text-right(style='color: gray')
-              em.small *Compared to most people who participated in our surveys.
+              em.small= "*" + t('application.label.comparedFootNote')
       div.results(style='display: none;')
         div.row
           div.col-lg-5.col-md-12.col-xs-12
-            h3 Data Behind Your Personality
+            h3=t('application.label.personalityData')
             div.col555px.well.traits(style='display: none;')
           div.col-lg-7.col-xs-12.col-md-12
-            h3 Visualization of Personality Data
+            h3=t('application.label.personalityVisualizationData')
             div.well#vizcontainer
 
       //- templates to avoid to create HTML in javascript
@@ -57,9 +58,9 @@ block row-content
         div#header-template
           div.row.theader
             .col-lg-4.col-xs-4
-              span Name
+              span= t('application.label.name')
             .col-lg-8.col-xs-8.text-right
-              span Value ± Sampling Error
+              span= t('application.label.value') + " ±  " + t('application.label.samplingError')
 
         div#trait-template
           div.row

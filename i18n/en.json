@@ -1,0 +1,42 @@
+{
+    "application": {
+        "title" : "Personality Insights",
+        "name"  : "Personality Insights",
+        "label" : {
+            "documentation"    : "Documentation",
+            "apiOverview"      : "API Overview",
+            "contactUs"        : "Contact Us",
+            "keepExploring"    : "Keep Exploring",
+            "community"        : "Community",
+            "learnMore"        : "Learn more about this service",
+            "fork"             : "Fork on Github",
+            "yourPersonality"  : "Your Personality",
+            "comparedFootNote" : "Compared to most people who participated in our surveys.",
+            "name"             : "Name",
+            "samplingError"    : "Sampling Error",
+            "value"            : "Value",
+            "personalityVisualizationData" : "Visualization of Personality Data",
+            "personalityData"              : "Data Behind Your Personality",
+            "spanish": "Spanish",
+            "english": "English",
+            "chooseLanguage": "Choose Language",
+            "forkAndDeployBluemix": "Fork and Deploy on Bluemix",
+            "resources"  : "Resources",
+            "services"   : "Services",
+            "docs"       : "Docs",
+            "appGallery" : "App Gallery",
+            "words" : "words"
+        },
+        
+        "input" : {
+            "placeHolder"  : "Please enter English text to analyze (minimum of 100 words)...",
+            "clear"        : "Clear",
+            "analyze"      : "Analyze",
+            "title"        : "Input Text"
+        }
+    },
+    "service" : {
+        "description" : "The IBM Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through blogs, tweets, forum posts, and more."
+    }
+    
+}

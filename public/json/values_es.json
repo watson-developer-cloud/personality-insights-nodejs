@@ -1,0 +1,122 @@
+{
+    "Hedonism": [
+        {
+            "Term": "Disfrutar de la vida", 
+            "LowDescription": "Prefiere actividades con un propósito más grande que el sólo deleite personal", 
+            "HighDescription": "Tiene gran motivación por disfrutar la vida en su plenitud"
+        }
+    ], 
+    "Self-transcendence": [
+        {
+            "Term": "Ayudar a los demás", 
+            "LowDescription": "Cree que las personas pueden encargarse de sus propios asuntos sin interferencia", 
+            "HighDescription": "Cree que es importante cuidar de las personas que lo rodean"
+        }, 
+        {
+            "Term": "La justicia", 
+            "LowDescription": "Cree que son las personas crean sus oportunidades", 
+            "HighDescription": "Cree en la justicia social y la igualdad para todos"
+        }, 
+        {
+            "Term": "La justicia social", 
+            "LowDescription": "Cree que son las personas crean sus oportunidades", 
+            "HighDescription": "Cree en la justicia social y la igualdad para todos"
+        }, 
+        {
+            "Term": "La igualdad", 
+            "LowDescription": "Cree que son las personas crean sus oportunidades", 
+            "HighDescription": "Cree en la justicia social y la igualdad para todos"
+        }, 
+        {
+            "Term": "El servicio comunitario", 
+            "LowDescription": "Cree que las personas pueden encargarse de sus propios asuntos sin interferencia", 
+            "HighDescription": "Cree que es importante cuidar de las personas que lo rodean"
+        }
+    ], 
+    "Conservation": [
+        {
+            "Term": "Las tradiciones", 
+            "LowDescription": "Le importa más seguir su propio camino que seguir el camino de otros", 
+            "HighDescription": "Tiene mucho respeto por los grupos a los que pertenece y sigue su guía"
+        }, 
+        {
+            "Term": "La armonía", 
+            "LowDescription": "Decide qué es lo correcto basado en sus creencias, no en lo que la gente piensa", 
+            "HighDescription": "Cree que las reglas existen por una razón y nunca intenta trasgredirlas"
+        }, 
+        {
+            "Term": "La humildad", 
+            "LowDescription": "Decide qué es lo correcto basado en sus creencias, no en lo que la gente piensa", 
+            "HighDescription": "Ve valor en deferir a otros"
+        }, 
+        {
+            "Term": "Las normas sociales", 
+            "LowDescription": "Decide qué es lo correcto basado en sus creencias, no en lo que la gente piensa", 
+            "HighDescription": "Cree que las reglas existen por una razón y nunca intenta trasgredirlas"
+        }, 
+        {
+            "Term": "La seguridad", 
+            "LowDescription": "Prefiere la seguridad a costa de dejar a un lado sus metas", 
+            "HighDescription": "Cree que es importante salvaguardar la seguridad"
+        }, 
+        {
+            "Term": "La seguridad", 
+            "LowDescription": "Prefiere estar seguro a costa de dejar a un lado sus metas", 
+            "HighDescription": "Cree que es importante salvaguardar la seguridad"
+        }
+    ], 
+    "Openness-to-change": [
+        {
+            "Term": "Ser independiente", 
+            "LowDescription": "Recibe de buena manera que otros dirijan sus actividades", 
+            "HighDescription": "Le gusta establecer sus propias metas para decidir cómo alcanzarlas mejor"
+        }, 
+        {
+            "Term": "La emoción", 
+            "LowDescription": "Se apega a las cosas que conoce antes que arriesgarse a probar algo nuevo y riesgoso", 
+            "HighDescription": "Está ansioso por buscar experiencias nuevas y emocionantes"
+        }, 
+        {
+            "Term": "La creatividad", 
+            "LowDescription": "Se apega a las cosas que conoce antes que arriesgarse a probar algo nuevo y riesgoso", 
+            "HighDescription": "Está ansioso por buscar experiencias nuevas y emocionantes"
+        }, 
+        {
+            "Term": "La curiosidad", 
+            "LowDescription": "Se apega a las cosas que conoce antes que arriesgarse a probar algo nuevo y riesgoso", 
+            "HighDescription": "Está ansioso por buscar experiencias nuevas y emocionantes"
+        }, 
+        {
+            "Term": "La autonomía", 
+            "LowDescription": "Recibe de buena manera que otros dirijan sus actividades", 
+            "HighDescription": "Le gusta establecer sus propias metas para decidir cómo alcanzarlas mejor"
+        }, 
+        {
+            "Term": "La libertad", 
+            "LowDescription": "Recibe de buena manera que otros dirijan sus actividades", 
+            "HighDescription": "Le gusta establecer sus propias metas para decidir cómo alcanzarlas mejor"
+        }
+    ], 
+    "Self-enhancement": [
+        {
+            "Term": "Alcanzar el éxito", 
+            "LowDescription": "Toma decisiones sin considerar cómo muestran sus talentos", 
+            "HighDescription": "Busca oportunidades para autosuperase y para demostrar que es una persona capaz"
+        }, 
+        {
+            "Term": "Mejorar su estatus social", 
+            "LowDescription": "Está conforme con su estatus social y no siente necesidad de mejorarlo", 
+            "HighDescription": "Se esfuerza considerablemente para mejorar su estatus e imagen pública"
+        }, 
+        {
+            "Term": "La ambición", 
+            "LowDescription": "Está conforme con su estatus social y no siente necesidad de mejorarlo", 
+            "HighDescription": "Siente que es importante avanzar para alcanzar metas"
+        }, 
+        {
+            "Term": "Los grandes logros", 
+            "LowDescription": "Toma decisiones sin considerar cómo muestran sus talentos", 
+            "HighDescription": "Busca oportunidades para autosuperase y para demostrar que es una persona capaz"
+        }
+    ]
+}

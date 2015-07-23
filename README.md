@@ -35,7 +35,7 @@ applications:
 5. Create the Personality Insights service in Bluemix
 
   ```sh
-  $ cf create-service personality_insights standard personality-insights-service
+  $ cf create-service personality_insights standard personality-insights-service-standard
   ```
 
 6. Push it live!
@@ -81,6 +81,39 @@ See the full [Getting Started][getting_started] documentation for more details, 
 4. Start the application
 5.  `node app.js`
 6. Go to `http://localhost:3000`
+
+## i18n Support
+
+  The application has i18n support and is available in English and 
+  Spanish. The language is automatically selected from the browser's
+  locale.
+  
+  To add a new translation follow the steps below:
+  
+  1. Translating the static text:
+  	1. Locate the `en.json` file present in the `i18n` directory. This 
+       file includes all the messages and labels in English.
+  	1. Copy `en.json` and name the new file with the format `ll-CC.json` or 
+       `ll.json`, where `ll` is the language code and `CC` is the country 
+       code. For example, a new translation for argentinian Spanish would 
+       be named after `es-AR.json`. You may omit the country code to make 
+       the translation global for the language.
+	1. Translate each English string to the desired language and save it.
+  1. Translating the personality summary:
+  	1. Locate the JSON files present in `public/json/` directory.
+  	   These are:
+	     * `facets.json`
+	     * `needs.json`
+	     * `summary.json`
+	     * `traits.json`
+	     * `values.json`
+	1. Copy each file and name it with the format `<filename>_ll-CC.json`
+	   or `<filename>_ll-CC.json`. For example, a Portuguese language
+           translations for `facets.json` will result in a new file named 
+           `facets_pt.json`, an UK English translation for `traits.json` will
+           result in a new file named `traits_en-UK.json`.
+	1. Translate all the strings present in the new files to the desired
+	   language and save them.
 
 ## Troubleshooting
 

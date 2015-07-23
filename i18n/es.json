@@ -1,0 +1,44 @@
+{
+    "application": {
+        "title": "Personality Insights",
+        "name": "Personality Insights",
+        "label": {
+            "documentation": "Documentación",
+            "apiOverview": "Resumen de la API",
+            "learnMore": "Aprenda más acerca de este servicio",
+            "fork": "Fork en Github",
+            "contactUs": "Contáctenos",
+            "community": "Comunidad",
+            "keepExploring": "Continúe explorando",
+            "yourPersonality": "Su personalidad",
+            "comparedFootNote": "Comparada con la mayoría de las personas que participaron en nuestras encuestas.",
+            "personalityData": "Los datos detrás de su personalidad",
+            "personalityVisualizationData": "Visualización de los datos de personalidad",
+            "name": "Nombre",
+            "value": "Valor",
+            "samplingError": "Error de muestreo",
+            "spanish": "Español",
+            "english": "Inglés",
+            "chooseLanguage": "Elije un idioma",
+            "forkAndDeployBluemix": "Fork y Deploy en Bluemix",
+            "resources" : "Recursos",
+            "services"  : "Servicios",
+            "docs"       : "Documentación",
+            "appGallery" : "Galería de Aplicaciones",
+            "words" : "palabras"
+        },
+        "input": {
+            "placeHolder": "Por favor, ingrese el texto a analizar (mínimo de 100 palabras)...",
+            "clear": "Borrar",
+            "analyze": "Analizar",
+            "title":"Texto de entrada"
+        }
+    },
+    "service": {
+        "description": [
+            "El servicio IBM Watson Personality Insights utiliza análisis lingüístico para extraer un espectro",
+            "de características cognitivas y sociales de la información textual que una persona genera a través",
+            "de mensajes de texto, tweets, publicaciones, y más."
+        ]
+    }
+}

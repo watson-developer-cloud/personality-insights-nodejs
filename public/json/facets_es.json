@@ -1,0 +1,212 @@
+{
+    "Artistic-interests": {
+        "HighTerm": "Una persona que aprecia el arte", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Disfruta de la belleza y busca experiencias creativas", 
+        "LowDescription": "Le interesan menos las actividades artísticas o creativas que la mayoría de las personas que participaron de nuestras encuestas", 
+        "LowTerm": "Una persona desinteresada por el arte"
+    }, 
+    "Dutifulness": {
+        "HighTerm": "Una persona que cumple con su deber", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Toma las reglas y las obligaciones seriamente, aún cuando son inconvenientes", 
+        "LowDescription": "Hace lo que quiere sin importar las reglas y las obligaciones", 
+        "LowTerm": "Despreocupado"
+    }, 
+    "Cooperation": {
+        "HighTerm": "Acomodaticio", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Es fácil de complacer e intenta evitar posibles confrontaciones", 
+        "LowDescription": "No te importa contradecir a los demás", 
+        "LowTerm": "Contrario"
+    }, 
+    "Self-consciousness": {
+        "HighTerm": "Consciente de sí mismo", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Es sensible a lo que las demás personas podrían estar pensando acerca de usted", 
+        "LowDescription": "Es difícil de avergonzar y confía en sí mismo la mayor parte del tiempo", 
+        "LowTerm": "Confiado"
+    }, 
+    "Orderliness": {
+        "HighTerm": "Organizado", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Siente una fuerte necesidad de mantener una vida estructurada", 
+        "LowDescription": "No le dedica mucho tiempo a organizarse en su vida diaria", 
+        "LowTerm": "Desestructurado"
+    }, 
+    "Sympathy": {
+        "HighTerm": "Empático", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Siente lo que otros sienten y es compasivo con ellos", 
+        "LowDescription": "Cree que las personas deberían confiar más en sí mismos que en otras personas", 
+        "LowTerm": "Una persona de gran fortaleza"
+    }, 
+    "Activity-level": {
+        "HighTerm": "Energético", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Disfruta llevar un ritmo de vida acelerado, una agenda ocupada con muchas actividades", 
+        "LowDescription": "Aprecia llevar un ritmo de vida relajado", 
+        "LowTerm": "Relajado"
+    }, 
+    "Self-efficacy": {
+        "HighTerm": "Seguro de sí mismo", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Siente que tiene la habilidad de triunfar en las tareas que se propone realizar", 
+        "LowDescription": "Frecuentemente duda acerca de su habilidad para alcanzar sus metas", 
+        "LowTerm": "Inseguro de sí misma"
+    }, 
+    "Self-discipline": {
+        "HighTerm": "Persistente", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Puede hacer frente y llevar a cabo tareas difíciles", 
+        "LowDescription": "Le da trabajo llevar adelante tareas difíciles por un largo periodo de tiempo", 
+        "LowTerm": "Intermitente"
+    }, 
+    "Altruism": {
+        "HighTerm": "Altruista", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Se siente realizado ayudando a otros y dejará sus cosas de lado para hacerlo", 
+        "LowDescription": "Está más enfocado en cuidar de usted mismo que en dedicar tiempo a otras personas", 
+        "LowTerm": "Individualista"
+    }, 
+    "Cautiousness": {
+        "HighTerm": "Prudente", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Piensa cuidadosamente acerca de sus decisiones antes de tomarlas", 
+        "LowDescription": "Prefiere tomar acción inmediatamente antes que invertir tiempo deliberando qué decisión tomar", 
+        "LowTerm": "Audaz"
+    }, 
+    "Morality": {
+        "HighTerm": "Intransigente", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Piensa que está mal tomar ventaja de los demás para avanzar", 
+        "LowDescription": "Utiliza cualquier medio posible para conseguir lo que quiere y está cómodo con ello", 
+        "LowTerm": "Una persona comprometida"
+    }, 
+    "Anxiety": {
+        "HighTerm": "Propenso a preocuparse", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Tiende a preocuparse acerca de las cosas que podrían pasar", 
+        "LowDescription": "Tiende a sentirse tranquilo y a confiar en sí mismo", 
+        "LowTerm": "Seguro de sí mismo"
+    }, 
+    "Emotionality": {
+        "HighTerm": "Emocionalmente consciente", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Es consciente de sus sentimientos y de cómo expresarlos", 
+        "LowDescription": "No piensa frecuentemente acerca de sus emociones ni las expresa abiertamente", 
+        "LowTerm": "Desapasionado"
+    }, 
+    "Vulnerability": {
+        "HighTerm": "Susceptible al estrés", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Se abruma fácilmente en situaciones de estrés", 
+        "LowDescription": "Maneja eventos inesperados con calma y efectivamente", 
+        "LowTerm": "Una persona que mantiene la calma bajo presión"
+    }, 
+    "Immoderation": {
+        "HighTerm": "Hedonista", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Siente fuertemente sus deseos y es fácilmente tentado por ellos", 
+        "LowDescription": "Controla sus deseos, los cuales no son particularmente intensos", 
+        "LowTerm": "Sereno"
+    }, 
+    "Friendliness": {
+        "HighTerm": "Extrovertido", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Hace amigos fácilmente y se siente cómodo estando con otras personas", 
+        "LowDescription": "Es una persona reservada y no deja a muchas personas entrar", 
+        "LowTerm": "Reservado"
+    }, 
+    "Achievement-striving": {
+        "HighTerm": "Una persona motivada", 
+        "Big5": "Responsabilidad", 
+        "HighDescription": "Se propone grandes metas y trabaja duro para alcanzarlas", 
+        "LowDescription": "Está conforme con sus logros y no siente la necesidad de ponerse metas más ambiciosas", 
+        "LowTerm": "Una persona satisfecha"
+    }, 
+    "Modesty": {
+        "HighTerm": "Modesto", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Se siente cómodo siendo el centro de atención", 
+        "LowDescription": "Se tiene una estima alta, se encuentra satisfecho con quién es", 
+        "LowTerm": "Orgulloso"
+    }, 
+    "Excitement-seeking": {
+        "HighTerm": "Una persona que busca la emoción", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Le emociona tomar riesgos y se aburre si no se ve envuelto en mucha acción", 
+        "LowDescription": "Prefiere las actividades tranquilas, pacíficas y seguras", 
+        "LowTerm": "Una persona que busca la calma"
+    }, 
+    "Assertiveness": {
+        "HighTerm": "Asertivo", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Tiende a expresarse y a hacerse cargo de las situaciones, y se encuentra cómodo liderando grupos", 
+        "LowDescription": "Prefiere escuchar antes que hablar, especialmente en situaciones de grupo", 
+        "LowTerm": "Callado"
+    }, 
+    "Adventurousness": {
+        "HighTerm": "Audaz", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Está deseoso de tener nuevas experiencias", 
+        "LowDescription": "Disfruta de las rutinas familiares y prefiere no desviarse de ellas", 
+        "LowTerm": "Consistente"
+    }, 
+    "Gregariousness": {
+        "HighTerm": "Sociable", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Disfruta estando en compañía de otros", 
+        "LowDescription": "Tiene un fuerte deseo de tener tiempo para usted mismo", 
+        "LowTerm": "Independiente"
+    }, 
+    "Cheerfulness": {
+        "HighTerm": "Alegre", 
+        "Big5": "Extraversión", 
+        "HighDescription": "Es una persona alegre y comparte esa alegría con el mundo", 
+        "LowDescription": "Generalmente es serio y no hace muchas bromas", 
+        "LowTerm": "Solemne"
+    }, 
+    "Imagination": {
+        "HighTerm": "Imaginativo", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Su imaginación vuela libre", 
+        "LowDescription": "Prefiere hechos antes que la fantasía", 
+        "LowTerm": "Una persona con los pies en la tierra"
+    }, 
+    "Depression": {
+        "HighTerm": "Melancólico", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Piensa bastante seguido en las cosas con las que está disconforme", 
+        "LowDescription": "Generalmente se acepta a usted mismo tal cual es", 
+        "LowTerm": "Una persona satisfecha"
+    }, 
+    "Anger": {
+        "HighTerm": "Intenso", 
+        "Big5": "Rango emocional", 
+        "HighDescription": "Tiene un temperamento fuerte, especialmente cuando las cosas no funcionan como espera", 
+        "LowDescription": "Es difícil hacerle enojar", 
+        "LowTerm": "Apacible"
+    }, 
+    "Trust": {
+        "HighTerm": "Una persona que confía en los demás", 
+        "Big5": "Afabilidad", 
+        "HighDescription": "Cree lo mejor de los demás y confía fácilmente en las personas", 
+        "LowDescription": "Se cuida de las intenciones de los demás y no confía fácilmente", 
+        "LowTerm": "Cuidadoso con los demás"
+    }, 
+    "Intellect": {
+        "HighTerm": "Filosófico", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Está abierto a nuevas ideas, le intrigan y ama explorarlas", 
+        "LowDescription": "Prefiere lidiar con el mundo tal cual es, raramente considerando ideas abstractas", 
+        "LowTerm": "Concreto"
+    }, 
+    "Liberalism": {
+        "HighTerm": "Desafiante ante la autoridad", 
+        "Big5": "Apertura a experiencias", 
+        "HighDescription": "Prefiere desafiar a la autoridad y  a los valores tradicionales para lograr cambios positivos", 
+        "LowDescription": "Prefiere seguir tradiciones para mantener una sensación de estabilidad", 
+        "LowTerm": "Respetuoso de la autoridad"
+    }
+}
