@@ -1,9 +1,9 @@
 //- layout.jade
 doctype html
-html(lang='en')
+html(lang=i18n.lng())
   head
     block title
-      title Personality Insights
+      title= t('application.title')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -14,6 +14,7 @@ html(lang='en')
     link(rel='stylesheet', href='/css/banner.css')
     link(rel='stylesheet', href='/css/style.css')
     script(type='text/javascript', src='https://www.google.com/recaptcha/api.js')
+
   body
     include banner.jade
 
@@ -23,4 +24,8 @@ html(lang='en')
     script(type='text/javascript', src='/js/d3.v2.min.js')
     script(type='text/javascript', src='/js/demo.js')
     script(type='text/javascript', src='/js/personality.js')
+    script(type='text/javascript', src='/js/string-utils.js')
+    script(type='text/javascript', src='/js/i18n.js')
     script(type='text/javascript', src='/js/textsummary.js')
+    script.
+        textSummary.init('json');

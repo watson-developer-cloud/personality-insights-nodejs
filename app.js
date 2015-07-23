@@ -21,8 +21,11 @@ var express  = require('express'),
   bluemix    = require('./config/bluemix'),
   watson     = require('watson-developer-cloud'),
   extend     = require('util')._extend,
-  rateLimit = require('./config/captcha-rate-limit')(app);
+  rateLimit  = require('./config/captcha-rate-limit')(app),
+  i18n       = require('i18next');
 
+//i18n settings
+require('./config/i18n')(app);
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -44,14 +47,15 @@ app.get('/', function(req, res) {
 
 // 1. Check if we have a captcha and reset the limit
 // 2. pass the request to the rate limit
-app.post('/', rateLimit.check, rateLimit.limit,
-  function(req, res, next) {
-    personalityInsights.profile(req.body, function(err, profile) {
-      if (err)
-        return next(err);
-      else
-        return res.json(profile);
-    });
+app.post('/',rateLimit.check, rateLimit.limit, function(req, res, next) {
+  var parameters = extend(req.body, { acceptLanguage : i18n.lng() });
+
+  personalityInsights.profile(parameters, function(err, profile) {
+    if (err)
+      return next(err);
+    else
+      return res.json(profile);
+  });
 });
 
 // error-handler settings

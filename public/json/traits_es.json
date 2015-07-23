@@ -2,55 +2,55 @@
     "Agreeableness_minus_Conscientiousness_minus": [
         {
             "perceived_negatively": true,
-            "word": "inconsiderate"
+            "word": "desconsiderado"
         },
         {
             "perceived_negatively": true,
-            "word": "impolite"
+            "word": "descortés"
         },
         {
             "perceived_negatively": true,
-            "word": "distrustful"
+            "word": "desconfiado"
         },
         {
             "perceived_negatively": true,
-            "word": "uncooperative"
+            "word": "poco cooperativo"
         },
         {
             "perceived_negatively": true,
-            "word": "thoughtless"
+            "word": "irreflexivo"
         }
     ],
     "Agreeableness_minus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "strict"
+            "word": "estricto"
         },
         {
             "perceived_negatively": false,
-            "word": "rigid"
+            "word": "rígido"
         },
         {
             "perceived_negatively": true,
-            "word": "stern"
+            "word": "duro"
         }
     ],
     "Agreeableness_minus_Extraversion_minus": [
         {
             "perceived_negatively": true,
-            "word": "cynical"
+            "word": "cínico"
         },
         {
             "perceived_negatively": true,
-            "word": "wary of others"
+            "word": "cauto con los demás"
         },
         {
             "perceived_negatively": true,
-            "word": "seclusive"
+            "word": "solitario"
         },
         {
             "perceived_negatively": true,
-            "word": "detached"
+            "word": "desapegado"
         },
         {
             "perceived_negatively": true,
@@ -58,193 +58,193 @@
         },
         {
             "perceived_negatively": true,
-            "word": "glum"
+            "word": "sombrío"
         }
     ],
     "Agreeableness_minus_Extraversion_plus": [
         {
             "perceived_negatively": true,
-            "word": "bullheaded"
+            "word": "obstinado"
         },
         {
             "perceived_negatively": true,
-            "word": "abrupt"
+            "word": "abrupto"
         },
         {
             "perceived_negatively": true,
-            "word": "crude"
+            "word": "crudo"
         },
         {
             "perceived_negatively": true,
-            "word": "combative"
+            "word": "combativo"
         },
         {
             "perceived_negatively": true,
-            "word": "rough"
+            "word": "duro"
         },
         {
             "perceived_negatively": false,
-            "word": "sly"
+            "word": "astuto"
         },
         {
             "perceived_negatively": true,
-            "word": "manipulative"
+            "word": "manipulador"
         },
         {
             "perceived_negatively": true,
-            "word": "gruff"
+            "word": "hosco"
         },
         {
             "perceived_negatively": true,
-            "word": "devious"
+            "word": "taimado"
         }
     ],
     "Agreeableness_minus_Neuroticism_minus": [
         {
             "perceived_negatively": true,
-            "word": "insensitive"
+            "word": "insensible"
         },
         {
             "perceived_negatively": true,
-            "word": "unaffectionate"
+            "word": "poco afectuoso"
         },
         {
             "perceived_negatively": true,
-            "word": "passionless"
+            "word": "desapasionado"
         },
         {
             "perceived_negatively": true,
-            "word": "unemotional"
+            "word": "una persona sin emociones"
         }
     ],
     "Agreeableness_minus_Neuroticism_plus": [
         {
             "perceived_negatively": true,
-            "word": "critical"
+            "word": "crítico"
         },
         {
             "perceived_negatively": true,
-            "word": "selfish"
+            "word": "egoísta"
         },
         {
             "perceived_negatively": true,
-            "word": "ill-tempered"
+            "word": "de mal genio"
         },
         {
             "perceived_negatively": true,
-            "word": "antagonistic"
+            "word": "antagonista"
         },
         {
             "perceived_negatively": true,
-            "word": "grumpy"
+            "word": "gruñón"
         },
         {
             "perceived_negatively": true,
-            "word": "bitter"
+            "word": "amargado"
         },
         {
             "perceived_negatively": true,
-            "word": "disagreeable"
+            "word": "desagradable"
         },
         {
             "perceived_negatively": true,
-            "word": "demanding"
+            "word": "exigente"
         }
     ],
     "Agreeableness_minus_Openness_minus": [
         {
             "perceived_negatively": true,
-            "word": "coarse"
+            "word": "tosco"
         },
         {
             "perceived_negatively": true,
-            "word": "tactless"
+            "word": "una persona sin tacto"
         },
         {
             "perceived_negatively": true,
-            "word": "curt"
+            "word": "brusco"
         },
         {
             "perceived_negatively": true,
-            "word": "narrow-minded"
+            "word": "cerrado"
         },
         {
             "perceived_negatively": true,
-            "word": "callous"
+            "word": "áspero"
         },
         {
             "perceived_negatively": true,
-            "word": "ruthless"
+            "word": "implacable"
         },
         {
             "perceived_negatively": true,
-            "word": "uncharitable"
+            "word": "poco caritativo"
         },
         {
             "perceived_negatively": true,
-            "word": "vindictive"
+            "word": "vengativo"
         }
     ],
     "Agreeableness_minus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "shrewd"
+            "word": "perspicaz"
         },
         {
             "perceived_negatively": false,
-            "word": "eccentric"
+            "word": "excéntrico"
         },
         {
             "perceived_negatively": false,
-            "word": "individualistic"
+            "word": "individualista"
         }
     ],
     "Agreeableness_plus_Conscientiousness_minus": [
         {
             "perceived_negatively": false,
-            "word": "unpretentious"
+            "word": "sobrio"
         },
         {
             "perceived_negatively": false,
-            "word": "self-effacing"
+            "word": "modesto"
         }
     ],
     "Agreeableness_plus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "helpful"
+            "word": "servicial"
         },
         {
             "perceived_negatively": false,
-            "word": "cooperative"
+            "word": "cooperativo"
         },
         {
             "perceived_negatively": false,
-            "word": "considerate"
+            "word": "considerado"
         },
         {
             "perceived_negatively": false,
-            "word": "respectful"
+            "word": "respetuoso"
         },
         {
             "perceived_negatively": false,
-            "word": "polite"
+            "word": "cortés"
         },
         {
             "perceived_negatively": false,
-            "word": "reasonable"
+            "word": "sensato"
         },
         {
             "perceived_negatively": false,
-            "word": "courteous"
+            "word": "atento"
         },
         {
             "perceived_negatively": false,
-            "word": "thoughtful"
+            "word": "considerado"
         },
         {
             "perceived_negatively": false,
-            "word": "loyal"
+            "word": "leal"
         },
         {
             "perceived_negatively": false,
@@ -254,41 +254,41 @@
     "Agreeableness_plus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "soft-hearted"
+            "word": "conmovible"
         },
         {
             "perceived_negatively": false,
-            "word": "agreeable"
+            "word": "agradable"
         },
         {
             "perceived_negatively": false,
-            "word": "obliging"
+            "word": "servicial"
         },
         {
             "perceived_negatively": false,
-            "word": "humble"
+            "word": "humilde"
         },
         {
             "perceived_negatively": true,
-            "word": "lenient"
+            "word": "indulgente"
         }
     ],
     "Agreeableness_plus_Extraversion_plus": [
         {
             "perceived_negatively": false,
-            "word": "effervescent"
+            "word": "efervescente"
         },
         {
             "perceived_negatively": false,
-            "word": "happy"
+            "word": "alegre"
         },
         {
             "perceived_negatively": false,
-            "word": "friendly"
+            "word": "amistoso"
         },
         {
             "perceived_negatively": false,
-            "word": "merry"
+            "word": "alegre"
         },
         {
             "perceived_negatively": false,
@@ -296,25 +296,25 @@
         },
         {
             "perceived_negatively": false,
-            "word": "humorous"
+            "word": "jocoso"
         }
     ],
     "Agreeableness_plus_Neuroticism_minus": [
         {
             "perceived_negatively": false,
-            "word": "generous"
+            "word": "generoso"
         },
         {
             "perceived_negatively": false,
-            "word": "pleasant"
+            "word": "agradable"
         },
         {
             "perceived_negatively": false,
-            "word": "tolerant"
+            "word": "tolerante"
         },
         {
             "perceived_negatively": false,
-            "word": "peaceful"
+            "word": "pacífico"
         },
         {
             "perceived_negatively": false,
@@ -322,19 +322,19 @@
         },
         {
             "perceived_negatively": false,
-            "word": "easy-going"
+            "word": "fácil de tratar"
         },
         {
             "perceived_negatively": false,
-            "word": "fair"
+            "word": "justo"
         },
         {
             "perceived_negatively": false,
-            "word": "charitable"
+            "word": "caritativo"
         },
         {
             "perceived_negatively": false,
-            "word": "trustful"
+            "word": "confiable"
         }
     ],
     "Agreeableness_plus_Neuroticism_plus": [
@@ -344,29 +344,29 @@
         },
         {
             "perceived_negatively": false,
-            "word": "affectionate"
+            "word": "cariñoso"
         },
         {
             "perceived_negatively": false,
-            "word": "sensitive"
+            "word": "sensible"
         },
         {
             "perceived_negatively": false,
-            "word": "soft"
+            "word": "tierno"
         },
         {
             "perceived_negatively": false,
-            "word": "passionate"
+            "word": "apasionado"
         },
         {
             "perceived_negatively": false,
-            "word": "romantic"
+            "word": "romántico"
         }
     ],
     "Agreeableness_plus_Openness_minus": [
         {
             "perceived_negatively": true,
-            "word": "dependent"
+            "word": "dependiente"
         },
         {
             "perceived_negatively": true,
@@ -376,99 +376,99 @@
     "Agreeableness_plus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "genial"
+            "word": "amistoso"
         },
         {
             "perceived_negatively": false,
-            "word": "tactful"
+            "word": "una persona con tacto"
         },
         {
             "perceived_negatively": false,
-            "word": "diplomatic"
+            "word": "diplomático"
         },
         {
             "perceived_negatively": false,
-            "word": "deep"
+            "word": "profundo"
         },
         {
             "perceived_negatively": false,
-            "word": "idealistic"
+            "word": "idealista"
         }
     ],
     "Conscientiousness_minus_Agreeableness_minus": [
         {
             "perceived_negatively": true,
-            "word": "rash"
+            "word": "arrebatado"
         },
         {
             "perceived_negatively": true,
-            "word": "uncooperative"
+            "word": "poco cooperativo"
         },
         {
             "perceived_negatively": true,
-            "word": "unreliable"
+            "word": "poco fiable"
         },
         {
             "perceived_negatively": true,
-            "word": "distrustful"
+            "word": "desconfiado"
         },
         {
             "perceived_negatively": true,
-            "word": "thoughtless"
+            "word": "irreflexivo"
         }
     ],
     "Conscientiousness_minus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "unpretentious"
+            "word": "poco pretencioso"
         },
         {
             "perceived_negatively": false,
-            "word": "self-effacing"
+            "word": "modesto"
         }
     ],
     "Conscientiousness_minus_Extraversion_minus": [
         {
             "perceived_negatively": true,
-            "word": "indecisive"
+            "word": "indeciso"
         },
         {
             "perceived_negatively": true,
-            "word": "aimless"
+            "word": "una persona sin propósito"
         },
         {
             "perceived_negatively": false,
-            "word": "wishy-washy"
+            "word": "una persona sin carácter"
         },
         {
             "perceived_negatively": false,
-            "word": "noncommittal"
+            "word": "una persona sin compromiso"
         },
         {
             "perceived_negatively": true,
-            "word": "unambitious"
+            "word": "poco ambicioso"
         }
     ],
     "Conscientiousness_minus_Extraversion_plus": [
         {
             "perceived_negatively": true,
-            "word": "unruly"
+            "word": "revoltoso"
         },
         {
             "perceived_negatively": false,
-            "word": "boisterous"
+            "word": "bullicioso"
         },
         {
             "perceived_negatively": true,
-            "word": "reckless"
+            "word": "temerario"
         },
         {
             "perceived_negatively": true,
-            "word": "devil-may-care"
+            "word": "tumultuoso"
         },
         {
             "perceived_negatively": false,
-            "word": "demonstrative"
+            "word": "demostrativo"
         }
     ],
     "Conscientiousness_minus_Neuroticism_minus": [
@@ -478,119 +478,119 @@
         },
         {
             "perceived_negatively": false,
-            "word": "low-key"
+            "word": "de bajo perfil"
         }
     ],
     "Conscientiousness_minus_Neuroticism_plus": [
         {
             "perceived_negatively": true,
-            "word": "scatterbrained"
+            "word": "atolondrado"
         },
         {
             "perceived_negatively": true,
-            "word": "inconsistent"
+            "word": "inconsistente"
         },
         {
             "perceived_negatively": true,
-            "word": "erratic"
+            "word": "errático"
         },
         {
             "perceived_negatively": true,
-            "word": "forgetful"
+            "word": "olvidadizo"
         },
         {
             "perceived_negatively": true,
-            "word": "impulsive"
+            "word": "impulsivo"
         },
         {
             "perceived_negatively": true,
-            "word": "frivolous"
+            "word": "frívolo"
         }
     ],
     "Conscientiousness_minus_Openness_minus": [
         {
             "perceived_negatively": false,
-            "word": "foolhardy"
+            "word": "temerario"
         },
         {
             "perceived_negatively": true,
-            "word": "illogical"
+            "word": "ilógico"
         },
         {
             "perceived_negatively": true,
-            "word": "immature"
+            "word": "inmaduro"
         },
         {
             "perceived_negatively": true,
-            "word": "haphazard"
+            "word": "azaroso"
         },
         {
             "perceived_negatively": false,
-            "word": "lax"
+            "word": "laxo"
         },
         {
             "perceived_negatively": true,
-            "word": "flippant"
+            "word": "indisciplinado"
         }
     ],
     "Conscientiousness_minus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "unconventional"
+            "word": "poco convencional"
         },
         {
             "perceived_negatively": false,
-            "word": "quirky"
+            "word": "peculiar"
         }
     ],
     "Conscientiousness_plus_Agreeableness_minus": [
         {
             "perceived_negatively": true,
-            "word": "stern"
+            "word": "inflexible"
         },
         {
             "perceived_negatively": false,
-            "word": "strict"
+            "word": "estricto"
         },
         {
             "perceived_negatively": false,
-            "word": "rigid"
+            "word": "rígido"
         }
     ],
     "Conscientiousness_plus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "dependable"
+            "word": "confiable"
         },
         {
             "perceived_negatively": false,
-            "word": "responsible"
+            "word": "responsable"
         },
         {
             "perceived_negatively": false,
-            "word": "reliable"
+            "word": "seguro"
         },
         {
             "perceived_negatively": false,
-            "word": "mannerly"
+            "word": "educado"
         },
         {
             "perceived_negatively": false,
-            "word": "considerate"
+            "word": "considerado"
         }
     ],
     "Conscientiousness_plus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "cautious"
+            "word": "cauto"
         },
         {
             "perceived_negatively": false,
-            "word": "confident"
+            "word": "seguro"
         },
         {
             "perceived_negatively": false,
-            "word": "punctual"
+            "word": "exacto"
         },
         {
             "perceived_negatively": false,
@@ -598,347 +598,347 @@
         },
         {
             "perceived_negatively": false,
-            "word": "thrifty"
+            "word": "ahorrativo"
         },
         {
             "perceived_negatively": false,
-            "word": "principled"
+            "word": "principista"
         }
     ],
     "Conscientiousness_plus_Extraversion_plus": [
         {
             "perceived_negatively": false,
-            "word": "ambitious"
+            "word": "ambicioso"
         },
         {
             "perceived_negatively": false,
-            "word": "alert"
+            "word": "alerta"
         },
         {
             "perceived_negatively": false,
-            "word": "firm"
+            "word": "firme"
         },
         {
             "perceived_negatively": false,
-            "word": "purposeful"
+            "word": "decidido"
         },
         {
             "perceived_negatively": false,
-            "word": "competitive"
+            "word": "competitivo"
         }
     ],
     "Conscientiousness_plus_Neuroticism_minus": [
         {
             "perceived_negatively": false,
-            "word": "thorough"
+            "word": "minucioso"
         },
         {
             "perceived_negatively": false,
-            "word": "steady"
+            "word": "estable"
         },
         {
             "perceived_negatively": false,
-            "word": "consistent"
+            "word": "consistente"
         },
         {
             "perceived_negatively": false,
-            "word": "self-disciplined"
+            "word": "disciplinado"
         },
         {
             "perceived_negatively": false,
-            "word": "logical"
+            "word": "lógico"
         },
         {
             "perceived_negatively": false,
-            "word": "decisive"
+            "word": "decidido"
         },
         {
             "perceived_negatively": false,
-            "word": "controlled"
+            "word": "controlado"
         },
         {
             "perceived_negatively": false,
-            "word": "concise"
+            "word": "conciso"
         }
     ],
     "Conscientiousness_plus_Neuroticism_plus": [
         {
             "perceived_negatively": false,
-            "word": "particular"
+            "word": "detallista"
         },
         {
             "perceived_negatively": true,
-            "word": "high-strung"
+            "word": "excitable"
         }
     ],
     "Conscientiousness_plus_Openness_minus": [
         {
             "perceived_negatively": false,
-            "word": "traditional"
+            "word": "tradicional"
         },
         {
             "perceived_negatively": false,
-            "word": "conventional"
+            "word": "convencional"
         }
     ],
     "Conscientiousness_plus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "sophisticated"
+            "word": "sofisticado"
         },
         {
             "perceived_negatively": false,
-            "word": "perfectionistic"
+            "word": "perfeccionista"
         },
         {
             "perceived_negatively": false,
-            "word": "industrious"
+            "word": "industrioso"
         },
         {
             "perceived_negatively": false,
-            "word": "dignified"
+            "word": "digno"
         },
         {
             "perceived_negatively": false,
-            "word": "refined"
+            "word": "refinado"
         },
         {
             "perceived_negatively": false,
-            "word": "cultured"
+            "word": "culto"
         },
         {
             "perceived_negatively": false,
-            "word": "foresighted"
+            "word": "previsor"
         }
     ],
     "Extraversion_minus_Agreeableness_minus": [
         {
             "perceived_negatively": false,
-            "word": "skeptical"
+            "word": "escéptico"
         },
         {
             "perceived_negatively": false,
-            "word": "wary of others"
+            "word": "cauto con los demás"
         },
         {
             "perceived_negatively": true,
-            "word": "seclusive"
+            "word": "solitario"
         },
         {
             "perceived_negatively": true,
-            "word": "uncommunicative"
+            "word": "poco comunicativo"
         },
         {
             "perceived_negatively": true,
-            "word": "unsociable"
+            "word": "antisocial"
         },
         {
             "perceived_negatively": true,
-            "word": "glum"
+            "word": "sombrío"
         },
         {
             "perceived_negatively": true,
-            "word": "detached"
+            "word": "desinteresado"
         },
         {
             "perceived_negatively": false,
-            "word": "aloof"
+            "word": "apartado"
         }
     ],
     "Extraversion_minus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "unaggressive"
+            "word": "pacífico"
         },
         {
             "perceived_negatively": false,
-            "word": "humble"
+            "word": "humilde"
         },
         {
             "perceived_negatively": false,
-            "word": "submissive"
+            "word": "sumiso"
         },
         {
             "perceived_negatively": false,
-            "word": "timid"
+            "word": "tímido"
         },
         {
             "perceived_negatively": false,
-            "word": "compliant"
+            "word": "obediente"
         },
         {
             "perceived_negatively": false,
-            "word": "naïve"
+            "word": "ingenuo"
         }
     ],
     "Extraversion_minus_Conscientiousness_minus": [
         {
             "perceived_negatively": true,
-            "word": "indirect"
+            "word": "indirecto"
         },
         {
             "perceived_negatively": true,
-            "word": "unenergetic"
+            "word": "débil"
         },
         {
             "perceived_negatively": true,
-            "word": "sluggish"
+            "word": "perezoso"
         },
         {
             "perceived_negatively": true,
-            "word": "nonpersistent"
+            "word": "poco persistente"
         },
         {
             "perceived_negatively": true,
-            "word": "vague"
+            "word": "vago"
         }
     ],
     "Extraversion_minus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "restrained"
+            "word": "moderado"
         },
         {
             "perceived_negatively": false,
-            "word": "serious"
+            "word": "serio"
         },
         {
             "perceived_negatively": false,
-            "word": "discreet"
+            "word": "discreto"
         },
         {
             "perceived_negatively": false,
-            "word": "cautious"
+            "word": "cauteloso"
         },
         {
             "perceived_negatively": false,
-            "word": "principled"
+            "word": "principista"
         }
     ],
     "Extraversion_minus_Neuroticism_minus": [
         {
             "perceived_negatively": false,
-            "word": "tranquil"
+            "word": "tranquilo"
         },
         {
             "perceived_negatively": false,
-            "word": "sedate"
+            "word": "sosegado"
         },
         {
             "perceived_negatively": false,
-            "word": "placid"
+            "word": "plácido"
         },
         {
             "perceived_negatively": false,
-            "word": "impartial"
+            "word": "imparcial"
         },
         {
             "perceived_negatively": false,
-            "word": "unassuming"
+            "word": "modesto"
         },
         {
             "perceived_negatively": false,
-            "word": "acquiescent"
+            "word": "condescendiente"
         }
     ],
     "Extraversion_minus_Neuroticism_plus": [
         {
             "perceived_negatively": false,
-            "word": "guarded"
+            "word": "desconfiado"
         },
         {
             "perceived_negatively": false,
-            "word": "pessimistic"
+            "word": "pesimista"
         },
         {
             "perceived_negatively": false,
-            "word": "secretive"
+            "word": "reservado"
         },
         {
             "perceived_negatively": true,
-            "word": "cowardly"
+            "word": "cobarde"
         },
         {
             "perceived_negatively": false,
-            "word": "secretive"
+            "word": "callado"
         }
     ],
     "Extraversion_minus_Openness_minus": [
         {
             "perceived_negatively": false,
-            "word": "somber"
+            "word": "sombrío"
         },
         {
             "perceived_negatively": true,
-            "word": "meek"
+            "word": "manso"
         },
         {
             "perceived_negatively": true,
-            "word": "unadventurous"
+            "word": "poco aventurero"
         },
         {
             "perceived_negatively": false,
-            "word": "passive"
+            "word": "pasivo"
         },
         {
             "perceived_negatively": true,
-            "word": "apathetic"
+            "word": "apático"
         },
         {
             "perceived_negatively": false,
-            "word": "docile"
+            "word": "dócil"
         }
     ],
     "Extraversion_minus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "inner-directed"
+            "word": "una persona guiada por su propia consciencia y valores"
         },
         {
             "perceived_negatively": false,
-            "word": "introspective"
+            "word": "introspectivo"
         },
         {
             "perceived_negatively": false,
-            "word": "meditative"
+            "word": "pensativo"
         },
         {
             "perceived_negatively": false,
-            "word": "contemplating"
+            "word": "contemplativo"
         },
         {
             "perceived_negatively": false,
-            "word": "self-examining"
+            "word": "introspectivo"
         }
     ],
     "Extraversion_plus_Agreeableness_minus": [
         {
-            "perceived_negatively": false,
-            "word": "opinionated"
+            "perceived_negatively": true,
+            "word": "terco"
         },
         {
             "perceived_negatively": true,
-            "word": "forceful"
+            "word": "vigoroso"
         },
         {
             "perceived_negatively": true,
-            "word": "domineering"
+            "word": "dominador"
         },
         {
             "perceived_negatively": true,
-            "word": "boastful"
+            "word": "presumido"
         },
         {
             "perceived_negatively": true,
-            "word": "bossy"
-        },
-        {
-            "perceived_negatively": false,
-            "word": "dominant"
+            "word": "mandón"
         },
         {
             "perceived_negatively": false,
-            "word": "cunning"
+            "word": "dominante"
+        },
+        {
+            "perceived_negatively": false,
+            "word": "astuto"
         }
     ],
     "Extraversion_plus_Agreeableness_plus": [
@@ -948,231 +948,231 @@
         },
         {
             "perceived_negatively": false,
-            "word": "energetic"
+            "word": "enérgico"
         },
         {
             "perceived_negatively": false,
-            "word": "enthusiastic"
+            "word": "entusiasta"
         },
         {
             "perceived_negatively": false,
-            "word": "communicative"
+            "word": "comunicativo"
         },
         {
             "perceived_negatively": false,
-            "word": "vibrant"
+            "word": "vibrante"
         },
         {
             "perceived_negatively": false,
-            "word": "spirited"
+            "word": "espirituoso"
         },
         {
             "perceived_negatively": false,
-            "word": "magnetic"
+            "word": "magnético"
         },
         {
             "perceived_negatively": false,
-            "word": "zestful"
+            "word": "entusiasta"
         }
     ],
     "Extraversion_plus_Conscientiousness_minus": [
         {
             "perceived_negatively": false,
-            "word": "boisterous"
+            "word": "bullicioso"
         },
         {
             "perceived_negatively": false,
-            "word": "mischievous"
+            "word": "travieso"
         },
         {
             "perceived_negatively": false,
-            "word": "exhibitionistic"
+            "word": "exhibicionista"
         },
         {
             "perceived_negatively": false,
-            "word": "gregarious"
+            "word": "gregario"
         },
         {
             "perceived_negatively": false,
-            "word": "demonstrative"
+            "word": "demostrativo"
         }
     ],
     "Extraversion_plus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "active"
+            "word": "activo"
         },
         {
             "perceived_negatively": false,
-            "word": "competitive"
+            "word": "competitivo"
         },
         {
             "perceived_negatively": false,
-            "word": "persistent"
+            "word": "persistente"
         },
         {
             "perceived_negatively": false,
-            "word": "ambitious"
+            "word": "ambicioso"
         },
         {
             "perceived_negatively": false,
-            "word": "purposeful"
+            "word": "decidido"
         }
     ],
     "Extraversion_plus_Neuroticism_minus": [
         {
             "perceived_negatively": false,
-            "word": "confident"
+            "word": "confiado"
         },
         {
             "perceived_negatively": false,
-            "word": "bold"
+            "word": "audaz"
         },
         {
             "perceived_negatively": false,
-            "word": "assured"
+            "word": "seguro"
         },
         {
             "perceived_negatively": false,
-            "word": "uninhibited"
+            "word": "desinhibido"
         },
         {
             "perceived_negatively": false,
-            "word": "courageous"
+            "word": "valiente"
         },
         {
             "perceived_negatively": false,
-            "word": "brave"
+            "word": "valiente"
         },
         {
             "perceived_negatively": false,
-            "word": "self-satisfied"
+            "word": "una persona satisfecha de si misma"
         },
         {
             "perceived_negatively": false,
-            "word": "vigorous"
+            "word": "vigoroso"
         },
         {
             "perceived_negatively": false,
-            "word": "strong"
+            "word": "fuerte"
         }
     ],
     "Extraversion_plus_Neuroticism_plus": [
         {
             "perceived_negatively": false,
-            "word": "explosive"
+            "word": "explosivo"
         },
         {
             "perceived_negatively": true,
-            "word": "wordy"
+            "word": "verborrágico"
         },
         {
             "perceived_negatively": false,
-            "word": "extravagant"
+            "word": "extravagante"
         },
         {
             "perceived_negatively": true,
-            "word": "volatile"
+            "word": "volátil"
         },
         {
             "perceived_negatively": false,
-            "word": "flirtatious"
+            "word": "coqueto"
         }
     ],
     "Extraversion_plus_Openness_minus": [
         {
             "perceived_negatively": true,
-            "word": "verbose"
+            "word": "verborrágico"
         },
         {
             "perceived_negatively": true,
-            "word": "unscrupulous"
+            "word": "inescrupuloso"
         },
         {
             "perceived_negatively": true,
-            "word": "pompous"
+            "word": "pomposo"
         }
     ],
     "Extraversion_plus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "expressive"
+            "word": "expresivo"
         },
         {
             "perceived_negatively": false,
-            "word": "candid"
+            "word": "cándido"
         },
         {
             "perceived_negatively": false,
-            "word": "dramatic"
+            "word": "dramático"
         },
         {
             "perceived_negatively": false,
-            "word": "spontaneous"
+            "word": "espontáneo"
         },
         {
             "perceived_negatively": false,
-            "word": "witty"
+            "word": "ingenioso"
         },
         {
             "perceived_negatively": false,
-            "word": "opportunistic"
+            "word": "oportunista"
         },
         {
             "perceived_negatively": false,
-            "word": "independent"
+            "word": "independiente"
         }
     ],
     "Neuroticism_minus_Agreeableness_minus": [
         {
             "perceived_negatively": true,
-            "word": "unemotional"
+            "word": "poco emocional"
         },
         {
             "perceived_negatively": true,
-            "word": "insensitive"
+            "word": "insensible"
         },
         {
             "perceived_negatively": true,
-            "word": "unaffectionate"
+            "word": "poco cariñoso"
         },
         {
             "perceived_negatively": true,
-            "word": "passionless"
+            "word": "desapasionado"
         }
     ],
     "Neuroticism_minus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "patient"
+            "word": "paciente"
         },
         {
             "perceived_negatively": false,
-            "word": "relaxed"
+            "word": "relajado"
         },
         {
             "perceived_negatively": false,
-            "word": "undemanding"
+            "word": "poco exigente"
         },
         {
             "perceived_negatively": false,
-            "word": "down-to-earth"
+            "word": "realista"
         },
         {
             "perceived_negatively": false,
-            "word": "optimistic"
+            "word": "optimista"
         },
         {
             "perceived_negatively": false,
-            "word": "conceitless"
+            "word": "modesto"
         },
         {
             "perceived_negatively": false,
-            "word": "uncritical"
+            "word": "poco crítico"
         },
         {
             "perceived_negatively": false,
-            "word": "unpretentious"
+            "word": "poco pretencioso"
         }
     ],
     "Neuroticism_minus_Conscientiousness_minus": [
@@ -1182,81 +1182,81 @@
         },
         {
             "perceived_negatively": false,
-            "word": "low-key"
+            "word": "de perfil bajo"
         }
     ],
     "Neuroticism_minus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "rational"
+            "word": "racional"
         },
         {
             "perceived_negatively": false,
-            "word": "objective"
+            "word": "objetivo"
         },
         {
             "perceived_negatively": false,
-            "word": "steady"
+            "word": "estable"
         },
         {
             "perceived_negatively": false,
-            "word": "logical"
+            "word": "lógico"
         },
         {
             "perceived_negatively": false,
-            "word": "decisive"
+            "word": "decidido"
         },
         {
             "perceived_negatively": false,
-            "word": "poised"
+            "word": "preparado"
         },
         {
             "perceived_negatively": false,
-            "word": "concise"
+            "word": "conciso"
         },
         {
             "perceived_negatively": false,
-            "word": "thorough"
+            "word": "exhaustivo"
         },
         {
             "perceived_negatively": false,
-            "word": "economical"
+            "word": "económico"
         },
         {
             "perceived_negatively": false,
-            "word": "self-disciplined"
+            "word": "disciplinado"
         }
     ],
     "Neuroticism_minus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "unassuming"
+            "word": "modesto"
         },
         {
             "perceived_negatively": true,
-            "word": "unexcitable"
+            "word": "poco excitable"
         },
         {
             "perceived_negatively": false,
-            "word": "placid"
+            "word": "plácido"
         },
         {
             "perceived_negatively": false,
-            "word": "tranquil"
+            "word": "tranquilo"
         }
     ],
     "Neuroticism_minus_Extraversion_plus": [
         {
             "perceived_negatively": false,
-            "word": "unselfconscious"
+            "word": "inconsciente de si mismo"
         },
         {
             "perceived_negatively": false,
-            "word": "weariless"
+            "word": "incansable"
         },
         {
             "perceived_negatively": false,
-            "word": "indefatigable"
+            "word": "infatigable"
         }
     ],
     "Neuroticism_minus_Openness_minus": [
@@ -1266,29 +1266,29 @@
         },
         {
             "perceived_negatively": true,
-            "word": "insensitive"
+            "word": "insensible"
         }
     ],
     "Neuroticism_minus_Openness_plus": [
         {
             "perceived_negatively": false,
-            "word": "heartfelt"
+            "word": "sentido"
         },
         {
             "perceived_negatively": false,
-            "word": "versatile"
+            "word": "versátil"
         },
         {
             "perceived_negatively": false,
-            "word": "creative"
+            "word": "creativo"
         },
         {
             "perceived_negatively": false,
-            "word": "intellectual"
+            "word": "intelectual"
         },
         {
             "perceived_negatively": false,
-            "word": "insightful"
+            "word": "perspicaz"
         }
     ],
     "Neuroticism_plus_Agreeableness_minus": [
@@ -1302,111 +1302,111 @@
         },
         {
             "perceived_negatively": true,
-            "word": "quarrelsome"
+            "word": "peleador"
         },
         {
             "perceived_negatively": true,
-            "word": "impatient"
+            "word": "impaciente"
         },
         {
             "perceived_negatively": true,
-            "word": "grumpy"
+            "word": "gruñón"
         },
         {
             "perceived_negatively": true,
-            "word": "crabby"
+            "word": "malhumorado"
         },
         {
             "perceived_negatively": true,
-            "word": "cranky"
+            "word": "irritable"
         }
     ],
     "Neuroticism_plus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "emotional"
+            "word": "emotivo"
         },
         {
             "perceived_negatively": true,
-            "word": "gullible"
+            "word": "crédulo"
         },
         {
             "perceived_negatively": false,
-            "word": "affectionate"
+            "word": "cariñoso"
         },
         {
             "perceived_negatively": false,
-            "word": "sensitive"
+            "word": "sensible"
         },
         {
             "perceived_negatively": false,
-            "word": "soft"
+            "word": "blando"
         }
     ],
     "Neuroticism_plus_Conscientiousness_minus": [
         {
             "perceived_negatively": true,
-            "word": "compulsive"
+            "word": "compulsivo"
         },
         {
             "perceived_negatively": true,
-            "word": "nosey"
+            "word": "inquisitivo"
         },
         {
             "perceived_negatively": true,
-            "word": "self-indulgent"
+            "word": "desenfrenado"
         },
         {
             "perceived_negatively": true,
-            "word": "forgetful"
+            "word": "olvidadizo"
         },
         {
             "perceived_negatively": true,
-            "word": "impulsive"
+            "word": "impulsivo"
         }
     ],
     "Neuroticism_plus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "particular"
+            "word": "detallista"
         },
         {
             "perceived_negatively": true,
-            "word": "high-strung"
+            "word": "excitable"
         }
     ],
     "Neuroticism_plus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "guarded"
+            "word": "guardado"
         },
         {
             "perceived_negatively": true,
-            "word": "fretful"
+            "word": "irritable"
         },
         {
             "perceived_negatively": true,
-            "word": "insecure"
+            "word": "inseguro"
         },
         {
             "perceived_negatively": true,
-            "word": "pessimistic"
+            "word": "pesimista"
         },
         {
             "perceived_negatively": false,
-            "word": "secretive"
+            "word": "reservado"
         },
         {
             "perceived_negatively": true,
-            "word": "fearful"
+            "word": "temeroso"
         },
         {
             "perceived_negatively": true,
-            "word": "negativistic"
+            "word": "negativo"
         },
         {
             "perceived_negatively": false,
-            "word": "self-critical"
+            "word": "auto-crítico"
         }
     ],
     "Neuroticism_plus_Extraversion_plus": [
@@ -1416,37 +1416,37 @@
         },
         {
             "perceived_negatively": true,
-            "word": "wordy"
+            "word": "verborrágico"
         },
         {
             "perceived_negatively": false,
-            "word": "flirtatious"
+            "word": "coqueto"
         },
         {
             "perceived_negatively": true,
-            "word": "explosive"
+            "word": "explosivo"
         },
         {
             "perceived_negatively": false,
-            "word": "extravagant"
+            "word": "extravagante"
         },
         {
             "perceived_negatively": true,
-            "word": "volatile"
+            "word": "volátil"
         }
     ],
     "Neuroticism_plus_Openness_minus": [
         {
             "perceived_negatively": false,
-            "word": "easily rattled"
+            "word": "irritable"
         },
         {
             "perceived_negatively": false,
-            "word": "easily irked"
+            "word": "fastidioso"
         },
         {
             "perceived_negatively": false,
-            "word": "apprehensive"
+            "word": "aprensivo"
         }
     ],
     "Neuroticism_plus_Openness_plus": [
@@ -1456,7 +1456,7 @@
         },
         {
             "perceived_negatively": false,
-            "word": "passionate"
+            "word": "apasionado"
         },
         {
             "perceived_negatively": false,
@@ -1466,23 +1466,23 @@
     "Openness_minus_Agreeableness_minus": [
         {
             "perceived_negatively": true,
-            "word": "coarse"
+            "word": "ordinario"
         },
         {
             "perceived_negatively": true,
-            "word": "tactless"
+            "word": "sin tacto"
         },
         {
             "perceived_negatively": true,
-            "word": "curt"
+            "word": "brusco"
         },
         {
             "perceived_negatively": true,
-            "word": "narrow-minded"
+            "word": "cerrado"
         },
         {
             "perceived_negatively": true,
-            "word": "callous"
+            "word": "duro"
         }
     ],
     "Openness_minus_Agreeableness_plus": [
@@ -1492,83 +1492,83 @@
         },
         {
             "perceived_negatively": true,
-            "word": "dependent"
+            "word": "dependiente"
         }
     ],
     "Openness_minus_Conscientiousness_minus": [
         {
             "perceived_negatively": true,
-            "word": "shortsighted"
+            "word": "cortoplacista"
         },
         {
             "perceived_negatively": false,
-            "word": "foolhardy"
+            "word": "temerario"
         },
         {
             "perceived_negatively": true,
-            "word": "illogical"
+            "word": "ilógico"
         },
         {
             "perceived_negatively": true,
-            "word": "immature"
+            "word": "inmaduro"
         },
         {
             "perceived_negatively": true,
-            "word": "haphazard"
+            "word": "azaroso"
         },
         {
             "perceived_negatively": false,
-            "word": "lax"
+            "word": "laxo"
         },
         {
             "perceived_negatively": true,
-            "word": "flippant"
+            "word": "irrespetuoso"
         }
     ],
     "Openness_minus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "conventional"
+            "word": "convencional"
         },
         {
             "perceived_negatively": false,
-            "word": "traditional"
+            "word": "tradicional"
         }
     ],
     "Openness_minus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "predictable"
+            "word": "predecible"
         },
         {
             "perceived_negatively": true,
-            "word": "unimaginative"
+            "word": "poco imaginativo"
         },
         {
             "perceived_negatively": false,
-            "word": "somber"
+            "word": "sombrío"
         },
         {
             "perceived_negatively": true,
-            "word": "apathetic"
+            "word": "apático"
         },
         {
             "perceived_negatively": true,
-            "word": "unadventurous"
+            "word": "poco aventurero"
         }
     ],
     "Openness_minus_Extraversion_plus": [
         {
             "perceived_negatively": true,
-            "word": "verbose"
+            "word": "verborrágico"
         },
         {
             "perceived_negatively": true,
-            "word": "unscrupulous"
+            "word": "inescrupuloso"
         },
         {
             "perceived_negatively": true,
-            "word": "pompous"
+            "word": "pomposo"
         }
     ],
     "Openness_minus_Neuroticism_minus": [
@@ -1578,165 +1578,165 @@
         },
         {
             "perceived_negatively": true,
-            "word": "insensitive"
+            "word": "insensible"
         }
     ],
     "Openness_minus_Neuroticism_plus": [
         {
             "perceived_negatively": false,
-            "word": "easily rattled"
+            "word": "irritable"
         },
         {
             "perceived_negatively": false,
-            "word": "easily irked"
+            "word": "fastidioso"
         },
         {
             "perceived_negatively": false,
-            "word": "apprehensive"
+            "word": "aprensivo"
         }
     ],
     "Openness_plus_Agreeableness_minus": [
         {
             "perceived_negatively": false,
-            "word": "shrewd"
+            "word": "perspicaz"
         },
         {
             "perceived_negatively": false,
-            "word": "eccentric"
+            "word": "excéntrico"
         },
         {
             "perceived_negatively": false,
-            "word": "individualistic"
+            "word": "individualista"
         }
     ],
     "Openness_plus_Agreeableness_plus": [
         {
             "perceived_negatively": false,
-            "word": "idealistic"
+            "word": "idealista"
         },
         {
             "perceived_negatively": false,
-            "word": "diplomatic"
+            "word": "diplomático"
         },
         {
             "perceived_negatively": false,
-            "word": "deep"
+            "word": "profundo"
         },
         {
             "perceived_negatively": false,
-            "word": "tactful"
+            "word": "una persona con tacto"
         },
         {
             "perceived_negatively": false,
-            "word": "genial"
+            "word": "amistoso"
         }
     ],
     "Openness_plus_Conscientiousness_minus": [
         {
             "perceived_negatively": false,
-            "word": "unconventional"
+            "word": "poco convencional"
         },
         {
             "perceived_negatively": false,
-            "word": "quirky"
+            "word": "peculiar"
         }
     ],
     "Openness_plus_Conscientiousness_plus": [
         {
             "perceived_negatively": false,
-            "word": "analytical"
+            "word": "analítico"
         },
         {
             "perceived_negatively": false,
-            "word": "perceptive"
+            "word": "perceptivo"
         },
         {
             "perceived_negatively": false,
-            "word": "informative"
+            "word": "informativo"
         },
         {
             "perceived_negatively": false,
-            "word": "articulate"
+            "word": "grandilocuente"
         },
         {
             "perceived_negatively": false,
-            "word": "dignified"
+            "word": "digno"
         },
         {
             "perceived_negatively": false,
-            "word": "cultured"
+            "word": "culto"
         }
     ],
     "Openness_plus_Extraversion_minus": [
         {
             "perceived_negatively": false,
-            "word": "introspective"
+            "word": "introspectivo"
         },
         {
             "perceived_negatively": false,
-            "word": "meditative"
+            "word": "meditativo"
         },
         {
             "perceived_negatively": false,
-            "word": "contemplating"
+            "word": "contemplativo"
         },
         {
             "perceived_negatively": false,
-            "word": "self-examining"
+            "word": "introspectivo"
         },
         {
             "perceived_negatively": false,
-            "word": "inner-directed"
+            "word": "pensativo"
         }
     ],
     "Openness_plus_Extraversion_plus": [
         {
             "perceived_negatively": false,
-            "word": "worldly"
+            "word": "mundano"
         },
         {
             "perceived_negatively": false,
-            "word": "theatrical"
+            "word": "exagerado"
         },
         {
             "perceived_negatively": false,
-            "word": "eloquent"
+            "word": "elocuente"
         },
         {
             "perceived_negatively": false,
-            "word": "inquisitive"
+            "word": "inquisitivo"
         },
         {
             "perceived_negatively": false,
-            "word": "intense"
+            "word": "intenso"
         }
     ],
     "Openness_plus_Neuroticism_minus": [
         {
             "perceived_negatively": false,
-            "word": "creative"
+            "word": "creativo"
         },
         {
             "perceived_negatively": false,
-            "word": "intellectual"
+            "word": "intelectual"
         },
         {
             "perceived_negatively": false,
-            "word": "insightful"
+            "word": "perspicaz"
         },
         {
             "perceived_negatively": false,
-            "word": "versatile"
+            "word": "versátil"
         },
         {
             "perceived_negatively": false,
-            "word": "inventive"
+            "word": "inventivo"
         }
     ],
     "Openness_plus_Neuroticism_plus": [
         {
             "perceived_negatively": false,
-            "word": "passionate"
+            "word": "apasionado"
         },
         {
             "perceived_negatively": false,
