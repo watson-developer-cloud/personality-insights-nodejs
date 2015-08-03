@@ -18,10 +18,7 @@
 
 $(document).ready(function() {
 
-  const MIN_RECOMMENDED_WORDS = 3500;
   const MIN_WORDS = 100;
-  const BELOW_MIN_WORDS_COLOR = 'red';
-  const BELOW_MIN_RECOMMENDED_WORDS_COLOR = '#B5B04A';
 	
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
@@ -169,7 +166,7 @@ $(document).ready(function() {
     console.log('showTextSummary()');
     var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
-    $('.outputWarningFootnote').text(data.word_count_message ? "**" + data.word_count_message + "." : ""); 
+    $('.outputMessageFootnote').text(data.word_count_message ? "**" + data.word_count_message + "." : ""); 
     div.empty();
     paragraphs.forEach(function(sentences) {
       $('<p></p>').text(sentences.join(' ')).appendTo(div);
@@ -294,8 +291,7 @@ function showVizualization(theProfile) {
   function updateWordsCount() {
     var text = $content.val();
     var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCountFootnote').css('color',wordsCount < MIN_WORDS ? BELOW_MIN_WORDS_COLOR : (wordsCount < MIN_RECOMMENDED_WORDS ? BELOW_MIN_RECOMMENDED_WORDS_COLOR : 'gray'));
-    $('.recommendedWordsWarning').css('display',wordsCount < MIN_RECOMMENDED_WORDS ? 'block' : 'none');
+    $('.wordsCountFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
     $('.wordsCount').text(wordsCount);
   }
 
