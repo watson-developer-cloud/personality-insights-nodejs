@@ -10,29 +10,6 @@
   margin-bottom: 0px;
 }
 
-.inputWarnings {
-	font-size: 10pt;	
-	list-style: none;
-	padding-left: 0px;
-	padding-top: 8px;
-	margin-bottom: 4px;
-	text-align: justify;
-}
-
-.inputWarnings li {
-	padding-top: 4px;
-	padding-bottom: 4px;
-}
-
-.warning {
-	color: #B5B04A;
-}
-
-.inputWarnings li:before {
-    content: "■ ";
-}
-
-
 .wordsCount {
   padding-bottom: 5px;
 }
