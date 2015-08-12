@@ -6,6 +6,8 @@ block row-content
     div.row
       div.col-lg-6.col-md-12.col-xs-12
         h2=t('application.input.title')
+        p!=t('application.warning.minimumRecommendedWarning')
+        p!=t('application.warning.selfReflectiveText')
         div.well
           div.form-group.row
             div.col-lg-12.col-xs-12(style='padding:0px;')
@@ -47,6 +49,8 @@ block row-content
             div.summary-div
             div.text-right(style='color: gray')
               em.small= "*" + t('application.label.comparedFootNote')
+            div.text-right(style='color: gray')
+              em.small.outputMessageFootnote
       div.results(style='display: none;')
         div.row
           div.col-lg-5.col-md-12.col-xs-12

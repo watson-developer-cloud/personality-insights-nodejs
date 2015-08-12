@@ -32,7 +32,11 @@
             "clear": "Borrar",
             "analyze": "Analizar",
             "title":"Texto de entrada"
-        }
+        },
+        "warning": {
+        	"minimumRecommendedWarning": "Es necesario un mínimo de 3500 palabras (idealmente 6000 o más) para computar un resultado estadísticamente confiable. Lee <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml\">la ciencia detrás del servicio</a>.",
+			"selfReflectiveText": "Idealmente, el texto debe contener palabras utilizadas en nuestra vida diaria relacionadas con las experiencias personales del autor, pensamientos y respuestas. Lee la <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal\">guía de uso</a> para más detalles."
+		}
     },
     "service": {
         "description": [
