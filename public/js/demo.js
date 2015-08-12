@@ -18,6 +18,8 @@
 
 $(document).ready(function() {
 
+  const MIN_WORDS = 100;
+	
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
@@ -164,6 +166,7 @@ $(document).ready(function() {
     console.log('showTextSummary()');
     var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
+    $('.outputMessageFootnote').text(data.word_count_message ? "**" + data.word_count_message + "." : ""); 
     div.empty();
     paragraphs.forEach(function(sentences) {
       $('<p></p>').text(sentences.join(' ')).appendTo(div);
@@ -288,7 +291,7 @@ function showVizualization(theProfile) {
   function updateWordsCount() {
     var text = $content.val();
     var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCountFootnote').css('color',wordsCount < 100 ? 'red' : 'gray');
+    $('.wordsCountFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
     $('.wordsCount').text(wordsCount);
   }
 
