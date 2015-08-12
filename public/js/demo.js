@@ -18,7 +18,7 @@
 
 $(document).ready(function() {
 
-  const MIN_WORDS = 100;
+  MIN_WORDS = 100;
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
