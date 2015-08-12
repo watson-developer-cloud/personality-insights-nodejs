@@ -66,7 +66,7 @@ var textSummary = (function (provider, translatorFactory) {
       function(response) {
         self.needsData = response;
       });
-  }
+  };
 
   function compareByRelevance(o1, o2) {
     if (Math.abs(0.5 - o1.percentage) > Math.abs(0.5 - o2.percentage)) {

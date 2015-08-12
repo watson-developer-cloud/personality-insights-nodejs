@@ -19,7 +19,7 @@
 $(document).ready(function() {
 
   const MIN_WORDS = 100;
-	
+
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
@@ -32,8 +32,7 @@ $(document).ready(function() {
     $errorMsg  = $('.errorMsg'),
     $traits    = $('.traits'),
     $results   = $('.results'),
-    $captcha   = $('.captcha'),
-    $language  = $('#language-select');
+    $captcha   = $('.captcha');
 
   /**
    * Clear the "textArea"
@@ -189,7 +188,7 @@ $(document).ready(function() {
     console.log('showTextSummary()');
     var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
-    $('.outputMessageFootnote').text(data.word_count_message ? "**" + data.word_count_message + "." : ""); 
+    $('.outputMessageFootnote').text(data.word_count_message ? '**' + data.word_count_message + '.' : '');
     div.empty();
     paragraphs.forEach(function(sentences) {
       $('<p></p>').text(sentences.join(' ')).appendTo(div);
@@ -278,7 +277,7 @@ function showVizualization(theProfile) {
   widget.dimH = widgetHeight;
   widget.dimW = widgetWidth;
   widget.d3vis.attr('width', widget.dimW).attr('height', widget.dimH);
-  widget.d3vis.attr('viewBox', "0 0 " + widget.dimW + ", " + widget.dimH);
+  widget.d3vis.attr('viewBox', '0 0 ' + widget.dimW + ', ' + widget.dimH);
   renderChart.call(widget);
   widget.expandAll.call(widget);
   if (personImageUrl)
