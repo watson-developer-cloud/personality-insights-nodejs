@@ -1,5 +1,7 @@
 # Personality Insights Nodejs Starter Application
 
+  This version was derived on August 13, 2015 by David Ing, from https://github.com/watson-developer-cloud/personality-insights-nodejs .
+  
   The IBM Watson [Personality Insights][service_url] service uses linguistic analysis to extract cognitive and social characteristics from input text such as email, text messages, tweets, forum posts, and more. By deriving cognitive and social preferences, the service helps users to understand, connect to, and communicate with other people on a more personalized level.
 
 Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
