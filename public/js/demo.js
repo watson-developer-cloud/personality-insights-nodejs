@@ -251,8 +251,8 @@ function showVizualization(theProfile) {
     },
     updateTooltipPosition: function(d3event) {
       this.tooltip.element
-        .style('top', (d3event.pageY + 16) + 'px')
-        .style('left', (d3event.pageX + 16) + 'px');
+        .style('top', (d3event.pageY - 16) + 'px')
+        .style('left', (d3event.pageX - 16) + 'px');
       d3event.stopPropagation();
     },
     hideTooltip: function () {
