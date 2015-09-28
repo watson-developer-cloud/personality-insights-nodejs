@@ -581,10 +581,13 @@ var renderChart = function() {
     .each(stash)
     .on('click', expandOrFoldSector)
     .on('mouseover', function(d) {
-      _this.showTooltip(d, this);
+      _this.showTooltip(d, this, d3.event);
+    })
+    .on('mousemove', function() {
+      _this.updateTooltipPosition(d3.event);
     })
     .on('mouseout', function() {
-      _this.showTooltip();
+      _this.hideTooltip();
     });
 
   // Shift the text pieces clockwise (to somewhat center them).

@@ -18,6 +18,16 @@
 
 $(document).ready(function() {
 
+  var demo = {
+    getTooltip : undefined // Loaded later
+  };
+
+  i18nProvider.getJson('json', 'tooltipdata',
+    function(tooltipdata) {
+      demo.getTooltip = i18nTranslatorFactory.createTranslator(tooltipdata);
+    }
+  );
+
   var MIN_WORDS = 100;
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
@@ -205,9 +215,17 @@ function showVizualization(theProfile) {
   console.log('showVizualization()');
 
   $('#' + widgetId).empty();
-  var d3vis = d3.select('#' + widgetId).append('svg:svg');
+  var d3vis = d3.select('#' + widgetId)
+      .append('svg:svg'),
+    tooltip = {
+      element : d3.select('body')
+        .append('div')
+        .classed('tooltip', true),
+      target: undefined
+    };
   var widget = {
     d3vis: d3vis,
+    tooltip: tooltip,
     data: theProfile,
     loadingDiv: 'dummy',
     switchState: function() {
@@ -216,8 +234,32 @@ function showVizualization(theProfile) {
     _layout: function() {
       console.log('[_layout]');
     },
-    showTooltip: function() {
-      console.log('[showTooltip]');
+    showTooltip: function(d, context, d3event) {
+      if (d.id) {
+        this.tooltip.target = d3event.currentTarget;
+        console.debug('[showTooltip]');
+        var
+          tooltip = demo.getTooltip(d.id.replace('_parent', '')),
+          tooltipText = d.name + ' (' + d.category + '): ' + tooltip.msg;
+        console.debug(tooltipText);
+        this.tooltip.element
+          .text(tooltipText)
+          .classed('in', true);
+      }
+
+      d3event.stopPropagation();
+    },
+    updateTooltipPosition: function(d3event) {
+      this.tooltip.element
+        .style('top', (d3event.pageY + 16) + 'px')
+        .style('left', (d3event.pageX + 16) + 'px');
+      d3event.stopPropagation();
+    },
+    hideTooltip: function () {
+      console.debug('[hideTooltip]');
+      this.tooltip.element
+        .classed('in', false)
+      ;
     },
     id: 'SystemUWidget',
     COLOR_PALLETTE: ['#1b6ba2', '#488436', '#d52829', '#F53B0C', '#972a6b', '#8c564b', '#dddddd'],
@@ -273,6 +315,12 @@ function showVizualization(theProfile) {
         .attr('fill', 'url(#' + id + ')');
     }
   };
+
+  d3vis.on("mousemove", function () {
+    if (d3.event.target.tagName != 'g') {
+      widget.hideTooltip();
+    }
+  });
 
   widget.dimH = widgetHeight;
   widget.dimW = widgetWidth;
