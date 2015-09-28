@@ -6,6 +6,8 @@ block row-content
     div.row
       div.col-lg-6.col-md-12.col-xs-12
         h2=t('application.input.title')
+        p!=t('application.warning.minimumRecommendedWarning')
+        p!=t('application.warning.selfReflectiveText')
         div.well
           div.form-group.row
             div.col-lg-12.col-xs-12(style='padding:0px;')
@@ -38,12 +40,17 @@ block row-content
           h2 &nbsp;
           div.well
             p.errorMsg
+            div.captcha(style='display:none;margin-bottom:10px;')
+              div.g-recaptcha(data-sitekey='6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV')
+
         div.results(style='display: none;')
           h2= t('application.label.yourPersonality') + "*"
           div.well
             div.summary-div
             div.text-right(style='color: gray')
               em.small= "*" + t('application.label.comparedFootNote')
+            div.text-right(style='color: gray')
+              em.small.outputMessageFootnote
       div.results(style='display: none;')
         div.row
           div.col-lg-5.col-md-12.col-xs-12
@@ -57,11 +64,10 @@ block row-content
       div.hidden
         div#header-template
           div.row.theader
-            .col-lg-4.col-xs-4
+            .col-lg-7.col-xs-7
               span= t('application.label.name')
-            .col-lg-8.col-xs-8.text-right
-              span= t('application.label.value') + " ±  " + t('application.label.samplingError')
-
+            .col-lg-5.col-xs-5.text-right
+              span= t('application.label.value')
         div#trait-template
           div.row
             .tname.col-lg-7.col-xs-7

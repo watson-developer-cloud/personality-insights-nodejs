@@ -18,16 +18,16 @@
 
 /**
  * Creates translators
- * 
+ *
  * @author Ary Pablo Batista <batarypa@ar.ibm.com>
  */
-var i18nTranslatorFactory = (function () { 
-  
+var i18nTranslatorFactory = (function () {
+
   var self = {
-    
+
     /**
      * Get the value for the given key from the dictionary.
-     * 
+     *
      * @param dictionary A dictionary with String keys and String values.
      * @param key A key. Can contain '.' to indicate key's present in sub-dictionaries.
      *                   For example 'application.name' looks up for the 'application' key
@@ -38,11 +38,11 @@ var i18nTranslatorFactory = (function () {
     getKey : function (dictionary, key, defaultValue) {
       var parts = key.split('.');
       var value = dictionary;
-      for (var i = 0; i < parts.length; i++) {    
+      for (var i = 0; i < parts.length; i++) {
         value = value[parts[i]];
         if (!value) {
           value = defaultValue;
-          break; 
+          break;
         }
       }
       return value;
@@ -58,34 +58,34 @@ var i18nTranslatorFactory = (function () {
      */
     createTranslator : function (translations, defaults) {
       defaults = defaults || {};
-      var _this = this; 
+      var _this = this;
       return function (key) {
         var value = self.getKey(translations, key, null)
         if (value == null) {
-          console.log(format("Pending translation for: %s", key));
+          console.log(format('Pending translation for: %s', key));
           value = _this.getKey(defaults, key, key);
         }
         return value;
       };
-    }   
+    }
   };
-  
+
   return self;
-  
+
 })();
 
 
 /**
  * Provide files according to user's locale
- * 
+ *
  * @author Ary Pablo Batista <batarypa@ar.ibm.com>
  */
-var i18nProvider = (function(locale) { 
+var i18nProvider = (function(locale) {
 
   var self = {
-    locale : 'en'  
+    locale : 'en'
   };
-    
+
   /**
    * Sets the locale.
    * @param locale A locale string (format: ll-CC).
@@ -93,7 +93,7 @@ var i18nProvider = (function(locale) {
   self.setLocale = function (locale) {
     this.locale = locale;
   };
-    
+
   /**
    * Initializes the provider.
    * @param locale A locale string (format: ll-CC).
@@ -101,28 +101,28 @@ var i18nProvider = (function(locale) {
   self.init = function (locale) {
     this.setLocale(locale);
   };
-    
+
   /**
    * Given the name of a json file, return all the lookup names
    * for the current locale. For example, a 'es-AR' locale and
    * a given 'traits' json name will output:
    * ['traits_es-AR.json', 'traits_es.json', 'traits.json']
-   * 
+   *
    * @param jsonName The name of the json file.
    * @param locale A locale (format: ll-CC)
    * @returns {Array} An array of the possible names for the json file.
    */
   self.getJsonOptions = function (jsonName, locale) {
-    var localeParts = locale.split("-");
+    var localeParts = locale.split('-');
     var options = [];
-    options.push(jsonName + "_" + locale.replace("-", "_") + ".json");
-    if (localeParts.length == 2) {
-      options.push(jsonName + "_" + localeParts[0] + ".json");
+    options.push(jsonName + '_' + locale.replace('-', '_') + '.json');
+    if (localeParts.length === 2) {
+      options.push(jsonName + '_' + localeParts[0] + '.json');
     }
-    options.push(jsonName + ".json");
+    options.push(jsonName + '.json');
     return options;
   };
-    
+
   /**
    * Get the appropiate json file for user's locale.
    * @param path The path where the json file is hold.
@@ -133,7 +133,7 @@ var i18nProvider = (function(locale) {
   self.getJson = function (path, jsonName, successCallback, errorCallback) {
     self.getJsonRecursive(path, this.getJsonOptions(jsonName, this.locale), successCallback, errorCallback);
   };
-    
+
   /**
    * (Private) Try to get each json name. If one found, the successCallback
    * is invoked with the result. If not, the errorCallback is invoked.
@@ -144,7 +144,7 @@ var i18nProvider = (function(locale) {
    */
   self.getJsonRecursive = function (path, jsonNames, successCallback, errorCallback) {
     errorCallback = errorCallback || function (){};
-    
+
     $.ajax({
       dataType: 'json',
       type: 'GET',
@@ -154,24 +154,24 @@ var i18nProvider = (function(locale) {
         console.log('Obtained \'' + jsonNames[0] + '\' file.');
         successCallback(data);
       },
-      error: function (request, status, error) {      
+      error: function (request, status, error) {
         if (jsonNames.length == 0) {
           console.log('Error: Could not get \'' + jsonNames[0] + '\' file.', error);
           console.error(error);
           errorCallback(request, status, error);
         } else {
-          console.log('Could not get \'' + jsonNames[0] + '\' file. Trying another one.', error);     
-          
+          console.log('Could not get \'' + jsonNames[0] + '\' file. Trying another one.', error);
+
           self.getJsonRecursive(path, jsonNames.slice(1, jsonNames.length), successCallback, errorCallback);
         }
       }
-    });  
+    });
   };
-  
+
   self.init(locale);
-  
+
   return self;
-  
+
 })($('html').attr('lang'));
 
 

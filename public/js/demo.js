@@ -18,6 +18,8 @@
 
 $(document).ready(function() {
 
+  var MIN_WORDS = 100;
+
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
     personImageUrl = 'images/app.png', // Can be blank
@@ -29,7 +31,8 @@ $(document).ready(function() {
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
     $traits    = $('.traits'),
-    $results   = $('.results');
+    $results   = $('.results'),
+    $captcha   = $('.captcha');
 
   /**
    * Clear the "textArea"
@@ -60,7 +63,18 @@ $(document).ready(function() {
   $('.analysis-btn').click(function(){
     $('.analysis-btn').blur();
 
+    // check if the captcha is active and the user complete it
+    var recaptcha = grecaptcha.getResponse();
+
+    // reset the captcha
+    grecaptcha.reset();
+
+    if ($captcha.css('display') === 'table' && recaptcha === '')
+      return;
+
+
     $loading.show();
+    $captcha.hide();
     $error.hide();
     $traits.hide();
     $results.hide();
@@ -68,6 +82,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       data: {
+        recaptcha: recaptcha,
         text: $content.val(),
         language: language
       },
@@ -93,7 +108,16 @@ $(document).ready(function() {
         try {
           error = JSON.parse(xhr.responseText || {});
         } catch(e) {}
-        showError(error.error || error);
+
+        if (xhr && xhr.status === 429){
+          $captcha.css('display','table');
+          $('.errorMsg').css('color','black');
+          error.error = 'Complete the captcha to proceed';
+        } else {
+          $('.errorMsg').css('color','red');
+        }
+
+        showError(error ? (error.error || error): '');
       }
     });
   });
@@ -140,7 +164,7 @@ $(document).ready(function() {
           .find('span').html(elem.id).end()
           .end()
           .find('.tvalue')
-            .find('span').html(elem.value === '' ?  '' : (elem.value + ' (± '+ elem.sampling_error+')'))
+            .find('span').html(elem.value === '' ?  '' : elem.value)
             .end()
           .end()
           .appendTo(table);
@@ -164,6 +188,7 @@ $(document).ready(function() {
     console.log('showTextSummary()');
     var paragraphs = textSummary.assemble(data.tree);
     var div = $('.summary-div');
+    $('.outputMessageFootnote').text(data.word_count_message ? '**' + data.word_count_message + '.' : '');
     div.empty();
     paragraphs.forEach(function(sentences) {
       $('<p></p>').text(sentences.join(' ')).appendTo(div);
@@ -252,7 +277,7 @@ function showVizualization(theProfile) {
   widget.dimH = widgetHeight;
   widget.dimW = widgetWidth;
   widget.d3vis.attr('width', widget.dimW).attr('height', widget.dimH);
-  widget.d3vis.attr('viewBox', "0 0 " + widget.dimW + ", " + widget.dimH);
+  widget.d3vis.attr('viewBox', '0 0 ' + widget.dimW + ', ' + widget.dimH);
   renderChart.call(widget);
   widget.expandAll.call(widget);
   if (personImageUrl)
@@ -288,7 +313,7 @@ function showVizualization(theProfile) {
   function updateWordsCount() {
     var text = $content.val();
     var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCountFootnote').css('color',wordsCount < 100 ? 'red' : 'gray');
+    $('.wordsCountFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
     $('.wordsCount').text(wordsCount);
   }
 
