@@ -24,8 +24,8 @@ var express    = require('express'),
 module.exports = function (app) {
 
   // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true, limit: '25mb' }));
+  app.use(bodyParser.json({limit: '25mb'}));
 
   // Setup static public directory
   app.use(express.static(__dirname + '/../public'));
