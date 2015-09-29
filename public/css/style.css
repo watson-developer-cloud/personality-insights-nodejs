@@ -71,7 +71,7 @@
 }
 .sample-radio-container {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 input[type="radio"] {
   margin:3px 5px 0px 0px;

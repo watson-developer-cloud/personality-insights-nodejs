@@ -40,14 +40,9 @@ var credentials = extend({
 // Create the service wrapper
 var personalityInsights = watson.personality_insights(credentials);
 
-// render index page
-app.get('/', function(req, res) {
-  res.render('index');
-});
-
 // 1. Check if we have a captcha and reset the limit
 // 2. pass the request to the rate limit
-app.post('/',rateLimit.check, rateLimit.limit, function(req, res, next) {
+app.post('/', rateLimit.check, rateLimit.limit, function(req, res, next) {
   var parameters = extend(req.body, { acceptLanguage : i18n.lng() });
 
   personalityInsights.profile(parameters, function(err, profile) {

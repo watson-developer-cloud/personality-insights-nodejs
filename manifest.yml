@@ -11,3 +11,5 @@ applications:
   memory: 1G
   services:
   - personality-insights-service-standard
+  env:
+    NODE_ENV: production

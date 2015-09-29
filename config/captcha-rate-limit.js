@@ -17,10 +17,10 @@
 'use strict';
 
 // Module dependencies
-var rateLimit  = require('./rate-limit');
-var request  = require('request');
+var rateLimit = require('./rate-limit');
+var request = require('request');
 
-module.exports = function (app) {
+module.exports = function(app) {
   // enable rate limiting in bluemix
   app.enable('trust proxy');
 
@@ -51,11 +51,14 @@ module.exports = function (app) {
             remoteip: req.ip
           },
           json: true
-        }, function (error, response, body) {
+        }, function(error, response, body) {
           if (body.success)
             limiter.reset(req, res, next);
           else
-            res.status(409).json({error:'Wrong captcha', code:409});
+            res.status(409).json({
+              error: 'Wrong captcha',
+              code: 409
+            });
         });
       } else
         next();
