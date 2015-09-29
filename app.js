@@ -21,7 +21,6 @@ var express  = require('express'),
   bluemix    = require('./config/bluemix'),
   watson     = require('watson-developer-cloud'),
   extend     = require('util')._extend,
-  rateLimit  = require('./config/captcha-rate-limit')(app),
   i18n       = require('i18next');
 
 //i18n settings
@@ -40,9 +39,7 @@ var credentials = extend({
 // Create the service wrapper
 var personalityInsights = watson.personality_insights(credentials);
 
-// 1. Check if we have a captcha and reset the limit
-// 2. pass the request to the rate limit
-app.post('/', rateLimit.check, rateLimit.limit, function(req, res, next) {
+app.post('/', function(req, res, next) {
   var parameters = extend(req.body, { acceptLanguage : i18n.lng() });
 
   personalityInsights.profile(parameters, function(err, profile) {
