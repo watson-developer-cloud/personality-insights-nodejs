@@ -36,7 +36,7 @@
     },
     "warning": {
       "minimumRecommendedWarning": "We need a minimum of 3500 words and ideally 6000 words or more to compute statistically significant results. See <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml\">the science behind the service</a>.",
-      "selfReflectiveText": "Ideally, the text should contain words we use in every day life relating to personal experiences, thoughts and responses. See <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal\">usage guidence</a> for details."
+      "selfReflectiveText": "Ideally, the text should contain words we use in every day life relating to personal experiences, thoughts and responses. See <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal\">usage guidance</a> for details."
     }
   },
   "service": {
