@@ -3,7 +3,7 @@
   "version": "0.1.10",
   "description": "A sample nodejs app for Bluemix that use the Personality Insights service",
   "dependencies": {
-    "body-parser": "^1.11.0",
+    "body-parser": "^1.14.1",
     "errorhandler": "^1.3.3",
     "i18next": "^1.10.5",
     "express": "^4.13.3",
