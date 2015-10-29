@@ -16,12 +16,12 @@
 
 'use strict';
 
-var express  = require('express'),
-  app        = express(),
-  bluemix    = require('./config/bluemix'),
-  watson     = require('watson-developer-cloud'),
-  extend     = require('util')._extend,
-  i18n       = require('i18next');
+var express    = require('express'),
+  app          = express(),
+  watson       = require('watson-developer-cloud'),
+  vcapServices = require('vcap_services'),
+  extend       = require('util')._extend,
+  i18n         = require('i18next');
 
 //i18n settings
 require('./config/i18n')(app);
@@ -34,12 +34,16 @@ var credentials = extend({
   version: 'v2',
   username: '<username>',
   password: '<password>'
-}, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
+}, vcapServices.getCredentials('personality_insights'));
 
 // Create the service wrapper
 var personalityInsights = watson.personality_insights(credentials);
 
-app.post('/', function(req, res, next) {
+app.get('/', function(req, res) {
+  res.render('index', { ct: req._csrfToken });
+});
+
+app.post('/api/profile', function(req, res, next) {
   var parameters = extend(req.body, { acceptLanguage : i18n.lng() });
 
   personalityInsights.profile(parameters, function(err, profile) {

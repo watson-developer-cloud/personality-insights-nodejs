@@ -19,7 +19,7 @@
 var i18n = require('i18next');
 
 var i18nOptions = {
-  debug : true,
+  debug : false,
 
   preload : ['en'],
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp. All Rights Reserved.
+ * Copyright 2014 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,21 +18,18 @@
 
 // Module dependencies
 var express    = require('express'),
-  errorhandler = require('errorhandler'),
   bodyParser   = require('body-parser');
 
 module.exports = function (app) {
+  app.set('view engine', 'ejs');
+  app.enable('trust proxy');
+
+  // Only loaded when SECURE_EXPRESS is `true`
+  if (process.env.SECURE_EXPRESS)
+    require('./security')(app);
 
   // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
-
-  // Setup static public directory
+  app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+  app.use(bodyParser.json({ limit: '5mb' }));
   app.use(express.static(__dirname + '/../public'));
-
-  // Add error handling in dev
-  if (!process.env.VCAP_SERVICES) {
-    app.use(errorhandler());
-  }
-
 };

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ /* global i18nProvider,i18nTranslatorFactory,grecaptcha,d3,textSummary */
 
 'use strict';
 
@@ -90,13 +91,16 @@ $(document).ready(function() {
     $results.hide();
 
     $.ajax({
+      headers:{
+        'csrf-token': $('meta[name="ct"]').attr('content')
+      },
       type: 'POST',
       data: {
         recaptcha: recaptcha,
         text: $content.val(),
         language: language
       },
-      url: '/',
+      url: '/api/profile',
       dataType: 'json',
       success: function(response) {
         $loading.hide();
