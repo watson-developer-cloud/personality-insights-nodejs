@@ -52,9 +52,9 @@ module.exports = function (app) {
 
   // 5. rate limiting
   var limiter = rateLimit({
-    windowMs: 30 * 1000, // seconds
+    windowMs: 60 * 1000, // seconds
     delayMs: 0,
-    max: 3,
+    max: 1,
     message: JSON.stringify({
       error:'Too many requests, please try again in 30 seconds.',
       code: 429
@@ -63,8 +63,8 @@ module.exports = function (app) {
 
   // 6. captcha
   var captchaKeys = {
-    site: process.env.CAPTCHA_SITE || '6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV',
-    secret: process.env.CAPTCHA_SECRET || '6LcRbQkTAAAAAKETiHpCDSGDwzj3h8p4hJOGV0wU',
+    site: process.env.CAPTCHA_SITE || '<captcha-site>',
+    secret: process.env.CAPTCHA_SECRET || '<captcha-secret>',
   };
 
   var checkCaptcha = function(req, res, next) {

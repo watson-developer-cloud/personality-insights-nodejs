@@ -19,7 +19,6 @@
 var express    = require('express'),
   app          = express(),
   watson       = require('watson-developer-cloud'),
-  vcapServices = require('vcap_services'),
   extend       = require('util')._extend,
   i18n         = require('i18next');
 
@@ -29,15 +28,12 @@ require('./config/i18n')(app);
 // Bootstrap application settings
 require('./config/express')(app);
 
-// if bluemix credentials exists, then override local
-var credentials = extend({
+// Create the service wrapper
+var personalityInsights = watson.personality_insights({
   version: 'v2',
   username: '<username>',
   password: '<password>'
-}, vcapServices.getCredentials('personality_insights'));
-
-// Create the service wrapper
-var personalityInsights = watson.personality_insights(credentials);
+});
 
 app.get('/', function(req, res) {
   res.render('index', { ct: req._csrfToken });

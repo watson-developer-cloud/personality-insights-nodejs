@@ -13,3 +13,4 @@ applications:
   - personality-insights-service-standard
   env:
     NODE_ENV: production
+    SECURE_EXPRESS: true
