@@ -52,9 +52,9 @@ module.exports = function (app) {
 
   // 5. rate limiting
   var limiter = rateLimit({
-    windowMs: 60 * 1000, // seconds
+    windowMs: 30 * 1000, // seconds
     delayMs: 0,
-    max: 1,
+    max: 6,
     message: JSON.stringify({
       error:'Too many requests, please try again in 30 seconds.',
       code: 429
@@ -81,6 +81,7 @@ module.exports = function (app) {
       }, function(error, response, body) {
         if (body.success) {
           limiter.resetIp(req.ip);
+          next();
         } else {
           next({
             code: 'EBADCSRFTOKEN',
