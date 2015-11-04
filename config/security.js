@@ -34,7 +34,7 @@ module.exports = function (app) {
   app.use('/api/', morgan('combined', {stream: logStream}));
 
   // 1. redirects http to https
-  //app.use(secure());
+  app.use(secure());
 
   // 2. helmet with defaults
   app.use(helmet());
