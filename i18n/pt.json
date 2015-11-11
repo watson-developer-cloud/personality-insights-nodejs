@@ -1,0 +1,45 @@
+{
+  "application": {
+    "title": "Personality Insights",
+    "name": "Personality Insights",
+    "label": {
+      "documentation": "Documentação",
+      "apiOverview": "Visão geral do API",
+      "contactUs": "Fale conosco",
+      "community": "Comunidade",
+      "keepExploring": "Continuar explorando",
+      "learnMore": "Saiba mais sobre este serviço",
+      "fork": "Fork em Github",
+      "yourPersonality": "Sua personalidade",
+      "comparedFootNote": "Em comparação com a maioria das pessoas que participaram de nossas pesquisas.",
+      "name": "Nome",
+      "samplingError": "Erro de amostragem",
+      "value": "Valor",
+      "personalityVisualizationData": "Visualização de Dados Personalidade",
+      "personalityData": "Os dados atrás de sua personalidade",
+      "spanish": "Espanhol",
+      "english": "Inglês",
+      "portuguese": "Português",
+      "chooseLanguage": "Escolha o seu idioma",
+      "forkAndDeployBluemix": "Fork e Deploy em Bluemix",
+      "resources": "Recursos",
+      "services": "Serviços",
+      "docs": "Documentação",
+      "appGallery": "Galeria de Aplicações",
+      "words": "palavras"
+    },
+    "input": {
+      "placeHolder": "Por favor, insira o texto para analisar (mínimo de 100 palavras)...",
+      "clear": "Excluir",
+      "analyze": "Analisar",
+      "title": "Insira Texto"
+    },
+    "warning": {
+      "minimumRecommendedWarning": "Um mínimo de 3500 palavras (idealmente 6000 ou mais) para calcular um resultado estatisticamente confiável é necessário. <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml\">the science behind the service</a>.",
+      "selfReflectiveText": "Idealmente, o texto deve conter palavras que usamos na vida diária relativa a experiências pessoais, pensamentos e respostas. <a href=\"http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal\">usage guidance</a> for details."
+    }
+  },
+  "service": {
+    "description": "O serviço IBM Watson personalidades do Insights utiliza análises linguísticas para extrair um espectro de características cognitivas e sociais a partir dos dados de texto que uma pessoa gera através de blogs, tweets, posts no fórum e muito mais."
+  }
+}
