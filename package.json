@@ -13,7 +13,7 @@
     "helmet": "^0.13.0",
     "i18next": "^1.10.6",
     "request": "^2.65.0",
-    "watson-developer-cloud": "^1.0.0-beta.1"
+    "watson-developer-cloud": "^1.0.3"
   },
   "engines": {
     "node": ">=0.10"
