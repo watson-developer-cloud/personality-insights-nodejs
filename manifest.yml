@@ -1,8 +1,8 @@
 ---
 declared-services:
-  personality-insights-service-standard:
+  personality-insights-service-tiered:
     label: personality_insights
-    plan: standard
+    plan: tiered
 
 applications:
 - name: personality-insights-nodejs
@@ -10,7 +10,7 @@ applications:
   path: .
   memory: 1G
   services:
-  - personality-insights-service-standard
+  - personality-insights-service-tiered
   env:
     NODE_ENV: production
     SECURE_EXPRESS: true
