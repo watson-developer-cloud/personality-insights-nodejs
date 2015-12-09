@@ -5,10 +5,10 @@ declared-services:
     plan: tiered
 
 applications:
-- name: personality-insights-nodejs
+- name: personality-insights-demo
   command: node app.js
   path: .
-  memory: 1G
+  memory: 512M
   services:
   - personality-insights-service-tiered
   env:

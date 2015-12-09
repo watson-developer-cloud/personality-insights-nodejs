@@ -34,6 +34,8 @@ module.exports = function (app) {
   // 2. helmet with defaults
   app.use(helmet());
 
+  app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
+  
   // 3. setup cookies
   var secret = Math.random().toString(36).substring(7);
   app.use(cookieParser(secret));
