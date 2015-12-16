@@ -13,373 +13,646 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- /* global i18nProvider,i18nTranslatorFactory,grecaptcha,d3,textSummary */
-
+/* global $:false,TextSummary, Profile,_, $Q*/
 'use strict';
 
-$(document).ready(function() {
+var markdown = window.markdownit();
 
-  var demo = {
-    getTooltip : undefined // Loaded later
-  };
+function isDefined(v) {
+  return typeof v !== 'undefined';
+}
 
-  i18nProvider.getJson('json', 'tooltipdata',
-    function(tooltipdata) {
-      demo.getTooltip = i18nTranslatorFactory.createTranslator(tooltipdata);
+function renderMarkdown(s) {
+  var
+    rendered = markdown.render(s ? s : ''),
+    replaces = [
+      ['<a', '<a class="base--a" target="_blank"']
+    ];
+
+  replaces.forEach(function(p) {
+    rendered = rendered.replace(p[0], p[1]);
+  });
+
+  return rendered;
+}
+
+function id(x) { return x; }
+
+function removeHidden(d) {
+  d.scenarios = d.scenarios.filter(function (s) {
+    return !s.hidden;
+  });
+  return d;
+}
+
+function toDict(d) { return new Dictionary(d); }
+
+$(document).ready(function () {
+
+
+
+  var
+    SAMPLE_TEXTS = [
+        'sample1',
+        'sample2',
+        'sample3',
+        'ar'
+      ],
+    globalState = {
+        selectedSample: SAMPLE_TEXTS[0],
+        languageSelected: undefined
+      },
+    textCache = {},
+    Resources = {
+        _autoload : [ { name: 'scenarios', loader: removeHidden }, { name: 'names', loader: toDict } ]
+      };
+
+  var $big5Traits = $('.output-big-5--traits');
+  var $needsTraits = $('.output-needs--traits');
+  var $needsMoreTraits = $('.output-needs--more-traits');
+  var $valuesTraits = $('.output-values--traits');
+  var $needsToggle = $('.output-needs--toggle');
+  var $outputSummaryText = $('.output-summary--summary');
+  var $outputLikelyBehaviors = $('.output-summary--likely-behaviors');
+  var $outputLikelyBehaviorsSection = $('.output-summary--likely-behaviors--section');
+  var $outputUnlikelyBehaviors = $('.output-summary--unlikely-behaviors');
+  var $outputUnlikelyBehaviorsSection = $('.output-summary--unlikely-behaviors--section');
+  var $outputNoBehaviorsSection = $('.output-summary--no-behaviors--section');
+  var $inputTextArea = $('.input--text-area');
+  var $inputWordCount = $('.input--word-count-number');
+  var $inputForm1 = $('.input--form1');
+  var $inputForm2 = $('.input--form2');
+  var $resetButton = $('.input--reset-button');
+  var $loading = $('.loading');
+  var $output = $('.output');
+  var $outputHeader = $('.output--header');
+  var $outputJSON = $('.output--json');
+  var $outputJSONCode = $('.output--json-code');
+  var $outputJSONButton = $('.output--json-button');
+  var $error = $('.error');
+  var $errorMessage = $('.error--message');
+
+  function setTextSample(value, readonly) {
+    $('#inputText').val(value);
+    if (readonly) {
+      $('#inputText').attr('readonly', 'readonly');
+    } else {
+      $('#inputText').removeAttr('readonly');
     }
-  );
+  }
 
-  var MIN_WORDS = 100;
+  function registerHandlers() {
 
-  var widgetId = 'vizcontainer', // Must match the ID in index.jade
-    widgetWidth = 700, widgetHeight = 700, // Default width and height
-    personImageUrl = 'images/app.png', // Can be blank
-    language = 'en'; // language selection
+    $('input[name="text-lang"]').click(function() {
+      globalState.selectedLanguage = $(this).attr('value');
+    });
 
-  // Jquery variables
-  var $content = $('.content'),
-    $loading   = $('.loading'),
-    $error     = $('.error'),
-    $errorMsg  = $('.errorMsg'),
-    $traits    = $('.traits'),
-    $results   = $('.results'),
-    $captcha   = $('.captcha');
+    $('input[name="text-sample"]').click(function() {
+      var
+        textFile = $(this).attr('data-file'),
+        orientation = $(this).attr('data-orientation');
+      globalState.selectedSample = textFile;
+
+      if (orientation === 'right-to-left') {
+        $inputTextArea.removeClass('left-to-right');
+        $inputTextArea.addClass('right-to-left');
+      } else {
+        $inputTextArea.removeClass('right-to-left');
+        $inputTextArea.addClass('left-to-right');
+      }
+
+      $('#languageChooser').hide();
+
+      loadSampleText(textFile);
+      updateWordCount();
+    });
+
+    $(window).resize(function () {
+      if ($(window).width() < 770) {
+        $('.smartphone-hidden').hide();
+        if (globalState.selectedSample == 'custom') {
+          $('input[name="text-sample"]:first').trigger('click');
+        }
+      } else {
+        $('label[for="text-custom"]').show();
+      }
+    });
+
+    $('input#text-custom').unbind('click').click(function() {
+      globalState.selectedSample = 'custom';
+
+      $inputTextArea.removeClass('right-to-left');
+      $inputTextArea.addClass('left-to-right');
+
+      $('#languageChooser').show();
+      setTextSample('', false);
+      updateWordCount();
+
+      if (!globalState.selectedLanguage) {
+        $('input#lang-en').trigger('click');
+      }
+    });
+
+    $('input[name="twitter"]').click(function() {
+      var twitterId = $(this).val();
+      globalState.selectedTwitterUser = twitterId;
+    });
+
+    $inputForm1.submit(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      resetOutputs();
+      $loading.show();
+      scrollTo($loading);
+      getProfileForTwitterUser(globalState.selectedTwitterUser, 'en');
+    });
+
+    $inputForm2.submit(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      resetOutputs();
+      $loading.show();
+      scrollTo($loading);
+
+      var lang = globalState.selectedSample == 'custom' ? globalState.selectedLanguage : $('input#text-'+ globalState.selectedSample).attr('data-lang');
+      getProfileForText($('.input--text-area').val(), lang);
+    });
+  }
+
+  function assembleTextSummary(text) {
+    return '<p class="base--p">' + text.split('\n').join('</p><p class="base--p">') + '</p>';
+  }
+
+  function setTextSummary(profile, locale) {
+    var textSummary = new TextSummary(locale),
+        summary = textSummary.getSummary(profile);
+    $('#personalitySummary').empty();
+    $('#personalitySummary').append(assembleTextSummary(summary));
+  }
+
 
   /**
-   * Clear the "textArea"
+   * Toggle Big 5 Subtraits
    */
-  $('.clear-btn').click(function(){
-    $('.clear-btn').blur();
-    $content.val('');
-    updateWordsCount();
+  $(document).on('click', '.output-big-5--trait-label', function() {
+    $(this).closest('.percent-bar-and-score').toggleClass('toggled');
   });
 
-  /**
-   * Update words count on change
-   */
-  $content.change(updateWordsCount);
-
-  /**
-   * Update words count on copy/past
-   */
-  $content.bind('paste', function() {
-    setTimeout(updateWordsCount, 100);
+  $resetButton.click(function() {
+    $('input[name="twitter"]:first').trigger('click');
+    $('input[name="text-sample"]:first').trigger('click');
+    $('.tab-panels--tab:first').trigger('click');
+    resetOutputs();
   });
 
-  /**
-   * 1. Create the request
-   * 2. Call the API
-   * 3. Call the methods to display the results
-   */
-  $('.analysis-btn').click(function(){
-    $('.analysis-btn').blur();
+  // toggleNeedsTraits
+  $needsToggle.click(function() {
+    $needsMoreTraits.toggle();
+    $needsToggle.text($needsToggle.text() == 'See more' ? 'See less' : 'See more');
+  });
 
-    // check if the captcha is active and the user complete it
-    var recaptcha = grecaptcha.getResponse();
+  $outputJSONButton.click(function() {
+    $outputJSON.toggle();
+    scrollTo($outputJSON);
+  });
 
-    // reset the captcha
-    grecaptcha.reset();
+  function getProfileForTwitterUser(userId, language) {
+    getProfile(userId, language, 'twitter');
+  }
 
-    if ($captcha.css('display') === 'table' && recaptcha === '')
-      return;
+  function getProfileForText(text, language) {
+    getProfile(text, language, 'text');
+  }
 
+  function changeProfileLabels(data) {
+    var clonned = JSON.parse(JSON.stringify(data)),
+      replacements = {
+        'Extraversion' : 'Introversion/Extraversion',
+        'Outgoing' : 'Warmth',
+        'Uncompromising': 'Straightforwardness',
+        'Immoderation': 'Impulsiveness',
+        'Susceptible to stress': 'Sensitivity to stress',
+        'Conservation': 'Tradition',
+        'Openness to change': 'Stimulation',
+        'Hedonism': 'Taking pleasure in life',
+        'Self-enhancement': 'Achievement',
+        'Self-transcendence': 'Helping others'
+      };
 
-    $loading.show();
-    $captcha.hide();
-    $error.hide();
-    $traits.hide();
-    $results.hide();
+    function walkTree(f, tree) {
+      f(tree);
+      if (tree.children) {
+        tree.children.forEach(walkTree.bind(this, f));
+      }
+    }
+
+    walkTree(function (node) {
+      if (node.id && replacements[node.id.replace('_parent', '')]) {
+        node.name = replacements[node.id.replace('_parent', '')];
+      }
+    }, clonned.tree);
+
+    return clonned;
+  }
+
+  function getProfile(data, language, sourceType) {
+    // Source Types: (text|twitter)
+    sourceType = sourceType || 'text';
+
+    var postData = {
+        language: language,
+        include_raw: true
+      },
+      url = '/api/profile/' + sourceType;
+
+    if (sourceType === 'twitter')
+      postData.userId = data;
+    else
+      postData.text = data;
+
 
     $.ajax({
       headers:{
         'csrf-token': $('meta[name="ct"]').attr('content')
       },
       type: 'POST',
-      data: {
-        recaptcha: recaptcha,
-        text: $content.val(),
-        language: language
-      },
-      url: '/api/profile',
+      data: postData,
+      url: url,
       dataType: 'json',
-      success: function(response) {
+      success: function(data) {
         $loading.hide();
-
-        if (response.error) {
-          showError(response.error);
-        } else {
-          $results.show();
-          showTraits(response);
-          showTextSummary(response);
-          showVizualization(response);
-        }
-
+        $output.show();
+        scrollTo($outputHeader);
+        loadOutput(changeProfileLabels(data));
       },
-      error: function(xhr) {
+      error: function(err) {
         $loading.hide();
-
-        var error;
-        try {
-          error = JSON.parse(xhr.responseText || {});
-        } catch(e) {}
-
-        if (xhr && xhr.status === 429){
-          $captcha.css('display','table');
-          $('.errorMsg').css('color','black');
-          error.error = 'Complete the captcha to proceed';
-        } else {
-          $('.errorMsg').css('color','red');
+        $error.show();
+        console.log(err);
+        var message = 'Error processing the request, please try again.';
+        if (err.responseJSON && err.responseJSON.error) {
+          message = err.responseJSON.error;
         }
-
-        showError(error ? (error.error || error): '');
+        $errorMessage.text(message);
       }
     });
-  });
-
-  /**
-   * Display an error or a default message
-   * @param  {String} error The error
-   */
-  function showError(error) {
-    var defaultErrorMsg = 'Error processing the request, please try again later.';
-    $error.show();
-    $errorMsg.text(error || defaultErrorMsg);
   }
 
-  /**
-   * Displays the traits received from the
-   * Personality Insights API in a table,
-   * just trait names and values.
-   */
-  function showTraits(data) {
-    console.log('showTraits()');
-    $traits.show();
-
-    var traitList = flatten(data.tree),
-      table = $traits;
-
-    table.empty();
-
-    // Header
-    $('#header-template').clone().appendTo(table);
-
-    // For each trait
-    for (var i = 0; i < traitList.length; i++) {
-      var elem = traitList[i];
-
-      var Klass = 'row';
-      Klass += (elem.title) ? ' model_title' : ' model_trait';
-      Klass += (elem.value === '') ? ' model_name' : '';
-
-      if (elem.value !== '') { // Trait child name
-        $('#trait-template').clone()
-          .attr('class', Klass)
-          .find('.tname')
-          .find('span').html(elem.id).end()
-          .end()
-          .find('.tvalue')
-            .find('span').html(elem.value === '' ?  '' : elem.value)
-            .end()
-          .end()
-          .appendTo(table);
-      } else {
-        // Model name
-        $('#model-template').clone()
-          .attr('class', Klass)
-          .find('.col-lg-12')
-          .find('span').html(elem.id).end()
-          .end()
-          .appendTo(table);
-      }
-    }
+  function testScenario(scenario, premise, predicate) {
+    return scenario.traits.reduce(predicate, premise);
   }
 
-  /**
-   * Construct a text representation for big5 traits crossing, facets and
-   * values.
-   */
-  function showTextSummary(data) {
-    console.log('showTextSummary()');
-    var paragraphs = textSummary.assemble(data.tree);
-    var div = $('.summary-div');
-    $('.outputMessageFootnote').text(data.word_count_message ? '**' + data.word_count_message + '.' : '');
-    div.empty();
-    paragraphs.forEach(function(sentences) {
-      $('<p></p>').text(sentences.join(' ')).appendTo(div);
-    });
+  function byId(xs, id) {
+    return xs.filter(function (x) {
+      return x.id === id;
+    })[0];
   }
 
-/**
- * Renders the sunburst visualization. The parameter is the tree as returned
- * from the Personality Insights JSON API.
- * It uses the arguments widgetId, widgetWidth, widgetHeight and personImageUrl
- * declared on top of this script.
- */
-function showVizualization(theProfile) {
-  console.log('showVizualization()');
+  function inThreshold(threshold, value) {
+    return value >= threshold.min && value <= threshold.max;
+  }
 
-  $('#' + widgetId).empty();
-  var d3vis = d3.select('#' + widgetId)
-      .append('svg:svg'),
-    tooltip = {
-      element : d3.select('body')
-        .append('div')
-        .classed('tooltip', true),
-      target: undefined
+  function toScoringFunction(target) {
+    return function (p) {
+      return eval(target.score);
     };
-  var widget = {
-    d3vis: d3vis,
-    tooltip: tooltip,
-    data: theProfile,
-    loadingDiv: 'dummy',
-    switchState: function() {
-      console.log('[switchState]');
-    },
-    _layout: function() {
-      console.log('[_layout]');
-    },
-    showTooltip: function(d, context, d3event) {
-      if (d.id) {
-        this.tooltip.target = d3event.currentTarget;
-        console.debug('[showTooltip]');
-        var
-          tooltip = demo.getTooltip(d.id.replace('_parent', '')),
-          tooltipText = d.name + ' (' + d.category + '): ' + tooltip.msg;
-        console.debug(tooltipText);
-        this.tooltip.element
-          .text(tooltipText)
-          .classed('in', true);
+  }
+
+  function targetTraitScore(targets, id, trait) {
+    return toScoringFunction(byId(targets,id))(trait.percentage);
+  }
+
+  function scenarioScore(profile, scenario, targets) {
+    return (testScenario(scenario, 0, function(acc, trait) {
+      return acc + targetTraitScore(targets, trait.target, profile.getTrait(trait.id));
+    }) / scenario.traits.length);
+  }
+
+  function matchingScenarios(targets, scenarios, profile) {
+    return scenarios.map(function (scenario) {
+      return {
+        score: scenarioScore(profile, scenario, targets),
+        scenario: scenario
       }
+    });
+  }
 
-      d3event.stopPropagation();
-    },
-    updateTooltipPosition: function(d3event) {
-      this.tooltip.element
-        .style('top', (d3event.pageY - 16) + 'px')
-        .style('left', (d3event.pageX - 16) + 'px');
-      d3event.stopPropagation();
-    },
-    hideTooltip: function () {
-      console.debug('[hideTooltip]');
-      this.tooltip.element
-        .classed('in', false)
-      ;
-    },
-    id: 'SystemUWidget',
-    COLOR_PALLETTE: ['#1b6ba2', '#488436', '#d52829', '#F53B0C', '#972a6b', '#8c564b', '#dddddd'],
-    expandAll: function() {
-      this.vis.selectAll('g').each(function() {
-        var g = d3.select(this);
-        if (g.datum().parent && // Isn't the root g object.
-          g.datum().parent.parent && // Isn't the feature trait.
-          g.datum().parent.parent.parent) { // Isn't the feature dominant trait.
-          g.attr('visibility', 'visible');
-        }
-      });
-    },
-    collapseAll: function() {
-      this.vis.selectAll('g').each(function() {
-        var g = d3.select(this);
-        if (g.datum().parent !== null && // Isn't the root g object.
-          g.datum().parent.parent !== null && // Isn't the feature trait.
-          g.datum().parent.parent.parent !== null) { // Isn't the feature dominant trait.
-          g.attr('visibility', 'hidden');
-        }
-      });
-    },
-    addPersonImage: function(url) {
-      if (!this.vis || !url) {
-        return;
+  function getScenarioInfo(category, scenario) {
+    var scenarioInfo = Resources.names.get(category)
+      .filter(function (otherScenario) {
+        return otherScenario.id == scenario.id;
+      })[0];
+
+    return scenarioInfo;
+  }
+
+  function getUniqueBehaviorsFor(profile) {
+    var found = {};
+    var behaviors = getBehaviorsFor(profile).filter(function (b) {
+      var hold = false;
+      if (!found[b.name]) {
+        found[b.name] = true;
+        hold = true;
       }
-      var icon_defs = this.vis.append('defs');
-      var width = this.dimW,
-        height = this.dimH;
+      return hold;
+    });
+    return behaviors;
+  }
 
-      // The flower had a radius of 640 / 1.9 = 336.84 in the original, now is 3.2.
-      var radius = Math.min(width, height) / 16.58; // For 640 / 1.9 -> r = 65
-      var scaled_w = radius * 2.46; // r = 65 -> w = 160
-
-      var id = 'user_icon_' + this.id;
-      icon_defs.append('pattern')
-        .attr('id', id)
-        .attr('height', 1)
-        .attr('width', 1)
-        .attr('patternUnits', 'objectBoundingBox')
-        .append('image')
-        .attr('width', scaled_w)
-        .attr('height', scaled_w)
-        .attr('x', radius - scaled_w / 2) // r = 65 -> x = -25
-        .attr('y', radius - scaled_w / 2)
-        .attr('xlink:href', url)
-        .attr('opacity', 1.0)
-        .on('dblclick.zoom', null);
-      this.vis.append('circle')
-        .attr('r', radius)
-        .attr('stroke-width', 0)
-        .attr('fill', 'url(#' + id + ')');
-    }
-  };
-
-  d3vis.on("mousemove", function () {
-    if (d3.event.target.tagName != 'g') {
-      widget.hideTooltip();
-    }
-  });
-
-  widget.dimH = widgetHeight;
-  widget.dimW = widgetWidth;
-  widget.d3vis.attr('width', widget.dimW).attr('height', widget.dimH);
-  widget.d3vis.attr('viewBox', '0 0 ' + widget.dimW + ', ' + widget.dimH);
-  renderChart.call(widget);
-  widget.expandAll.call(widget);
-  if (personImageUrl)
-    widget.addPersonImage.call(widget, personImageUrl);
-}
-
-  /**
-   * Returns a 'flattened' version of the traits tree, to display it as a list
-   * @return array of {id:string, title:boolean, value:string} objects
-   */
-  function flatten( /*object*/ tree) {
-    var arr = [],
-      f = function(t, level) {
-        if (!t) return;
-        if (level > 0 && (!t.children || level !== 2)) {
-          arr.push({
-            'id': t.name,
-            'title': t.children ? true : false,
-            'value': (typeof (t.percentage) !== 'undefined') ? Math.floor(t.percentage * 100) + '%' : '',
-            'sampling_error': (typeof (t.sampling_error) !== 'undefined') ? Math.floor(t.sampling_error * 100) + '%' : ''
-          });
-        }
-        if (t.children && t.id !== 'sbh') {
-          for (var i = 0; i < t.children.length; i++) {
-            f(t.children[i], level + 1);
-          }
-        }
+  function getBehaviorsFor(profile) {
+    var targets = Resources.scenarios.targets,
+        scenarios  = Resources.scenarios.scenarios,
+        _profile   = new Profile(profile);
+    return matchingScenarios(targets, scenarios, _profile).map(function (scenarioMatching) {
+      var scenarioInfo = getScenarioInfo('scenarios', scenarioMatching.scenario);
+      return {
+        name : scenarioInfo.verb,
+        score : scenarioMatching.score,
+        tooltip: renderMarkdown(scenarioInfo.tooltip)
       };
-    f(tree, 0);
+    });
+  }
+
+  function dictToArray(dict) {
+    var arr = [];
+    Object.keys(dict).forEach(function(key) {
+      arr.push({ key: key, value: dict[key] });
+    });
     return arr;
   }
 
-  function updateWordsCount() {
-    var text = $content.val();
-    var wordsCount = text.match(/\S+/g) ? text.match(/\S+/g).length : 0;
-    $('.wordsCountFootnote').css('color',wordsCount < MIN_WORDS ? 'red' : 'gray');
-    $('.wordsCount').text(wordsCount);
+  function loadOutput(data) {
+    setTextSummary(data, 'en');
+    loadWordCount(data);
+    var big5Data = data.tree.children[0].children[0].children;
+    var needsData = data.tree.children[1].children[0].children;
+    var valuesData = data.tree.children[2].children[0].children;
+
+    var statsPercent_template = outputStatsPercentTemplate.innerHTML;
+    var big5_template = big5PercentTemplate.innerHTML;
+
+    var big5Data_curated = big5Data.map(function(obj) {
+      var newObj = {};
+      newObj.name = obj.name;
+      newObj.id = obj.id;
+      newObj.score = Math.round(obj.percentage * 100);
+      newObj.children = obj.children.map(function(obj2) {
+        var newObj2 = {};
+        newObj2.name = obj2.name;
+        newObj2.id = obj2.id;
+        newObj2.score = Math.round(obj2.percentage * 100);
+        return newObj2;
+      }).sort(function(a, b) {
+        return b.score - a.score;
+      });
+      return newObj;
+    });
+
+    var needsData_curated = needsData.map(function(obj) {
+      var newObj = {};
+      newObj.id = obj.id;
+      newObj.name = obj.name;
+      newObj.score = Math.round(obj.percentage * 100);
+      return newObj;
+    });
+
+    var valuesData_curated = valuesData.map(function(obj) {
+      var newObj = {};
+      newObj.id = obj.id;
+      newObj.name = obj.name;
+      newObj.score = Math.round(obj.percentage * 100);
+      return newObj;
+    });
+
+    function mapObject(o, f) {
+      var u = {};
+      Object.keys(o).forEach(function (key) {
+        u[key] = f(key, o[key]);
+      });
+      return u;
+    }
+
+    function toHtml(markdownDict) {
+      return mapObject(markdownDict, function(key, value) {
+        return renderMarkdown(value);
+      });
+    }
+
+    $big5Traits.append(_.template(big5_template, {
+      items: big5Data_curated.sort(sortScores),
+      tooltips: toHtml(PITooltips.big5().getValue())
+    }));
+
+    $needsTraits.append(_.template(statsPercent_template, {
+      items: needsData_curated.sort(sortScores).slice(0,5),
+      tooltips: toHtml(PITooltips.needs().getValue())
+    }));
+
+    $needsMoreTraits.append(_.template(statsPercent_template, {
+      items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
+      tooltips: toHtml(PITooltips.needs().getValue())
+    }));
+
+    $valuesTraits.append(_.template(statsPercent_template, {
+      items: valuesData_curated.sort(sortScores),
+      tooltips: toHtml(PITooltips.values().getValue())
+    }));
+
+    loadBehaviors(data);
+
+    updateJSON(data);
   }
 
-  function onSampleTextChange() {
-    var isEnglish = $('#english_radio').is(':checked');
-    language = isEnglish ? 'en' : 'es';
+  function loadBehaviors(profile) {
+    var behaviors_template = outputBehaviorsTemplate.innerHTML;
 
-    $.get('/text/' + language + '.txt').done(function(text) {
-      $content.val(text);
-      updateWordsCount();
+    var behaviors = getUniqueBehaviorsFor(profile);
+
+    var likely   = behaviors.filter(isPositive),
+        unlikely = behaviors.filter(isNegative);
+
+    if (likely.length > 0) {
+      $outputLikelyBehaviors.append(_.template(behaviors_template, {
+        items: likely.sort(sortScoresDESC).filter(top3)
+      }));
+      $outputLikelyBehaviorsSection.show();
+    } else {
+      $outputLikelyBehaviorsSection.hide();
+    }
+
+    if (unlikely.length > 0) {
+      $outputUnlikelyBehaviors.append(_.template(behaviors_template, {
+        items: unlikely.sort(sortScoresASC).filter(top3)
+      }));
+      $outputUnlikelyBehaviorsSection.show();
+    } else {
+      $outputUnlikelyBehaviorsSection.hide();
+    }
+
+    if (unlikely.length == 0 && likely.length == 0) {
+      $outputNoBehaviorsSection.show();
+    } else {
+      $outputNoBehaviorsSection.hide();
+    }
+  }
+
+  $inputTextArea.on('propertychange change click keyup input paste', function() {
+    updateWordCount();
+  });
+
+  function loadWordCount(data) {
+    $('.output--word-count-number').text(data.word_count);
+    $('.output--word-count-message').removeClass('show');
+    if (data.word_count > 6000)
+      $('.output--word-count-message_VERY-STRONG').addClass('show');
+    else if (data.word_count <= 6000 && data.word_count >= 3500)
+      $('.output--word-count-message_STRONG').addClass('show');
+    else if (data.word_count < 3500 && data.word_count >= 1500)
+      $('.output--word-count-message_DECENT').addClass('show');
+    else
+      $('.output--word-count-message_WEAK').addClass('show');
+  }
+
+  function scrollTo(element) {
+    $('html, body').animate({ scrollTop: element.offset().top }, 'fast');
+  }
+
+  function resetOutputs() {
+    $output.hide();
+    $error.hide();
+    $loading.hide();
+    $big5Traits.empty();
+    $needsTraits.empty();
+    $needsMoreTraits.empty();
+    $valuesTraits.empty();
+    $('.output-big-5--sub-tree').hide();
+    $needsMoreTraits.hide();
+    $outputSummaryText.empty();
+    $outputLikelyBehaviors.empty();
+    $outputUnlikelyBehaviors.empty();
+    $outputJSONCode.empty();
+  }
+
+  function isPositive(behavior) {
+    return behavior.score > 0.60;
+  }
+
+  function isNegative(behavior) {
+    return behavior.score < 0.40;
+  }
+
+  function top3(behavior, index) {
+    return index < 3;
+  }
+
+  function sortScores(obj1, obj2) {
+    return obj2.score - obj1.score;
+  }
+
+  function sortScoresDESC(obj1, obj2) {
+    return obj2.score - obj1.score;
+  }
+
+  function sortScoresASC(obj1, obj2) {
+    return obj1.score - obj2.score;
+  }
+
+  function preloadSampleTexts(callback) {
+    var shared = { done : 0 };
+    SAMPLE_TEXTS.forEach(function(name) {
+      $Q.get('data/text/' + name + '.txt')
+        .then(function (text) {
+          shared.done = shared.done + 1;
+          textCache[name] = text;
+
+          if (shared.done == SAMPLE_TEXTS.length && callback) {
+            callback();
+          }
+        })
+        .done();
     });
   }
 
-  onSampleTextChange();
-  $content.keyup(updateWordsCount);
-  $('.sample-radio').change(onSampleTextChange);
+  function loadSampleText(name) {
+    if (textCache[name]) {
+      setTextSample(textCache[name], true);
+      updateWordCount();
+    } else {
+      $Q.get('data/text/' + name + '.txt')
+        .then(function (text) {
+          setTextSample(text, true);
+          textCache[name] = text;
+        })
+        .then(function() {
+          updateWordCount();
+        })
+        .done();
+    }
+  }
+
+  function showHiddenLanguages() {
+    var enableLang = {
+      'ar' : function () {
+        $('label[for="text-ar"]').show();
+        $('label[for="lang-ar"]').show();
+      }
+    };
+
+    Object.keys($.url().param())
+      .filter(function(p) { return p.slice(0,5) === 'lang-'; })
+      .map(function(p) { return p.slice(5,p.length); })
+      .forEach(function(lang) {
+        if (enableLang[lang]) {
+          enableLang[lang]();
+        }
+      });
+  }
+
+  function loadResources() {
+    Resources._autoload.forEach(function (resource) {
+      if (!resource.name) {
+        resource = {
+          name : resource,
+          loader : id
+        };
+      }
+
+      $Q.get('data/' + resource.name + '.json')
+        .then(function(data) {
+          Resources[resource.name] = resource.loader(data);
+        })
+        .catch(console.error.bind(console, 'Error loading data/' + resource.name + '.json'))
+        .done();
+    });
+  }
+
+  function initialize() {
+    $('input[name="twitter"]:first').attr('checked', true);
+    $('input[name="text-sample"]:first').attr('checked', true);
+    globalState.selectedTwitterUser = $('input[name="twitter"]:first').val();
+    showHiddenLanguages();
+    preloadSampleTexts(function () {
+      loadSampleText(globalState.selectedSample);
+    });
+    loadResources();
+    registerHandlers();
+    $inputTextArea.addClass('orientation', 'left-to-right');
+  }
+
+  function countWords(str) {
+    return str.split(' ').length;
+  }
+
+  function updateWordCount() {
+    $inputWordCount.text(countWords($inputTextArea.val()));
+  }
+
+  function updateJSON(results) {
+    $outputJSONCode.html(JSON.stringify(results, null, 2));
+    $('.code--json').each(function (i,b) { hljs.highlightBlock(b); });
+  }
+
+  initialize();
 });

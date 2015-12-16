@@ -1,0 +1,1 @@
+This folder should contain any data used for things like visualizations and stuff.

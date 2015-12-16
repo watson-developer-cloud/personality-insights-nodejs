@@ -14,15 +14,16 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
 
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
+3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.  
+
   ```none
-applications:
-- services:
-  - personality-insights
-  name: <application-name>
-  command: node app.js
-  path: .
-  memory: 256M
+  applications:
+  - services:
+    - personality-insights
+    name: <application-name>
+    command: node app.js
+    path: .
+    memory: 256M
   ```
   The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
 
@@ -35,7 +36,7 @@ applications:
 5. Create the Personality Insights service in Bluemix
 
   ```sh
-  $ cf create-service personality_insights tiered personality-insights-service-tiered
+  $ cf create-service personality_insights tiered personality-insights-service
   ```
 
 6. Push it live!
@@ -138,4 +139,4 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
-[sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
+[sign_up]: https://console.ng.bluemix.net/registration/

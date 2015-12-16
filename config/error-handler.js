@@ -31,8 +31,8 @@ module.exports = function (app) {
       code: err.code || 500,
       error: err.error || err.message
     };
-    if (req.url && req.url.indexOf('/json') !== 0)
-      console.log('error:', error, 'url:',req.url);
+
+    console.log('error:', error, 'url:',req.url);
 
     if (err.code === 'EBADCSRFTOKEN') {
       error = {

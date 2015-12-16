@@ -1,179 +1,351 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html>
 <head>
   <title>Personality Insights</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="ct" content="<%= ct %>">
+  <meta name="ct" content="<$= ct $>">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/watson-bootstrap-dark.css">
-  <link rel="stylesheet" href="/css/banner.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
-  <div class="row service-container">
-    <div class="col-lg-12 service-header">
-      <div class="row top-nav navbar-fixed-top">
-        <div class="container">
-          <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/" class="top-nav--logo-link">
-            <h3 class="heading left">IBM
-              <span class="top-nav--logo-wdc">Watson Developer Cloud</span>
-            </h3>
-          </a>
-          <nav class="top-nav--nav">
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html">Services</a></li>
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/">Docs</a></li>
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html">App Gallery</a></li>
-            <li class="top-nav--nav-item"><a href="http://developer.ibm.com/watson/">Community</a></li>
-          </nav>
-        </div>
-      </div>
-      <div class="row header">
-        <div class="container">
-          <div class="avatar img-container col-lg-2 col-md-2 col-sm-2 hidden-xs">
-            <img src="/images/app.png" class="service-icon">
-          </div>
-          <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 dialog-description">
-            <h1 style="font-size:50px;" class="service-title">Personality Insights</h1>
-            <p>The IBM Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through blogs, tweets, forum posts, and more.</p>
-            <div class="resource">
-              <img src="/images/link.svg" class="link-icon">
-              <strong>Resources:</strong>
-            </div>
-            <div class="resource-item-container"><a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api" class="resource-item">API Reference</a><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/"
-              class="resource-item">Documentation</a><a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="resource-item">Fork on Github</a><a href="http://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
-              class="resource-item">Fork and Deploy on Bluemix</a></div>
-          </div>
-        </div>
-      </div>
+  <!-- top level heading -->
+  <header class="_demo--heading">
+    <div class="_demo--container">
+      <a class="wordmark" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">
+        <span class="wordmark--left">IBM</span>
+        <span class="wordmark--right">Watson Developer Cloud</span>
+      </a>
+      <nav class="heading-nav" role="menubar">
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html" role="menuitem">
+					Services
+				</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/" role="menuitem">
+					Docs
+				</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html" role="menuitem">
+					App Gallery
+				</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="https://developer.ibm.com/watson/" role="menuitem">
+					Community
+				</a>
+        </li>
+      </nav>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 col-xs-12">
-        <h2>Input Text</h2>
-        <p>We need a minimum of 3500 words and ideally 6000 words or more to compute statistically significant results. See <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml">the science behind the service</a>.</p>
-        <p>Ideally, the text should contain words we use in every day life relating to personal experiences, thoughts and responses. See <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal">usage guidance</a>          for details.</p>
-        <div class="well">
-          <div class="form-group row">
-            <div style="padding:0px;" class="col-lg-12 col-xs-12">
-              <label class="col-lg-6 col-md-6 col-xs-6 control-label">Choose Language:</label>
-              <div class="col-lg-6 col-md-6 col-xs-6 sample-radio-list">
-                <div class="sample-radio-container">
-                  <label>
-                    <input id="english_radio" type="radio" name="sample_text" value="en" checked class="sample-radio">
-                    <span>English</span>
-                  </label>
-                </div>
-                <div class="sample-radio-container">
-                  <label>
-                    <input type="radio" name="sample_text" value="es" class="sample-radio">
-                    <span>Spanish</span>
-                  </label>
-                </div>
-              </div>
-              <textarea rows="12" required="true" name="text" placeholder="Please enter English text to analyze (minimum of 100 words)..." class="content form-control"></textarea>
-              <div class="text-right wordsCountFootnote">
-                <span class="wordsCount small"></span>
-                <span class="small"> words</span>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row buttons-container">
-            <div class="col-lg-4 col-xs-4">
-              <button type="button" class="btn btn-block clear-btn">Clear</button>
-            </div>
-            <div class="col-lg-4 col-lg-push-4 col-xs-4 col-xs-push-4">
-              <button type="button" class="btn btn-block analysis-btn">Analyze</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-12 col-xs-12">
-        <div style="display:none;" class="form-group row loading text-center loading">
-          <h2>&nbsp;</h2>
-          <img src="images/watson.gif">
-        </div>
-        <div style="display: none;" class="form-group row error">
-          <h2>&nbsp;</h2>
-          <div class="well">
-            <p class="errorMsg"></p>
-            <div style="display:none;margin-bottom:10px;" class="captcha">
-              <div data-sitekey="6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV" class="g-recaptcha"></div>
-            </div>
-          </div>
-        </div>
-        <div style="display: none;" class="results">
-          <h2>Your Personality*</h2>
-          <div class="well">
-            <div class="summary-div"></div>
-            <div style="color: gray" class="text-right">
-              <em class="small">*Compared to most people who participated in our surveys.</em>
-            </div>
-            <div style="color: gray" class="text-right">
-              <em class="small outputMessageFootnote"></em>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="display: none;" class="results">
-        <div class="row">
-          <div class="col-lg-5 col-md-12 col-xs-12">
-            <h3>Data Behind Your Personality</h3>
-            <div style="display: none;" class="col555px well traits"></div>
-          </div>
-          <div class="col-lg-7 col-xs-12 col-md-12">
-            <h3>Visualization of Personality Data</h3>
-            <div id="vizcontainer" class="well"></div>
-          </div>
-        </div>
-      </div>
-      <div class="hidden">
-        <div id="header-template">
-          <div class="row theader">
-            <div class="col-lg-7 col-xs-7">
-              <span>Name</span>
-            </div>
-            <div class="col-lg-5 col-xs-5 text-right">
-              <span>Value</span>
-            </div>
-          </div>
-        </div>
-        <div id="trait-template">
-          <div class="row">
-            <div class="tname col-lg-7 col-xs-7">
-              <span></span>
-            </div>
-            <div class="tvalue col-lg-5 col-xs-5 text-right">
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div id="model-template">
-          <div class="row">
-            <div class="col-lg-12 col-xs-12 text-center">
-              <span></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
-  <script type="text/javascript" src="/js/demo.js"></script>
-  <script type="text/javascript" src="/js/personality.js"></script>
-  <script type="text/javascript" src="/js/string-utils.js"></script>
-  <script type="text/javascript" src="/js/i18n.js"></script>
-  <script type="text/javascript" src="/js/textsummary.js"></script>
-  <script type="text/javascript">
-    textSummary.init('json');
-  </script>
-</body>
+  </header>
 
+
+  <div class="_demo--banner">
+    <div class="_demo--container">
+      <div class="banner--service-icon-container">
+        <img class="banner--service-icon" src="images/service-icon.svg" alt="Personality Insights API Icon">
+      </div>
+      <div class="banner--service-info">
+        <h1 class="banner--service-title base--h1">
+          <img class="banner--service-icon_INLINE" src="images/service-icon.svg" alt="Personality Insights API Icon"> Personality Insights
+        </h1>
+        <div class="banner--service-description">
+          Gain insight into how and why people think, act, and feel the way they do. This service applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.
+        </div>
+        <div class="banner--service-resource">
+          <span class="icon icon-link"></span>
+          <strong>Resources:</strong>
+        </div>
+        <div class="banner--service-links">
+          <li class="base--li banner--service-link-item">
+            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api/v2/" class="base--a">API Reference</a>
+          </li>
+          <li class="base--li banner--service-link-item">
+            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" class="base--a">Documentation</a>
+          </li>
+          <li class="base--li banner--service-link-item">
+            <a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork on Github</a>
+          </li>
+          <li class="base--li banner--service-link-item">
+            <a href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork and Deploy on Bluemix</a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="_demo--container">
+    <div class="_content input">
+      <h2 class="base--h2">
+        Try the Service
+      </h2>
+      <p class="base--p">You need text written by the person whose personality you're interested in. It should contain words about every day experiences, thoughts, and responses.</p>
+      <p class="base--p">For statistically significant results, <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" target="_blank">you need at least 3500 words and ideally 6000</a>. You can still play with the demo if you have at least 100 words, but ou can still play with the demo if you have at least 100 words, but you should take those results with a grain of salt.</p>
+      <div class="tab-panels" role="tabpanel">
+        <span class="input--reset icon-hyperlink">
+          <span class="icon icon-reset"></span>
+          <button class="base--a icon-hyperlink--button icon-hyperlink--button_BLANK input--reset-button" href="" type="reset">
+            Reset
+          </button>
+        </span>
+        <ul class="tab-panels--tab-list" role="tablist">
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a active" href="#twitter-panel" aria-controls="twitter-panel" role="tab">Tweets and Replies</a>
+          </li>
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a" href="#text-panel" aria-controls="text-panel" role="tab">Body of Text</a>
+          </li>
+        </ul>
+        <div class="tab-panels--tab-content">
+          <div id="twitter-panel" class="tab-panels--tab-pane active" role="tab-panel">
+            <form class="input--form1">
+
+              <div class="base--h5 input--choose">Choose:</div>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-Oprah" name="twitter" value="Oprah">
+              <label class="base--inline-label input--radio" for="twitter-Oprah">
+                <img class="input--thumb" src="/images/twitter/oprah.png">@Oprah</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-KingJames" name="twitter" value="KingJames">
+              <label class="base--inline-label input--radio" for="twitter-KingJames">
+                <img class="input--thumb" src="/images/twitter/kingjames.jpg">@KingJames</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-ladygaga" name="twitter" value="ladygaga">
+              <label class="base--inline-label input--radio" for="twitter-ladygaga">
+                <img class="input--thumb" src="/images/twitter/ladygaga.jpg">@ladygaga</label>
+
+
+              <div class="input--button-container">
+                <button type="submit" class="base--button input--submit-button1">Analyze</button>
+              </div>
+            </form>
+          </div>
+          <div id="text-panel" class="tab-panels--tab-pane" role="tab-panel">
+            <form class="input--form2">
+
+              <div class="base--h5 input--choose">Choose:</div>
+
+              <input role="radio" class="base--radio" type="radio" id="text-sample1" name="text-sample" data-file="sample1" data-lang="en" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample1">2012 Debate - Barack Obama</label>
+
+              <!-- "Anne Frank the Diary of a Young Girl" by Anne Frank is licensed under CC BY-NC-ND 4.0 -->
+              <input role="radio" class="base--radio" type="radio" id="text-sample3" name="text-sample" data-file="sample3" data-lang="en" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample3">Diary - Anne Frank</label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-sample2" name="text-sample" data-file="sample2" data-lang="es" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample2">Reflection - Gandhi</label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-ar" name="text-sample" style="display:none" data-file="ar" data-lang="ar" data-orientation="right-to-left" />
+              <label class="base--inline-label input--radio" for="text-ar" style="display:none">Arabic Text</label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-custom" name="text-sample" style="display:none"/>
+              <label class="base--inline-label input--radio smartphone-hidden" for="text-custom">Your own text</label>
+
+              <textarea id="inputText" class="base--textarea input--text-area" placeholder="Please enter text to analyze (minimum of 100 words)...">
+              </textarea>
+              <div class="input--button-container">
+                <div id="languageChooser" class="input--language-chooser smartphone-hidden" style="display:none">
+                  <div class="base--h5 input--choose">Choose language:</div>
+
+                  <input role="radio" class="base--radio" type="radio" id="lang-en" name="text-lang" value="en"/>
+                  <label class="base--inline-label" for="lang-en">English</label>
+                  <input role="radio" class="base--radio" type="radio" id="lang-es" name="text-lang" value="es"/>
+                  <label class="base--inline-label" for="lang-es">Spanish</label>
+                  <input role="radio" class="base--radio" type="radio" id="lang-ar" name="text-lang" value="ar"/>
+                  <label class="base--inline-label" for="lang-ar" style="display:none;">Arabic</label>
+                </div>
+
+                <button type="submit" class="base--button input--submit-button2">Analyze</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="_demo--bg-container">
+    <div class="_demo--container">
+      <div class="_content">
+        <h3 class="base--h3 output--header">Output</h3>
+        <div class="loading">
+          <div class="loading--icon">
+            <img src="images/loading-indicator.gif" width="100%" alt="">
+          </div>
+        </div>
+        <div class="error">
+          <p class="error--message">Error!</p>
+        </div>
+        <div class="output">
+          <p class="base--p">The scores you see are all percentiles. They are comparing one person to a broader population. For example, a 90% on Extraversion does not mean that the person is 90% extroverted. It means that for that single trait, the person is more extroverted than 90% of the people in the population.</p>
+          <p class="base--p"><a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/output.shtml#outputStats" target="_blank">Our sample population consists of Twitter users who tweet in respective language</a> and whose personalities we calculated using our model.</p>
+          <h2 class="base--h2">Personality Portrait</h2>
+          <h4 class="base--h4 output--word-count-header"><span class="output--word-count-number">0</span> words analyzed:
+            <div class="output--word-count-message output--word-count-message_VERY-STRONG">Very Strong Analysis
+              <div class="output--word-count-tooltip_VERY-STRONG tooltip">A word count of 6000 or more is a high-quality assessment of someone's personality. It's statistically significant.</div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_STRONG">Strong Analysis
+              <div class="output--word-count-tooltip_STRONG tooltip">This is a confident read of someone's personality. It's statistically significant! ...but wait, there's more! For only 6000 words, you'll get something so accurate it's scary. Do it!</div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_DECENT">Decent Analysis
+              <div class="output--word-count-tooltip_DECENT tooltip">These results are a general impression of this person, and they should be taken with a grain of salt. Increase the word count to 3500 to get a strong one.</div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_WEAK">Weak Analysis
+              <div class="output--word-count-tooltip_WEAK tooltip">With this many words, you can't get a fair read on someone's personality. Can you use at least 1500 to get a general impression?</div>
+            </div>
+          </h4>
+          <div class="output-summary">
+            <div class="output-summary--left">
+              <h4 class="base--h4">Summary</h4>
+              <div id="personalitySummary" class="output-summary--summary">
+                <p class="base--p">Analyze your profile to get your personality summary.</p>
+              </div>
+              <a class="base--a output-summary--summary-link" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/sample.shtml" target="_blank">How did we get this?</a>
+            </div>
+            <div class="output-summary--right">
+              <div class="output-summary--likely-behaviors--section">
+                <h4 class="base--h4">You are likely to______</h4>
+                <div class="output-summary--likely-behaviors"></div>
+              </div>
+              <div class="output-summary--unlikely-behaviors--section">
+                <h4 class="base--h4">You are unlikely to______</h4>
+                <div class="output-summary--unlikely-behaviors"></div>
+              </div>
+              <div class="output-summary--no-behaviors--section">
+                <h4 class="base--h4">This portrait does not relate to any distinguishing behavior*</h4>
+                <p class="base--p">*from those in the studies considered for this demo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="output--stats-row">
+            <div class="output-big-5 output-stats-column">
+              <h4 class="base--h4">Personality</h4>
+              <div class="output-stats-column--percentile-label">*% = percentile</div>
+              <div class="output-big-5--traits output-stats-column--traits"></div>
+            </div>
+            <div class="output-needs output-stats-column">
+              <h4 class="base--h4">Consumer Needs</h4>
+              <div class="output-stats-column--percentile-label">*% = percentile</div>
+              <div class="output-needs--traits output-stats-column--traits"></div>
+              <div class="output-needs--more-traits"></div>
+              <a class="output-needs--toggle output-stats-column--toggle base--a" href="javascript:void(0);">See more</a>
+            </div>
+            <div class="output-values output-stats-column">
+              <h4 class="base--h4">Values</h4>
+              <div class="output-stats-column--percentile-label">*% = percentile</div>
+              <div class="output-values--traits output-stats-column--traits"></div>
+            </div>
+          </div>
+          <span class="icon-hyperlink output--json-hyperlink">
+            <span class="icon icon-code"></span>
+            <button class="base--a icon-hyperlink--button icon-hyperlink--button_BLANK output--json-button" href="">
+              View JSON
+            </button>
+          </span>
+          <p class="base--p output--more-science">What else do these results say?  <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" target="_blank">See the science behind the service</a>.</p>
+          <div class="output--json">
+            <h3 class="base--h3">JSON</h3>
+            <pre class="base--pre language-javascript output--json-pre"><code class="base--code language-javascript output--json-code code--json"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/html" id="big5PercentTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <% if (typeof list[key - 1] != 'undefined' && (list[key - 1].score >= 50 && item.score < 50)) { %>
+        <hr class="base--hr output-stats-column--hr">
+        <% } %>
+          <div class="percent-bar-and-score">
+            <div class="percent-bar-and-score--label output-big-5--trait-label <%= (item.score >= 50) ? 'output-big-5--trait-label_POSITIVE' : 'output-big-5--trait-label_NEGATIVE' %>">
+              <%= item.name %>
+              <i class="icon icon-down-arrow percent-bar-and-score--toggle-icon"></i>
+              <div class="tooltip"><%= tooltips[item.name] != null ? tooltips[item.name] : 'Tooltip not available.' %></div>
+            </div>
+            <div class="percent-bar percent-bar-and-score--percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
+                <div class="percent-bar--ball <%= (item.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                <div class="percent-bar-and-score--number">
+                  <%= item.score %>%</div>
+              </div>
+            </div>
+          </div>
+          <div class="output-big-5--sub-tree">
+            <% _.each(item.children, function(item2, key, list) { %>
+              <div class="percent-bar-and-score">
+                <div class="percent-bar-and-score--label output-big-5--sub-trait-label <%= (item2.score >= 50) ? 'output-big-5--sub-trait-label_POSITIVE' : 'output-big-5--sub-trait-label_NEGATIVE' %>">
+                  <%= item2.name %>
+                  <div class="tooltip"><%= tooltips[item2.name] != null ? tooltips[item2.name] : 'Tooltip not available.' %></div>
+                </div>
+                <div class="percent-bar percent-bar-and-score--percent-bar">
+                  <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item2.score %>%)">
+                    <div class="percent-bar--ball <%= (item2.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                    <div class="percent-bar-and-score--number">
+                  <%= item2.score %>%</div>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+          <% });%>
+  </script>
+
+  <script type="text/html" id="outputStatsPercentTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <% if (typeof list[key - 1] != 'undefined' && (list[key - 1].score >= 50 && item.score < 50)) { %>
+        <hr class="base--hr output-stats-column--hr">
+        <% } %>
+          <div class="percent-bar-and-score">
+            <div class="percent-bar-and-score--label <%= (item.score >= 50) ? 'percent-bar-and-score--label_POSITIVE' : 'percent-bar-and-score--label_NEGATIVE' %>">
+              <%= item.name %>
+              <div class="tooltip"><%= tooltips[item.name] != null ? tooltips[item.name] : 'Tooltip not available.' %></div>
+            </div>
+            <div class="percent-bar percent-bar-and-score--percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
+                <div class="percent-bar--ball <%= (item.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                <div class="percent-bar-and-score--number">
+                  <%= item.score %>%</div>
+              </div>
+            </div>
+          </div>
+          <% });%>
+  </script>
+
+  <script type="text/html" id="outputBehaviorsTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <div class="output-summary--behavior <%= item.score > 0.5 ? 'output-summary--behavior_POSITIVE' : 'output-summary--behavior_NEGATIVE' %>">
+        <i class="icon <%= item.score > 0.5 ? 'icon-likely' : 'icon-not-likely' %>"></i>
+        <%= item.name %>
+        <div class="tooltip"><%= item.tooltip %><div class="tooltip--hover-fix"></div></div>
+      </div>
+      <% }); %>
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/5.0.2/markdown-it.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+
+  <script type="text/javascript" src="./js/vendors/q.js"></script>
+  <script type="text/javascript" src="./js/components/q_util.js"></script>
+  <script type="text/javascript" src="js/components/text-summary.js"></script>
+  <script type="text/javascript" src="js/components/dictionary.standalone.js"></script>
+  <script type="text/javascript" src="js/components/personality-insights-profile.0.1.0.js"></script>
+  <script type="text/javascript" src="js/components/personality-insights-trait-tooltips.standalone.js"></script>
+  <script type="text/javascript" src="js/components/tab-panels.js"></script>
+
+  <script type="text/javascript" src="js/demo.js"></script>
+  <script type="text/javascript" src="js/ga.js"></script>
+</body>
 </html>

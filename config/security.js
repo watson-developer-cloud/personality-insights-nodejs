@@ -22,8 +22,7 @@ var secure     = require('express-secure-only'),
   csrf         = require('csurf'),
   cookieParser = require('cookie-parser'),
   helmet       = require('helmet'),
-  request      = require('request'),
-  fs           = require('fs');
+  request      = require('request');
 
 module.exports = function (app) {
   app.enable('trust proxy');
@@ -34,8 +33,9 @@ module.exports = function (app) {
   // 2. helmet with defaults
   app.use(helmet());
 
+  // 3. allow iframes
   app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
-  
+
   // 3. setup cookies
   var secret = Math.random().toString(36).substring(7);
   app.use(cookieParser(secret));
@@ -51,7 +51,7 @@ module.exports = function (app) {
   var limiter = rateLimit({
     windowMs: 30 * 1000, // seconds
     delayMs: 0,
-    max: 6,
+    max: 3,
     message: JSON.stringify({
       error:'Too many requests, please try again in 30 seconds.',
       code: 429

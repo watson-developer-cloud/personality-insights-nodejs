@@ -1,0 +1,24 @@
+[
+  {
+    "name"     : "Sample Text 1",
+    "language" : "en",
+    "file"     : "sample1"
+  },
+  {
+    "name"     : "Sample Text 2",
+    "language" : "es",
+    "file"     : "sample2"
+  },
+  {
+    "name"     : "Sample Text 3",
+    "language" : "en",
+    "file"     : "sample3"
+  },
+  {
+    "name"     : "Arabic Text",
+    "language" : "ar",
+    "file"     : "ar",
+    "hidden"   : true,
+    "orientation": "right-to-left"
+  }
+]

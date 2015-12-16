@@ -1,0 +1,510 @@
+{
+  "targets": [
+    {
+      "id": "H",
+      "name": "High",
+      "score": "p"
+    },
+    {
+      "id": "L",
+      "name": "Low",
+      "score": "1 - p"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario.environmental_products",
+      "industries": [
+        "industry.retail"
+      ],
+      "categories": [
+        "category.shopping"
+      ],
+      "persona": [
+        "persona.greenie"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.luxury_goods",
+      "industries": [
+        "industry.retail"
+      ],
+      "categories": [
+        "category.shopping"
+      ],
+      "persona": [
+        "persona.brand_lover"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "H"
+        },
+        {
+          "id": "values.trait.conservation",
+          "target": "H"
+        },
+        {
+          "id": "values.trait.self-enhancement",
+          "target": "H"
+        },
+        {
+          "id": "needs.trait.love",
+          "target": "H"
+        },
+        {
+          "id": "needs.trait.ideal",
+          "target": "H"
+        },
+        {
+          "id": "values.trait.hedonism",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.coupon_redemption",
+      "industries": [
+        "industry.retail"
+      ],
+      "categories": [
+        "category.shopping"
+      ],
+      "persona": [
+        "persona.deal_seeker"
+      ],
+      "traits": [
+        {
+          "id": "big5.facet.conscientiousness.cautiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.conscientiousness.orderliness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.conscientiousness.self-discipline",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.neuroticism.immoderation",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.healthy_food",
+      "industries": [
+        "industry.food"
+      ],
+      "categories": [
+        "category.eating"
+      ],
+      "persona": [
+        "persona.health_enthusiast"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.conscientiousness.self-discipline",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.openness.artistic_interests",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.neuroticism.vulnerability",
+          "target": "L"
+        },
+        {
+          "id": "big5.facet.neuroticism.immoderation",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.adventure_sports",
+      "industries": [
+        "industry.sports"
+      ],
+      "categories": [
+        "category.sports_leisure"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.openness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.openness.adventurousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.extraversion.excitement-seeking",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.financial_risk",
+      "industries": [
+        "industry.finance"
+      ],
+      "categories": [
+        "category.investment"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.avoid_risk",
+      "industries": [
+        "industry.no_industry"
+      ],
+      "categories": [
+        "category.risk"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.recreate_risk",
+      "hidden": true,
+      "industries": [
+        "industry.healthcare"
+      ],
+      "categories": [
+        "category.risk"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.health_risk",
+      "industries": [
+        "industry.healthcare"
+      ],
+      "categories": [
+        "category.risk"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.career_risk",
+      "industries": [
+        "industry.no_industry"
+      ],
+      "categories": [
+        "category.risk"
+      ],
+      "persona": [
+        "persona.risk_taker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.excercise",
+      "industries": [
+        "industry.fitness"
+      ],
+      "categories": [
+        "category.living"
+      ],
+      "persona": [
+        "persona.health_enthusiast"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.adaptability",
+      "hidden": true,
+      "industries": [
+        "industry.no_industry"
+      ],
+      "categories": [
+        "category.work"
+      ],
+      "persona": [
+        "persona.adapter"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.conscientiousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.respond_to_strangers",
+      "industries": [
+        "industry.media"
+      ],
+      "categories": [
+        "category.social_media"
+      ],
+      "persona": [
+        "persona.responder"
+      ],
+      "traits": [
+        {
+          "id": "big5.facet.extraversion.excitement-seeking",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.extraversion.friendliness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.extraversion.activity_level",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.extraversion.gregariousness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.agreeableness.trust",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.agreeableness.morality",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.extraversion",
+          "target": "H"
+        },
+        {
+          "id": "big5.trait.agreeableness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.conscientiousness.cautiousness",
+          "target": "L"
+        },
+        {
+          "id": "big5.facet.neuroticism.anxiety",
+          "target": "L"
+        }
+      ]
+    },
+    {
+      "id": "scenario.retweet",
+      "industries": [
+        "industry.media"
+      ],
+      "categories": [
+        "category.social_media"
+      ],
+      "persona": [
+        "persona.broadcaster"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.openness",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.agreeableness.modesty",
+          "target": "H"
+        },
+        {
+          "id": "big5.facet.extraversion.friendliness",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.click_ad",
+      "industries": [
+        "industry.travel"
+      ],
+      "categories": [
+        "category.ad_targeting"
+      ],
+      "persona": [
+        "persona.ad_clicker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.openness",
+          "target": "H"
+        }
+      ]
+    },
+    {
+      "id": "scenario.follow_account",
+      "industries": [
+        "industry.travel"
+      ],
+      "categories": [
+        "category.ad_targeting"
+      ],
+      "persona": [
+        "persona.ad_clicker"
+      ],
+      "traits": [
+        {
+          "id": "big5.trait.neuroticism",
+          "target": "L"
+        },
+        {
+          "id": "big5.trait.openness",
+          "target": "H"
+        }
+      ]
+    }
+  ]
+}

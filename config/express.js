@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 IBM Corp. All Rights Reserved.
+ * Copyright 2015 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,12 @@ var express    = require('express'),
 
 module.exports = function (app) {
   app.set('view engine', 'ejs');
+  require('ejs').delimiter = '$';
   app.enable('trust proxy');
 
   // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
-  app.use(bodyParser.json({ limit: '5mb' }));
+  app.use(bodyParser.urlencoded({ extended: true, limit: '15mb' }));
+  app.use(bodyParser.json({ limit: '15mb' }));
   app.use(express.static(__dirname + '/../public'));
 
   // Only loaded when SECURE_EXPRESS is `true`
