@@ -1,6 +1,6 @@
 {
   "name": "PersonalityInsightsNodejsStarterApp",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A sample nodejs app for Bluemix that use the Personality Insights service",
   "dependencies": {
     "body-parser": "^1.11.0",
