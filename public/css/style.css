@@ -1294,6 +1294,12 @@ pre[class*=" language-"] {
   color: #121212;
   margin-right: 0.5rem; }
 
+.input--language-chooser {
+  display: inline-block; }
+
+  .input--language-chooser label {
+    margin-right: 14px; }
+
 .loading {
   display: none; }
   .loading--icon {
