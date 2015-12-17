@@ -45,6 +45,11 @@ function removeHidden(d) {
   return d;
 }
 
+function inString(sub, str) {
+  var normalize = function (s) { return s.toLowerCase(); };
+  return normalize(str).indexOf(normalize(sub)) > -1;
+}
+
 function toDict(d) { return new Dictionary(d); }
 
 $(document).ready(function () {
@@ -257,6 +262,40 @@ $(document).ready(function () {
     return clonned;
   }
 
+  function getErrorMapping(err) {
+    var errorMapping = {
+      '400' : {
+        'minimum number of words required for analysis' : 'We need at least 100 words for analysis. Watson doesn\'t like to judge a book by its cover.'
+      },
+      '401' : {
+        'invalid credentials' : 'There was a problem processing the personality. Please check your credentials.'
+      },
+      '500' : {
+        'missing required parameters' : 'Please input some text to analyze.'
+      }
+    };
+
+    var message = err.error;
+    if (errorMapping[err.code]) {
+      Object.keys(errorMapping[err.code]).forEach(
+        function (errorString) {
+          if (inString(errorString, err.error)) {
+            message = errorMapping[err.code][errorString];
+          }
+        }
+      );
+    }
+    return message;
+  }
+
+  function getErrorMessage(error) {
+    var message = 'Error processing the request, please try again.';
+    if (error.responseJSON && error.responseJSON.error) {
+      message = getErrorMapping(error.responseJSON);
+    }
+    return message;
+  }
+
   function getProfile(data, language, sourceType) {
     // Source Types: (text|twitter)
     sourceType = sourceType || 'text';
@@ -290,12 +329,8 @@ $(document).ready(function () {
       error: function(err) {
         $loading.hide();
         $error.show();
-        console.log(err);
-        var message = 'Error processing the request, please try again.';
-        if (err.responseJSON && err.responseJSON.error) {
-          message = err.responseJSON.error;
-        }
-        $errorMessage.text(message);
+        console.error(err);
+        $errorMessage.text(getErrorMessage(err));
       }
     });
   }
