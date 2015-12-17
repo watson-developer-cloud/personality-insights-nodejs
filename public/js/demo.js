@@ -128,7 +128,7 @@ $(document).ready(function () {
     });
 
     $(window).resize(function () {
-      if ($(window).width() < 770) {
+      if ($(window).width() < 800) {
         $('.smartphone-hidden').hide();
         if (globalState.selectedSample == 'custom') {
           $('input[name="text-sample"]:first').trigger('click');
