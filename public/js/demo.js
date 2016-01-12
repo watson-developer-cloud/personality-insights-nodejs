@@ -324,7 +324,7 @@ $(document).ready(function () {
         $loading.hide();
         $output.show();
         scrollTo($outputHeader);
-        loadOutput(changeProfileLabels(data));
+        loadOutput(data);
       },
       error: function(err) {
         $loading.hide();
@@ -418,7 +418,8 @@ $(document).ready(function () {
     return arr;
   }
 
-  function loadOutput(data) {
+  function loadOutput(rawData) {
+    var data = changeProfileLabels(rawData);
     setTextSummary(data, 'en');
     loadWordCount(data);
     var big5Data = data.tree.children[0].children[0].children;
@@ -497,7 +498,7 @@ $(document).ready(function () {
 
     loadBehaviors(data);
 
-    updateJSON(data);
+    updateJSON(rawData);
   }
 
   function loadBehaviors(profile) {
