@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/api/profile/text', function(req, res, next) {
-  getProfile(req.body)
+  getProfile(extend(req.body, { text: req.body.text.replace(/[\s]+/g, ' ') }))
     .then(function(response){
         res.json(response[0]);
       })
