@@ -7,19 +7,24 @@
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
   },
   "author": "IBM Corp.",
-  "contributors": [{
-    "name": "James Zhang",
-    "email": "jzhang300@us.ibm.com"
-  }, {
-    "name": "Eva Xiaohui Luo",
-    "email": "evaluo_xhl@us.ibm.com"
-  }, {
-    "name": "German Attanasio Ruiz",
-    "email": "germanatt@us.ibm.com"
-  }, {
-    "name": "Ary Pablo Batista",
-    "email": "batarypa@ar.ibm.com"
-  }],
+  "contributors": [
+    {
+      "name": "James Zhang",
+      "email": "jzhang300@us.ibm.com"
+    },
+    {
+      "name": "Eva Xiaohui Luo",
+      "email": "evaluo_xhl@us.ibm.com"
+    },
+    {
+      "name": "German Attanasio Ruiz",
+      "email": "germanatt@us.ibm.com"
+    },
+    {
+      "name": "Ary Pablo Batista",
+      "email": "batarypa@ar.ibm.com"
+    }
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs/issues"
@@ -39,6 +44,6 @@
     "promise": "~7.0.4",
     "q": "^1.4.1",
     "request": "^2.67.0",
-    "watson-developer-cloud": "^1.1.0"
+    "watson-developer-cloud": "^1.2.3"
   }
 }
