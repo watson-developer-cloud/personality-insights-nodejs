@@ -29,8 +29,8 @@ var express = require('express'),
 require('./config/express')(app);
 
 var personalityInsights = watson.personality_insights({
-  username: '<username>',
-  password: '<password>',
+username: '374e6738-0a94-4501-b2b7-1829bfb36fd4',
+  password: 'PLUNjFWGH7rt',
   version: 'v2'
 });
 
@@ -51,6 +51,11 @@ function tweetToContentItem(tweet) {
 
 app.get('/', function(req, res) {
   res.render('index', { ct: req._csrfToken });
+});
+
+app.post('/sunburst', function (req, res) { 
+ var jsonString = req.body.data;
+ res.render('sunburst',{profile: jsonString});
 });
 
 app.post('/api/profile/text', function(req, res, next) {
