@@ -18,6 +18,19 @@
 
 var markdown = window.markdownit();
 
+var OUTPUT_LANG = 'en';
+
+function extend(target, source) {
+  Object.keys(source).forEach(function (k) {
+    target[k] = source[k];
+  });
+  return target;
+}
+
+function clone(o) {
+  return extend({}, o);
+}
+
 function isDefined(v) {
   return typeof v !== 'undefined';
 }
@@ -170,7 +183,7 @@ $(document).ready(function () {
       resetOutputs();
       $loading.show();
       scrollTo($loading);
-      getProfileForTwitterUser(globalState.selectedTwitterUser, 'en');
+      getProfileForTwitterUser(globalState.selectedTwitterUser, { language: 'en' });
     });
 
     $inputForm2.submit(function(e) {
@@ -182,7 +195,7 @@ $(document).ready(function () {
       scrollTo($loading);
 
       var lang = globalState.selectedSample == 'custom' ? globalState.selectedLanguage : $('input#text-'+ globalState.selectedSample).attr('data-lang');
-      getProfileForText($('.input--text-area').val(), lang);
+      getProfileForText($('.input--text-area').val(), { language: lang });
     });
   }
 
@@ -223,17 +236,17 @@ $(document).ready(function () {
     scrollTo($outputJSON);
   });
 
-  function getProfileForTwitterUser(userId, language) {
-    getProfile(userId, language, 'twitter');
+  function getProfileForTwitterUser(userId, options) {
+    getProfile(userId, extend(options, { source_type: 'twitter'}));
   }
 
-  function getProfileForText(text, language) {
-    getProfile(text, language, 'text');
+  function getProfileForText(text, options) {
+    getProfile(text, extend(options, { source_type: 'text'}));
   }
 
-  function changeProfileLabels(data) {
-    var clonned = JSON.parse(JSON.stringify(data)),
-      replacements = {
+  function replacementsForLang(lang) {
+    var replacements = {
+      'en' : {
         'Extraversion' : 'Introversion/Extraversion',
         'Outgoing' : 'Warmth',
         'Uncompromising': 'Straightforwardness',
@@ -244,7 +257,15 @@ $(document).ready(function () {
         'Hedonism': 'Taking pleasure in life',
         'Self-enhancement': 'Achievement',
         'Self-transcendence': 'Helping others'
-      };
+      }
+    };
+
+    return replacements[lang || 'en'] || {};
+  }
+
+  function changeProfileLabels(data) {
+    var clonned = JSON.parse(JSON.stringify(data)),
+      replacements = replacementsForLang(OUTPUT_LANG);
 
     function walkTree(f, tree) {
       f(tree);
@@ -296,28 +317,33 @@ $(document).ready(function () {
     return message;
   }
 
-  function getProfile(data, language, sourceType) {
-    // Source Types: (text|twitter)
-    sourceType = sourceType || 'text';
+  function defaultProfileOptions(options) {
+    return extend({
+      language: 'en',
+      source_type: 'text',
+      accept_language: OUTPUT_LANG || 'en',
+      include_raw: false
+    }, options || {});
+  }
 
-    var postData = {
-        language: language,
-        include_raw: true
-      },
-      url = '/api/profile/' + sourceType;
+  function getProfile(data, options) {
+    options = defaultProfileOptions(options);
 
-    if (sourceType === 'twitter')
-      postData.userId = data;
+    var
+      payload = clone(options),
+      url = '/api/profile/' + options.source_type;
+
+    if (options.source_type === 'twitter')
+      payload.userId = data;
     else
-      postData.text = data;
-
+      payload.text = data;
 
     $.ajax({
-      headers:{
+      headers: {
         'csrf-token': $('meta[name="ct"]').attr('content')
       },
       type: 'POST',
-      data: postData,
+      data: payload,
       url: url,
       dataType: 'json',
       success: function(data) {
