@@ -250,11 +250,16 @@
               View JSON
             </button>
           </span>
-          <p class="base--p output--more-science">What else do these results say?  <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" target="_blank">See the science behind the service</a>.</p>
           <div class="output--json">
             <h3 class="base--h3">JSON</h3>
             <pre class="base--pre language-javascript output--json-pre"><code class="base--code language-javascript output--json-code code--json"></code></pre>
           </div>
+          <p class="base--p output--more-science">What else do these results say?
+            <br>
+            <a class="base--a" onclick="postSunburstRequest()" href="javascript:void(0);">View personality traits in sunburst visualization</a>.
+            <br>
+            <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" target="_blank">See the science behind the service</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -346,6 +351,7 @@
   <script type="text/javascript" src="js/components/tab-panels.js"></script>
 
   <script type="text/javascript" src="js/demo.js"></script>
+  <script type="text/javascript" src="js/sunburst.js"></script>
   <script type="text/javascript" src="js/ga.js"></script>
 </body>
 </html>

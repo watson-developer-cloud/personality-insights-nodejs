@@ -17,12 +17,14 @@
 'use strict';
 
 var express = require('express'),
-  app       = express(),
-  util      = require('util'),
-  extend    = util._extend,
-  watson    = require('watson-developer-cloud'),
-  Q         = require('q'),
-  isString  = function (x) { return typeof x === 'string'; };
+  app = express(),
+  util = require('util'),
+  extend = util._extend,
+  watson = require('watson-developer-cloud'),
+  Q = require('q'),
+  isString = function(x) {
+    return typeof x === 'string';
+  };
 
 
 // Bootstrap application settings
@@ -44,34 +46,50 @@ function tweetToContentItem(tweet) {
     sourceid: 'twitter',
     language: 'en',
     contenttype: 'text/plain',
-    content: tweet.text.replace('[^(\\x20-\\x7F)]*',''),
+    content: tweet.text.replace('[^(\\x20-\\x7F)]*', ''),
     created: Date.parse(tweet.created_at)
   };
 }
 
 app.get('/', function(req, res) {
-  res.render('index', { ct: req._csrfToken });
+  res.render('index', {
+    ct: req._csrfToken
+  });
+});
+
+app.post('/sunburst', function(req, res) {
+  var jsonString = req.body.data;
+  res.render('sunburst', {
+    profile: jsonString
+  });
 });
 
 app.post('/api/profile/text', function(req, res, next) {
-  getProfile(extend(req.body, { text: req.body.text.replace(/[\s]+/g, ' ') }))
-    .then(function(response){
-        res.json(response[0]);
-      })
+  getProfile(extend(req.body, {
+      text: req.body.text.replace(/[\s]+/g, ' ')
+    }))
+    .then(function(response) {
+      res.json(response[0]);
+    })
     .catch(next)
     .done();
 });
 
 app.post('/api/profile/twitter', function(req, res, next) {
   if (!isString(req.body.userId))
-    next({code: 400, error: 'Missing required parameters: userId'});
+    next({
+      code: 400,
+      error: 'Missing required parameters: userId'
+    });
 
-  var tweets = require('./public/data/twitter/'+ req.body.userId +'_tweets.json');
+  var tweets = require('./public/data/twitter/' + req.body.userId + '_tweets.json');
 
-  getProfile(extend(req.body, { contentItems: tweets.map(tweetToContentItem) }))
-    .then(function(response){
-        res.json(response[0]);
-      })
+  getProfile(extend(req.body, {
+      contentItems: tweets.map(tweetToContentItem)
+    }))
+    .then(function(response) {
+      res.json(response[0]);
+    })
     .catch(next)
     .done();
 

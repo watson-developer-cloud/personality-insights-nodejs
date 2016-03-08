@@ -525,6 +525,9 @@ $(document).ready(function () {
     loadBehaviors(data);
 
     updateJSON(rawData);
+
+    postSunburst(rawData);
+
   }
 
   function loadBehaviors(profile) {
