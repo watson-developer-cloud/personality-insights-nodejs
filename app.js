@@ -29,8 +29,8 @@ var express = require('express'),
 require('./config/express')(app);
 
 var personalityInsights = watson.personality_insights({
-username: '374e6738-0a94-4501-b2b7-1829bfb36fd4',
-  password: 'PLUNjFWGH7rt',
+username: '',
+  password: '',
   version: 'v2'
 });
 
