@@ -74,7 +74,8 @@ $(document).ready(function () {
         'sample1',
         'sample2',
         'sample3',
-        'ar'
+        'ar',
+        'ja'
       ],
     globalState = {
         selectedSample: SAMPLE_TEXTS[0],
@@ -173,7 +174,9 @@ $(document).ready(function () {
 
     $('input[name="twitter"]').click(function() {
       var twitterId = $(this).val();
+      var twitterLang = $(this).attr("data-lang");
       globalState.selectedTwitterUser = twitterId;
+      globalState.selectedTwitterUserLang = twitterLang;
     });
 
     $inputForm1.submit(function(e) {
@@ -183,7 +186,7 @@ $(document).ready(function () {
       resetOutputs();
       $loading.show();
       scrollTo($loading);
-      getProfileForTwitterUser(globalState.selectedTwitterUser, { language: 'en' });
+      getProfileForTwitterUser(globalState.selectedTwitterUser, {language: globalState.selectedTwitterUserLang});
     });
 
     $inputForm2.submit(function(e) {
