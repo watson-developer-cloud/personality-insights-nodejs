@@ -23,7 +23,11 @@
     {
       "name": "Ary Pablo Batista",
       "email": "batarypa@ar.ibm.com"
-    }
+    },
+    {
+      "name": "Agustin Casamayor",
+      "email": "casamay@ar.ibm.com"
+    }    
   ],
   "license": "Apache-2.0",
   "bugs": {

@@ -33,7 +33,10 @@ require('./config/express')(app);
 var personalityInsights = watson.personality_insights({
   username: '<username>',
   password: '<password>',
-  version: 'v2'
+  version: 'v2',
+  headers: {
+    'X-Watson-Learning-Opt-Out': 1
+  }
 });
 
 // Creates a promise-returning function from a Node.js-style function
@@ -44,7 +47,7 @@ function tweetToContentItem(tweet) {
     id: tweet.id_str,
     userid: tweet.user.id_str,
     sourceid: 'twitter',
-    language: 'en',
+    language: tweet.lang,
     contenttype: 'text/plain',
     content: tweet.text.replace('[^(\\x20-\\x7F)]*', ''),
     created: Date.parse(tweet.created_at)

@@ -18,7 +18,13 @@
     "name"     : "Arabic Text",
     "language" : "ar",
     "file"     : "ar",
-    "hidden"   : true,
+    "hidden"   : false,
     "orientation": "right-to-left"
+  },
+  {
+    "name"     : "Japanese Text",
+    "language" : "ja",
+    "file"     : "ja",
+    "hidden"   : false
   }
 ]

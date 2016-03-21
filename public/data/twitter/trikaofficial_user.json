@@ -1,0 +1,130 @@
+{
+  "id": 2340323312,
+  "id_str": "2340323312",
+  "name": "AbouTrika Official",
+  "screen_name": "trikaofficial",
+  "location": "Egypt",
+  "profile_location": null,
+  "description": "محمد أبو تريكة لاعب كرة قدم مصري سابق ، صفحة الفيس بوك الرسمية.\n \nhttps://t.co/5Qp2GDNv4D\nحساب الانستجرام الرسمي\n\nhttps://t.co/qOQ2IL4eZl",
+  "url": "http://t.co/POcB9XenX3",
+  "entities": {
+    "url": {
+      "urls": [
+        {
+          "url": "http://t.co/POcB9XenX3",
+          "expanded_url": "http://www.aboutrika-official.com",
+          "display_url": "aboutrika-official.com",
+          "indices": [
+            0,
+            22
+          ]
+        }
+      ]
+    },
+    "description": {
+      "urls": [
+        {
+          "url": "https://t.co/5Qp2GDNv4D",
+          "expanded_url": "http://www.facebook.com/trikaofficial",
+          "display_url": "facebook.com/trikaofficial",
+          "indices": [
+            66,
+            89
+          ]
+        },
+        {
+          "url": "https://t.co/qOQ2IL4eZl",
+          "expanded_url": "http://www.instagram.com/aboutrikamohammed/",
+          "display_url": "instagram.com/aboutrikamoham…",
+          "indices": [
+            114,
+            137
+          ]
+        }
+      ]
+    }
+  },
+  "protected": false,
+  "followers_count": 626245,
+  "friends_count": 78,
+  "listed_count": 895,
+  "created_at": "Wed Feb 12 13:16:28 +0000 2014",
+  "favourites_count": 41,
+  "utc_offset": 7200,
+  "time_zone": "Cairo",
+  "geo_enabled": false,
+  "verified": true,
+  "statuses_count": 363,
+  "lang": "en",
+  "status": {
+    "created_at": "Wed Mar 02 10:52:04 +0000 2016",
+    "id": 704982600146935800,
+    "id_str": "704982600146935808",
+    "text": "@youm7 @22mosalah حساب الانستجرام ليس هذا وأرجو ان تتحروا الدقة وشكرا",
+    "truncated": false,
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "in_reply_to_status_id": 704981611956273200,
+    "in_reply_to_status_id_str": "704981611956273152",
+    "in_reply_to_user_id": 301120393,
+    "in_reply_to_user_id_str": "301120393",
+    "in_reply_to_screen_name": "youm7",
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 72,
+    "favorite_count": 686,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "youm7",
+          "name": "اليوم السابع",
+          "id": 301120393,
+          "id_str": "301120393",
+          "indices": [
+            0,
+            6
+          ]
+        },
+        {
+          "screen_name": "22mosalah",
+          "name": "Mohamed Salah",
+          "id": 2396677714,
+          "id_str": "2396677714",
+          "indices": [
+            7,
+            17
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "lang": "ar"
+  },
+  "contributors_enabled": false,
+  "is_translator": false,
+  "is_translation_enabled": false,
+  "profile_background_color": "000000",
+  "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/462780715130556416/XLANkG9Y.jpeg",
+  "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/462780715130556416/XLANkG9Y.jpeg",
+  "profile_background_tile": true,
+  "profile_image_url": "http://pbs.twimg.com/profile_images/561973496926830592/MLYM6ztB_normal.jpeg",
+  "profile_image_url_https": "https://pbs.twimg.com/profile_images/561973496926830592/MLYM6ztB_normal.jpeg",
+  "profile_banner_url": "https://pbs.twimg.com/profile_banners/2340323312/1422818774",
+  "profile_link_color": "0084B4",
+  "profile_sidebar_border_color": "FFFFFF",
+  "profile_sidebar_fill_color": "DDEEF6",
+  "profile_text_color": "333333",
+  "profile_use_background_image": false,
+  "has_extended_profile": true,
+  "default_profile": false,
+  "default_profile_image": false,
+  "following": false,
+  "follow_request_sent": false,
+  "notifications": false
+}
