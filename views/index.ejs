@@ -102,6 +102,9 @@
           <li class="tab-panels--tab-list-item base--li" role="presentation">
             <a class="tab-panels--tab base--a" href="#text-panel" aria-controls="text-panel" role="tab">Body of Text</a>
           </li>
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a" href="#your-twitter-panel" aria-controls="text-panel" role="tab">Your Twitter Personality</a>
+          </li>
         </ul>
         <div class="tab-panels--tab-content">
           <div id="twitter-panel" class="tab-panels--tab-pane active" role="tab-panel">
@@ -183,6 +186,15 @@
               </div>
 
             </form>
+          </div>
+	  <div id="your-twitter-panel" class="tab-panels--tab-pane" role="tab-panel">
+           <form class="input--form3" method='get' action='/auth/twitter'>
+<$ include ./tou $>
+	    <br/>
+  	    <button type="submit" class="base--button input--submit-button3">Accept</button>
+            <button type="cancel" class="base--button input--submit-button3">Cancel</button>
+
+           </form>
           </div>
         </div>
       </div>

@@ -30,6 +30,63 @@ var express = require('express'),
 // Bootstrap application settings
 require('./config/express')(app);
 
+var passport = require('passport');
+var Strategy = require('passport-twitter').Strategy;
+var Twitter = require('twitter');
+var session = require('express-session');
+var TWITTER_CONSUMER_KEY='<KEY>';
+var TWITTER_CONSUMER_SECRET='<SECRET>';
+var APP_NAME='127.0.0.1:3000';
+
+passport.use(new Strategy({
+    consumerKey: TWITTER_CONSUMER_KEY,
+    consumerSecret: TWITTER_CONSUMER_SECRET,
+    callbackURL: 'http://' + APP_NAME + '/auth/twitter/callback'
+  },
+  function(token, tokenSecret, profile, cb) {
+    var twitter = new Twitter(
+    {
+       consumer_key: TWITTER_CONSUMER_KEY,
+       consumer_secret: TWITTER_CONSUMER_SECRET,
+       access_token_key:   token,
+       access_token_secret: tokenSecret,
+    }
+  );
+  var params = {
+    screen_name : profile.displayName,
+    count : '200',
+    include_rts : 'false'
+  };
+
+  twitter
+   .get(
+     'statuses/user_timeline',
+     params,
+     function(error, tweets) {
+        if(error) console.log(JSON.stringify(error));
+        else
+        {
+          console.log(tweets.length);
+          //TODO
+       }
+     });
+    }
+ )
+);
+
+   passport.serializeUser(function(user, cb) {
+    cb(null, user);
+   });
+
+   passport.deserializeUser(function(obj, cb) {
+    cb(null, obj);
+   });
+
+app.use(require('cookie-parser')());
+app.use(session({secret: 'pi_app_secret'})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 var personalityInsights = watson.personality_insights({
   username: '<username>',
   password: '<password>',
@@ -97,6 +154,16 @@ app.post('/api/profile/twitter', function(req, res, next) {
     .done();
 
 });
+
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/' }),
+  function(req, res, next) {
+    console.log("I am here");
+  }
+);
+
 
 // error-handler settings
 require('./config/error-handler')(app);
