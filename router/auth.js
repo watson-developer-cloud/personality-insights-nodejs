@@ -21,7 +21,9 @@
 var
   express  = require('express'),
   passport = require('passport'),
-  logger   = require('winston');
+  logger   = require('winston'),
+  TwitterHelper = require('../helpers/twitter-helper'),
+  getProfileFromTweets = require('../helpers/personality-insights').profile_from_tweets;
 
 
 var router = express.Router();
@@ -30,15 +32,9 @@ var router = express.Router();
 router.get('/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback',
-
-  passport.authenticate('twitter', { failureRedirect: '/' }),
-
-  function(req, res, next) {
-    logger.log(passport);
-    logger.log("I am here");
-  }
-
-);
+    passport.authenticate('twitter', { failureRedirect: '/#error' }),
+    (req, res, next) => res.redirect('/myself')
+  );
 
 
 

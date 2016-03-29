@@ -25,7 +25,8 @@ var
   isString = _.isString,
   extend   = _.extend,
   pi_input = require('personality-insights-input'),
-  getProfile    = require('../../../helpers/personality-insights').profile,
+  personality_insights = require('../../../helpers/personality-insights'),
+  profileFromTweets = personality_insights.profile_from_tweets,
   TwitterHelper = require('../../../helpers/twitter-helper');
 
 
@@ -40,16 +41,19 @@ function validateParameters(req, res, next) {
 }
 
 
-let profileFromTweets = (parameters, tweets) =>
-  getProfile(extend(parameters, pi_input.fromTweets(tweets)));
-
-
-let getProfileFromTwitter = (req, res, next) =>
-  TwitterHelper.tweets.local(req.body.userId)
-    .then(partial(profileFromTweets, req.body))
-    .then(bind(res.json, res))
-    .catch(next);
-
+let getProfileFromTwitter = (req, res, next) => {
+  if (req.body.live_crawling)
+    TwitterHelper.getCrawler(req.user.credentials)
+      .getTweets(req.body.userId)
+      .then(profileFromTweets(req.body))
+      .then(bind(res.json, res))
+      .catch(next);
+  else
+    TwitterHelper.getLocalTweets(req.body.userId)
+      .then(profileFromTweets(req.body))
+      .then(bind(res.json, res))
+      .catch(next);
+};
 
 module.exports = (router) => {
   router.post('/profile/twitter', validateParameters);

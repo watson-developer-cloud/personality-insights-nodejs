@@ -18,12 +18,13 @@
 'use strict';
 
 
-var
+let
   passport = require('passport'),
   credentials = require('../credentials').twitter,
   app_info = require('./app-info'),
   Strategy = require('passport-twitter').Strategy,
-  TwitterHelper = require('../helpers/twitter-helper');
+  TwitterHelper = require('../helpers/twitter-helper'),
+  logger = require('winston');
 
 
 const
@@ -34,7 +35,7 @@ const
     },
   strategy = new Strategy(
     strategy_options,
-    (token, tokenSecret, profile, next) => {
+    (token, tokenSecret, profile, done) => {
 
       credentials = {
          consumer_key: credentials.consumer_key,
@@ -43,9 +44,11 @@ const
          access_token_secret: tokenSecret,
       };
 
-      TwitterHelper.set_credentials(credentials);
-
-      next(null, credentials);
+      logger.info(`User @${profile.username} authenticated.`);
+      done(null, {
+          credentials: credentials,
+          profile: profile
+        });
     }
   );
 

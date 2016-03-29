@@ -25,7 +25,7 @@ var router = express.Router();
 
 
 router.get('/', (req, res) =>
-  res.render('index', { ct: req._csrfToken })
+  res.render('index', { ct: req._csrfToken, twitterUser: '' })
 );
 
 

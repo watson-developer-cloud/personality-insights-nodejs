@@ -18,15 +18,15 @@
 'use strict';
 
 
-module.exports = function (app) {
+var express = require('express');
 
-  // APIs
-  app.use('/api',  require('./api'));
-  app.use('/auth', require('./auth'));
 
-  // Routes
-  app.use('/', require('./routes/homepage'));
-  app.use('/myself', require('./routes/myself'));
-  app.use('/sunburst', require('./routes/sunburst'));
+var router = express.Router();
 
-};
+
+router.get('/', (req, res) =>
+    res.render('index', { ct: req._csrfToken,  twitterUser: req.user.profile.username })
+  );
+
+
+module.exports = router;

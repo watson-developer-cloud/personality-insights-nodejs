@@ -36,9 +36,7 @@ let
   tweetsFor = (twitterHandle) => require(tweetsFileFor(twitterHandle)),
 
   getLocalTweets = (twitterHandle) =>
-    new Promise((resolve, reject) => resolve(tweetsFor(twitterHandle))),
-
-  crawlTweets = (twitterHandle) => undefined;
+    new Promise((resolve, reject) => resolve(tweetsFor(twitterHandle)));
 
 
 let
@@ -61,20 +59,9 @@ let
   };
 
 
-let setCredentials = (credentials) => {
-  _credentials = sanitizeCredentials(credentials);
-};
-
-let getTweets = (twitterHandle) => {
-  let crawler = new TwitterCrawler(sanitizeCredentials(_credentials));
-  return crawler.getTweets(twitterHandle, { limit:245 });
-};
+let getCrawler = (credentials) => new TwitterCrawler(sanitizeCredentials(_credentials));
 
 module.exports = {
-  tweets:  {
-    local : getLocalTweets,
-    crawl : getTweets
-  },
-
-  set_credentials : setCredentials
+  getLocalTweets : getLocalTweets,
+  getCrawler : getCrawler
 };

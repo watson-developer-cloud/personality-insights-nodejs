@@ -36,7 +36,11 @@ var sanitize = (parameters) =>
       text: parameters.text ? parameters.text.replace(/[\s]+/g, ' ') : undefined
     });
 
+let profileFromTweets = (parameters) => (tweets) =>
+  getProfile(extend(parameters, pi_input.fromTweets(tweets)));
+
 module.exports = {
   profile : (parameters) =>
-    to_promise((callback) => profile(sanitize(parameters), callback))
+    to_promise((callback) => profile(sanitize(parameters), callback)),
+  profile_from_tweets : profileFromTweets
 };

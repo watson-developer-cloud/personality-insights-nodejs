@@ -120,6 +120,17 @@ $(document).ready(function () {
     }
   }
 
+  function setLoadingState() {
+    resetOutputs();
+    $loading.show();
+    scrollTo($loading);
+  }
+
+  function loadTwitterUser(twitterHandle, options) {
+    setLoadingState();
+    getProfileForTwitterUser(twitterHandle, options);
+  }
+
   function registerHandlers() {
 
     $('input[name="text-lang"]').click(function() {
@@ -183,19 +194,14 @@ $(document).ready(function () {
       e.preventDefault();
       e.stopPropagation();
 
-      resetOutputs();
-      $loading.show();
-      scrollTo($loading);
-      getProfileForTwitterUser(globalState.selectedTwitterUser, {language: globalState.selectedTwitterUserLang});
+      loadTwitterUser(globalState.selectedTwitterUser, {language: globalState.selectedTwitterUserLang});
     });
 
     $inputForm2.submit(function(e) {
       e.preventDefault();
       e.stopPropagation();
 
-      resetOutputs();
-      $loading.show();
-      scrollTo($loading);
+      setLoadingState();
 
       var lang = globalState.selectedSample == 'custom' ? globalState.selectedLanguage : $('input#text-'+ globalState.selectedSample).attr('data-lang');
       getProfileForText($('.input--text-area').val(), { language: lang });
@@ -240,11 +246,11 @@ $(document).ready(function () {
   });
 
   function getProfileForTwitterUser(userId, options) {
-    getProfile(userId, extend(options, { source_type: 'twitter'}));
+    getProfile(userId, extend(options || {}, { source_type: 'twitter'}));
   }
 
   function getProfileForText(text, options) {
-    getProfile(text, extend(options, { source_type: 'text'}));
+    getProfile(text, extend(options || {}, { source_type: 'text'}));
   }
 
   function replacementsForLang(lang) {
@@ -321,12 +327,17 @@ $(document).ready(function () {
   }
 
   function defaultProfileOptions(options) {
-    return extend({
-      language: 'en',
+    var defaults = extend({
       source_type: 'text',
       accept_language: OUTPUT_LANG || 'en',
       include_raw: false
     }, options || {});
+
+    if (defaults.source_type !== 'twitter') {
+      defaults = extend({language: 'en'}, defaults);
+    }
+
+    return defaults;
   }
 
   function getProfile(data, options) {
@@ -707,6 +718,12 @@ $(document).ready(function () {
     loadResources();
     registerHandlers();
     $inputTextArea.addClass('orientation', 'left-to-right');
+
+
+    var twitterUser = $('meta[name="twitterUser"]').attr('content');
+    if (twitterUser) {
+      loadTwitterUser(twitterUser, {live_crawling : true});
+    }
   }
 
   function countWords(str) {
