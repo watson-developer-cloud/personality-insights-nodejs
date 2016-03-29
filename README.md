@@ -27,19 +27,35 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```
   The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
 
-4. Connect to Bluemix in the command line tool
+4. [Create a Twitter application][create_twitter_app] and add your application's callback URL: `<application-name>.mybluemix.net/auth/twitter/callback`.
+
+4. Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
+
+  ```js
+  {
+    ...
+    "twitter" : {
+      "consumer_key" : "<consumer_key>",
+      "consumer_secret" : "<consumer_secret>"
+    }
+    ...
+  }
+  ```
+
+
+5. Connect to Bluemix in the command line tool
   ```sh
   $ cf api https://api.ng.bluemix.net
   $ cf login -u <your user ID>
   ```
 
-5. Create the Personality Insights service in Bluemix
+6. Create the Personality Insights service in Bluemix
 
   ```sh
   $ cf create-service personality_insights tiered personality-insights-service
   ```
 
-6. Push it live!
+7. Push it live!
 
   ```sh
   $ cf push
@@ -103,6 +119,7 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
+[create_twitter_app]: https://apps.twitter.com/app/new
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
