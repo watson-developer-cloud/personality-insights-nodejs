@@ -27,7 +27,7 @@
     {
       "name": "Agustin Casamayor",
       "email": "casamay@ar.ibm.com"
-    }    
+    }
   ],
   "license": "Apache-2.0",
   "bugs": {
@@ -43,17 +43,19 @@
     "csurf": "^1.8.3",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
-    "express-session": "~1.0.0",
     "express-partials": "~0.2.0",
     "express-rate-limit": "^2.0.2",
     "express-secure-only": "^0.2.1",
+    "express-session": "~1.0.0",
     "helmet": "^1.3.0",
-    "promise": "~7.0.4",
     "passport": "^0.2.1",
     "passport-twitter": "^1.0.2",
+    "personality-insights-input": "^1.0.1",
+    "promise": "~7.0.4",
     "q": "^1.4.1",
     "request": "^2.67.0",
     "twitter": "1.2.5",
+    "underscore": "^1.8.3",
     "watson-developer-cloud": "^1.2.5"
   }
 }

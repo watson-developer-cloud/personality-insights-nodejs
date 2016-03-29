@@ -17,8 +17,9 @@
 'use strict';
 
 // Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
+var express  = require('express'),
+  bodyParser = require('body-parser'),
+  session    = require('express-session');
 
 module.exports = function (app) {
   app.set('view engine', 'ejs');
@@ -29,6 +30,15 @@ module.exports = function (app) {
   app.use(bodyParser.urlencoded({ extended: true, limit: '15mb' }));
   app.use(bodyParser.json({ limit: '15mb' }));
   app.use(express.static(__dirname + '/../public'));
+
+  app.use(require('cookie-parser')());
+  app.use(session({secret: 'pi_app_secret'})); // session secret
+
+
+  require('./passport')(app);
+
+
+
 
   // Only loaded when SECURE_EXPRESS is `true`
   if (process.env.SECURE_EXPRESS)
