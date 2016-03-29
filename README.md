@@ -27,21 +27,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```
   The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
 
-4. [Create a Twitter application][create_twitter_app] and add your application's callback URL: `<application-name>.mybluemix.net/auth/twitter/callback`.
-
-4. Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
-
-  ```js
-  {
-    ...
-    "twitter" : {
-      "consumer_key" : "<consumer_key>",
-      "consumer_secret" : "<consumer_secret>"
-    }
-    ...
-  }
-  ```
-
+4. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
 
 5. Connect to Bluemix in the command line tool
   ```sh
@@ -66,7 +52,7 @@ See the full [Getting Started][getting_started] documentation for more details, 
 ## Running locally
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/) so you will have to download and install them as part of the steps below.
 
-1. Copy the credentials from your `personality-insights-service` service in Bluemix to `app.js`, you can see the credentials using:
+1. Copy the credentials from your `personality-insights-service` service in Bluemix to `credentials.json`, you can see the credentials using:
 
     ```sh
     $ cf env <application-name>
@@ -92,12 +78,31 @@ See the full [Getting Started][getting_started] documentation for more details, 
 
     You need to copy `username`, `password` and `url`.
 
-2. Install [Node.js](http://nodejs.org/)
-3. Go to the project folder in a terminal and run:
+2. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+
+3. Install [Node.js](http://nodejs.org/)
+4. Go to the project folder in a terminal and run:
     `npm install`
-4. Start the application
-5.  `node app.js`
-6. Go to `http://localhost:3000`
+5. Start the application
+6.  `node app.js`
+7. Go to `http://localhost:3000`
+
+## Setting Up Twitter Application
+
+First you need to [Create a Twitter application][create_twitter_app] and add your application's callback URL: `<application-name>.mybluemix.net/auth/twitter/callback`.
+
+Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
+
+```js
+{
+  ...
+  "twitter" : {
+    "consumer_key" : "<consumer_key>",
+    "consumer_secret" : "<consumer_secret>"
+  }
+  ...
+}
+```
 
 ## Troubleshooting
 
