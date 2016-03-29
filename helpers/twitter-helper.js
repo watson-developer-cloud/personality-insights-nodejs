@@ -17,17 +17,64 @@
 
 'use strict';
 
+
+let
+  _ = require('underscore'),
+  isArray = _.isArray,
+  TwitterCrawler = require('nodejs-twitter-crawler'),
+  session = require('express-session');
+
+
 const TWITTER_DIR = __dirname + '/../public/data/twitter';
+
+let _credentials;
+
 
 let
   tweetsFileFor = (twitterHandle) => `${TWITTER_DIR}/${twitterHandle}_tweets.json`,
 
   tweetsFor = (twitterHandle) => require(tweetsFileFor(twitterHandle)),
 
-  getTweets = (twitterHandle) =>
-    new Promise((resolve, reject) => resolve(tweetsFor(twitterHandle)));
+  getLocalTweets = (twitterHandle) =>
+    new Promise((resolve, reject) => resolve(tweetsFor(twitterHandle))),
 
+  crawlTweets = (twitterHandle) => undefined;
+
+
+let
+  validCredential = (credential) =>
+    credential &&
+    credential.consumer_key &&
+    credential.consumer_secret &&
+    credential.access_token_key &&
+    credential.access_token_secret,
+
+  validCredentials = (credentials) =>
+    credentials.reduce((acc, c) => acc && validCredential(c), true),
+
+  sanitizeCredentials = (credentials) => {
+    const e = new Error('You must provide valid credentials');
+    if (!credentials) throw e;
+    credentials = isArray(credentials) ? credentials : [credentials];
+    if (!validCredentials(credentials)) throw e;
+    return credentials;
+  };
+
+
+let setCredentials = (credentials) => {
+  _credentials = sanitizeCredentials(credentials);
+};
+
+let getTweets = (twitterHandle) => {
+  let crawler = new TwitterCrawler(sanitizeCredentials(_credentials));
+  return crawler.getTweets(twitterHandle, { limit:245 });
+};
 
 module.exports = {
-  getTweets: getTweets
-}
+  tweets:  {
+    local : getLocalTweets,
+    crawl : getTweets
+  },
+
+  set_credentials : setCredentials
+};

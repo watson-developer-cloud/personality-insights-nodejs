@@ -20,56 +20,45 @@
 
 var
   passport = require('passport'),
+  credentials = require('../credentials').twitter,
+  app_info = require('./app-info'),
   Strategy = require('passport-twitter').Strategy,
-  twitter  = require('twitter');
+  TwitterHelper = require('../helpers/twitter-helper');
+
+
+const
+  strategy_options = {
+      consumerKey: credentials.consumer_key,
+      consumerSecret: credentials.consumer_secret,
+      callbackURL: app_info.url + '/auth/twitter/callback'
+    },
+  strategy = new Strategy(
+    strategy_options,
+    (token, tokenSecret, profile, next) => {
+
+      credentials = {
+         consumer_key: credentials.consumer_key,
+         consumer_secret: credentials.consumer_secret,
+         access_token_key:   token,
+         access_token_secret: tokenSecret,
+      };
+
+      TwitterHelper.set_credentials(credentials);
+
+      next(null, credentials);
+    }
+  );
 
 
 module.exports = (app) => {
 
-  var TWITTER_CONSUMER_KEY='<KEY>';
-  var TWITTER_CONSUMER_SECRET='<SECRET>';
-  var APP_NAME='127.0.0.1:3000';
-
-  passport.use(new Strategy({
-      consumerKey: TWITTER_CONSUMER_KEY,
-      consumerSecret: TWITTER_CONSUMER_SECRET,
-      callbackURL: 'http://' + APP_NAME + '/auth/twitter/callback'
-    },
-    function(token, tokenSecret, profile, cb) {
-      var twitter = new Twitter(
-      {
-         consumer_key: TWITTER_CONSUMER_KEY,
-         consumer_secret: TWITTER_CONSUMER_SECRET,
-         access_token_key:   token,
-         access_token_secret: tokenSecret,
-      }
-    );
-    var params = {
-      screen_name : profile.displayName,
-      count : '200',
-      include_rts : 'false'
-    };
-
-    twitter
-     .get(
-       'statuses/user_timeline',
-       params,
-       function(error, tweets) {
-          if(error) console.log(JSON.stringify(error));
-          else
-          {
-            console.log(tweets.length);
-            //TODO
-         }
-       });
-      }
-   )
-  );
+  passport.use(strategy);
 
   passport.serializeUser((user, next)  => next(null, user));
 
   passport.deserializeUser((obj, next) => next(null, obj));
 
   app.use(passport.initialize());
+
   app.use(passport.session()); // persistent login sessions
 }

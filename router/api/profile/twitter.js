@@ -45,7 +45,7 @@ let profileFromTweets = (parameters, tweets) =>
 
 
 let getProfileFromTwitter = (req, res, next) =>
-  TwitterHelper.getTweets(req.body.userId)
+  TwitterHelper.tweets.local(req.body.userId)
     .then(partial(profileFromTweets, req.body))
     .then(bind(res.json, res))
     .catch(next);

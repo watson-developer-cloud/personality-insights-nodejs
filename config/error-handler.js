@@ -15,24 +15,33 @@
  */
 
 'use strict';
-module.exports = function (app) {
+
+
+let logger = require('winston');
+
+
+let error  = (status_code, message) => {
+  let e = new Error(message);
+  e.code = status_code;
+  e.message = message;
+  return e;
+};
+
+
+module.exports = (app) => {
 
   // catch 404 and forward to error handler
-  app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.code = 404;
-    err.message = 'Not Found';
-    next(err);
-  });
+  app.use((_, __, next) => next(error(404, 'Not Found')));
 
   // error handler
-  app.use(function(err, req, res, next) {
-    var error = {
+  app.use((err, req, res, next) => {
+    let error = {
       code: err.code || 500,
       error: err.error || err.message
     };
 
-    console.log('error:', error, 'url:',req.url);
+    if (error.code != 404)
+      logger.error(error, 'url:', req.url, 'Error:', err);
 
     if (err.code === 'EBADCSRFTOKEN') {
       error = {
@@ -40,7 +49,9 @@ module.exports = function (app) {
         error: 'http://goo.gl/mGOksD'
       };
     }
-    res.status(error.code).json(error);
+
+    res.status(error.code)
+      .json(error);
   });
 
 };
