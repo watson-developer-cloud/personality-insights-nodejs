@@ -20,7 +20,8 @@
 
 var
   express  = require('express'),
-  passport = require('passport');
+  passport = require('passport'),
+  logger   = require('winston');
 
 
 var router = express.Router();
@@ -33,7 +34,8 @@ router.get('/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/' }),
 
   function(req, res, next) {
-    console.log("I am here");
+    logger.log(passport);
+    logger.log("I am here");
   }
 
 );
