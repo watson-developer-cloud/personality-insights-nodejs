@@ -18,7 +18,9 @@
 
 var
   express = require('express'),
-  app     = express();
+  app     = express(),
+  port    = require('./config/app-info').port,
+  logger  = require('winston');
 
 
 // Bootstrap application settings
@@ -30,7 +32,5 @@ require('./router')(app);
 // error-handler settings
 require('./config/error-handler')(app);
 
-
-var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port);
-console.log('listening at:', port);
+logger.info('Listening at:', port);
