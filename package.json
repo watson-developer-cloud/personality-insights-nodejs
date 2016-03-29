@@ -1,12 +1,15 @@
 {
   "name": "personality-insights-nodejs",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A sample NodeJS app that use the Personality Insights service",
   "repository": {
     "type": "git",
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
   },
   "author": "IBM Corp.",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "contributors": [
     {
       "name": "James Zhang",
@@ -37,6 +40,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "bluebird": "^3.3.4",
     "body-parser": "^1.11.0",
     "callsite": "^1.0.0",
     "connect-ensure-login": "^0.1.1",
@@ -54,8 +58,6 @@
     "passport": "^0.2.1",
     "passport-twitter": "^1.0.2",
     "personality-insights-input": "^1.0.1",
-    "promise": "~7.0.4",
-    "q": "^1.4.1",
     "request": "^2.67.0",
     "twitter": "1.2.5",
     "underscore": "^1.8.3",
