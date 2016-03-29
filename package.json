@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "body-parser": "^1.11.0",
+    "callsite": "^1.0.0",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.0",
     "csurf": "^1.8.3",
@@ -48,6 +49,8 @@
     "express-secure-only": "^0.2.1",
     "express-session": "~1.0.0",
     "helmet": "^1.3.0",
+    "js-yaml": "^3.5.5",
+    "nodejs-twitter-crawler": "^0.7.0",
     "passport": "^0.2.1",
     "passport-twitter": "^1.0.2",
     "personality-insights-input": "^1.0.1",
@@ -56,6 +59,7 @@
     "request": "^2.67.0",
     "twitter": "1.2.5",
     "underscore": "^1.8.3",
-    "watson-developer-cloud": "^1.2.5"
+    "watson-developer-cloud": "^1.2.5",
+    "winston": "^2.2.0"
   }
 }
