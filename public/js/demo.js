@@ -364,6 +364,7 @@ $(document).ready(function () {
         $loading.hide();
         $output.show();
         scrollTo($outputHeader);
+        console.debug('Profile obtained:', data);
         loadOutput(data);
       },
       error: function(err) {

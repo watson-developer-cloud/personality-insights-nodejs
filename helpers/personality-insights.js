@@ -23,12 +23,15 @@ let
   watson      = require('watson-developer-cloud'),
   _           = require('underscore'),
   extend      = _.extend,
-  to_promise  = require('../utilities/promises/callback-to-promise');
+  to_promise  = require('../utilities/promises/callback-to-promise'),
+  pi_input    = require('personality-insights-input');
 
 
 let
   personality_insights = watson.personality_insights(credentials),
-  profile = personality_insights.profile.bind(personality_insights);
+
+  getProfile = (parameters) =>
+    to_promise((callback) => personality_insights.profile(sanitize(parameters), callback));
 
 
 var sanitize = (parameters) =>
@@ -40,7 +43,6 @@ let profileFromTweets = (parameters) => (tweets) =>
   getProfile(extend(parameters, pi_input.fromTweets(tweets)));
 
 module.exports = {
-  profile : (parameters) =>
-    to_promise((callback) => profile(sanitize(parameters), callback)),
+  profile : getProfile,
   profile_from_tweets : profileFromTweets
 };

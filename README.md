@@ -89,7 +89,9 @@ See the full [Getting Started][getting_started] documentation for more details, 
 
 ## Setting Up Twitter Application
 
-First you need to [Create a Twitter application][create_twitter_app] and add your application's callback URL: `<application-name>.mybluemix.net/auth/twitter/callback`.
+First you need to [Create a Twitter application][create_twitter_app] and add your application's callback URL:
+- For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
+- For Local environment: `server.local:3000/auth/twitter/callback` (be sure to configure `hosts` file so `server.local` points `127.0.0.1`)
 
 Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
 
@@ -97,8 +99,10 @@ Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_
 {
   ...
   "twitter" : {
-    "consumer_key" : "<consumer_key>",
-    "consumer_secret" : "<consumer_secret>"
+    "application" : {
+      "consumer_key" : "<consumer_key>",
+      "consumer_secret" : "<consumer_secret>"
+    }
   }
   ...
 }

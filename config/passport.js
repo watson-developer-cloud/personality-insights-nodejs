@@ -20,33 +20,35 @@
 
 let
   passport = require('passport'),
-  credentials = require('../credentials').twitter,
+  twitter_credentials = require('../credentials').twitter,
   app_info = require('./app-info'),
   Strategy = require('passport-twitter').Strategy,
   TwitterHelper = require('../helpers/twitter-helper'),
-  logger = require('winston');
+  logger = require('winston'),
+  twitter_app = twitter_credentials.application,
+  more_credentials = twitter_credentials.credentials;
 
 
 const
   strategy_options = {
-      consumerKey: credentials.consumer_key,
-      consumerSecret: credentials.consumer_secret,
+      consumerKey: twitter_app.consumer_key,
+      consumerSecret: twitter_app.consumer_secret,
       callbackURL: app_info.url + '/auth/twitter/callback'
     },
   strategy = new Strategy(
     strategy_options,
     (token, tokenSecret, profile, done) => {
 
-      credentials = {
-         consumer_key: credentials.consumer_key,
-         consumer_secret: credentials.consumer_secret,
+      let user_credential = {
+         consumer_key: twitter_app.consumer_key,
+         consumer_secret: twitter_app.consumer_secret,
          access_token_key:   token,
          access_token_secret: tokenSecret,
       };
 
       logger.info(`User @${profile.username} authenticated.`);
       done(null, {
-          credentials: credentials,
+          credentials: [user_credential].concat(more_credentials),
           profile: profile
         });
     }

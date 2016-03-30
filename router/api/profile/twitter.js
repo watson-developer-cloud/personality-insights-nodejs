@@ -42,17 +42,18 @@ function validateParameters(req, res, next) {
 
 
 let getProfileFromTwitter = (req, res, next) => {
+  var tweets;
   if (req.body.live_crawling)
-    TwitterHelper.getCrawler(req.user.credentials)
-      .getTweets(req.body.userId)
-      .then(profileFromTweets(req.body))
-      .then(bind(res.json, res))
-      .catch(next);
+    tweets = TwitterHelper
+      .getCrawler(req.user.credentials)
+      .getTweets(req.body.userId, {limit: 249});
   else
-    TwitterHelper.getLocalTweets(req.body.userId)
-      .then(profileFromTweets(req.body))
-      .then(bind(res.json, res))
-      .catch(next);
+    tweets = TwitterHelper.getLocalTweets(req.body.userId);
+
+
+  tweets.then(profileFromTweets(req.body))
+    .then(bind(res.json, res))
+    .catch(next);
 };
 
 module.exports = (router) => {

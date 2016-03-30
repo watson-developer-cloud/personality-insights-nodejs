@@ -25,7 +25,7 @@ const
   ENV = process.env.NODE_ENV,
   APP_NAME = manifest.applications.name,
   DOMAIN   = ENV === 'production' ? APP_NAME + '.mybluemix.net'
-                                  : 'uqbar.local',
+                                  : 'server.local',
 
   PORT = process.env.VCAP_APP_PORT || 3000,
   PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',

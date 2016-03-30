@@ -59,7 +59,7 @@ let
   };
 
 
-let getCrawler = (credentials) => new TwitterCrawler(sanitizeCredentials(_credentials));
+let getCrawler = (credentials) => new TwitterCrawler(sanitizeCredentials(credentials), {debug:true});
 
 module.exports = {
   getLocalTweets : getLocalTweets,
