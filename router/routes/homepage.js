@@ -24,9 +24,10 @@ var express = require('express');
 var router = express.Router();
 
 
-router.get('/', (req, res) =>
-  res.render('index', { ct: req._csrfToken, twitterUser: '' })
-);
+router.get('/', (req, res) => {
+  let twitterUser = (req.user && req.user.profile) ? req.user.profile.username : '';
+  res.render('index', { ct: req._csrfToken, twitterUser: twitterUser })
+});
 
 
 module.exports = router;

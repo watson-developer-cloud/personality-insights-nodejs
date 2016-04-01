@@ -46,10 +46,9 @@ let getProfileFromTwitter = (req, res, next) => {
   if (req.body.live_crawling)
     tweets = TwitterHelper
       .getCrawler(req.user.credentials)
-      .getTweets(req.body.userId, {limit: 249});
+      .getTweets(req.body.userId, {limit: 250, min_tweets: 50});
   else
     tweets = TwitterHelper.getLocalTweets(req.body.userId);
-
 
   tweets.then(profileFromTweets(req.body))
     .then(bind(res.json, res))

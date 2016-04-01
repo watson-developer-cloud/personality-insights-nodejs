@@ -18,16 +18,21 @@
 
 
 let
-  yml      = require('../utilities/file/require-yaml'),
-  manifest = yml('../manifest.yml');
+  yml = require('../utilities/file/require-yaml'),
+  env = require("cfenv").getAppEnv();
+
+let bluemixUrl = (appName) =>
+   env.url.indexOf('.stage1.mybluemix.net') != -1
+     ? appName + '.stage1.mybluemix.net'
+     : appName + '.mybluemix.net';
 
 const
   ENV = process.env.NODE_ENV,
-  APP_NAME = manifest.applications.name,
-  DOMAIN   = ENV === 'production' ? APP_NAME + '.mybluemix.net'
-                                  : 'server.local',
+  APP_NAME = env.name,
+  DOMAIN   = env.isLocal ? 'server.local'
+                         : bluemixUrl(APP_NAME),
 
-  PORT = process.env.VCAP_APP_PORT || 3000,
+  PORT = env.port || 3000,
   PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',
   URL  = ENV === 'production' ? `${PROTOCOL}://${DOMAIN}` : `${PROTOCOL}://${DOMAIN}:${PORT}`;
 

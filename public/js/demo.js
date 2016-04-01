@@ -301,7 +301,9 @@ $(document).ready(function () {
         'invalid credentials' : 'There was a problem processing the personality. Please check your credentials.'
       },
       '500' : {
-        'missing required parameters' : 'Please input some text to analyze.'
+        'missing required parameters' : 'Please input some text to analyze.',
+        'Not enough tweets for user' : 'We need at least 50 tweets for analysis. Watson doesn\'t like to judge a book by its cover.',
+        'Review your credentials' : 'Oops! There was a problem obtaining your tweets. Please, try again later.'
       }
     };
 
@@ -720,10 +722,8 @@ $(document).ready(function () {
     registerHandlers();
     $inputTextArea.addClass('orientation', 'left-to-right');
 
-
-    var twitterUser = $('meta[name="twitterUser"]').attr('content');
-    if (twitterUser) {
-      loadTwitterUser(twitterUser, {live_crawling : true});
+    if (TWITTER_USER) {
+      loadTwitterUser(TWITTER_USER, {live_crawling : true});
     }
   }
 

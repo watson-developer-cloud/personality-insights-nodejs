@@ -26,7 +26,6 @@ module.exports = function (app) {
 
   // Routes
   app.use('/', require('./routes/homepage'));
-  app.use('/myself', require('./routes/myself'));
   app.use('/sunburst', require('./routes/sunburst'));
 
 };

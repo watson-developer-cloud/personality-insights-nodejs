@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="ct" content="<$= ct $>">
-  <meta name="twitterUser" content="<$= twitterUser $>">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
@@ -383,5 +382,9 @@
   <script type="text/javascript" src="js/demo.js"></script>
   <script type="text/javascript" src="js/sunburst.js"></script>
   <script type="text/javascript" src="js/ga.js"></script>
+
+  <script type="text/javascript">
+    var TWITTER_USER = <$- JSON.stringify(twitterUser) $>;
+  </script>
 </body>
 </html>
