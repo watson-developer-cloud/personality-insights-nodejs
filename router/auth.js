@@ -33,7 +33,7 @@ router.get('/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback',
     passport.authenticate('twitter', { failureRedirect: '/#error' }),
-    (req, res, next) => res.redirect('/#myself')
+    (req, res, next) => res.redirect('/?source=myself')
   );
 
 

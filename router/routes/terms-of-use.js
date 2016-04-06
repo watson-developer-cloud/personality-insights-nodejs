@@ -18,25 +18,14 @@
 'use strict';
 
 
-let express = require('express'),
-  url = require('url');
+var express = require('express');
 
 
-let router = express.Router();
+var router = express.Router();
 
-
-let twitterUser = (req) => (req.user && req.user.profile)
-  ? { handle: req.user.profile.username, image: (req.user.profile.photos[0] ? req.user.profile.photos[0].value.replace('_normal', '_400x400') : undefined) }
-  : {};
-
-let query = (req) => url.parse(req.url, true).query;
-
-let selfAnalysis = (req) => query(req).source == 'myself';
 
 router.get('/', (req, res) => {
-  let t = selfAnalysis(req) ? twitterUser(req) : {};
-  console.log();
-  res.render('index', { ct: req._csrfToken, twitterUser : t });
+  res.render('terms-of-use', { ct: '', twitterUser: {} })
 });
 
 

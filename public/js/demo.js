@@ -19,6 +19,21 @@
 var markdown = window.markdownit();
 
 var OUTPUT_LANG = 'en';
+var globalState = {};
+
+var QUERY_PARAMS = (function(a) {
+  if (a == "") return {};
+  var b = {};
+  for (var i = 0; i < a.length; ++i)
+  {
+      var p=a[i].split('=', 2);
+      if (p.length == 1)
+          b[p[0]] = "";
+      else
+          b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+  }
+  return b;
+})(window.location.search.substr(1).split('&'));
 
 function extend(target, source) {
   Object.keys(source).forEach(function (k) {
@@ -77,14 +92,13 @@ $(document).ready(function () {
         'ar',
         'ja'
       ],
-    globalState = {
-        selectedSample: SAMPLE_TEXTS[0],
-        languageSelected: undefined
-      },
     textCache = {},
     Resources = {
         _autoload : [ { name: 'scenarios', loader: removeHidden }, { name: 'names', loader: toDict } ]
       };
+
+  globalState.selectedSample = SAMPLE_TEXTS[0];
+  globalState.languageSelected = undefined;
 
   var $big5Traits = $('.output-big-5--traits');
   var $needsTraits = $('.output-needs--traits');
@@ -187,6 +201,7 @@ $(document).ready(function () {
       var twitterId = $(this).val();
       var twitterLang = $(this).attr("data-lang");
       globalState.selectedTwitterUser = twitterId;
+      globalState.selectedTwitterImage = $('label[for="'+$(this).attr('id')+'"] img').attr('src');
       globalState.selectedTwitterUserLang = twitterLang;
     });
 
@@ -231,6 +246,8 @@ $(document).ready(function () {
     $('input[name="twitter"]:first').trigger('click');
     $('input[name="text-sample"]:first').trigger('click');
     $('.tab-panels--tab:first').trigger('click');
+    $('#your-twitter-panel .auth-form').show();
+    $('#your-twitter-panel .analysis-form').hide();
     resetOutputs();
   });
 
@@ -710,6 +727,29 @@ $(document).ready(function () {
     });
   }
 
+  function selfAnalysis() {
+    return QUERY_PARAMS.source == 'myself';
+  }
+
+  function setSelfAnalysis() {
+    console.log('Analyzing twitter user ', '@'+TWITTER_USER);
+    globalState.twitterUserId = TWITTER_USER.handle;
+    globalState.twitterUserImage = TWITTER_USER.image;
+    loadTwitterUser(TWITTER_USER.handle, {live_crawling : true});
+    $('#self-analysis-tab').trigger('click');
+    $('#your-twitter-panel .auth-form').hide();
+    $('#your-twitter-panel .analysis-form label').remove();
+    $('#your-twitter-panel .analysis-form').append([
+        '<label class="base--inline-label input--radio" for="my-twitter">',
+          '<img class="input--thumb" src="',
+          TWITTER_USER.image || '/images/no_image.jpg',
+          '">@', TWITTER_USER.handle,
+        '</label>'
+      ].join(''));
+    $('#my-twitter').trigger('click');
+    $('#your-twitter-panel .analysis-form').show();
+  }
+
   function initialize() {
     $('input[name="twitter"]:first').attr('checked', true);
     $('input[name="text-sample"]:first').attr('checked', true);
@@ -722,8 +762,8 @@ $(document).ready(function () {
     registerHandlers();
     $inputTextArea.addClass('orientation', 'left-to-right');
 
-    if (TWITTER_USER) {
-      loadTwitterUser(TWITTER_USER, {live_crawling : true});
+    if (selfAnalysis() && TWITTER_USER.handle) {
+      setSelfAnalysis();
     }
   }
 

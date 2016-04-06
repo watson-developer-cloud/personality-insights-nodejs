@@ -32,7 +32,7 @@ const
   DOMAIN   = env.isLocal ? 'server.local'
                          : bluemixUrl(APP_NAME),
 
-  PORT = env.port || 3000,
+  PORT = env.isLocal ? 3000 : env.port,
   PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',
   URL  = ENV === 'production' ? `${PROTOCOL}://${DOMAIN}` : `${PROTOCOL}://${DOMAIN}:${PORT}`;
 
