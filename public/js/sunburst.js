@@ -9,13 +9,20 @@ function post_to_url(url) {
     var form = document.createElement('form');
     form.action = url;
     form.method = 'POST';
-    form.target = '_blank';
+    //form.target = '_blank';
 
-        var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", "data");
-            hiddenField.setAttribute("value", JSON.stringify(pi_profile));
-form.appendChild(hiddenField);
+    var profileHiddenField = document.createElement("input");
+        profileHiddenField.setAttribute("type", "hidden");
+        profileHiddenField.setAttribute("name", "profile");
+        profileHiddenField.setAttribute("value", JSON.stringify(pi_profile));
+
+    var imageHiddenField = document.createElement("input");
+        imageHiddenField.setAttribute("type", "hidden");
+        imageHiddenField.setAttribute("name", "image");
+        imageHiddenField.setAttribute("value", globalState.selectedTwitterImage);
+
+    form.appendChild(profileHiddenField);
+    form.appendChild(imageHiddenField);
     document.body.appendChild(form);
     form.submit();
 }

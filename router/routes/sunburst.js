@@ -18,15 +18,16 @@
 'use strict';
 
 
-var express = require('express');
+let express = require('express'),
+  _ = require('underscore'),
+  extend = _.extend,
+  pick   = _.pick;
 
+let router = express.Router();
 
-var router = express.Router();
+let sunburstPayload = (req) => pick(req.body, ['profile', 'image']);
 
-
-router.post('/', (req, res) =>
-  res.render('sunburst', { profile: req.body.data })
-);
+router.post('/', (req, res) => res.render('sunburst', { ct: '', twitterUser: {}, sunburst: sunburstPayload(req)}));
 
 
 module.exports = router;
