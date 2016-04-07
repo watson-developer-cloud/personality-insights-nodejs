@@ -46,7 +46,6 @@ var
          access_token_secret: tokenSecret,
       };
 
-      logger.info('User @' + profile.username, 'authenticated.');
       done(null, {
           credentials: [user_credential].concat(more_credentials),
           profile: profile
