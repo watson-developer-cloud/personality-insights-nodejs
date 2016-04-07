@@ -19,7 +19,15 @@
 var markdown = window.markdownit();
 
 var OUTPUT_LANG = 'en';
-var globalState = {};
+var globalState = {
+    twitterUserId: undefined,
+    selectedTwitterUser: undefined,
+    selectedTwitterImage: undefined,
+    selectedTwitterUserLang: undefined,
+    selectedSample: undefined,
+    languageSelected: undefined,
+    currentProfile: undefined
+  };
 
 var QUERY_PARAMS = (function(a) {
   if (a == "") return {};
@@ -560,7 +568,7 @@ $(document).ready(function () {
 
     updateJSON(rawData);
 
-    postSunburst(rawData);
+    globalState.currentProfile = rawData;
 
   }
 
