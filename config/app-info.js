@@ -21,17 +21,11 @@ var
   yml = require('../utilities/file/require-yaml'),
   env = require("cfenv").getAppEnv();
 
-var bluemixUrl = function (appName) {
-   return env.url.indexOf('.stage1.mybluemix.net') != -1
-     ? appName + '.stage1.mybluemix.net'
-     : appName + '.mybluemix.net';
-   }
-
 var
   ENV = process.env.NODE_ENV,
   APP_NAME = env.name,
   DOMAIN   = env.isLocal ? 'server.local'
-                         : bluemixUrl(APP_NAME),
+                         : env.url,
 
   PORT = env.isLocal ? 3000 : env.port,
   PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',
