@@ -67,7 +67,7 @@ function sanitizeCredentials(credentials) {
 
 
 function getCrawler (credentials) {
-  return new TwitterCrawler(sanitizeCredentials(credentials), {debug:true});
+  return new TwitterCrawler(sanitizeCredentials(credentials));
 }
 
 module.exports = {
