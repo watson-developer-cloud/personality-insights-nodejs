@@ -18,48 +18,57 @@
 'use strict';
 
 
-let
+var
   _ = require('underscore'),
   isArray = _.isArray,
   TwitterCrawler = require('nodejs-twitter-crawler'),
   session = require('express-session');
 
 
-const TWITTER_DIR = __dirname + '/../public/data/twitter';
+var TWITTER_DIR = __dirname + '/../public/data/twitter';
 
-let _credentials;
-
-
-let
-  tweetsFileFor = (twitterHandle) => `${TWITTER_DIR}/${twitterHandle}_tweets.json`,
-
-  tweetsFor = (twitterHandle) => require(tweetsFileFor(twitterHandle)),
-
-  getLocalTweets = (twitterHandle) =>
-    new Promise((resolve, reject) => resolve(tweetsFor(twitterHandle)));
+var _credentials;
 
 
-let
-  validCredential = (credential) =>
-    credential &&
-    credential.consumer_key &&
-    credential.consumer_secret &&
-    credential.access_token_key &&
-    credential.access_token_secret,
+function tweetsFileFor(twitterHandle) {
+  return TWITTER_DIR + '/' + twitterHandle + '_tweets.json';
+}
 
-  validCredentials = (credentials) =>
-    credentials.reduce((acc, c) => acc && validCredential(c), true),
+function tweetsFor(twitterHandle) {
+  return require(tweetsFileFor(twitterHandle));
+}
 
-  sanitizeCredentials = (credentials) => {
-    const e = new Error('You must provide valid credentials');
-    if (!credentials) throw e;
-    credentials = isArray(credentials) ? credentials : [credentials];
-    if (!validCredentials(credentials)) throw e;
-    return credentials;
-  };
+function getLocalTweets(twitterHandle) {
+  return new Promise(function (resolve, reject) {
+    return resolve(tweetsFor(twitterHandle));
+  });
+}
 
 
-let getCrawler = (credentials) => new TwitterCrawler(sanitizeCredentials(credentials), {debug:true});
+function validCredential(credential) {
+  return credential &&
+  credential.consumer_key &&
+  credential.consumer_secret &&
+  credential.access_token_key &&
+  credential.access_token_secret;
+}
+
+function validCredentials(credentials) {
+  return credentials.reduce(function (acc, c) { return acc && validCredential(c); }, true);
+}
+
+function sanitizeCredentials(credentials) {
+  var e = new Error('You must provide valid credentials');
+  if (!credentials) throw e;
+  credentials = isArray(credentials) ? credentials : [credentials];
+  if (!validCredentials(credentials)) throw e;
+  return credentials;
+};
+
+
+function getCrawler (credentials) {
+  return new TwitterCrawler(sanitizeCredentials(credentials), {debug:true});
+}
 
 module.exports = {
   getLocalTweets : getLocalTweets,

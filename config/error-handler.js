@@ -17,37 +17,37 @@
 'use strict';
 
 
-let logger = require('winston');
+var logger = require('winston');
 
 
-let error  = (status_code, message) => {
-  let e = new Error(message);
+var error  = function (status_code, message) {
+  var e = new Error(message);
   e.code = status_code;
   e.message = message;
   return e;
 };
 
 
-module.exports = (app) => {
+module.exports = function (app) {
 
   // catch 404 and forward to error handler
-  app.use((_, __, next) => next(error(404, 'Not Found')));
+  app.use(function(_, __, next) { return next(error(404, 'Not Found')); } );
 
   // error handler
-  app.use((err, req, res, next) => {
-    let error = {
-      code: err.code || 500,
-      error: err.error || err.message
-    };
+  app.use(function (err, req, res, next) {
+    var error = {
+        code: err.code || 500,
+        error: err.error || err.message
+      };
 
     if (error.code != 404)
       logger.error(error, 'url:', req.url, 'Error:', err);
 
     if (err.code === 'EBADCSRFTOKEN') {
       error = {
-        code: 403,
-        error: 'http://goo.gl/mGOksD'
-      };
+          code: 403,
+          error: 'http://goo.gl/mGOksD'
+        };
     }
 
     res.status(error.code)

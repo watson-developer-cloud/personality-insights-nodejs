@@ -17,16 +17,17 @@
 'use strict';
 
 
-let
+var
   yml = require('../utilities/file/require-yaml'),
   env = require("cfenv").getAppEnv();
 
-let bluemixUrl = (appName) =>
-   env.url.indexOf('.stage1.mybluemix.net') != -1
+var bluemixUrl = function (appName) {
+   return env.url.indexOf('.stage1.mybluemix.net') != -1
      ? appName + '.stage1.mybluemix.net'
      : appName + '.mybluemix.net';
+   }
 
-const
+var
   ENV = process.env.NODE_ENV,
   APP_NAME = env.name,
   DOMAIN   = env.isLocal ? 'server.local'
@@ -34,7 +35,9 @@ const
 
   PORT = env.isLocal ? 3000 : env.port,
   PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',
-  URL  = ENV === 'production' ? `${PROTOCOL}://${DOMAIN}` : `${PROTOCOL}://${DOMAIN}:${PORT}`;
+  URL  = ENV === 'production'
+    ? PROTOCOL + '://' + DOMAIN
+    : PROTOCOL + '://' + DOMAIN + ':' + PORT;
 
 module.exports = {
   app_name    : APP_NAME,

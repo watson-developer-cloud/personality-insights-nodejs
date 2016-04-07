@@ -18,7 +18,7 @@
 'use strict';
 
 
-let
+var
   credentials = require('../credentials.json').personality_insights,
   watson      = require('watson-developer-cloud'),
   _           = require('underscore'),
@@ -27,20 +27,24 @@ let
   pi_input    = require('personality-insights-input');
 
 
-let
+var
   personality_insights = watson.personality_insights(credentials),
+  getProfile = function (parameters) {
+    return to_promise(function(callback) { personality_insights.profile(sanitize(parameters), callback)});
+  };
 
-  getProfile = (parameters) =>
-    to_promise((callback) => personality_insights.profile(sanitize(parameters), callback));
 
-
-var sanitize = (parameters) =>
-  extend(parameters, {
+var sanitize = function (parameters) {
+  return extend(parameters, {
       text: parameters.text ? parameters.text.replace(/[\s]+/g, ' ') : undefined
     });
+  };
 
-let profileFromTweets = (parameters) => (tweets) =>
-  getProfile(extend(parameters, pi_input.fromTweets(tweets)));
+var profileFromTweets = function (parameters) {
+    return function (tweets) {
+      return getProfile(extend(parameters, pi_input.fromTweets(tweets)));
+    };
+  };
 
 module.exports = {
   profile : getProfile,

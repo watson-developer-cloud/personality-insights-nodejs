@@ -18,14 +18,14 @@
 'use strict';
 
 
-let
+var
   path     = require('path'),
   callsite = require('callsite');
 
 
-module.exports = (depth) => {
+module.exports = function(depth) {
   depth = depth || 1;
-  const
+  var
     stack = callsite(),
     callerFile = stack[depth].getFileName(),
     dir = path.dirname(callerFile);

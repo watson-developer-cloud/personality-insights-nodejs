@@ -18,7 +18,7 @@
 'use strict';
 
 
-let
+var
   passport = require('passport'),
   twitter_credentials = require('../credentials').twitter,
   app_info = require('./app-info'),
@@ -29,7 +29,7 @@ let
   more_credentials = twitter_credentials.credentials;
 
 
-const
+var
   strategy_options = {
       consumerKey: twitter_app.consumer_key,
       consumerSecret: twitter_app.consumer_secret,
@@ -37,16 +37,16 @@ const
     },
   strategy = new Strategy(
     strategy_options,
-    (token, tokenSecret, profile, done) => {
+    function (token, tokenSecret, profile, done) {
 
-      let user_credential = {
+      var user_credential = {
          consumer_key: twitter_app.consumer_key,
          consumer_secret: twitter_app.consumer_secret,
          access_token_key:   token,
          access_token_secret: tokenSecret,
       };
 
-      logger.info(`User @${profile.username} authenticated.`);
+      logger.info('User @' + profile.username, 'authenticated.');
       done(null, {
           credentials: [user_credential].concat(more_credentials),
           profile: profile
@@ -55,13 +55,13 @@ const
   );
 
 
-module.exports = (app) => {
+module.exports = function (app) {
 
   passport.use(strategy);
 
-  passport.serializeUser((user, next)  => next(null, user));
+  passport.serializeUser(function(user, next) { return next(null, user); });
 
-  passport.deserializeUser((obj, next) => next(null, obj));
+  passport.deserializeUser(function(obj, next) { return next(null, obj); });
 
   app.use(passport.initialize());
 
