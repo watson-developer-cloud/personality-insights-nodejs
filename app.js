@@ -16,11 +16,10 @@
 
 'use strict';
 
-var
-  express = require('express'),
-  app     = express(),
-  port    = require('./config/app-info').port,
-  logger  = require('winston');
+var express = require('express'),
+    app     = express(),
+    port    = require('./config/app-info').port,
+    logger  = require('winston');
 
 
 // Bootstrap application settings
