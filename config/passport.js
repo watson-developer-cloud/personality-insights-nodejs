@@ -22,20 +22,20 @@ var
   passport = require('passport'),
   twitter_credentials = require('../credentials').twitter,
   app_info = require('./app-info'),
-  Strategy = require('passport-twitter').Strategy,
+  TwitterStrategy = require('passport-twitter').Strategy,
   TwitterHelper = require('../helpers/twitter-helper'),
   logger = require('winston'),
   twitter_app = twitter_credentials.application,
   more_credentials = twitter_credentials.credentials;
 
 
-var
-  strategy_options = {
+var strategy_options = {
       consumerKey: twitter_app.consumer_key,
       consumerSecret: twitter_app.consumer_secret,
       callbackURL: app_info.url + '/auth/twitter/callback'
-    },
-  strategy = new Strategy(
+    };
+
+var strategy = new TwitterStrategy(
     strategy_options,
     function (token, tokenSecret, profile, done) {
 
@@ -46,7 +46,7 @@ var
          access_token_secret: tokenSecret,
       };
 
-      done(null, {
+      return done(null, {
           credentials: [user_credential].concat(more_credentials),
           profile: profile
         });
