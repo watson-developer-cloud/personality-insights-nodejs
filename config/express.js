@@ -17,8 +17,11 @@
 'use strict';
 
 // Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
+var express  = require('express'),
+  bodyParser = require('body-parser'),
+  session    = require('express-session'),
+  cookieParser = require('cookie-parser'),
+  logger     = require('winston');
 
 module.exports = function (app) {
   app.set('view engine', 'ejs');
@@ -30,8 +33,16 @@ module.exports = function (app) {
   app.use(bodyParser.json({ limit: '15mb' }));
   app.use(express.static(__dirname + '/../public'));
 
-  // Only loaded when SECURE_EXPRESS is `true`
-  if (process.env.SECURE_EXPRESS)
-    require('./security')(app);
+  var secret = Math.random().toString(36).substring(7);
+  app.use(cookieParser(secret));
+  app.use(session({ secret:secret }));
 
+  if (process.env.SECURE_EXPRESS) {
+    logger.info('Server is secure.')
+    require('./security')(app);
+  } else {
+    logger.info('Server is unsecure.')
+  }
+
+  require('./passport')(app);
 };
