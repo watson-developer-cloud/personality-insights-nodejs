@@ -37,12 +37,5 @@ module.exports = function (app) {
   app.use(cookieParser(secret));
   app.use(session({ secret:secret }));
 
-  if (process.env.SECURE_EXPRESS) {
-    logger.info('Server is secure.')
-    require('./security')(app);
-  } else {
-    logger.info('Server is unsecure.')
-  }
-
   require('./passport')(app);
 };

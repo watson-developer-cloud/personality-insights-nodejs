@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 VCAP_SERVICES.json
 run.sh
+npm-debug.log
+.env.js

@@ -27,7 +27,7 @@ let router = express.Router();
 
 let sunburstPayload = (req) => pick(req.body, ['profile', 'image']);
 
-router.post('/', (req, res) => res.render('sunburst', { ct: '', twitterUser: {}, sunburst: sunburstPayload(req)}));
+router.post('/', (req, res) => res.render('sunburst', { ct: req._csrfToken, twitterUser: {}, sunburst: sunburstPayload(req)}));
 
 
 module.exports = router;
