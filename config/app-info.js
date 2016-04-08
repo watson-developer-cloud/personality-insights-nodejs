@@ -18,24 +18,12 @@
 
 
 var
-  env = require("cfenv").getAppEnv();
-
-var
-  ENV = process.env.NODE_ENV,
-  APP_NAME = env.name,
-  DOMAIN   = env.isLocal ? 'server.local'
-                         : env.url,
-
-  PORT = env.isLocal ? 3000 : env.port,
-  PROTOCOL = process.env.SECURE_EXPRESS ? 'https' : 'http',
-  URL  = ENV === 'production'
-    ? PROTOCOL + '://' + DOMAIN
-    : PROTOCOL + '://' + DOMAIN + ':' + PORT;
+  env = require("cfenv").getAppEnv(),
+  LOCAL_ENV_PORT = 3000;
 
 module.exports = {
-  app_name    : APP_NAME,
-  domain      : DOMAIN,
-  environment : ENV,
-  port        : PORT,
-  url         : URL
+  app_name    : env.name,
+  environment : process.env.NODE_ENV,
+  port        : env.isLocal ? LOCAL_ENV_PORT : env.port,
+  url         : env.isLocal ? env.url.replace(/:[0-9]+/, ':' + LOCAL_ENV_PORT) : env.url
 };
