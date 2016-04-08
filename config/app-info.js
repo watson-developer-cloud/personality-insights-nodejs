@@ -18,7 +18,6 @@
 
 
 var
-  yml = require('../utilities/file/require-yaml'),
   env = require("cfenv").getAppEnv();
 
 var
