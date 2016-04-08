@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-
 'use strict';
-
 
 var Promise = require('bluebird');
 
-
-function resolver (resolve, reject) {
-  return (error, result) =>
-    error ? reject(error)
-          : resolve(result)
+function resolver(resolve, reject) {
+  return function (error, result) {
+    return error ? reject(error) : resolve(result);
+  };
 }
 
-
-module.exports = (f) =>
-  new Promise((resolve, reject) => f(resolver(resolve, reject)));
+module.exports = function (f) {
+  return new Promise(function (resolve, reject) {
+    return f(resolver(resolve, reject));
+  });
+};

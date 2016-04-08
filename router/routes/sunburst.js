@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-
 'use strict';
 
+var express = require('express'),
+    _ = require('underscore'),
+    extend = _.extend,
+    pick = _.pick;
 
-let express = require('express'),
-  _ = require('underscore'),
-  extend = _.extend,
-  pick   = _.pick;
+var router = express.Router();
 
-let router = express.Router();
+var sunburstPayload = function sunburstPayload(req) {
+  return pick(req.body, ['profile', 'image']);
+};
 
-let sunburstPayload = (req) => pick(req.body, ['profile', 'image']);
-
-router.post('/', (req, res) => res.render('sunburst', { ct: '', twitterUser: {}, sunburst: sunburstPayload(req)}));
-
+router.post('/', function (req, res) {
+  return res.render('sunburst', { ct: '', twitterUser: {}, sunburst: sunburstPayload(req) });
+});
 
 module.exports = router;
