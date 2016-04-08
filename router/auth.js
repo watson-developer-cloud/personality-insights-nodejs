@@ -32,9 +32,10 @@ var router = express.Router();
 router.get('/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback',
-    passport.authenticate('twitter', { failureRedirect: '/#error' }),
-    function (req, res, next) { return res.redirect('/?source=myself'); }
-  );
+    passport.authenticate('twitter', {
+      failureRedirect: '/#error',
+      successRedirect : '/?source=myself'
+    }));
 
 
 

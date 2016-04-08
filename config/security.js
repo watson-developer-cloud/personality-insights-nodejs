@@ -20,7 +20,6 @@
 var secure     = require('express-secure-only'),
   rateLimit    = require('express-rate-limit'),
   csrf         = require('csurf'),
-  cookieParser = require('cookie-parser'),
   helmet       = require('helmet'),
   request      = require('request');
 
@@ -35,10 +34,6 @@ module.exports = function (app) {
 
   // 3. allow iframes
   app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
-
-  // 3. setup cookies
-  var secret = Math.random().toString(36).substring(7);
-  app.use(cookieParser(secret));
 
   // 4. csrf
   var csrfProtection = csrf({ cookie: true });
