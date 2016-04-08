@@ -1,42 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-    <title>Personality Insights Sunburst Chart</title>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.min.js"></script>
-    <h3 class="display-4">Personality Insights - Sunburst</h3>
-    <script src="https://rawgit.com/ibm-silvergate/personality-sunburst-chart/master/bin/personality-sunburst-chart.standalone.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<$ include partials/header $>
+  <div class="_demo--container">
+    <div class="_content input">
+      <h2 class="base--h2">
+        Sunburst Chart Visualization
+      </h2>
 
-    <style>
-      #profile pre {
-        max-height: 400px;
-      }
+      <div id="sunburstChart"></div>
 
-      #textSummary {
-        font-size: 1.2em;
-      }
-    </style>
-  </head>
-  <body>
+      <p class="base--p">
+        <a class="base--a" href='/'>
+           &lt; Go back
+        </a>
+      </p>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-lg-8">
-          <div id="sunburstChart"></div>
-        </div>
-      </div>
-      </div>
     </div>
+  </div>
 
-    <script>
-      var profile = <$- profile $>; 
-      $('#profile').append('<pre>' + profile + '</pre>');
+  <script src="/js/vendors/jquery-2.2.0.min.js"></script>
+  <script src="/js/vendors/d3.min.js"></script>
+  <script src="/js/components/personality-sunburst-chart.standalone.min.js"></script>
 
-      var chart = new PersonalitySunburstChart('sunburstChart');
-      chart.show(profile);
-    </script>
+  <script>
+    var profile = <$- sunburst.profile $>;
+    var imageUrl = <$- JSON.stringify(typeof sunburst.image === 'undefined' || sunburst.image === 'undefined' ? '/images/service-icon.png' : sunburst.image) $>;
+    var chart = new PersonalitySunburstChart('sunburstChart');
+    chart.show(profile, imageUrl);
+  </script>
 
-  </body>
-</html>
+<$ include partials/footer $>

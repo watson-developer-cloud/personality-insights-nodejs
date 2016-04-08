@@ -27,19 +27,21 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```
   The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
 
-4. Connect to Bluemix in the command line tool
+4. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+
+5. Connect to Bluemix in the command line tool
   ```sh
   $ cf api https://api.ng.bluemix.net
   $ cf login -u <your user ID>
   ```
 
-5. Create the Personality Insights service in Bluemix
+6. Create the Personality Insights service in Bluemix
 
   ```sh
   $ cf create-service personality_insights tiered personality-insights-service
   ```
 
-6. Push it live!
+7. Push it live!
 
   ```sh
   $ cf push
@@ -50,7 +52,7 @@ See the full [Getting Started][getting_started] documentation for more details, 
 ## Running locally
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/) so you will have to download and install them as part of the steps below.
 
-1. Copy the credentials from your `personality-insights-service` service in Bluemix to `app.js`, you can see the credentials using:
+1. Copy the credentials from your `personality-insights-service` service in Bluemix to `credentials.json`, you can see the credentials using:
 
     ```sh
     $ cf env <application-name>
@@ -76,12 +78,35 @@ See the full [Getting Started][getting_started] documentation for more details, 
 
     You need to copy `username`, `password` and `url`.
 
-2. Install [Node.js](http://nodejs.org/)
-3. Go to the project folder in a terminal and run:
+2. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+
+3. Install [Node.js](http://nodejs.org/)
+4. Go to the project folder in a terminal and run:
     `npm install`
-4. Start the application
-5.  `node app.js`
-6. Go to `http://localhost:3000`
+5. Start the application
+6.  `node app.js`
+7. Go to `http://localhost:3000`
+
+## Setting Up Twitter Application
+
+First you need to [Create a Twitter application][create_twitter_app] and add your application's callback URL:
+- For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
+- For Local environment: `server.local:3000/auth/twitter/callback` (be sure to configure `hosts` file so `server.local` points `127.0.0.1`)
+
+Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
+
+```js
+{
+  ...
+  "twitter" : {
+    "application" : {
+      "consumer_key" : "<consumer_key>",
+      "consumer_secret" : "<consumer_secret>"
+    }
+  }
+  ...
+}
+```
 
 ## Troubleshooting
 
@@ -103,6 +128,7 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
+[create_twitter_app]: https://apps.twitter.com/app/new
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/

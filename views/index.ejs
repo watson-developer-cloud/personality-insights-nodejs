@@ -1,86 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Personality Insights</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="ct" content="<$= ct $>">
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
-</head>
-
-<body>
-  <!-- top level heading -->
-  <header class="_demo--heading">
-    <div class="_demo--container">
-      <a class="wordmark" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">
-        <span class="wordmark--left">IBM</span>
-        <span class="wordmark--right">Watson Developer Cloud</span>
-      </a>
-      <nav class="heading-nav" role="menubar">
-        <li class="base--li heading-nav--li" role="presentation">
-          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html" role="menuitem">
-					Services
-				</a>
-        </li>
-        <li class="base--li heading-nav--li" role="presentation">
-          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/" role="menuitem">
-					Docs
-				</a>
-        </li>
-        <li class="base--li heading-nav--li" role="presentation">
-          <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html" role="menuitem">
-					App Gallery
-				</a>
-        </li>
-        <li class="base--li heading-nav--li" role="presentation">
-          <a class="heading-nav--item" href="https://developer.ibm.com/watson/" role="menuitem">
-					Community
-				</a>
-        </li>
-      </nav>
-    </div>
-  </header>
-
-
-  <div class="_demo--banner">
-    <div class="_demo--container">
-      <div class="banner--service-icon-container">
-        <img class="banner--service-icon" src="images/service-icon.svg" alt="Personality Insights API Icon">
-      </div>
-      <div class="banner--service-info">
-        <h1 class="banner--service-title base--h1">
-          <img class="banner--service-icon_INLINE" src="images/service-icon.svg" alt="Personality Insights API Icon"> Personality Insights
-        </h1>
-        <div class="banner--service-description">
-          Gain insight into how and why people think, act, and feel the way they do. This service applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.
-        </div>
-        <div class="banner--service-resource">
-          <span class="icon icon-link"></span>
-          <strong>Resources:</strong>
-        </div>
-        <div class="banner--service-links">
-          <li class="base--li banner--service-link-item">
-            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api/v2/" class="base--a">API Reference</a>
-          </li>
-          <li class="base--li banner--service-link-item">
-            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" class="base--a">Documentation</a>
-          </li>
-          <li class="base--li banner--service-link-item">
-            <a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork on Github</a>
-          </li>
-          <li class="base--li banner--service-link-item">
-            <a href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork and Deploy on Bluemix</a>
-          </li>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+<$ include partials/header $>
   <div class="_demo--container">
     <div class="_content input">
       <h2 class="base--h2">
@@ -93,7 +11,8 @@
           <span class="icon icon-reset"></span>
           <button class="base--a icon-hyperlink--button icon-hyperlink--button_BLANK input--reset-button" href="" type="reset">
             Reset
-          </button>
+          </button> |
+          <a class="base--a" href="/terms-of-use">Terms of Use</a>
         </span>
         <ul class="tab-panels--tab-list" role="tablist">
           <li class="tab-panels--tab-list-item base--li" role="presentation">
@@ -101,6 +20,9 @@
           </li>
           <li class="tab-panels--tab-list-item base--li" role="presentation">
             <a class="tab-panels--tab base--a" href="#text-panel" aria-controls="text-panel" role="tab">Body of Text</a>
+          </li>
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a" id="self-analysis-tab" href="#your-twitter-panel" aria-controls="text-panel" role="tab">Your Twitter Personality</a>
           </li>
         </ul>
         <div class="tab-panels--tab-content">
@@ -120,11 +42,11 @@
               <input role="radio" class="base--radio" type="radio" id="twitter-DonFranciscoTV" name="twitter" value="DonFranciscoTV" data-lang="es">
               <label class="base--inline-label input--radio" for="twitter-DonFranciscoTV">
                 <img class="input--thumb" src="/images/twitter/DonFranciscoTV.jpg">@DonFranciscoTV (ES)</label>
-  
+
               <input role="radio" class="base--radio" type="radio" id="twitter-pontifex_es" name="twitter" value="pontifex_es" data-lang="es">
               <label class="base--inline-label input--radio" for="twitter-pontifex_es">
                 <img class="input--thumb" src="/images/twitter/pontifex_es.jpg">@pontifex_es (ES)</label>
-  
+
               <input role="radio" class="base--radio" type="radio" id="twitter-trikaofficial" name="twitter" value="trikaofficial" data-lang="ar">
               <label class="base--inline-label input--radio" for="twitter-trikaofficial">
                 <img class="input--thumb" src="/images/twitter/trikaofficial.jpg">@trikaofficial (AR)</label>
@@ -132,15 +54,6 @@
               <input role="radio" class="base--radio" type="radio" id="twitter-HHShkMohd" name="twitter" value="HHShkMohd" data-lang="ar">
               <label class="base--inline-label input--radio" for="twitter-HHShkMohd">
                 <img class="input--thumb" src="/images/twitter/HHShkMohd.jpg">@HHShkMohd (AR)</label>
-
-              <input role="radio" class="base--radio" type="radio" id="twitter-faridyu" name="twitter" value="faridyu" data-lang="ja">
-              <label class="base--inline-label input--radio" for="twitter-faridyu">
-                <img class="input--thumb" src="/images/twitter/faridyu.jpg">@faridyu (JA)</label>
-
-              <input role="radio" class="base--radio" type="radio" id="twitter-miyake_yukiko35" name="twitter" value="miyake_yukiko35" data-lang="ja">
-              <label class="base--inline-label input--radio" for="twitter-miyake_yukiko35">
-                <img class="input--thumb" src="/images/twitter/miyake_yukiko35.jpg">@miyake_yukiko35 (JA)</label>
-
               <div class="input--button-container">
                 <button type="submit" class="base--button input--submit-button1">Analyze</button>
               </div>
@@ -154,11 +67,8 @@
               <input role="radio" class="base--radio" type="radio" id="text-sample1" name="text-sample" data-file="sample1" data-lang="en" data-orientation="" />
               <label class="base--inline-label input--radio" for="text-sample1">2012 Debate - Barack Obama (EN)</label>
 
-              <input role="radio" class="base--radio" type="radio" id="text-ar" name="text-sample" data-file="ar" data-lang="ar" data-orientation="right-to-left" />
-              <label class="base--inline-label input--radio" for="text-ar" >Student's Graduation Speech - Unknown (AR)</label>
-
-              <input role="radio" class="base--radio" type="radio" id="text-ja" name="text-sample" data-file="ja" data-lang="ja" data-orientation="" />
-              <label class="base--inline-label input--radio" for="text-ja" >Speeches - Shinzo Abe (JA)</label>
+              <input role="radio" class="base--radio" type="radio" id="text-sample2" name="text-sample" data-file="sample2" data-lang="en" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample2">Reflection - Gandhi</label>
 
               <input role="radio" class="base--radio" type="radio" id="text-custom" name="text-sample" style="display:none"/>
               <label class="base--inline-label input--radio smartphone-hidden" for="text-custom">Your own text</label>
@@ -175,13 +85,23 @@
                   <label class="base--inline-label" for="lang-es">Spanish</label>
                   <input role="radio" class="base--radio" type="radio" id="lang-ar" name="text-lang" value="ar"/>
                   <label class="base--inline-label" for="lang-ar">Arabic</label>
-                  <input role="radio" class="base--radio" type="radio" id="lang-ja" name="text-lang" value="ja"/>
-                  <label class="base--inline-label" for="lang-ja">Japanese</label>
                 </div>
 
                 <button type="submit" class="base--button input--submit-button2">Analyze</button>
               </div>
 
+            </form>
+          </div>
+          <div id="your-twitter-panel" class="tab-panels--tab-pane" role="tab-panel">
+            <form class="input--form3 auth-form" method='get' action='/auth/twitter'>
+              <p class="base--p" style="text-align:center"><button type="submit" class="base--button input--submit-button3">Analyze my Twitter Personality</button></p>
+              <p class="base--p"><strong>Note:</strong> You will be redirected to Twitter's authorization page and then redirected to this application to complete the analysis.<p>
+            </form>
+            <form class="input-form4 analysis-form" style="display:none">
+              <div class="base--h5 input--choose">Analysis for:</div>
+              <input role="radio" class="base--radio" type="radio" id="my-twitter" name="twitter" value="myself">
+              <label class="base--inline-label input--radio" for="my-twitter">
+                <img class="input--thumb" src="/images/no_image.jpg">@myself</label>
             </form>
           </div>
         </div>
@@ -281,7 +201,6 @@
       </div>
     </div>
   </div>
-
   <script type="text/html" id="big5PercentTemplate">
     <% _.each(items, function(item, key, list) { %>
       <% if (typeof list[key - 1] != 'undefined' && (list[key - 1].score >= 50 && item.score < 50)) { %>
@@ -352,23 +271,29 @@
       <% }); %>
   </script>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/5.0.2/markdown-it.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
 
-  <script type="text/javascript" src="./js/vendors/q.js"></script>
-  <script type="text/javascript" src="./js/components/q_util.js"></script>
-  <script type="text/javascript" src="js/components/text-summary.js"></script>
-  <script type="text/javascript" src="js/components/dictionary.standalone.js"></script>
-  <script type="text/javascript" src="js/components/personality-insights-profile.0.1.0.js"></script>
-  <script type="text/javascript" src="js/components/personality-insights-trait-tooltips.standalone.js"></script>
-  <script type="text/javascript" src="js/components/tab-panels.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/5.0.2/markdown-it.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
 
-  <script type="text/javascript" src="js/demo.js"></script>
-  <script type="text/javascript" src="js/sunburst.js"></script>
-  <script type="text/javascript" src="js/ga.js"></script>
-</body>
-</html>
+<script type="text/javascript" src="./js/vendors/q.js"></script>
+<script type="text/javascript" src="./js/components/q_util.js"></script>
+<script type="text/javascript" src="js/components/text-summary.js"></script>
+<script type="text/javascript" src="js/components/dictionary.standalone.js"></script>
+<script type="text/javascript" src="js/components/personality-insights-profile.0.1.0.js"></script>
+<script type="text/javascript" src="js/components/personality-insights-trait-tooltips.standalone.js"></script>
+<script type="text/javascript" src="js/components/tab-panels.js"></script>
+
+
+<script type="text/javascript" src="js/demo.js"></script>
+<script type="text/javascript" src="js/sunburst.js"></script>
+<script type="text/javascript" src="js/ga.js"></script>
+
+<script type="text/javascript">
+  var TWITTER_USER = <$- JSON.stringify(twitterUser) $>;
+</script>
+
+<$ include partials/footer $>
