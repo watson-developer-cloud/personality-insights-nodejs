@@ -40,8 +40,8 @@ var strategy = new TwitterStrategy(
     function (token, tokenSecret, profile, done) {
 
       var user_credential = {
-         consumer_key: twitter_app.consumer_key,
-         consumer_secret: twitter_app.consumer_secret,
+         consumer_key: process.env.TWITTER_CONSUMER_KEY || twitter_app.consumer_key,
+         consumer_secret: process.env.TWITTER_CONSUMER_SECRET || twitter_app.consumer_secret,
          access_token_key:   token,
          access_token_secret: tokenSecret,
       };
