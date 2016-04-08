@@ -3861,3 +3861,7 @@ pre[class*=" language-"] {
 
 .orientation.right-to-left {
   text-align: right; }
+
+.input--tou {
+  font-size: .8em;
+}
