@@ -20,7 +20,10 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
-  res.render('terms-of-use', { ct: '', twitterUser: {} });
+  res.render('terms-of-use', {
+    twitterUser: {},
+    ga: process.env.GOOGLE_ANALYTICS
+  });
 });
 
 module.exports = router;
