@@ -30,15 +30,14 @@ var
 
 
 var strategy_options = {
-      consumerKey: twitter_app.consumer_key,
-      consumerSecret: twitter_app.consumer_secret,
+      consumerKey: process.env.TWITTER_CONSUMER_KEY || twitter_app.consumer_key,
+      consumerSecret: process.env.TWITTER_CONSUMER_SECRET || twitter_app.consumer_secret,
       callbackURL: app_info.url + '/auth/twitter/callback'
     };
 
 var strategy = new TwitterStrategy(
     strategy_options,
     function (token, tokenSecret, profile, done) {
-
       var user_credential = {
          consumer_key: process.env.TWITTER_CONSUMER_KEY || twitter_app.consumer_key,
          consumer_secret: process.env.TWITTER_CONSUMER_SECRET || twitter_app.consumer_secret,
