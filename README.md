@@ -4,7 +4,7 @@
 
 Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)  
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
 ## Getting Started
 
@@ -14,7 +14,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
 
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.  
+3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
 
   ```none
   applications:
@@ -93,7 +93,7 @@ First you need to [Create a Twitter application][create_twitter_app] and add you
 - For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
 - For Local environment: `server.local:3000/auth/twitter/callback` (be sure to configure `hosts` file so `server.local` points `127.0.0.1`)
 
-Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.  
+Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.
 
 ```js
 {
@@ -118,7 +118,7 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).  
+  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).
   This sample code uses d3 and jQuery, both distributed under MIT license.
 
 ## Contributing
@@ -126,8 +126,24 @@ To troubleshoot your Bluemix app the main useful source of information are the l
   See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Open Source @ IBM
-  Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
+Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
+### Privacy Notice
+
+This node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
+
+* Application Name (`application_name`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+
+This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
+
+### Disabling Deployment Tracking
+
+Deployment tracking can be disabled by removing `require('cf-deployment-tracker-client').track();` from the beginning of the `server.js` file at the root of this repo.
+
+[deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [create_twitter_app]: https://apps.twitter.com/app/new
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
