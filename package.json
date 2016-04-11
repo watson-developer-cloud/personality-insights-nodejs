@@ -7,9 +7,6 @@
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
   },
   "author": "IBM Corp.",
-  "engines": {
-    "node": ">=4.0.0"
-  },
   "contributors": [
     {
       "name": "James Zhang",
