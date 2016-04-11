@@ -3,3 +3,4 @@ node_modules
 .env.js
 VCAP_SERVICES.json
 run.sh
+coverage/*
