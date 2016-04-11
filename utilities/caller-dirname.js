@@ -22,7 +22,6 @@ var path     = require('path'),
 
 module.exports = function(depth) {
   depth = depth || 1;
-  
   var stack = callsite(),
       callerFile = stack[depth].getFileName(),
       dir = path.dirname(callerFile);
