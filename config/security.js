@@ -35,13 +35,6 @@ module.exports = function (app) {
   // 3. allow iframes
   app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
 
-  // 4. csrf
-  var csrfProtection = csrf({ cookie: true });
-  app.get('/', csrfProtection, function(req, res, next) {
-    req._csrfToken = req.csrfToken();
-    next();
-  });
-
   // 5. rate limiting
   var limiter = rateLimit({
     windowMs: 30 * 1000, // seconds
@@ -51,6 +44,13 @@ module.exports = function (app) {
       error:'Too many requests, please try again in 30 seconds.',
       code: 429
     }),
+  });
+
+  // 4. csrf
+  var csrfProtection = csrf({ cookie: true });
+  app.get('*', csrfProtection, function(req, res, next) {
+    req._csrfToken = req.csrfToken();
+    next();
   });
 
   // 6. captcha
