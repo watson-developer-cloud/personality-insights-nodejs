@@ -19,7 +19,7 @@ deploy:
     - cf-blue-green-travis
   on:
     branch: master
-    repo: watson-developer-cloud/visual-recognition-nodejs
+    repo: watson-developer-cloud/personality-insights-nodejs
   skip_cleanup: true
 notifications:
   email: false
