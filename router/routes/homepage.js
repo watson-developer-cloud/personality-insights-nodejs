@@ -36,6 +36,7 @@ var selfAnalysis = function selfAnalysis(req) {
 router.get('/', function (req, res) {
   var t = selfAnalysis(req) ? twitterUser(req) : {};
   res.render('index', {
+    ct: req._csrfToken,
     twitterUser: t,
     ga: process.env.GOOGLE_ANALYTICS
   });

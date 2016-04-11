@@ -24,6 +24,12 @@ var express  = require('express'),
   logger     = require('winston');
 
 module.exports = function (app) {
+
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION)
+    require('./security')(app);
+
   app.set('view engine', 'ejs');
   require('ejs').delimiter = '$';
   app.enable('trust proxy');

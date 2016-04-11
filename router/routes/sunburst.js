@@ -29,6 +29,7 @@ var sunburstPayload = function sunburstPayload(req) {
 
 router.post('/', function (req, res) {
   return res.render('sunburst', {
+    ct: req._csrfToken,
     twitterUser: {},
     sunburst: sunburstPayload(req),
     ga: process.env.GOOGLE_ANALYTICS
