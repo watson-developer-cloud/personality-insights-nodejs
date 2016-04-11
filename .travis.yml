@@ -1,0 +1,25 @@
+language: node_js
+sudo: true
+node_js:
+- stable
+script:
+- npm test
+env:
+  global:
+  - CF_APP=personality-insights-livedemo
+  - CF_API=https://api.ng.bluemix.net
+  - CF_ORGANIZATION=WatsonPlatformServices
+  - CF_SPACE=demos
+  - secure: "HrsqruPikpZbS/36epvG22SDaevUgUcaBWG1UbDnRB5YP89YE7tyDHHHDGRkVBx6yox6O9DIsToWq2c3D1np/Jg6SCo15uXhb+BW7a3pP2oH4NmZBGZLkKlCYQq8YrCXIYxdeD1Dw+yD8gxL7waacbKKitil3V2uZhlR4yE4QKc="
+  - secure: "igVebhzNNmBavzDSOQul5ospsgJUoa2/ujOSMHV2QkyLXXFp/oSlNaZQKK8G2WHeJ3o60FGyc8up+ge0IdKC+9G5maAGYI1F8m3X+/uIdJWHvTJ6115AObcIlIos6uX3IrF/yzwNGV7rjZ+4WWsVzYaELkkDqa+d2E53rdNmLNY="
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: script
+  script:
+    - cf-blue-green-travis
+  on:
+    branch: master
+    repo: watson-developer-cloud/visual-recognition-nodejs
+  skip_cleanup: true
+notifications:
+  email: false
