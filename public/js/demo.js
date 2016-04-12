@@ -214,15 +214,19 @@ $(document).ready(function () {
     });
 
     $inputForm1.submit(function(e) {
+      e.cancelBubble = true;
       e.preventDefault();
-      e.stopPropagation();
+      if (e.stopPropagation)
+        e.stopPropagation();
 
       loadTwitterUser(globalState.selectedTwitterUser, {language: globalState.selectedTwitterUserLang});
     });
 
     $inputForm2.submit(function(e) {
+      e.cancelBubble = true;
       e.preventDefault();
-      e.stopPropagation();
+      if (e.stopPropagation)
+        e.stopPropagation();
 
       setLoadingState();
 
