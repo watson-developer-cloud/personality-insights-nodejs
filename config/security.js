@@ -17,32 +17,22 @@
 'use strict';
 
 // security.js
-var secure     = require('express-secure-only'),
-  rateLimit    = require('express-rate-limit'),
-  csrf         = require('csurf'),
-  helmet       = require('helmet'),
-  request      = require('request');
+var rateLimit    = require('express-rate-limit'),
+    csrf         = require('csurf'),
+    helmet       = require('helmet'),
+    request      = require('request'),
+    cookieParser = require('cookie-parser');
 
 module.exports = function (app) {
   app.enable('trust proxy');
 
-  // 1. redirects http to https
-  app.use(secure());
-
-  // 2. helmet with defaults
+  // 1. helmet with defaults
   app.use(helmet());
 
-  // 3. allow iframes
+  // 2. allow iframes
   app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
 
-  // 4. csrf
-  var csrfProtection = csrf({ cookie: true });
-  app.get('/', csrfProtection, function(req, res, next) {
-    req._csrfToken = req.csrfToken();
-    next();
-  });
-
-  // 5. rate limiting
+  // 3. rate limiting
   var limiter = rateLimit({
     windowMs: 30 * 1000, // seconds
     delayMs: 0,
@@ -51,6 +41,17 @@ module.exports = function (app) {
       error:'Too many requests, please try again in 30 seconds.',
       code: 429
     }),
+  });
+
+  // 4. setup cookies
+  var secret = Math.random().toString(36).substring(7);
+  app.use(cookieParser(secret));
+
+  // 5. csrf
+  var csrfProtection = csrf({ cookie: true });
+  app.get('/*', csrfProtection, function(req, res, next) {
+    req._csrfToken = req.csrfToken();
+    next();
   });
 
   // 6. captcha

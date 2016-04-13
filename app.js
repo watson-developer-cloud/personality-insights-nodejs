@@ -16,11 +16,10 @@
 
 'use strict';
 
-var express = require('express'),
-    app     = express(),
-    port    = require('./config/app-info').port,
-    logger  = require('winston');
+require('./helpers/env.js');
 
+var express = require('express'),
+    app     = express();
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -31,5 +30,4 @@ require('./router')(app);
 // error-handler settings
 require('./config/error-handler')(app);
 
-app.listen(port);
-logger.info('Listening at:', port);
+module.exports = app;

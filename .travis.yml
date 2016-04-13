@@ -1,0 +1,25 @@
+language: node_js
+sudo: true
+node_js:
+- stable
+script:
+- npm test
+env:
+  global:
+  - CF_APP=personality-insights-livedemo
+  - CF_API=https://api.ng.bluemix.net
+  - CF_ORGANIZATION=WatsonPlatformServices
+  - CF_SPACE=demos
+  - secure: "I+3sdt1cb7HkfWU+Y+TOz4b/LV9KEj2GBBNZGCjJ46shv5BFS9mUd8LEWE8VVDrnIcEYA5OlSb0RnGKmcNCWtb8THreLpbBWWWsUO3hrME5RHUDrmhUtqEQ0iSTji7OcC4/+2odfsor50SlSTrc3+pfbT5szWWLp4AFSPBRNYC0="
+  - secure: "HvaD+mNztuNcF8t4gTkW82BizCYSJVs6zztmjQRyUIs8TN7EeHENvKIb2WWuBaDIzS4ystD+trfKF6Ci5p/w0QPLC1n39x5FSjVU/HLCt7r5w3LnwT2erReglMETU7iKYibuLmaBEUxxudBsB5kKXCUlC3VKZLg5dm/lRrTtau8="
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: script
+  script:
+    - cf-blue-green-travis
+  on:
+    branch: master
+    repo: watson-developer-cloud/personality-insights-nodejs
+  skip_cleanup: true
+notifications:
+  email: false

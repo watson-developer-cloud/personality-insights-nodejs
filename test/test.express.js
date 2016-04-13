@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-
 'use strict';
 
-var express = require('express'),
-    passport = require('passport'),
-    logger = require('winston'),
-    TwitterHelper = require('../helpers/twitter-helper'),
-    getProfileFromTweets = require('../helpers/personality-insights').profile_from_tweets;
+var app = require('../app');
+var request = require('supertest');
+var nock = require('nock');
 
-var router = express.Router();
+describe('express', function() {
 
-router.get('/twitter', passport.authenticate('twitter'));
+  it('load home page when GET /', function(done) {
+    request(app).get('/').expect(200, done);
+  });
 
-router.get('/twitter/callback',
-  passport.authenticate('twitter', {
-    failureRedirect: '/#error',
-    successRedirect: '/?source=myself'
-  }));
-
-module.exports = router;
+});

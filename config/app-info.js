@@ -17,9 +17,8 @@
 'use strict';
 
 
-var
-  env = require("cfenv").getAppEnv(),
-  LOCAL_ENV_PORT = 3000;
+var env = require('cfenv').getAppEnv(),
+    LOCAL_ENV_PORT = 3000;
 
 module.exports = {
   app_name    : env.name,

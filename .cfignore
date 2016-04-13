@@ -1,3 +1,6 @@
 node_modules
 .DS_Store
 .env.js
+VCAP_SERVICES.json
+run.sh
+coverage/*

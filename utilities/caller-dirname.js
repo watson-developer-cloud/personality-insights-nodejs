@@ -17,10 +17,8 @@
 
 'use strict';
 
-
 var path     = require('path'),
     callsite = require('callsite');
-
 
 module.exports = function(depth) {
   depth = depth || 1;

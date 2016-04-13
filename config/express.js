@@ -24,6 +24,12 @@ var express  = require('express'),
   logger     = require('winston');
 
 module.exports = function (app) {
+
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION)
+    require('./security')(app);
+
   app.set('view engine', 'ejs');
   require('ejs').delimiter = '$';
   app.enable('trust proxy');
@@ -36,13 +42,6 @@ module.exports = function (app) {
   var secret = Math.random().toString(36).substring(7);
   app.use(cookieParser(secret));
   app.use(session({ secret:secret }));
-
-  if (process.env.SECURE_EXPRESS) {
-    logger.info('Server is secure.')
-    require('./security')(app);
-  } else {
-    logger.info('Server is unsecure.')
-  }
 
   require('./passport')(app);
 };
