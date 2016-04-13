@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 'use strict';
 
-
 var logger  = require('winston'),
     port    = require('./config/app-info').port;
 
