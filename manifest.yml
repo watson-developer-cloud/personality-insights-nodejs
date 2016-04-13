@@ -11,5 +11,3 @@ applications:
   memory: 512M
   services:
   - personality-insights-service
-  env:
-    NODE_ENV: production
