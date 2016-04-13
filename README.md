@@ -143,6 +143,7 @@ This data is collected from the `VCAP_APPLICATION` environment variable in IBM B
 
 Deployment tracking can be disabled by removing `require('cf-deployment-tracker-client').track();` from the beginning of the `server.js` file at the root of this repo.
 
+
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [create_twitter_app]: https://apps.twitter.com/app/new
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
