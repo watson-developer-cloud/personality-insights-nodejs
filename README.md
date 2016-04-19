@@ -1,10 +1,12 @@
 # Personality Insights Nodejs Starter Application
+[![Build Status](https://travis-ci.org/watson-developer-cloud/personality-insights-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/personality-insights-nodejs)
+[![codecov.io](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs?branch=master)
 
   The IBM Watson [Personality Insights][service_url] service uses linguistic analysis to extract cognitive and social characteristics from input text such as email, text messages, tweets, forum posts, and more. By deriving cognitive and social preferences, the service helps users to understand, connect to, and communicate with other people on a more personalized level.
 
 Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)  
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
 ## Getting Started
 
