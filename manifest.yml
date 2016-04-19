@@ -9,6 +9,7 @@ applications:
   command: npm start
   path: .
   memory: 512M
+  instances: 1
   services:
   - personality-insights-service
   env:
