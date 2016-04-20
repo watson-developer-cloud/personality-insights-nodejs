@@ -4,11 +4,28 @@
 
   The IBM Watson [Personality Insights][service_url] service uses linguistic analysis to extract cognitive and social characteristics from input text such as email, text messages, tweets, forum posts, and more. By deriving cognitive and social preferences, the service helps users to understand, connect to, and communicate with other people on a more personalized level.
 
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
+## Choose your development enviroment
+- **Bluemix DevOps Sevices** - integrated agile planning, coding, building, and deploy to Bluemix  OR
+- **CLI Cloud Foundry** - lovers of command-line tools and their favorite text editor with Bluemix
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)  
-![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
-## Getting Started
+## Getting Started using Bluemix DevOps Services
+
+1. Create a Bluemix Account
+
+  [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use.
+  
+2. Click [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs) ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
+
+3. Click the EDIT CODE button
+
+4. **Optional:** See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+
+5. Click the white folder icon to exit the editor
+
+6. Click the BUILD & DEPLOY button to deploy your app to Bluemix
+
+
+## Getting Started using CLI Cloud Foundry
 
 1. Create a Bluemix Account
 
@@ -29,7 +46,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```
   The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
 
-4. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+4. **Optional:** See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
 
 5. Connect to Bluemix in the command line tool
   ```sh
