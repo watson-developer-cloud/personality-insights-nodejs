@@ -16,11 +16,13 @@
   
 2. Click [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs) ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
 
-3. Click the EDIT CODE button
+3. LOG IN using your Bluemix Account and then click DEPLOY to deploy the app and create a private DevOps Services project for you.
+
+5. Click the EDIT CODE button to setup your workspace
 
 4. **Optional:** See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
 
-5. Click the white folder icon to exit the editor
+5. Click the GIT icon in the left column navigation toolbar to commit your changes.
 
 6. Click the BUILD & DEPLOY button to deploy your app to Bluemix
 
