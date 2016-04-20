@@ -17,15 +17,12 @@
 'use strict';
 
 // security.js
-var rateLimit    = require('express-rate-limit'),
-    csrf         = require('csurf'),
-    helmet       = require('helmet'),
-    request      = require('request'),
-    cookieParser = require('cookie-parser');
+var rateLimit  = require('express-rate-limit'),
+    csrf       = require('csurf'),
+    helmet     = require('helmet'),
+    request    = require('request');
 
 module.exports = function (app) {
-  app.enable('trust proxy');
-
   // 1. helmet with defaults
   app.use(helmet());
 
@@ -43,18 +40,14 @@ module.exports = function (app) {
     }),
   });
 
-  // 4. setup cookies
-  var secret = Math.random().toString(36).substring(7);
-  app.use(cookieParser(secret));
-
-  // 5. csrf
+  // 4. csrf
   var csrfProtection = csrf({ cookie: true });
   app.get('/*', csrfProtection, function(req, res, next) {
     req._csrfToken = req.csrfToken();
     next();
   });
 
-  // 6. captcha
+  // 5. captcha
   var captchaKeys = {
     site: process.env.CAPTCHA_SITE || '<captcha-site>',
     secret: process.env.CAPTCHA_SECRET || '<captcha-secret>',

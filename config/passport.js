@@ -54,14 +54,9 @@ var strategy = new TwitterStrategy(
 
 
 module.exports = function (app) {
-
   passport.use(strategy);
-
   passport.serializeUser(function(user, next) { return next(null, user); });
-
   passport.deserializeUser(function(obj, next) { return next(null, obj); });
-
   app.use(passport.initialize());
-
   app.use(passport.session()); // persistent login sessions
 }

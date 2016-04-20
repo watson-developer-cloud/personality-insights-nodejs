@@ -25,11 +25,6 @@ var express  = require('express'),
 
 module.exports = function (app) {
 
-  // When running in Bluemix add rate-limitation
-  // and some other features around security
-  if (process.env.VCAP_APPLICATION)
-    require('./security')(app);
-
   app.set('view engine', 'ejs');
   require('ejs').delimiter = '$';
   app.enable('trust proxy');
@@ -43,5 +38,11 @@ module.exports = function (app) {
   app.use(cookieParser(secret));
   app.use(session({ secret:secret }));
 
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION)
+    require('./security')(app);
+
   require('./passport')(app);
+
 };
