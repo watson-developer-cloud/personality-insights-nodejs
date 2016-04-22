@@ -42,7 +42,7 @@
   - services:
     - personality-insights
     name: <application-name>
-    command: node app.js
+    command: npm start
     path: .
     memory: 256M
   ```
@@ -105,7 +105,7 @@ See the full [Getting Started][getting_started] documentation for more details, 
 4. Go to the project folder in a terminal and run:
     `npm install`
 5. Start the application
-6.  `node app.js`
+6.  `npm start`
 7. Go to `http://localhost:3000`
 
 ## Setting Up Twitter Application
