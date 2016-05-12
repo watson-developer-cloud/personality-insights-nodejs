@@ -17,37 +17,19 @@
 'use strict';
 
 // security.js
-var secure     = require('express-secure-only'),
-  rateLimit    = require('express-rate-limit'),
-  csrf         = require('csurf'),
-  cookieParser = require('cookie-parser'),
-  helmet       = require('helmet'),
-  request      = require('request');
+var rateLimit  = require('express-rate-limit'),
+    csrf       = require('csurf'),
+    helmet     = require('helmet'),
+    request    = require('request');
 
 module.exports = function (app) {
-  app.enable('trust proxy');
-
-  // 1. redirects http to https
-  app.use(secure());
-
-  // 2. helmet with defaults
+  // 1. helmet with defaults
   app.use(helmet());
 
-  // 3. allow iframes
+  // 2. allow iframes
   app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
 
-  // 3. setup cookies
-  var secret = Math.random().toString(36).substring(7);
-  app.use(cookieParser(secret));
-
-  // 4. csrf
-  var csrfProtection = csrf({ cookie: true });
-  app.get('/', csrfProtection, function(req, res, next) {
-    req._csrfToken = req.csrfToken();
-    next();
-  });
-
-  // 5. rate limiting
+  // 3. rate limiting
   var limiter = rateLimit({
     windowMs: 30 * 1000, // seconds
     delayMs: 0,
@@ -58,7 +40,14 @@ module.exports = function (app) {
     }),
   });
 
-  // 6. captcha
+  // 4. csrf
+  var csrfProtection = csrf({ cookie: true });
+  app.get('/*', csrfProtection, function(req, res, next) {
+    req._csrfToken = req.csrfToken();
+    next();
+  });
+
+  // 5. captcha
   var captchaKeys = {
     site: process.env.CAPTCHA_SITE || '<captcha-site>',
     secret: process.env.CAPTCHA_SECRET || '<captcha-secret>',

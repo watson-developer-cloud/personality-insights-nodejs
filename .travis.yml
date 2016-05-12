@@ -1,0 +1,18 @@
+language: node_js
+sudo: true
+node_js:
+- stable
+script:
+- npm test
+deploy:
+  provider: cloudfoundry
+  api: https://api.ng.bluemix.net
+  username: germanatt@us.ibm.com
+  password:
+    secure: IlYlTiOE+4G8Z9XAY5r3gDW3AMI2SdO6+Nc3dcsCnklfGHLYGlQrrYKl7JBPwHwoLBxUomxI64TtDHES456W+vGG0mM6lSB4B4UoSt6wNvhO3fFgVQcko+X6oDcRs9K09z7JGXa7Zn/b3wf4/GTGbwzha5CNSvhQBfJMPIueLO4=
+  organization: WatsonPlatformServices
+  space: demos
+  on:
+    repo: watson-developer-cloud/personality-insights-nodejs
+    branch: master
+  skip_cleanup: true

@@ -15,16 +15,15 @@
     "file"     : "sample3"
   },
   {
+    "name"     : "Japanese Text",
+    "language" : "ja",
+    "file"     : "ja"
+  },
+  {
     "name"     : "Arabic Text",
     "language" : "ar",
     "file"     : "ar",
     "hidden"   : false,
     "orientation": "right-to-left"
-  },
-  {
-    "name"     : "Japanese Text",
-    "language" : "ja",
-    "file"     : "ja",
-    "hidden"   : false
   }
 ]

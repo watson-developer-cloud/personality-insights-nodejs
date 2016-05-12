@@ -6,11 +6,11 @@ declared-services:
 
 applications:
 - name: personality-insights-livedemo
-  command: node app.js
+  command: npm start
   path: .
   memory: 512M
+  instances: 1
   services:
   - personality-insights-service
   env:
     NODE_ENV: production
-    SECURE_EXPRESS: 1

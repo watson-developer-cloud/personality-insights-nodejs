@@ -17,10 +17,14 @@
 'use strict';
 
 // Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
+var express  = require('express'),
+  bodyParser = require('body-parser'),
+  session    = require('express-session'),
+  cookieParser = require('cookie-parser'),
+  logger     = require('winston');
 
 module.exports = function (app) {
+
   app.set('view engine', 'ejs');
   require('ejs').delimiter = '$';
   app.enable('trust proxy');
@@ -30,8 +34,15 @@ module.exports = function (app) {
   app.use(bodyParser.json({ limit: '15mb' }));
   app.use(express.static(__dirname + '/../public'));
 
-  // Only loaded when SECURE_EXPRESS is `true`
-  if (process.env.SECURE_EXPRESS)
+  var secret = Math.random().toString(36).substring(7);
+  app.use(cookieParser(secret));
+  app.use(session({ secret:secret }));
+
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION)
     require('./security')(app);
+
+  require('./passport')(app);
 
 };
