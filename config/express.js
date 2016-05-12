@@ -21,7 +21,8 @@ var express  = require('express'),
   bodyParser = require('body-parser'),
   session    = require('express-session'),
   cookieParser = require('cookie-parser'),
-  logger     = require('winston');
+  logger     = require('winston'),
+  i18n       = require('i18n');
 
 module.exports = function (app) {
 
@@ -34,9 +35,12 @@ module.exports = function (app) {
   app.use(bodyParser.json({ limit: '15mb' }));
   app.use(express.static(__dirname + '/../public'));
 
+
   var secret = Math.random().toString(36).substring(7);
   app.use(cookieParser(secret));
   app.use(session({ secret:secret }));
+
+  require('./i18n')(app);
 
   // When running in Bluemix add rate-limitation
   // and some other features around security
@@ -44,5 +48,6 @@ module.exports = function (app) {
     require('./security')(app);
 
   require('./passport')(app);
+
 
 };
