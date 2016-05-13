@@ -26,7 +26,8 @@ var globalState = {
     selectedTwitterUserLang: undefined,
     selectedSample: undefined,
     languageSelected: undefined,
-    currentProfile: undefined
+    currentProfile: undefined,
+    userLocale: undefined
   };
 
 var QUERY_PARAMS = (function(a) {
@@ -42,6 +43,13 @@ var QUERY_PARAMS = (function(a) {
   }
   return b;
 })(window.location.search.substr(1).split('&'));
+
+function getBrowserLang() {
+ if (navigator.languages != undefined) 
+  return navigator.languages[0]; 
+ else 
+  return navigator.language;
+};
 
 function extend(target, source) {
   Object.keys(source).forEach(function (k) {
@@ -154,6 +162,8 @@ $(document).ready(function () {
   }
 
   function registerHandlers() {
+
+    globalState.userLocale = getBrowserLang();
 
     $('input[name="text-lang"]').click(function() {
       globalState.selectedLanguage = $(this).attr('value');
@@ -360,7 +370,7 @@ $(document).ready(function () {
   function defaultProfileOptions(options) {
     var defaults = extend({
       source_type: 'text',
-      accept_language: OUTPUT_LANG || 'en',
+      accept_language: globalState.userLocale || OUTPUT_LANG || 'en',
       include_raw: false
     }, options || {});
 
@@ -491,7 +501,7 @@ $(document).ready(function () {
 
   function loadOutput(rawData) {
     var data = changeProfileLabels(rawData);
-    setTextSummary(data, 'en');
+    setTextSummary(data, globalState.userLocale || OUTPUT_LANG);
     loadWordCount(data);
     var big5Data = data.tree.children[0].children[0].children;
     var needsData = data.tree.children[1].children[0].children;
