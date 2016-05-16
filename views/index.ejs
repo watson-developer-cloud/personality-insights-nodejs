@@ -216,7 +216,7 @@
             <div class="percent-bar-and-score--label output-big-5--trait-label <%= (item.score >= 50) ? 'output-big-5--trait-label_POSITIVE' : 'output-big-5--trait-label_NEGATIVE' %>">
               <%= item.name %>
               <i class="icon icon-down-arrow percent-bar-and-score--toggle-icon"></i>
-              <div class="tooltip"><%= tooltips[item.name] != null ? tooltips[item.name] : 'Tooltip not available.' %></div>
+              <div class="tooltip"><%= tooltips(item.id) || 'Tooltip not available.' %></div>
             </div>
             <div class="percent-bar percent-bar-and-score--percent-bar">
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
@@ -231,7 +231,7 @@
               <div class="percent-bar-and-score">
                 <div class="percent-bar-and-score--label output-big-5--sub-trait-label <%= (item2.score >= 50) ? 'output-big-5--sub-trait-label_POSITIVE' : 'output-big-5--sub-trait-label_NEGATIVE' %>">
                   <%= item2.name %>
-                  <div class="tooltip"><%= tooltips[item2.name] != null ? tooltips[item2.name] : 'Tooltip not available.' %></div>
+                  <div class="tooltip"><%= tooltips(item2.id) || 'Tooltip not available.' %></div>
                 </div>
                 <div class="percent-bar percent-bar-and-score--percent-bar">
                   <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item2.score %>%)">
@@ -254,7 +254,7 @@
           <div class="percent-bar-and-score">
             <div class="percent-bar-and-score--label <%= (item.score >= 50) ? 'percent-bar-and-score--label_POSITIVE' : 'percent-bar-and-score--label_NEGATIVE' %>">
               <%= item.name %>
-              <div class="tooltip"><%= tooltips[item.name] != null ? tooltips[item.name] : 'Tooltip not available.' %></div>
+              <div class="tooltip"><%= tooltips(item.id) || 'Tooltip not available.' %></div>
             </div>
             <div class="percent-bar percent-bar-and-score--percent-bar">
               <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
@@ -290,7 +290,7 @@
 <script type="text/javascript" src="js/components/text-summary.js"></script>
 <script type="text/javascript" src="js/components/dictionary.standalone.js"></script>
 <script type="text/javascript" src="js/components/personality-behaviors.js"></script>
-<script type="text/javascript" src="js/components/personality-insights-trait-tooltips.standalone.js"></script>
+<script type="text/javascript" src="js/components/personality-trait-descriptions.js"></script>
 <script type="text/javascript" src="js/components/tab-panels.js"></script>
 
 

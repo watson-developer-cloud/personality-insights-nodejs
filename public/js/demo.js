@@ -46,9 +46,9 @@ var QUERY_PARAMS = (function(a) {
 })(window.location.search.substr(1).split('&'));
 
 function getBrowserLang() {
- if (navigator.languages != undefined) 
-  return navigator.languages[0]; 
- else 
+ if (navigator.languages != undefined)
+  return navigator.languages[0];
+ else
   return navigator.language;
 };
 
@@ -460,24 +460,31 @@ $(document).ready(function () {
       });
     }
 
+    var descriptions = new PersonalityTraitDescriptions({
+      format: 'html',
+      locale: globalState.userLocale || OUTPUT_LANG || 'en'
+    });
+
+    var tooltips = function (traitId) { return descriptions.description(traitId); }
+
     $big5Traits.append(_.template(big5_template, {
       items: big5Data_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.big5().getValue())
+      tooltips: tooltips
     }));
 
     $needsTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(0,5),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $needsMoreTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $valuesTraits.append(_.template(statsPercent_template, {
       items: valuesData_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.values().getValue())
+      tooltips: tooltips
     }));
 
     loadBehaviors(data, globalState.userLocale || OUTPUT_LANG || 'en');
