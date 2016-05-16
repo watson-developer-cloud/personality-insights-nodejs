@@ -19,7 +19,7 @@
 
 module.exports = require('./lib/personality-behaviors');
 
-},{"./lib/personality-behaviors":6}],2:[function(require,module,exports){
+},{"./lib/personality-behaviors":8}],2:[function(require,module,exports){
 module.exports=[
   {
     "id": "scenario.environmental_products",
@@ -532,6 +532,30 @@ module.exports=[
 ]
 
 },{}],4:[function(require,module,exports){
+/**
+ * Copyright 2016 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use strict';
+
+module.exports = {
+  'en': require('./en'),
+  'es': require('./es')
+};
+
+},{"./en":5,"./es":6}],5:[function(require,module,exports){
 module.exports={
   "scenarios": [
     {
@@ -751,7 +775,226 @@ module.exports={
   ]
 }
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
+module.exports={
+  "scenarios": [
+    {
+      "id": "scenario.environmental_products",
+      "name": "Productos Conscientes con el Medioambiente ",
+      "verb": "Comprar ecológico",
+      "tooltip": "Las personas que muestran más **amabilidad**, **extroversión**, y **responsabilidad** que otras, son más propensas a comprar productos ecológicos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherEnvironment)"
+    },
+    {
+      "id": "scenario.luxury_goods",
+      "name": "Bienes Lujosos ",
+      "verb": "Darse Gustos",
+      "tooltip": "Las personas que muestran más **responsabilidad**, **conservación**, **superación personal**, y **amabilidad**; necesidades **amor** e **ideal**; y el valor **hedonismo** son más propensas que otras a preferir marcas lujosas. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMbrand)"
+    },
+    {
+      "id": "scenario.coupon_redemption",
+      "name": "Uso de Cupones",
+      "verb": "Usar un cupón",
+      "tooltip" : " Las personas que muestran más **disciplina**, **autodisciplina**, **cautela**, y **moderación** que otras, son propensas a usar cupones. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMcampaign)"
+    },
+    {
+      "id": "scenario.healthy_food",
+      "name": "Alimentos Saludables",
+      "verb": "Comprar alimentos saludables",
+      "tooltip": "Las personas que muestran más **responsabilidad**, **autodisciplina**, e incluso **intereses artísticos** que otras, son más propensas a comer alimentos saludables. Sin embargo, más **susceptibilidad al estrés**, **rango emocional **, y **desmesura** disminuyen esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+    },
+    {
+      "id": "scenario.adventure_sports",
+      "name": "Deportes de Aventura",
+      "verb": "Practicar deportes de aventura",
+      "tooltip": "Las personas que muestran más **extroversión**, **apertura a nuevas experiencias**, **búsqueda de emociones**, **audacia** y **rango emocional** que otras, son propensas a comprometerse con deportes de aventura. Mostrar más **responsabilidad** disminuye esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.financial_risk",
+      "name": "Riesgo Financiero",
+      "verb": "Correr riesgos financieros",
+      "tooltip": "Las personas que muestran más **apertura a experiencias ** que otras, raramente hacen inversiones de riesgo. Mostrar más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.recreate_risk",
+      "name": "Recrear Riesgo",
+      "verb": "Recrear riesgos",
+      "tooltip": "Descripción no disponible."
+    },
+    {
+      "id": "scenario.avoid_risk",
+      "name": "Avoid Risk",
+      "verb": "Avoid taking risks",
+      "tooltip": "Las personas que muestran más **amabilidad**, **rango emocional ** y **responsabilidad** que otras, son más propensas a evitar correr riesgos. Mostrar más **extroversión** aumenta la probabilidad de correr riesgos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.health_risk",
+      "name": "Riesgo de Salud ",
+      "verb": "Poner la salud en riesgo",
+      "tooltip": "Las personas que muestran más **extroversión**, **rango emocional ** y menos **amabilidad** que otras, son propensas a poner su salud en riesgo. Mostrar más **responsabilidad** disminuye esta probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.career_risk",
+      "name": "Riesgo de Carrera ",
+      "verb": "Cambiar de carrera",
+      "tooltip": "Las personas que muestran más **responsabilidad**, **extroversión**, and **apertura a experiencias** que otras, son más propensas a adaptarse a cambios en su carrera. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
+    },
+    {
+      "id": "scenario.excercise",
+      "name": "Ejercicio",
+      "verb": "Gastar en salud y actividad física",
+      "tooltip": "Las personas que muestran más **extroversión** y **responsabilidad** que otras, son más propensas a ejercitar con frecuencia. Más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+    },
+    {
+      "id": "scenario.adaptability",
+      "name": "Adaptabilidad",
+      "verb": "Adaptarse a situaciones",
+      "tooltip": "Descripción no disponible."
+    },
+    {
+      "id": "scenario.respond_to_strangers",
+      "name": "Deseo por Responder a Extraños",
+      "verb": "Responder en redes sociales",
+      "tooltip": "Las personas que muestran más **búsqueda de emociones**, **simpatía**, **nivel de actividad**, **sociabilidad**, **confianza**, **moral**, **extroversión**, y **amabilidad** que otras, son más propensas a responder publicaciones en redes sociales. Las personas que muestran más **cautela** y **ansiedad** no lo son. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMrespond)"
+    },
+    {
+      "id": "scenario.retweet",
+      "name": "Retweet",
+      "verb": "Compartir publicaciones de otros en redes sociales",
+      "tooltip": "Las personas que muestran más **modestia**, **apertura a experiencias**, y **simpatía** que otras, son más propensas a divulgar información. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
+    },
+    {
+      "id": "scenario.click_ad",
+      "name": "Clickear una Publicidad",
+      "verb": "Clickear una publicidad",
+      "tooltip": "Las personas que muestran más **apertura a experiencias**, pero menos **rango emocional** que otras, son más propensas a clickear en una publicidad. Para el 10% más alto de estas personas, la tasa de clicks aumenta de 6.8% a 11.3%. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+    },
+    {
+      "id": "scenario.follow_account",
+      "name": "Seguir una Cuenta",
+      "verb": "Seguir en redes sociales",
+      "tooltip": "Las personas que muestran más **apertura a experiencias** pero menos **rango emocional** que otras son más propensas a seguir una cuenta en redes. Para el 10% más alto de estas personas, la tasa de seguimiento aumenta de 4.7% a 8.8%. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+    }
+  ],
+  "industries": [
+    {
+      "id": "industry.retail",
+      "name": "Venta"
+    },
+    {
+      "id": "industry.food",
+      "name": "Comida"
+    },
+    {
+      "id": "industry.sports",
+      "name": "Deporte"
+    },
+    {
+      "id": "industry.finance",
+      "name": "Finanza"
+    },
+    {
+      "id": "industry.healthcare",
+      "name": "Salud"
+    },
+    {
+      "id": "industry.fitness",
+      "name": "Actividad física"
+    },
+    {
+      "id": "industry.media",
+      "name": "Medios"
+    },
+    {
+      "id": "industry.travel",
+      "name": "Viaje"
+    },
+    {
+      "id": "industry.no_industry",
+      "name": "Sin industria"
+    }
+  ],
+  "categories": [
+    {
+      "id": "category.shopping",
+      "name": "Compras"
+    },
+    {
+      "id": "category.eating",
+      "name": "Comida"
+    },
+    {
+      "id": "category.sports_leisure",
+      "name": "Deportes y Tiempo libre"
+    },
+    {
+      "id": "category.investment",
+      "name": "Inversiones"
+    },
+    {
+      "id": "category.risk",
+      "name": "Riesgo"
+    },
+    {
+      "id": "category.living",
+      "name": "Vida"
+    },
+    {
+      "id": "category.work",
+      "name": "Trabajo"
+    },
+    {
+      "id": "category.social_media",
+      "name": "Redes Sociales"
+    },
+    {
+      "id": "category.ad_targeting",
+      "name": "Segmentación de Anuncios"
+    }
+  ],
+  "personas": [
+    {
+      "id": "persona.greenie",
+      "name": "Amante Verde"
+    },
+    {
+      "id": "persona.brand_lover",
+      "name": "Amante de Marca"
+    },
+    {
+      "id": "persona.deal_seeker",
+      "name": "Buscador de Tratos"
+    },
+    {
+      "id": "persona.health_enthusiast",
+      "name": "Entusiasta de Salud"
+    },
+    {
+      "id": "persona.risk_taker",
+      "name": "Tomador de Riesgos"
+    },
+    {
+      "id": "persona.adapter",
+      "name": "Adaptador"
+    },
+    {
+      "id": "persona.responder",
+      "name": "Respondedor"
+    },
+    {
+      "id": "persona.broadcaster",
+      "name": "Anunciador"
+    },
+    {
+      "id": "persona.follower",
+      "name" : "Seguidor"
+    },
+    {
+      "id": "persona.ad_clicker",
+      "name": "Clickeador de Publicidades "
+    }
+  ]
+}
+},{}],7:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -780,9 +1023,7 @@ var _ = require('underscore'),
 
 var byId = require('../utilities/list-of-objects').byId;
 
-var dictionaries = {
-  'en': require('./en')
-};
+var dictionaries = require('./dictionaries');
 
 var TypeData = function () {
   function TypeData(type, descriptions) {
@@ -822,7 +1063,7 @@ var I18nData = function () {
 
 module.exports = I18nData;
 
-},{"../utilities/list-of-objects":9,"./en":4,"underscore":13}],6:[function(require,module,exports){
+},{"../utilities/list-of-objects":11,"./dictionaries":4,"underscore":15}],8:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -954,7 +1195,7 @@ var PersonalityBehaviors = function () {
 
 module.exports = PersonalityBehaviors;
 
-},{"./data/scenarios":2,"./data/targets":3,"./i18n":5,"./scored-scenarios":7,"./utilities/format-text":8,"underscore":13}],7:[function(require,module,exports){
+},{"./data/scenarios":2,"./data/targets":3,"./i18n":7,"./scored-scenarios":9,"./utilities/format-text":10,"underscore":15}],9:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -998,7 +1239,7 @@ var scoredScenarios = function scoredScenarios(profile, scenarios, targets) {
 
 module.exports = scoredScenarios;
 
-},{"./utilities/list-of-objects":9,"./utilities/profile":10,"underscore":13}],8:[function(require,module,exports){
+},{"./utilities/list-of-objects":11,"./utilities/profile":12,"underscore":15}],10:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1039,7 +1280,7 @@ function formatText(text, options) {
 
 module.exports = formatText;
 
-},{"marked":11,"remove-markdown":12}],9:[function(require,module,exports){
+},{"marked":13,"remove-markdown":14}],11:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1083,7 +1324,7 @@ module.exports = {
   matches: matches
 };
 
-},{"underscore":13}],10:[function(require,module,exports){
+},{"underscore":15}],12:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -1234,7 +1475,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -2523,7 +2764,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function(md, options) {
   options = options || {};
   options.stripListLeaders = options.hasOwnProperty('stripListLeaders') ? options.stripListLeaders : true;
@@ -2573,7 +2814,7 @@ module.exports = function(md, options) {
   return output;
 };
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
