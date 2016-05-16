@@ -271,8 +271,8 @@
     <% _.each(items, function(item, key, list) { %>
       <div class="output-summary--behavior <%= item.score > 0.5 ? 'output-summary--behavior_POSITIVE' : 'output-summary--behavior_NEGATIVE' %>">
         <i class="icon <%= item.score > 0.5 ? 'icon-likely' : 'icon-not-likely' %>"></i>
-        <%= item.name %>
-        <div class="tooltip"><%= item.tooltip %><div class="tooltip--hover-fix"></div></div>
+        <%= item.verb %>
+        <div class="tooltip"><%= item.description %><div class="tooltip--hover-fix"></div></div>
       </div>
       <% }); %>
   </script>
@@ -289,7 +289,7 @@
 <script type="text/javascript" src="./js/components/q_util.js"></script>
 <script type="text/javascript" src="js/components/text-summary.js"></script>
 <script type="text/javascript" src="js/components/dictionary.standalone.js"></script>
-<script type="text/javascript" src="js/components/personality-insights-profile.0.1.0.js"></script>
+<script type="text/javascript" src="js/components/personality-behaviors.js"></script>
 <script type="text/javascript" src="js/components/personality-insights-trait-tooltips.standalone.js"></script>
 <script type="text/javascript" src="js/components/tab-panels.js"></script>
 
