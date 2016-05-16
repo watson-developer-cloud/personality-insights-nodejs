@@ -294,7 +294,7 @@ $(document).ready(function () {
       }
     };
 
-    return replacements[lang || 'en'] || {};
+    return replacements[lang] || {};
   }
 
   function changeProfileLabels(data) {
