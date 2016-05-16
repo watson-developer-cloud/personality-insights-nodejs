@@ -262,7 +262,7 @@ $(document).ready(function () {
   // toggleNeedsTraits
   $needsToggle.click(function() {
     $needsMoreTraits.toggle();
-    $needsToggle.text($needsToggle.text() == 'See more' ? 'See less' : 'See more');
+    $needsToggle.text($needsToggle.text() == '<<' ? '>>' : '<<');
   });
 
   $outputJSONButton.click(function() {

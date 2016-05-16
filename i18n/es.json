@@ -76,6 +76,7 @@
 	"label-whatelse": "¿Qué más dicen estos resultados?",
 	"button-sunburst": "Visualizar los rasgos de la personalidad en forma circular",
 	"button-science": "Ver la ciencia detrás del servicio",
+	"tooltip-not-available": "Ayuda no disponible",
 	"page-title-pi": "Personality Insights",
 	"header-ibm": "IBM",
 	"header-wdc": "Watson Developer Cloud",
@@ -97,8 +98,8 @@
 	"error-500-params": "Por favor ingrese algún texto para analizar.",
 	"error-500-enoughtweets": "Necesitamos al menos 50 tweets para realizar el análisis. A Watson no le gusta juzgar un libro por su portada.",
 	"error-500-credentials": "¡Oops! Hubo un problema obteniendo sus tweets. Por favor, intente nuevamente luego.",
+	"error-404-notfound": "No se ha encontrado el recurso",
 	"error-request": "Error al procesar el requerimiento, por favor intente nuevamente.",
-	"button-seemore": "Ver más ",
 	"button-seeless": "Ver menos",
 	"trait-replacement-extraversion": "Introversión/Extroversión",
 	"trait-replacement-outgoing": "Sociabilidad",
@@ -109,5 +110,6 @@
 	"trait-replacement-openness": "Estímulo",
 	"trait-replacement-hedonism": "Disfrute de la vida",
 	"trait-replacement-selfenhacement": "Logros",
-	"trait-replacement-selftranscendence": "Ayudar a otros"
+	"trait-replacement-selftranscendence": "Ayudar a otros",
+	"error-400-notfound": "error-400-notfound"
 }

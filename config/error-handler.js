@@ -60,7 +60,7 @@ function friendlyError(req, err) {
 module.exports = function (app) {
 
   // catch 404 and forward to error handler
-  app.use(function(_, __, next) { return next(error(404, 'Not Found')); } );
+  app.use(function(_, __, next) { return next(error(404, 'error-404-notfound')); } );
 
   // error handler
   app.use(function (err, req, res, next) {
