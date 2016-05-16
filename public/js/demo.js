@@ -61,11 +61,15 @@ function isDefined(v) {
 
 function replaces(s, replaces) {
   var out = s;
-  replaces.forEach(function(p) {
-    out = out.replace(p[0], p[1]);
+  replaces.forEach(function(r) {
+    out = out.replace(r.search, r.replace);
   });
 
   return out;
+}
+
+function renderMarkdown(s) {
+  return replaces(markdown(s || ''), [{ search: /\<\a /g, replace: '<a class="base--a" target="_blank" ' }]);
 }
 
 function inString(sub, str) {
@@ -440,9 +444,7 @@ $(document).ready(function () {
       return u;
     }
 
-    function renderMarkdown(s) {
-      return replaces(markdown(s || ''), ['<a ', '<a class="base--a" target="_blank" ']);
-    }
+
 
     function toHtml(markdownDict) {
       return mapObject(markdownDict, function(key, value) {
@@ -482,10 +484,12 @@ $(document).ready(function () {
     var behaviors_template = outputBehaviorsTemplate.innerHTML;
 
 
-    var personalityBehaviors = new PersonalityBehaviors({ locale: lang });
+    var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
     var behaviors = personalityBehaviors.behaviors(profile);
     behaviors = behaviors.map(function (b) {
-      b.description = replaces(b.description, ['<a', '<a class="base--a" target="_blank"']);
+      console.log(b.description);
+      b.description = renderMarkdown(b.description);
+      console.log(b.description);
       return b;
     });
 
