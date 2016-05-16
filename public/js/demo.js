@@ -454,18 +454,14 @@ $(document).ready(function () {
       return u;
     }
 
-    function toHtml(markdownDict) {
-      return mapObject(markdownDict, function(key, value) {
-        return renderMarkdown(value);
-      });
-    }
-
     var descriptions = new PersonalityTraitDescriptions({
-      format: 'html',
+      format: 'markdown',
       locale: globalState.userLocale || OUTPUT_LANG || 'en'
     });
 
-    var tooltips = function (traitId) { return descriptions.description(traitId); }
+    var tooltips = function (traitId) {
+      return renderMarkdown(descriptions.description(traitId));
+    };
 
     $big5Traits.append(_.template(big5_template, {
       items: big5Data_curated.sort(sortScores),
