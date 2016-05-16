@@ -317,38 +317,10 @@ $(document).ready(function () {
     return clonned;
   }
 
-  function getErrorMapping(err) {
-    var errorMapping = {
-      '400' : {
-        'minimum number of words required for analysis' : 'We need at least 100 words for analysis. Watson doesn\'t like to judge a book by its cover.'
-      },
-      '401' : {
-        'invalid credentials' : 'There was a problem processing the personality. Please check your credentials.'
-      },
-      '500' : {
-        'missing required parameters' : 'Please input some text to analyze.',
-        'Not enough tweets for user' : 'We need at least 50 tweets for analysis. Watson doesn\'t like to judge a book by its cover.',
-        'Review your credentials' : 'Oops! There was a problem obtaining your tweets. Please, try again later.'
-      }
-    };
-
-    var message = err.error;
-    if (errorMapping[err.code]) {
-      Object.keys(errorMapping[err.code]).forEach(
-        function (errorString) {
-          if (inString(errorString, err.error)) {
-            message = errorMapping[err.code][errorString];
-          }
-        }
-      );
-    }
-    return message;
-  }
-
   function getErrorMessage(error) {
-    var message = 'Error processing the request, please try again.';
+    var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
-      message = getErrorMapping(error.responseJSON);
+      message = error.responseJSON.error.message;
     }
     return message;
   }

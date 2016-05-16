@@ -277,7 +277,6 @@
       <% }); %>
   </script>
 
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
@@ -292,13 +291,14 @@
 <script type="text/javascript" src="js/components/personality-behaviors.js"></script>
 <script type="text/javascript" src="js/components/personality-trait-descriptions.js"></script>
 <script type="text/javascript" src="js/components/tab-panels.js"></script>
-
+<script type="text/javascript" src="js/sunburst.js"></script>
 
 <script type="text/javascript" src="js/demo.js"></script>
-<script type="text/javascript" src="js/sunburst.js"></script>
 
 <script type="text/javascript">
   var TWITTER_USER = <$- JSON.stringify(twitterUser) $>;
+  var GENERIC_REQUEST_ERROR = '<$= __('error-request') $>';
+  var OUTPUT_LANG = '<$= locale $>';
 </script>
 
 <$ include partials/ga $>

@@ -28,6 +28,35 @@ var error  = function (status_code, message) {
 };
 
 
+function friendlyError(req, err) {
+  var errorMapping = {
+    '400' : {
+      'minimum number of words required for analysis' : 'error-400-minimum'
+    },
+    '401' : {
+      'invalid credentials' : 'error-401-credentials'
+    },
+    '500' : {
+      'missing required parameters' : 'error-500-params',
+      'Not enough tweets for user' : 'error-500-enoughtweets',
+      'Review your credentials' : 'error-500-credentials'
+    }
+  };
+
+  var message = err.error;
+  if (errorMapping[err.code]) {
+    Object.keys(errorMapping[err.code]).forEach(
+      function (errorString) {
+        if (inString(errorString, err.error)) {
+          message = errorMapping[err.code][errorString];
+        }
+      }
+    );
+  }
+  return { code : err.code, error: req.__(message) };
+}
+
+
 module.exports = function (app) {
 
   // catch 404 and forward to error handler
@@ -51,7 +80,7 @@ module.exports = function (app) {
     }
 
     res.status(error.code)
-      .json(error);
+      .json(friendlyError(req, error));
   });
 
 };
