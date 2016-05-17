@@ -52,6 +52,11 @@ function getBrowserLang() {
   return navigator.language;
 };
 
+function getBrowserLangNoLocale() {
+  var lang = getBrowserLang();
+  return lang.substring(0, 2);
+}
+
 function extend(target, source) {
   Object.keys(source).forEach(function (k) {
     target[k] = source[k];
@@ -149,7 +154,7 @@ $(document).ready(function () {
 
   function registerHandlers() {
 
-    globalState.userLocale = getBrowserLang();
+    globalState.userLocale = getBrowserLangNoLocale();
 
     $('input[name="text-lang"]').click(function() {
       globalState.selectedLanguage = $(this).attr('value');
@@ -332,8 +337,10 @@ $(document).ready(function () {
       include_raw: false
     }, options || {});
 
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+
     if (defaults.source_type !== 'twitter') {
-      defaults = extend({language: 'en'}, defaults);
+      defaults = extend({language: lang}, defaults);
     }
 
     return defaults;
