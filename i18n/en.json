@@ -100,7 +100,6 @@
 	"error-500-credentials": "Oops! There was a problem obtaining your tweets. Please, try again later.",
 	"error-404-notfound": "Not found",
 	"error-request": "Error processing the request, please try again.",
-	"button-seemore": "See more",
 	"button-seeless": "See less",
 	"trait-replacement-extraversion": "Introversion/Extraversion",
 	"trait-replacement-outgoing": "Warmth",

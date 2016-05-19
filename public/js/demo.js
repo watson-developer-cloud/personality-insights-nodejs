@@ -325,7 +325,7 @@ $(document).ready(function () {
   function getErrorMessage(error) {
     var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
-      message = error.responseJSON.error.message;
+      message = error.responseJSON.error.error;
     }
     return message;
   }

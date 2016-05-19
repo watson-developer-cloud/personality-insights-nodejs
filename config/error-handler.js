@@ -27,33 +27,16 @@ var error  = function (status_code, message) {
   return e;
 };
 
-
 function friendlyError(req, err) {
   var errorMapping = {
-    '400' : {
-      'minimum number of words required for analysis' : 'error-400-minimum'
-    },
-    '401' : {
-      'invalid credentials' : 'error-401-credentials'
-    },
-    '500' : {
-      'missing required parameters' : 'error-500-params',
-      'Not enough tweets for user' : 'error-500-enoughtweets',
-      'Review your credentials' : 'error-500-credentials'
-    }
+    '400' : 'error-400-minimum',
+    '401' : 'error-401-credentials',
+    '500' : 'error-500-enoughtweets'
   };
 
-  var message = err.error;
-  if (errorMapping[err.code]) {
-    Object.keys(errorMapping[err.code]).forEach(
-      function (errorString) {
-        if (inString(errorString, err.error)) {
-          message = errorMapping[err.code][errorString];
-        }
-      }
-    );
-  }
-  return { code : err.code, error: req.__(message) };
+  var message = req.__(errorMapping[err.code]);
+
+  return { code : err.code, error: message };
 }
 
 
@@ -66,11 +49,11 @@ module.exports = function (app) {
   app.use(function (err, req, res, next) {
     var error = {
         code: err.code || 500,
-        error: err.error || err.message
+        error: friendlyError(req,err) || err.error || err.message
       };
 
     if (error.code != 404)
-      logger.error(error, 'url:', req.url, 'Error:', err);
+      logger.error(err, 'url:', req.url, 'Error:', error);
 
     if (err.code === 'EBADCSRFTOKEN') {
       error = {
@@ -80,7 +63,7 @@ module.exports = function (app) {
     }
 
     res.status(error.code)
-      .json(friendlyError(req, error));
+      .json(error);
   });
 
 };
