@@ -19,7 +19,7 @@
 
 module.exports = require('./lib/personality-behaviors');
 
-},{"./lib/personality-behaviors":8}],2:[function(require,module,exports){
+},{"./lib/personality-behaviors":9}],2:[function(require,module,exports){
 module.exports=[
   {
     "id": "scenario.environmental_products",
@@ -552,10 +552,11 @@ module.exports=[
 
 module.exports = {
   'en': require('./en'),
-  'es': require('./es')
+  'es': require('./es'),
+  'ja': require('./ja')
 };
 
-},{"./en":5,"./es":6}],5:[function(require,module,exports){
+},{"./en":5,"./es":6,"./ja":8}],5:[function(require,module,exports){
 module.exports={
   "scenarios": [
     {
@@ -800,7 +801,7 @@ module.exports={
       "id": "scenario.healthy_food",
       "name": "Alimentos Saludables",
       "verb": "Comprar alimentos saludables",
-      "tooltip": "Las personas que muestran más **responsabilidad**, **autodisciplina**, e incluso **intereses artísticos** que otras, son más propensas a comer alimentos saludables. Sin embargo, más **susceptibilidad al estrés**, **rango emocional **, y **desmesura** disminuyen esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+      "tooltip": "Las personas que muestran más **responsabilidad**, **autodisciplina**, e incluso **intereses artísticos** que otras, son más propensas a comer alimentos saludables. Sin embargo, más **susceptibilidad al estrés**, **rango emocional**, y **desmesura** disminuyen esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
     },
     {
       "id": "scenario.adventure_sports",
@@ -812,7 +813,7 @@ module.exports={
       "id": "scenario.financial_risk",
       "name": "Riesgo Financiero",
       "verb": "Correr riesgos financieros",
-      "tooltip": "Las personas que muestran más **apertura a experiencias ** que otras, raramente hacen inversiones de riesgo. Mostrar más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+      "tooltip": "Las personas que muestran más **apertura a experiencias** que otras, raramente hacen inversiones de riesgo. Mostrar más **rango emocional** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.recreate_risk",
@@ -824,13 +825,13 @@ module.exports={
       "id": "scenario.avoid_risk",
       "name": "Avoid Risk",
       "verb": "Avoid taking risks",
-      "tooltip": "Las personas que muestran más **amabilidad**, **rango emocional ** y **responsabilidad** que otras, son más propensas a evitar correr riesgos. Mostrar más **extroversión** aumenta la probabilidad de correr riesgos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+      "tooltip": "Las personas que muestran más **amabilidad**, **rango emocional** y **responsabilidad** que otras, son más propensas a evitar correr riesgos. Mostrar más **extroversión** aumenta la probabilidad de correr riesgos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.health_risk",
       "name": "Riesgo de Salud ",
       "verb": "Poner la salud en riesgo",
-      "tooltip": "Las personas que muestran más **extroversión**, **rango emocional ** y menos **amabilidad** que otras, son propensas a poner su salud en riesgo. Mostrar más **responsabilidad** disminuye esta probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+      "tooltip": "Las personas que muestran más **extroversión**, **rango emocional** y menos **amabilidad** que otras, son propensas a poner su salud en riesgo. Mostrar más **responsabilidad** disminuye esta probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.career_risk",
@@ -842,7 +843,7 @@ module.exports={
       "id": "scenario.excercise",
       "name": "Ejercicio",
       "verb": "Gastar en salud y actividad física",
-      "tooltip": "Las personas que muestran más **extroversión** y **responsabilidad** que otras, son más propensas a ejercitar con frecuencia. Más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+      "tooltip": "Las personas que muestran más **extroversión** y **responsabilidad** que otras, son más propensas a ejercitar con frecuencia. Más **rango emocional** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
     },
     {
       "id": "scenario.adaptability",
@@ -1063,7 +1064,223 @@ var I18nData = function () {
 
 module.exports = I18nData;
 
-},{"../utilities/list-of-objects":11,"./dictionaries":4,"underscore":15}],8:[function(require,module,exports){
+},{"../utilities/list-of-objects":12,"./dictionaries":4,"underscore":16}],8:[function(require,module,exports){
+module.exports={
+  "scenarios": [
+    {
+      "id": "scenario.environmental_products",
+      "name": "Environmentally Conscious Products",
+      "verb": "環境に優しい製品を購入",
+      "tooltip": "**同調性**、**外向性**、**誠実性**が高い人は、環境に優しい製品を購入する傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherEnvironment)"
+    },
+    {
+      "id": "scenario.luxury_goods",
+      "name": "Luxury Goods",
+      "verb": "自分へのご褒美",
+      "tooltip": "**誠実性**、**同調性**に富み、**環境保護**や**自己改善**に関心が高い人、**愛情**や**理想**を求める人、**快楽主義**を大切にする人は、高級ブランドを好む傾向にあります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMbrand)"
+    },
+    {
+      "id": "scenario.coupon_redemption",
+      "name": "Coupon Redemption",
+      "verb": "クーポンを使う",
+      "tooltip" : "より**秩序**正しく、**自制心**があり、**慎重**で**控えめ**の人は、クーポンを活用する傾向にあります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMcampaign)"
+    },
+    {
+      "id": "scenario.healthy_food",
+      "name": "Healthy Food",
+      "verb": "健康的な食品を購入",
+      "tooltip": "**誠実性**、**自制力**に加えて**芸術**への関心がより強い人は、健康食品を摂取する傾向があります。反面、**感受性**が強く、**感情豊か**なため**ストレスを受けやすく**、**節度**を保てなくなる傾向が強くなると、健康食品を摂取する傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+    },
+    {
+      "id": "scenario.adventure_sports",
+      "name": "Adventure Sports",
+      "verb": "アドベンチャー・スポーツをする",
+      "tooltip": "より**外向性**、**寛容性**、**冒険心**がある反面、**感受性**が弱い人は、アドベンチャー・スポーツを行う傾向にあります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.financial_risk",
+      "name": "Financial Risk",
+      "verb": "金銭的なリスクを取る",
+      "tooltip": "経験により**寛容**な人は、よりリスクのある投資を行う傾向にあります。**感受性**が高くなると、その可能性は低くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.recreate_risk",
+      "name": "Recreate Risk",
+      "verb": "リスクを再現する",
+      "tooltip": "これに関する記述はありません。"
+    },
+    {
+      "id": "scenario.avoid_risk",
+      "name": "Avoid Risk",
+      "verb": "リスクを回避する",
+      "tooltip": "**同調性**、**誠実性**が強い人は、リスクを回避する傾向にあります。**外向性**がより強くなると、他の人がリスクを取る可能性が高まります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.health_risk",
+      "name": "Health Risk",
+      "verb": "健康を犠牲にする",
+      "tooltip": "より**外向性**、**感受性**が高い反面、**同調性**が低い人は、健康を犠牲にする傾向があります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+    },
+    {
+      "id": "scenario.career_risk",
+      "name": "Career Risk",
+      "verb": "キャリアを変更する",
+      "tooltip": "**誠実性**、**外向性**、**寛容性**が高い人は、より変化に対応できる傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
+    },
+    {
+      "id": "scenario.excercise",
+      "name": "Exercise",
+      "verb": "健康とフィットネスへの投資",
+      "tooltip": "**外向性**、**誠実性**が高い人は、頻繁に運動する傾向があります。**感受性**が高まると、頻繁に運動する傾向は弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
+    },
+    {
+      "id": "scenario.adaptability",
+      "name": "Adaptability",
+      "verb": "状況に適応",
+      "tooltip": "これに関する記述はありません。"
+    },
+    {
+      "id": "scenario.respond_to_strangers",
+      "name": "Willingness to respond to strangers",
+      "verb": "ソーシャル・メディアに応える",
+      "tooltip": "より**わくわく感**を追い求め、**親切**、**活動性**、**社交性**、**信用性**、**道徳性**、**外交性**、**同調性**を表に出す人は、ソーシャル・メディアの投稿メッセージにこたえる傾向にあります。より**慎重**で**心配性**な人は、そうではありません。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMrespond)"
+    },
+    {
+      "id": "scenario.retweet",
+      "name": "Retweet",
+      "verb": "ソーシャル・メディアをさらに共有する",
+      "tooltip": "より**謙虚**、**寛容**で**親切**という特徴を持つ人は、情報を拡散する傾向にあります。. [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
+    },
+    {
+      "id": "scenario.click_ad",
+      "name": "Click an Ad",
+      "verb": "広告をチェックする",
+      "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、広告をクリックする傾向があります。このような傾向ある人の内、トップ10パーセントの人達のクリックする割合は6.8パーセントから11.3パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+    },
+    {
+      "id": "scenario.follow_account",
+      "name": "Follow account",
+      "verb": "ソーシャル・メディアをフォローする",
+      "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、ソーシャル・メディアのアカウントをフォローする傾向があります。このような傾向がある人の内、トップ10パーセントの人達のフォロー率は4.7パーセントから8.8パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+    }
+  ],
+  "industries": [
+    {
+      "id": "industry.retail",
+      "name": "小売"
+    },
+    {
+      "id": "industry.food",
+      "name": "食品"
+    },
+    {
+      "id": "industry.sports",
+      "name": "スポーツ"
+    },
+    {
+      "id": "industry.finance",
+      "name": "金融"
+    },
+    {
+      "id": "industry.healthcare",
+      "name": "ヘルスケア"
+    },
+    {
+      "id": "industry.fitness",
+      "name": "フィットネス"
+    },
+    {
+      "id": "industry.media",
+      "name": "メディア"
+    },
+    {
+      "id": "industry.travel",
+      "name": "旅行"
+    }
+  ],
+  "categories": [
+    {
+      "id": "category.shopping",
+      "name": "ショッピング"
+    },
+    {
+      "id": "category.eating",
+      "name": "食事"
+    },
+    {
+      "id": "category.sports_leisure",
+      "name": "スポーツとレジャー"
+    },
+    {
+      "id": "category.investment",
+      "name": "投資"
+    },
+    {
+      "id": "category.risk",
+      "name": "危険"
+    },
+    {
+      "id": "category.living",
+      "name": "生活"
+    },
+    {
+      "id": "category.work",
+      "name": "仕事"
+    },
+    {
+      "id": "category.social_media",
+      "name": "ソーシャルメディア"
+    },
+    {
+      "id": "category.ad_targeting",
+      "name": "ターゲッティング広告"
+    }
+  ],
+  "personas": [
+    {
+      "id": "persona.greenie",
+      "name": "環境問題意識が高い人"
+    },
+    {
+      "id": "persona.brand_lover",
+      "name": "ブランド好き"
+    },
+    {
+      "id": "persona.deal_seeker",
+      "name": "お買い得品を探求する人"
+    },
+    {
+      "id": "persona.health_enthusiast",
+      "name": "健康に気を使う人"
+    },
+    {
+      "id": "persona.risk_taker",
+      "name": "冒険する人"
+    },
+    {
+      "id": "persona.adapter",
+      "name": "適応する人"
+    },
+    {
+      "id": "persona.responder",
+      "name": "応える人"
+    },
+    {
+      "id": "persona.broadcaster",
+      "name": "拡散者"
+    },
+    {
+      "id": "persona.follower",
+      "name" : "フォロワー"
+    },
+    {
+      "id": "persona.ad_clicker",
+      "name": "広告チェッカー"
+    }
+  ]
+}
+
+},{}],9:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1195,7 +1412,7 @@ var PersonalityBehaviors = function () {
 
 module.exports = PersonalityBehaviors;
 
-},{"./data/scenarios":2,"./data/targets":3,"./i18n":7,"./scored-scenarios":9,"./utilities/format-text":10,"underscore":15}],9:[function(require,module,exports){
+},{"./data/scenarios":2,"./data/targets":3,"./i18n":7,"./scored-scenarios":10,"./utilities/format-text":11,"underscore":16}],10:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1239,7 +1456,7 @@ var scoredScenarios = function scoredScenarios(profile, scenarios, targets) {
 
 module.exports = scoredScenarios;
 
-},{"./utilities/list-of-objects":11,"./utilities/profile":12,"underscore":15}],10:[function(require,module,exports){
+},{"./utilities/list-of-objects":12,"./utilities/profile":13,"underscore":16}],11:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1280,7 +1497,7 @@ function formatText(text, options) {
 
 module.exports = formatText;
 
-},{"marked":13,"remove-markdown":14}],11:[function(require,module,exports){
+},{"marked":14,"remove-markdown":15}],12:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1324,7 +1541,7 @@ module.exports = {
   matches: matches
 };
 
-},{"underscore":15}],12:[function(require,module,exports){
+},{"underscore":16}],13:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -1475,7 +1692,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -2764,7 +2981,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 module.exports = function(md, options) {
   options = options || {};
   options.stripListLeaders = options.hasOwnProperty('stripListLeaders') ? options.stripListLeaders : true;
@@ -2814,7 +3031,7 @@ module.exports = function(md, options) {
   return output;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
