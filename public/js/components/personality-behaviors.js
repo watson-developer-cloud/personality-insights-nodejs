@@ -1069,97 +1069,97 @@ module.exports={
   "scenarios": [
     {
       "id": "scenario.environmental_products",
-      "name": "Environmentally Conscious Products",
+      "name": "環境に優しい製品",
       "verb": "環境に優しい製品を購入",
       "tooltip": "**同調性**、**外向性**、**誠実性**が高い人は、環境に優しい製品を購入する傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherEnvironment)"
     },
     {
       "id": "scenario.luxury_goods",
-      "name": "Luxury Goods",
+      "name": "高級品",
       "verb": "自分へのご褒美",
       "tooltip": "**誠実性**、**同調性**に富み、**環境保護**や**自己改善**に関心が高い人、**愛情**や**理想**を求める人、**快楽主義**を大切にする人は、高級ブランドを好む傾向にあります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMbrand)"
     },
     {
       "id": "scenario.coupon_redemption",
-      "name": "Coupon Redemption",
+      "name": "クーポンを利用",
       "verb": "クーポンを使う",
       "tooltip" : "より**秩序**正しく、**自制心**があり、**慎重**で**控えめ**の人は、クーポンを活用する傾向にあります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMcampaign)"
     },
     {
       "id": "scenario.healthy_food",
-      "name": "Healthy Food",
+      "name": "健康的な食品",
       "verb": "健康的な食品を購入",
       "tooltip": "**誠実性**、**自制力**に加えて**芸術**への関心がより強い人は、健康食品を摂取する傾向があります。反面、**感受性**が強く、**感情豊か**なため**ストレスを受けやすく**、**節度**を保てなくなる傾向が強くなると、健康食品を摂取する傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
     },
     {
       "id": "scenario.adventure_sports",
-      "name": "Adventure Sports",
+      "name": "アドベンチャー・スポーツ",
       "verb": "アドベンチャー・スポーツをする",
       "tooltip": "より**外向性**、**寛容性**、**冒険心**がある反面、**感受性**が弱い人は、アドベンチャー・スポーツを行う傾向にあります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.financial_risk",
-      "name": "Financial Risk",
+      "name": "金銭的なリスク",
       "verb": "金銭的なリスクを取る",
       "tooltip": "経験により**寛容**な人は、よりリスクのある投資を行う傾向にあります。**感受性**が高くなると、その可能性は低くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.recreate_risk",
-      "name": "Recreate Risk",
+      "name": "リスクの再現",
       "verb": "リスクを再現する",
       "tooltip": "これに関する記述はありません。"
     },
     {
       "id": "scenario.avoid_risk",
-      "name": "Avoid Risk",
+      "name": "スク回避",
       "verb": "リスクを回避する",
       "tooltip": "**同調性**、**誠実性**が強い人は、リスクを回避する傾向にあります。**外向性**がより強くなると、他の人がリスクを取る可能性が高まります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.health_risk",
-      "name": "Health Risk",
+      "name": "健康の犠牲",
       "verb": "健康を犠牲にする",
       "tooltip": "より**外向性**、**感受性**が高い反面、**同調性**が低い人は、健康を犠牲にする傾向があります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.career_risk",
-      "name": "Career Risk",
+      "name": "キャリアの変更",
       "verb": "キャリアを変更する",
       "tooltip": "**誠実性**、**外向性**、**寛容性**が高い人は、より変化に対応できる傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
     },
     {
       "id": "scenario.excercise",
-      "name": "Exercise",
+      "name": "運動",
       "verb": "健康とフィットネスへの投資",
       "tooltip": "**外向性**、**誠実性**が高い人は、頻繁に運動する傾向があります。**感受性**が高まると、頻繁に運動する傾向は弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
     },
     {
       "id": "scenario.adaptability",
-      "name": "Adaptability",
+      "name": "適応性",
       "verb": "状況に適応",
       "tooltip": "これに関する記述はありません。"
     },
     {
       "id": "scenario.respond_to_strangers",
-      "name": "Willingness to respond to strangers",
+      "name": "他人に対応する意欲",
       "verb": "ソーシャル・メディアに応える",
       "tooltip": "より**わくわく感**を追い求め、**親切**、**活動性**、**社交性**、**信用性**、**道徳性**、**外交性**、**同調性**を表に出す人は、ソーシャル・メディアの投稿メッセージにこたえる傾向にあります。より**慎重**で**心配性**な人は、そうではありません。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMrespond)"
     },
     {
       "id": "scenario.retweet",
-      "name": "Retweet",
+      "name": "リツイート",
       "verb": "ソーシャル・メディアをさらに共有する",
       "tooltip": "より**謙虚**、**寛容**で**親切**という特徴を持つ人は、情報を拡散する傾向にあります。. [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
     },
     {
       "id": "scenario.click_ad",
-      "name": "Click an Ad",
+      "name": "広告をチェック",
       "verb": "広告をチェックする",
       "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、広告をクリックする傾向があります。このような傾向ある人の内、トップ10パーセントの人達のクリックする割合は6.8パーセントから11.3パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
     },
     {
       "id": "scenario.follow_account",
-      "name": "Follow account",
+      "name": "アカウントのフォロー",
       "verb": "ソーシャル・メディアをフォローする",
       "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、ソーシャル・メディアのアカウントをフォローする傾向があります。このような傾向がある人の内、トップ10パーセントの人達のフォロー率は4.7パーセントから8.8パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
     }
