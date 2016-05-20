@@ -48,7 +48,7 @@
 	"message-error": "エラー!",
 	"disclaimer-1": "スコアはすべて百分位数であり、膨大な集団の中での位置を表しています。たとえば、外向性が90％という結果は、その人が90％外向的であることではなく、100人中その人より外向性の低い人が90人（高い人が10人）ということを意味しています。",
 	"disclaimer-2": "我々は言語毎に Twitterデータを集めて学習を行い",
-	"disclaimer-3": "and whose personalities we calculated using our model.",
+	"disclaimer-3": "独自のモデルを用いて性格を診断しています。",
 	"title-personality": "性格特性",
 	"label-wordsanalyzed": "分析された単語:",
 	"analysis-verystrong": "確度が非常に高い解析結果",
