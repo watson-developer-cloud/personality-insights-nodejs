@@ -823,8 +823,8 @@ module.exports={
     },
     {
       "id": "scenario.avoid_risk",
-      "name": "Avoid Risk",
-      "verb": "Avoid taking risks",
+      "name": "Evitar Riesgo",
+      "verb": "Evitar correr riesgos",
       "tooltip": "Las personas que muestran más **amabilidad**, **rango emocional** y **responsabilidad** que otras, son más propensas a evitar correr riesgos. Mostrar más **extroversión** aumenta la probabilidad de correr riesgos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
