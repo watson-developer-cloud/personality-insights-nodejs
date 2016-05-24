@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="<$= locale $>">
 <head>
-  <title>Personality Insights</title>
+  <title><$= __("page-title-pi") $></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,29 +17,29 @@
   <header class="_demo--heading">
     <div class="_demo--container">
       <a class="wordmark" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">
-        <span class="wordmark--left">IBM</span>
-        <span class="wordmark--right">Watson Developer Cloud</span>
+        <span class="wordmark--left"><$= __("header-ibm") $></span>
+        <span class="wordmark--right"><$= __("header-wdc") $></span>
       </a>
       <nav class="heading-nav" role="menubar">
         <li class="base--li heading-nav--li" role="presentation">
           <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html" role="menuitem">
-					Services
-				</a>
+          <$= __("header-services") $>
+        </a>
         </li>
         <li class="base--li heading-nav--li" role="presentation">
           <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/" role="menuitem">
-					Docs
-				</a>
+          <$= __("header-docs") $>
+        </a>
         </li>
         <li class="base--li heading-nav--li" role="presentation">
           <a class="heading-nav--item" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html" role="menuitem">
-					App Gallery
-				</a>
+          <$= __("header-appgallery") $>
+        </a>
         </li>
         <li class="base--li heading-nav--li" role="presentation">
           <a class="heading-nav--item" href="https://developer.ibm.com/watson/" role="menuitem">
-					Community
-				</a>
+          <$= __("header-community") $>
+        </a>
         </li>
       </nav>
     </div>
@@ -53,27 +53,27 @@
       </div>
       <div class="banner--service-info">
         <h1 class="banner--service-title base--h1">
-          <img class="banner--service-icon_INLINE" src="images/service-icon.svg" alt="Personality Insights API Icon"> Personality Insights
+          <img class="banner--service-icon_INLINE" src="images/service-icon.svg" alt="Personality Insights API Icon"> <$= __("header-title-pi") $>
         </h1>
         <div class="banner--service-description">
-          Gain insight into how and why people think, act, and feel the way they do. This service applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.
+          <$= __("header-description") $>
         </div>
         <div class="banner--service-resource">
           <span class="icon icon-link"></span>
-          <strong>Resources:</strong>
+          <strong><$= __("header-resources") $></strong>
         </div>
         <div class="banner--service-links">
           <li class="base--li banner--service-link-item">
-            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api/v2/" class="base--a">API Reference</a>
+            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api/v2/" class="base--a"><$= __("header-apiref") $></a>
           </li>
           <li class="base--li banner--service-link-item">
-            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" class="base--a">Documentation</a>
+            <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/" class="base--a"><$= __("header-documentation") $></a>
           </li>
           <li class="base--li banner--service-link-item">
-            <a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork on Github</a>
+            <a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a"><$= __("header-fork") $></a>
           </li>
           <li class="base--li banner--service-link-item">
-            <a href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a">Fork and Deploy on Bluemix</a>
+            <a href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs" class="base--a"><$= __("header-forkdeploy") $></a>
           </li>
         </div>
       </div>

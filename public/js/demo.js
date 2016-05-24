@@ -16,9 +16,10 @@
 /* global $:false,TextSummary, Profile,_, $Q*/
 'use strict';
 
-var markdown = window.markdownit();
+var markdown = function (s) { return window.markdownit().render(s); };
 
 var OUTPUT_LANG = 'en';
+
 var globalState = {
     twitterUserId: undefined,
     selectedTwitterUser: undefined,
@@ -26,7 +27,8 @@ var globalState = {
     selectedTwitterUserLang: undefined,
     selectedSample: undefined,
     languageSelected: undefined,
-    currentProfile: undefined
+    currentProfile: undefined,
+    userLocale: undefined
   };
 
 var QUERY_PARAMS = (function(a) {
@@ -43,6 +45,18 @@ var QUERY_PARAMS = (function(a) {
   return b;
 })(window.location.search.substr(1).split('&'));
 
+function getBrowserLang() {
+ if (navigator.languages != undefined)
+  return navigator.languages[0];
+ else
+  return navigator.language;
+};
+
+function getBrowserLangNoLocale() {
+  var lang = getBrowserLang();
+  return lang.substring(0, 2);
+}
+
 function extend(target, source) {
   Object.keys(source).forEach(function (k) {
     target[k] = source[k];
@@ -58,35 +72,23 @@ function isDefined(v) {
   return typeof v !== 'undefined';
 }
 
-function renderMarkdown(s) {
-  var
-    rendered = markdown.render(s ? s : ''),
-    replaces = [
-      ['<a', '<a class="base--a" target="_blank"']
-    ];
-
-  replaces.forEach(function(p) {
-    rendered = rendered.replace(p[0], p[1]);
+function replaces(s, replaces) {
+  var out = s;
+  replaces.forEach(function(r) {
+    out = out.replace(r.search, r.replace);
   });
 
-  return rendered;
+  return out;
 }
 
-function id(x) { return x; }
-
-function removeHidden(d) {
-  d.scenarios = d.scenarios.filter(function (s) {
-    return !s.hidden;
-  });
-  return d;
+function renderMarkdown(s) {
+  return replaces(markdown(s || ''), [{ search: /\<\a /g, replace: '<a class="base--a" target="_blank" ' }]);
 }
 
 function inString(sub, str) {
   var normalize = function (s) { return s.toLowerCase(); };
   return normalize(str).indexOf(normalize(sub)) > -1;
 }
-
-function toDict(d) { return new Dictionary(d); }
 
 $(document).ready(function () {
 
@@ -100,10 +102,7 @@ $(document).ready(function () {
         'ar',
         'ja'
       ],
-    textCache = {},
-    Resources = {
-        _autoload : [ { name: 'scenarios', loader: removeHidden }, { name: 'names', loader: toDict } ]
-      };
+    textCache = {};
 
   globalState.selectedSample = SAMPLE_TEXTS[0];
   globalState.languageSelected = undefined;
@@ -154,6 +153,8 @@ $(document).ready(function () {
   }
 
   function registerHandlers() {
+
+    globalState.userLocale = getBrowserLangNoLocale();
 
     $('input[name="text-lang"]').click(function() {
       globalState.selectedLanguage = $(this).attr('value');
@@ -266,7 +267,7 @@ $(document).ready(function () {
   // toggleNeedsTraits
   $needsToggle.click(function() {
     $needsMoreTraits.toggle();
-    $needsToggle.text($needsToggle.text() == 'See more' ? 'See less' : 'See more');
+    $needsToggle.text($needsToggle.text() == '<<' ? '>>' : '<<');
   });
 
   $outputJSONButton.click(function() {
@@ -298,12 +299,12 @@ $(document).ready(function () {
       }
     };
 
-    return replacements[lang || 'en'] || {};
+    return replacements[lang] || {};
   }
 
   function changeProfileLabels(data) {
     var clonned = JSON.parse(JSON.stringify(data)),
-      replacements = replacementsForLang(OUTPUT_LANG);
+      replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
 
     function walkTree(f, tree) {
       f(tree);
@@ -321,38 +322,10 @@ $(document).ready(function () {
     return clonned;
   }
 
-  function getErrorMapping(err) {
-    var errorMapping = {
-      '400' : {
-        'minimum number of words required for analysis' : 'We need at least 100 words for analysis. Watson doesn\'t like to judge a book by its cover.'
-      },
-      '401' : {
-        'invalid credentials' : 'There was a problem processing the personality. Please check your credentials.'
-      },
-      '500' : {
-        'missing required parameters' : 'Please input some text to analyze.',
-        'Not enough tweets for user' : 'We need at least 50 tweets for analysis. Watson doesn\'t like to judge a book by its cover.',
-        'Review your credentials' : 'Oops! There was a problem obtaining your tweets. Please, try again later.'
-      }
-    };
-
-    var message = err.error;
-    if (errorMapping[err.code]) {
-      Object.keys(errorMapping[err.code]).forEach(
-        function (errorString) {
-          if (inString(errorString, err.error)) {
-            message = errorMapping[err.code][errorString];
-          }
-        }
-      );
-    }
-    return message;
-  }
-
   function getErrorMessage(error) {
-    var message = 'Error processing the request, please try again.';
+    var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
-      message = getErrorMapping(error.responseJSON);
+      message = error.responseJSON.error.error;
     }
     return message;
   }
@@ -360,12 +333,14 @@ $(document).ready(function () {
   function defaultProfileOptions(options) {
     var defaults = extend({
       source_type: 'text',
-      accept_language: OUTPUT_LANG || 'en',
+      accept_language: globalState.userLocale || OUTPUT_LANG || 'en',
       include_raw: false
     }, options || {});
 
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+
     if (defaults.source_type !== 'twitter') {
-      defaults = extend({language: 'en'}, defaults);
+      defaults = extend({language: lang}, defaults);
     }
 
     return defaults;
@@ -406,92 +381,9 @@ $(document).ready(function () {
     });
   }
 
-  function testScenario(scenario, premise, predicate) {
-    return scenario.traits.reduce(predicate, premise);
-  }
-
-  function byId(xs, id) {
-    return xs.filter(function (x) {
-      return x.id === id;
-    })[0];
-  }
-
-  function inThreshold(threshold, value) {
-    return value >= threshold.min && value <= threshold.max;
-  }
-
-  function toScoringFunction(target) {
-    return function (p) {
-      return eval(target.score);
-    };
-  }
-
-  function targetTraitScore(targets, id, trait) {
-    return toScoringFunction(byId(targets,id))(trait.percentage);
-  }
-
-  function scenarioScore(profile, scenario, targets) {
-    return (testScenario(scenario, 0, function(acc, trait) {
-      return acc + targetTraitScore(targets, trait.target, profile.getTrait(trait.id));
-    }) / scenario.traits.length);
-  }
-
-  function matchingScenarios(targets, scenarios, profile) {
-    return scenarios.map(function (scenario) {
-      return {
-        score: scenarioScore(profile, scenario, targets),
-        scenario: scenario
-      }
-    });
-  }
-
-  function getScenarioInfo(category, scenario) {
-    var scenarioInfo = Resources.names.get(category)
-      .filter(function (otherScenario) {
-        return otherScenario.id == scenario.id;
-      })[0];
-
-    return scenarioInfo;
-  }
-
-  function getUniqueBehaviorsFor(profile) {
-    var found = {};
-    var behaviors = getBehaviorsFor(profile).filter(function (b) {
-      var hold = false;
-      if (!found[b.name]) {
-        found[b.name] = true;
-        hold = true;
-      }
-      return hold;
-    });
-    return behaviors;
-  }
-
-  function getBehaviorsFor(profile) {
-    var targets = Resources.scenarios.targets,
-        scenarios  = Resources.scenarios.scenarios,
-        _profile   = new Profile(profile);
-    return matchingScenarios(targets, scenarios, _profile).map(function (scenarioMatching) {
-      var scenarioInfo = getScenarioInfo('scenarios', scenarioMatching.scenario);
-      return {
-        name : scenarioInfo.verb,
-        score : scenarioMatching.score,
-        tooltip: renderMarkdown(scenarioInfo.tooltip)
-      };
-    });
-  }
-
-  function dictToArray(dict) {
-    var arr = [];
-    Object.keys(dict).forEach(function(key) {
-      arr.push({ key: key, value: dict[key] });
-    });
-    return arr;
-  }
-
   function loadOutput(rawData) {
     var data = changeProfileLabels(rawData);
-    setTextSummary(data, 'en');
+    setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
     loadWordCount(data);
     var big5Data = data.tree.children[0].children[0].children;
     var needsData = data.tree.children[1].children[0].children;
@@ -541,33 +433,36 @@ $(document).ready(function () {
       return u;
     }
 
-    function toHtml(markdownDict) {
-      return mapObject(markdownDict, function(key, value) {
-        return renderMarkdown(value);
-      });
-    }
+    var descriptions = new PersonalityTraitDescriptions({
+      format: 'markdown',
+      locale: globalState.userLocale || OUTPUT_LANG || 'en'
+    });
+
+    var tooltips = function (traitId) {
+      return renderMarkdown(descriptions.description(traitId));
+    };
 
     $big5Traits.append(_.template(big5_template, {
       items: big5Data_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.big5().getValue())
+      tooltips: tooltips
     }));
 
     $needsTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(0,5),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $needsMoreTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $valuesTraits.append(_.template(statsPercent_template, {
       items: valuesData_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.values().getValue())
+      tooltips: tooltips
     }));
 
-    loadBehaviors(data);
+    loadBehaviors(data, globalState.userLocale || OUTPUT_LANG || 'en');
 
     updateJSON(rawData);
 
@@ -575,10 +470,16 @@ $(document).ready(function () {
 
   }
 
-  function loadBehaviors(profile) {
+  function loadBehaviors(profile, lang) {
     var behaviors_template = outputBehaviorsTemplate.innerHTML;
 
-    var behaviors = getUniqueBehaviorsFor(profile);
+
+    var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
+    var behaviors = personalityBehaviors.behaviors(profile);
+    behaviors = behaviors.map(function (b) {
+      b.description = renderMarkdown(b.description);
+      return b;
+    });
 
     var likely   = behaviors.filter(isPositive),
         unlikely = behaviors.filter(isNegative);
@@ -720,24 +621,6 @@ $(document).ready(function () {
       });
   }
 
-  function loadResources() {
-    Resources._autoload.forEach(function (resource) {
-      if (!resource.name) {
-        resource = {
-          name : resource,
-          loader : id
-        };
-      }
-
-      $Q.get('data/' + resource.name + '.json')
-        .then(function(data) {
-          Resources[resource.name] = resource.loader(data);
-        })
-        .catch(console.error.bind(console, 'Error loading data/' + resource.name + '.json'))
-        .done();
-    });
-  }
-
   function selfAnalysis() {
     return QUERY_PARAMS.source == 'myself';
   }
@@ -769,7 +652,6 @@ $(document).ready(function () {
     preloadSampleTexts(function () {
       loadSampleText(globalState.selectedSample);
     });
-    loadResources();
     registerHandlers();
     $inputTextArea.addClass('orientation', 'left-to-right');
 
