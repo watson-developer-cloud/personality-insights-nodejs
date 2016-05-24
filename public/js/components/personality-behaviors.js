@@ -1095,13 +1095,13 @@ module.exports={
       "id": "scenario.adventure_sports",
       "name": "アドベンチャー・スポーツ",
       "verb": "アドベンチャー・スポーツをする",
-      "tooltip": "より**外向性**、**寛容性**、**冒険心**がある反面、**感受性**が弱い人は、アドベンチャー・スポーツを行う傾向にあります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+      "tooltip": "より**外向性**、**積極性**、**冒険心**がある反面、**感受性**が弱い人は、アドベンチャー・スポーツを行う傾向にあります。より**誠実性**が高い人は、その傾向が弱くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.financial_risk",
       "name": "金銭的なリスク",
       "verb": "金銭的なリスクを取る",
-      "tooltip": "経験により**寛容**な人は、よりリスクのある投資を行う傾向にあります。**感受性**が高くなると、その可能性は低くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
+      "tooltip": "より経験に**積極的**な人は、よりリスクのある投資を行う傾向にあります。**感受性**が高くなると、その可能性は低くなります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
     },
     {
       "id": "scenario.recreate_risk",
@@ -1125,7 +1125,7 @@ module.exports={
       "id": "scenario.career_risk",
       "name": "キャリアの変更",
       "verb": "キャリアを変更する",
-      "tooltip": "**誠実性**、**外向性**、**寛容性**が高い人は、より変化に対応できる傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
+      "tooltip": "**誠実性**、**外向性**、**積極性**が高い人は、より変化に対応できる傾向があります。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
     },
     {
       "id": "scenario.excercise",
@@ -1149,19 +1149,19 @@ module.exports={
       "id": "scenario.retweet",
       "name": "リツイート",
       "verb": "ソーシャル・メディアをさらに共有する",
-      "tooltip": "より**謙虚**、**寛容**で**親切**という特徴を持つ人は、情報を拡散する傾向にあります。. [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
+      "tooltip": "より**謙虚**、**積極的**で**親切**という特徴を持つ人は、情報を拡散する傾向にあります。. [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
     },
     {
       "id": "scenario.click_ad",
       "name": "広告をチェック",
       "verb": "広告をチェックする",
-      "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、広告をクリックする傾向があります。このような傾向ある人の内、トップ10パーセントの人達のクリックする割合は6.8パーセントから11.3パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+      "tooltip": "より**積極性**がある反面、**感受性**が弱い人は、広告をクリックする傾向があります。このような傾向ある人の内、トップ10パーセントの人達のクリックする割合は6.8パーセントから11.3パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
     },
     {
       "id": "scenario.follow_account",
       "name": "アカウントのフォロー",
       "verb": "ソーシャル・メディアをフォローする",
-      "tooltip": "より**寛容性**がある反面、**感受性**が弱い人は、ソーシャル・メディアのアカウントをフォローする傾向があります。このような傾向がある人の内、トップ10パーセントの人達のフォロー率は4.7パーセントから8.8パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
+      "tooltip": "より**積極性**がある反面、**感受性**が弱い人は、ソーシャル・メディアのアカウントをフォローする傾向があります。このような傾向がある人の内、トップ10パーセントの人達のフォロー率は4.7パーセントから8.8パーセントに増加しました。 [どのようにしてこの結果が得られたか?（英語）](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
     }
   ],
   "industries": [
