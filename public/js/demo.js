@@ -16,9 +16,10 @@
 /* global $:false,TextSummary, Profile,_, $Q*/
 'use strict';
 
-var markdown = window.markdownit();
+var markdown = function (s) { return window.markdownit().render(s); };
 
 var OUTPUT_LANG = 'en';
+
 var globalState = {
     twitterUserId: undefined,
     selectedTwitterUser: undefined,
@@ -58,35 +59,23 @@ function isDefined(v) {
   return typeof v !== 'undefined';
 }
 
-function renderMarkdown(s) {
-  var
-    rendered = markdown.render(s ? s : ''),
-    replaces = [
-      ['<a', '<a class="base--a" target="_blank"']
-    ];
-
-  replaces.forEach(function(p) {
-    rendered = rendered.replace(p[0], p[1]);
+function replaces(s, replaces) {
+  var out = s;
+  replaces.forEach(function(r) {
+    out = out.replace(r.search, r.replace);
   });
 
-  return rendered;
+  return out;
 }
 
-function id(x) { return x; }
-
-function removeHidden(d) {
-  d.scenarios = d.scenarios.filter(function (s) {
-    return !s.hidden;
-  });
-  return d;
+function renderMarkdown(s) {
+  return replaces(markdown(s || ''), [{ search: /\<\a /g, replace: '<a class="base--a" target="_blank" ' }]);
 }
 
 function inString(sub, str) {
   var normalize = function (s) { return s.toLowerCase(); };
   return normalize(str).indexOf(normalize(sub)) > -1;
 }
-
-function toDict(d) { return new Dictionary(d); }
 
 $(document).ready(function () {
 
@@ -100,10 +89,7 @@ $(document).ready(function () {
         'ar',
         'ja'
       ],
-    textCache = {},
-    Resources = {
-        _autoload : [ { name: 'scenarios', loader: removeHidden }, { name: 'names', loader: toDict } ]
-      };
+    textCache = {};
 
   globalState.selectedSample = SAMPLE_TEXTS[0];
   globalState.languageSelected = undefined;
@@ -406,89 +392,6 @@ $(document).ready(function () {
     });
   }
 
-  function testScenario(scenario, premise, predicate) {
-    return scenario.traits.reduce(predicate, premise);
-  }
-
-  function byId(xs, id) {
-    return xs.filter(function (x) {
-      return x.id === id;
-    })[0];
-  }
-
-  function inThreshold(threshold, value) {
-    return value >= threshold.min && value <= threshold.max;
-  }
-
-  function toScoringFunction(target) {
-    return function (p) {
-      return eval(target.score);
-    };
-  }
-
-  function targetTraitScore(targets, id, trait) {
-    return toScoringFunction(byId(targets,id))(trait.percentage);
-  }
-
-  function scenarioScore(profile, scenario, targets) {
-    return (testScenario(scenario, 0, function(acc, trait) {
-      return acc + targetTraitScore(targets, trait.target, profile.getTrait(trait.id));
-    }) / scenario.traits.length);
-  }
-
-  function matchingScenarios(targets, scenarios, profile) {
-    return scenarios.map(function (scenario) {
-      return {
-        score: scenarioScore(profile, scenario, targets),
-        scenario: scenario
-      }
-    });
-  }
-
-  function getScenarioInfo(category, scenario) {
-    var scenarioInfo = Resources.names.get(category)
-      .filter(function (otherScenario) {
-        return otherScenario.id == scenario.id;
-      })[0];
-
-    return scenarioInfo;
-  }
-
-  function getUniqueBehaviorsFor(profile) {
-    var found = {};
-    var behaviors = getBehaviorsFor(profile).filter(function (b) {
-      var hold = false;
-      if (!found[b.name]) {
-        found[b.name] = true;
-        hold = true;
-      }
-      return hold;
-    });
-    return behaviors;
-  }
-
-  function getBehaviorsFor(profile) {
-    var targets = Resources.scenarios.targets,
-        scenarios  = Resources.scenarios.scenarios,
-        _profile   = new Profile(profile);
-    return matchingScenarios(targets, scenarios, _profile).map(function (scenarioMatching) {
-      var scenarioInfo = getScenarioInfo('scenarios', scenarioMatching.scenario);
-      return {
-        name : scenarioInfo.verb,
-        score : scenarioMatching.score,
-        tooltip: renderMarkdown(scenarioInfo.tooltip)
-      };
-    });
-  }
-
-  function dictToArray(dict) {
-    var arr = [];
-    Object.keys(dict).forEach(function(key) {
-      arr.push({ key: key, value: dict[key] });
-    });
-    return arr;
-  }
-
   function loadOutput(rawData) {
     var data = changeProfileLabels(rawData);
     setTextSummary(data, 'en');
@@ -541,6 +444,8 @@ $(document).ready(function () {
       return u;
     }
 
+
+
     function toHtml(markdownDict) {
       return mapObject(markdownDict, function(key, value) {
         return renderMarkdown(value);
@@ -567,7 +472,7 @@ $(document).ready(function () {
       tooltips: toHtml(PITooltips.values().getValue())
     }));
 
-    loadBehaviors(data);
+    loadBehaviors(data, 'en');
 
     updateJSON(rawData);
 
@@ -575,10 +480,18 @@ $(document).ready(function () {
 
   }
 
-  function loadBehaviors(profile) {
+  function loadBehaviors(profile, lang) {
     var behaviors_template = outputBehaviorsTemplate.innerHTML;
 
-    var behaviors = getUniqueBehaviorsFor(profile);
+
+    var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
+    var behaviors = personalityBehaviors.behaviors(profile);
+    behaviors = behaviors.map(function (b) {
+      console.log(b.description);
+      b.description = renderMarkdown(b.description);
+      console.log(b.description);
+      return b;
+    });
 
     var likely   = behaviors.filter(isPositive),
         unlikely = behaviors.filter(isNegative);
@@ -720,24 +633,6 @@ $(document).ready(function () {
       });
   }
 
-  function loadResources() {
-    Resources._autoload.forEach(function (resource) {
-      if (!resource.name) {
-        resource = {
-          name : resource,
-          loader : id
-        };
-      }
-
-      $Q.get('data/' + resource.name + '.json')
-        .then(function(data) {
-          Resources[resource.name] = resource.loader(data);
-        })
-        .catch(console.error.bind(console, 'Error loading data/' + resource.name + '.json'))
-        .done();
-    });
-  }
-
   function selfAnalysis() {
     return QUERY_PARAMS.source == 'myself';
   }
@@ -769,7 +664,6 @@ $(document).ready(function () {
     preloadSampleTexts(function () {
       loadSampleText(globalState.selectedSample);
     });
-    loadResources();
     registerHandlers();
     $inputTextArea.addClass('orientation', 'left-to-right');
 
