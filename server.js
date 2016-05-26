@@ -1,12 +1,10 @@
 #! /usr/bin/env node
 'use strict';
 
+require('dotenv').config({silent: true});
+
 var logger  = require('winston'),
     port    = require('./config/app-info').port;
-
-if (process.env.GOOGLE_ANALYTICS) {
-  process.env.GOOGLE_ANALYTICS = process.env.GOOGLE_ANALYTICS.replace(/\"/g,'');
-}
 
 // Deployment tracking
 require('cf-deployment-tracker-client').track();
