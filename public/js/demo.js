@@ -27,7 +27,8 @@ var globalState = {
     selectedTwitterUserLang: undefined,
     selectedSample: undefined,
     languageSelected: undefined,
-    currentProfile: undefined
+    currentProfile: undefined,
+    userLocale: undefined
   };
 
 var QUERY_PARAMS = (function(a) {
@@ -43,6 +44,18 @@ var QUERY_PARAMS = (function(a) {
   }
   return b;
 })(window.location.search.substr(1).split('&'));
+
+function getBrowserLang() {
+ if (navigator.languages != undefined)
+  return navigator.languages[0];
+ else
+  return navigator.language;
+};
+
+function getBrowserLangNoLocale() {
+  var lang = getBrowserLang();
+  return lang.substring(0, 2);
+}
 
 function extend(target, source) {
   Object.keys(source).forEach(function (k) {
@@ -140,6 +153,8 @@ $(document).ready(function () {
   }
 
   function registerHandlers() {
+
+    globalState.userLocale = getBrowserLangNoLocale();
 
     $('input[name="text-lang"]').click(function() {
       globalState.selectedLanguage = $(this).attr('value');
@@ -252,7 +267,7 @@ $(document).ready(function () {
   // toggleNeedsTraits
   $needsToggle.click(function() {
     $needsMoreTraits.toggle();
-    $needsToggle.text($needsToggle.text() == 'See more' ? 'See less' : 'See more');
+    $needsToggle.text($needsToggle.text() == '<<' ? '>>' : '<<');
   });
 
   $outputJSONButton.click(function() {
@@ -284,12 +299,12 @@ $(document).ready(function () {
       }
     };
 
-    return replacements[lang || 'en'] || {};
+    return replacements[lang] || {};
   }
 
   function changeProfileLabels(data) {
     var clonned = JSON.parse(JSON.stringify(data)),
-      replacements = replacementsForLang(OUTPUT_LANG);
+      replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
 
     function walkTree(f, tree) {
       f(tree);
@@ -307,38 +322,10 @@ $(document).ready(function () {
     return clonned;
   }
 
-  function getErrorMapping(err) {
-    var errorMapping = {
-      '400' : {
-        'minimum number of words required for analysis' : 'We need at least 100 words for analysis. Watson doesn\'t like to judge a book by its cover.'
-      },
-      '401' : {
-        'invalid credentials' : 'There was a problem processing the personality. Please check your credentials.'
-      },
-      '500' : {
-        'missing required parameters' : 'Please input some text to analyze.',
-        'Not enough tweets for user' : 'We need at least 50 tweets for analysis. Watson doesn\'t like to judge a book by its cover.',
-        'Review your credentials' : 'Oops! There was a problem obtaining your tweets. Please, try again later.'
-      }
-    };
-
-    var message = err.error;
-    if (errorMapping[err.code]) {
-      Object.keys(errorMapping[err.code]).forEach(
-        function (errorString) {
-          if (inString(errorString, err.error)) {
-            message = errorMapping[err.code][errorString];
-          }
-        }
-      );
-    }
-    return message;
-  }
-
   function getErrorMessage(error) {
-    var message = 'Error processing the request, please try again.';
+    var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
-      message = getErrorMapping(error.responseJSON);
+      message = error.responseJSON.error.error;
     }
     return message;
   }
@@ -346,12 +333,14 @@ $(document).ready(function () {
   function defaultProfileOptions(options) {
     var defaults = extend({
       source_type: 'text',
-      accept_language: OUTPUT_LANG || 'en',
+      accept_language: globalState.userLocale || OUTPUT_LANG || 'en',
       include_raw: false
     }, options || {});
 
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+
     if (defaults.source_type !== 'twitter') {
-      defaults = extend({language: 'en'}, defaults);
+      defaults = extend({language: lang}, defaults);
     }
 
     return defaults;
@@ -394,7 +383,7 @@ $(document).ready(function () {
 
   function loadOutput(rawData) {
     var data = changeProfileLabels(rawData);
-    setTextSummary(data, 'en');
+    setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
     loadWordCount(data);
     var big5Data = data.tree.children[0].children[0].children;
     var needsData = data.tree.children[1].children[0].children;
@@ -444,35 +433,42 @@ $(document).ready(function () {
       return u;
     }
 
-
-
     function toHtml(markdownDict) {
       return mapObject(markdownDict, function(key, value) {
         return renderMarkdown(value);
       });
     }
 
+    var descriptions = new PersonalityTraitDescriptions({
+      format: 'markdown',
+      locale: globalState.userLocale || OUTPUT_LANG || 'en'
+    });
+
+    var tooltips = function (traitId) {
+      return renderMarkdown(descriptions.description(traitId));
+    };
+
     $big5Traits.append(_.template(big5_template, {
       items: big5Data_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.big5().getValue())
+      tooltips: tooltips
     }));
 
     $needsTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(0,5),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $needsMoreTraits.append(_.template(statsPercent_template, {
       items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
-      tooltips: toHtml(PITooltips.needs().getValue())
+      tooltips: tooltips
     }));
 
     $valuesTraits.append(_.template(statsPercent_template, {
       items: valuesData_curated.sort(sortScores),
-      tooltips: toHtml(PITooltips.values().getValue())
+      tooltips: tooltips
     }));
 
-    loadBehaviors(data, 'en');
+    loadBehaviors(data, globalState.userLocale || OUTPUT_LANG || 'en');
 
     updateJSON(rawData);
 
@@ -487,9 +483,7 @@ $(document).ready(function () {
     var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
     var behaviors = personalityBehaviors.behaviors(profile);
     behaviors = behaviors.map(function (b) {
-      console.log(b.description);
       b.description = renderMarkdown(b.description);
-      console.log(b.description);
       return b;
     });
 

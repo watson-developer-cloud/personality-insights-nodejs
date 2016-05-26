@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.PersonalityBehaviors = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.PersonalityTraitDescriptions = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -17,521 +17,9 @@
 
 'use strict';
 
-module.exports = require('./lib/personality-behaviors');
+module.exports = require('./lib/personality-trait-descriptions');
 
-},{"./lib/personality-behaviors":8}],2:[function(require,module,exports){
-module.exports=[
-  {
-    "id": "scenario.environmental_products",
-    "industries": [
-      "industry.retail"
-    ],
-    "categories": [
-      "category.shopping"
-    ],
-    "persona": [
-      "persona.greenie"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.luxury_goods",
-    "industries": [
-      "industry.retail"
-    ],
-    "categories": [
-      "category.shopping"
-    ],
-    "persona": [
-      "persona.brand_lover"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "H"
-      },
-      {
-        "id": "values.trait.conservation",
-        "target": "H"
-      },
-      {
-        "id": "values.trait.self-enhancement",
-        "target": "H"
-      },
-      {
-        "id": "needs.trait.love",
-        "target": "H"
-      },
-      {
-        "id": "needs.trait.ideal",
-        "target": "H"
-      },
-      {
-        "id": "values.trait.hedonism",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.coupon_redemption",
-    "industries": [
-      "industry.retail"
-    ],
-    "categories": [
-      "category.shopping"
-    ],
-    "persona": [
-      "persona.deal_seeker"
-    ],
-    "traits": [
-      {
-        "id": "big5.facet.conscientiousness.cautiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.conscientiousness.orderliness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.conscientiousness.self-discipline",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.neuroticism.immoderation",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.healthy_food",
-    "industries": [
-      "industry.food"
-    ],
-    "categories": [
-      "category.eating"
-    ],
-    "persona": [
-      "persona.health_enthusiast"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.conscientiousness.self-discipline",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.openness.artistic_interests",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.neuroticism.vulnerability",
-        "target": "L"
-      },
-      {
-        "id": "big5.facet.neuroticism.immoderation",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.adventure_sports",
-    "industries": [
-      "industry.sports"
-    ],
-    "categories": [
-      "category.sports_leisure"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.openness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.openness.adventurousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.extraversion.excitement-seeking",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.financial_risk",
-    "industries": [
-      "industry.finance"
-    ],
-    "categories": [
-      "category.investment"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.avoid_risk",
-    "industries": [
-      "industry.no_industry"
-    ],
-    "categories": [
-      "category.risk"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.recreate_risk",
-    "hidden": true,
-    "industries": [
-      "industry.healthcare"
-    ],
-    "categories": [
-      "category.risk"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.health_risk",
-    "industries": [
-      "industry.healthcare"
-    ],
-    "categories": [
-      "category.risk"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.career_risk",
-    "industries": [
-      "industry.no_industry"
-    ],
-    "categories": [
-      "category.risk"
-    ],
-    "persona": [
-      "persona.risk_taker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.excercise",
-    "industries": [
-      "industry.fitness"
-    ],
-    "categories": [
-      "category.living"
-    ],
-    "persona": [
-      "persona.health_enthusiast"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.adaptability",
-    "hidden": true,
-    "industries": [
-      "industry.no_industry"
-    ],
-    "categories": [
-      "category.work"
-    ],
-    "persona": [
-      "persona.adapter"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.conscientiousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.respond_to_strangers",
-    "industries": [
-      "industry.media"
-    ],
-    "categories": [
-      "category.social_media"
-    ],
-    "persona": [
-      "persona.responder"
-    ],
-    "traits": [
-      {
-        "id": "big5.facet.extraversion.excitement-seeking",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.extraversion.friendliness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.extraversion.activity_level",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.extraversion.gregariousness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.agreeableness.trust",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.agreeableness.morality",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.extraversion",
-        "target": "H"
-      },
-      {
-        "id": "big5.trait.agreeableness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.conscientiousness.cautiousness",
-        "target": "L"
-      },
-      {
-        "id": "big5.facet.neuroticism.anxiety",
-        "target": "L"
-      }
-    ]
-  },
-  {
-    "id": "scenario.retweet",
-    "industries": [
-      "industry.media"
-    ],
-    "categories": [
-      "category.social_media"
-    ],
-    "persona": [
-      "persona.broadcaster"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.openness",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.agreeableness.modesty",
-        "target": "H"
-      },
-      {
-        "id": "big5.facet.extraversion.friendliness",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.click_ad",
-    "industries": [
-      "industry.travel"
-    ],
-    "categories": [
-      "category.ad_targeting"
-    ],
-    "persona": [
-      "persona.ad_clicker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.openness",
-        "target": "H"
-      }
-    ]
-  },
-  {
-    "id": "scenario.follow_account",
-    "industries": [
-      "industry.travel"
-    ],
-    "categories": [
-      "category.ad_targeting"
-    ],
-    "persona": [
-      "persona.ad_clicker"
-    ],
-    "traits": [
-      {
-        "id": "big5.trait.neuroticism",
-        "target": "L"
-      },
-      {
-        "id": "big5.trait.openness",
-        "target": "H"
-      }
-    ]
-  }
-]
-
-},{}],3:[function(require,module,exports){
-module.exports=[
-  {
-    "id": "H",
-    "name": "High",
-    "score": "p"
-  },
-  {
-    "id": "L",
-    "name": "Low",
-    "score": "1 - p"
-  }
-]
-
-},{}],4:[function(require,module,exports){
+},{"./lib/personality-trait-descriptions":6}],2:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -555,446 +43,175 @@ module.exports = {
   'es': require('./es')
 };
 
-},{"./en":5,"./es":6}],5:[function(require,module,exports){
-module.exports={
-  "scenarios": [
-    {
-      "id": "scenario.environmental_products",
-      "name": "Environmentally Conscious Products",
-      "verb": "Buy eco-friendly",
-      "tooltip": "People who exhibit more **agreeableness**, **extraversion**, and **conscientiousness** are more likely to purchase eco-friendly products. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherEnvironment)"
-    },
-    {
-      "id": "scenario.luxury_goods",
-      "name": "Luxury Goods",
-      "verb": "Treat Yourself",
-      "tooltip": "People who exhibit more **conscientiousness**, **conservation**, **self-enhancement**, and **agreeableness**; a need for **love** and the **ideal**; and value **hedonism** are likely to prefer luxury brands. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMbrand)"
-    },
-    {
-      "id": "scenario.coupon_redemption",
-      "name": "Coupon Redemption",
-      "verb": "Use a coupon",
-      "tooltip" : "People who exhibit more **orderliness**, **self-discipline**, **cautiousness**, and **moderation** are likely to redeem coupons. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMcampaign)"
-    },
-    {
-      "id": "scenario.healthy_food",
-      "name": "Healthy Food",
-      "verb": "Buy healthy foods",
-      "tooltip": "People who exhibit more **conscientiousness**, **self-discipline**, and even **artistic interests** than others are more likely to eat health foods. However, more **susceptibility to stress**, **emotional range**, and **immoderation** decreases that likelihood. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
-    },
-    {
-      "id": "scenario.adventure_sports",
-      "name": "Adventure Sports",
-      "verb": "Do adventure sports",
-      "tooltip": "People who exhibit more **extraversion**, **openness**, **excitement-seeking**, **adventurousness** and **emotional range** than others are likely to engage in adventure sports. Exhibiting more **conscientiousness** reduces the likelihood. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.financial_risk",
-      "name": "Financial Risk",
-      "verb": "Take financial risks",
-      "tooltip": "People with more **openness to experiences** than others are likely to make risky investments. Showing more **emotional range** reduces that likelihood. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.recreate_risk",
-      "name": "Recreate Risk",
-      "verb": "Recreating risks",
-      "tooltip": "No description available."
-    },
-    {
-      "id": "scenario.avoid_risk",
-      "name": "Avoid Risk",
-      "verb": "Avoid taking risks",
-      "tooltip": "People who exhibit more **agreeableness**, **emotional range** and **conscientiousness** than others are likely to avoid taking risks. Exhibiting more **extraversion** increases the likelihood of someone taking risks. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.health_risk",
-      "name": "Health Risk",
-      "verb": "Put health at risk",
-      "tooltip": "People who exhibit more **extraversion**, **emotional range** and less **agreeableness** than others are likely to put their health at risk. Exhibiting more **conscientiousness** decreases this likelihood. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.career_risk",
-      "name": "Career Risk",
-      "verb": "Change careers",
-      "tooltip": "People who exhibit more **conscientiousness**, **extraversion**, and **openness** than others are more likely to adapt to changes in career. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
-    },
-    {
-      "id": "scenario.excercise",
-      "name": "Exercise",
-      "verb": "Spend on health and fitness",
-      "tooltip": "People who exhibit more **extraversion** and **conscientiousness** than others are more likely to exercise often. More **emotional range** reduces that likelihood. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
-    },
-    {
-      "id": "scenario.adaptability",
-      "name": "Adaptability",
-      "verb": "Adapt to situations",
-      "tooltip": "No description available."
-    },
-    {
-      "id": "scenario.respond_to_strangers",
-      "name": "Willingness to respond to strangers",
-      "verb": "Reply on social media",
-      "tooltip": "People who exhibit more **excitement-seeking**, **friendliness**, **activity levels**, **gregariousness**, **trust**, **morality**, **extraversion**, and **agreeableness** than others are likely to respond to social media posts. People who exhibit more **cautiousness** and **anxiety** are not. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMrespond)"
-    },
-    {
-      "id": "scenario.retweet",
-      "name": "Retweet",
-      "verb": "Re-share on social media",
-      "tooltip": "People who exhibit more **modesty**, **openness**, and **friendliness** traits than others are likely to spread information. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
-    },
-    {
-      "id": "scenario.click_ad",
-      "name": "Click an Ad",
-      "verb": "Click on an ad",
-      "tooltip": "People who exhibit more **openness**, but less **emotional range** than others are more likely to click on an ad. For the top 10% of these people, click rate increased from 6.8% to 11.3%. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
-    },
-    {
-      "id": "scenario.follow_account",
-      "name": "Follow account",
-      "verb": "Follow on social media",
-      "tooltip": "People who exhibit more **openness**, but less **emotional range** than others are more likely to follow a social media account. For the top 10% of these people, follow rate increased from 4.7% to 8.8% percent. [How did we get this?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
-    }
-  ],
-  "industries": [
-    {
-      "id": "industry.retail",
-      "name": "Retail"
-    },
-    {
-      "id": "industry.food",
-      "name": "Food"
-    },
-    {
-      "id": "industry.sports",
-      "name": "Sports"
-    },
-    {
-      "id": "industry.finance",
-      "name": "Financial"
-    },
-    {
-      "id": "industry.healthcare",
-      "name": "Healthcare"
-    },
-    {
-      "id": "industry.fitness",
-      "name": "Fitness"
-    },
-    {
-      "id": "industry.media",
-      "name": "Media"
-    },
-    {
-      "id": "industry.travel",
-      "name": "Travel"
-    },
-    {
-      "id": "industry.no_industry",
-      "name": "No Industry"
-    }
-  ],
-  "categories": [
-    {
-      "id": "category.shopping",
-      "name": "Shopping"
-    },
-    {
-      "id": "category.eating",
-      "name": "Eating"
-    },
-    {
-      "id": "category.sports_leisure",
-      "name": "Sports and Leisure"
-    },
-    {
-      "id": "category.investment",
-      "name": "Investments"
-    },
-    {
-      "id": "category.risk",
-      "name": "Risk"
-    },
-    {
-      "id": "category.living",
-      "name": "Living"
-    },
-    {
-      "id": "category.work",
-      "name": "Work"
-    },
-    {
-      "id": "category.social_media",
-      "name": "Social Media"
-    },
-    {
-      "id": "category.ad_targeting",
-      "name": "Ad Targeting"
-    }
-  ],
-  "personas": [
-    {
-      "id": "persona.greenie",
-      "name": "Green Lover"
-    },
-    {
-      "id": "persona.brand_lover",
-      "name": "Brand Lover"
-    },
-    {
-      "id": "persona.deal_seeker",
-      "name": "Deal Seeker"
-    },
-    {
-      "id": "persona.health_enthusiast",
-      "name": "Health Enthusiast"
-    },
-    {
-      "id": "persona.risk_taker",
-      "name": "Risk Taker"
-    },
-    {
-      "id": "persona.adapter",
-      "name": "Adapter"
-    },
-    {
-      "id": "persona.responder",
-      "name": "Responder"
-    },
-    {
-      "id": "persona.broadcaster",
-      "name": "Broadcaster"
-    },
-    {
-      "id": "persona.follower",
-      "name" : "Follower"
-    },
-    {
-      "id": "persona.ad_clicker",
-      "name": "Ad Clicker"
-    }
-  ]
-}
+},{"./en":3,"./es":4}],3:[function(require,module,exports){
+'use strict';
+/*
+ * Copyright 2015-2016 IBM Corp. All Rights Reserved.
+#
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+#
+ *      http://www.apache.org/licenses/LICENSE-2.0
+#
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-},{}],6:[function(require,module,exports){
-module.exports={
-  "scenarios": [
-    {
-      "id": "scenario.environmental_products",
-      "name": "Productos Conscientes con el Medioambiente ",
-      "verb": "Comprar ecológico",
-      "tooltip": "Las personas que muestran más **amabilidad**, **extroversión**, y **responsabilidad** que otras, son más propensas a comprar productos ecológicos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherEnvironment)"
-    },
-    {
-      "id": "scenario.luxury_goods",
-      "name": "Bienes Lujosos ",
-      "verb": "Darse Gustos",
-      "tooltip": "Las personas que muestran más **responsabilidad**, **conservación**, **superación personal**, y **amabilidad**; necesidades **amor** e **ideal**; y el valor **hedonismo** son más propensas que otras a preferir marcas lujosas. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMbrand)"
-    },
-    {
-      "id": "scenario.coupon_redemption",
-      "name": "Uso de Cupones",
-      "verb": "Usar un cupón",
-      "tooltip" : " Las personas que muestran más **disciplina**, **autodisciplina**, **cautela**, y **moderación** que otras, son propensas a usar cupones. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMcampaign)"
-    },
-    {
-      "id": "scenario.healthy_food",
-      "name": "Alimentos Saludables",
-      "verb": "Comprar alimentos saludables",
-      "tooltip": "Las personas que muestran más **responsabilidad**, **autodisciplina**, e incluso **intereses artísticos** que otras, son más propensas a comer alimentos saludables. Sin embargo, más **susceptibilidad al estrés**, **rango emocional **, y **desmesura** disminuyen esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
-    },
-    {
-      "id": "scenario.adventure_sports",
-      "name": "Deportes de Aventura",
-      "verb": "Practicar deportes de aventura",
-      "tooltip": "Las personas que muestran más **extroversión**, **apertura a nuevas experiencias**, **búsqueda de emociones**, **audacia** y **rango emocional** que otras, son propensas a comprometerse con deportes de aventura. Mostrar más **responsabilidad** disminuye esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.financial_risk",
-      "name": "Riesgo Financiero",
-      "verb": "Correr riesgos financieros",
-      "tooltip": "Las personas que muestran más **apertura a experiencias ** que otras, raramente hacen inversiones de riesgo. Mostrar más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.recreate_risk",
-      "name": "Recrear Riesgo",
-      "verb": "Recrear riesgos",
-      "tooltip": "Descripción no disponible."
-    },
-    {
-      "id": "scenario.avoid_risk",
-      "name": "Avoid Risk",
-      "verb": "Avoid taking risks",
-      "tooltip": "Las personas que muestran más **amabilidad**, **rango emocional ** y **responsabilidad** que otras, son más propensas a evitar correr riesgos. Mostrar más **extroversión** aumenta la probabilidad de correr riesgos. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.health_risk",
-      "name": "Riesgo de Salud ",
-      "verb": "Poner la salud en riesgo",
-      "tooltip": "Las personas que muestran más **extroversión**, **rango emocional ** y menos **amabilidad** que otras, son propensas a poner su salud en riesgo. Mostrar más **responsabilidad** disminuye esta probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherRisk)"
-    },
-    {
-      "id": "scenario.career_risk",
-      "name": "Riesgo de Carrera ",
-      "verb": "Cambiar de carrera",
-      "tooltip": "Las personas que muestran más **responsabilidad**, **extroversión**, and **apertura a experiencias** que otras, son más propensas a adaptarse a cambios en su carrera. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherProfessional)"
-    },
-    {
-      "id": "scenario.excercise",
-      "name": "Ejercicio",
-      "verb": "Gastar en salud y actividad física",
-      "tooltip": "Las personas que muestran más **extroversión** y **responsabilidad** que otras, son más propensas a ejercitar con frecuencia. Más **rango emocional ** reduce esa probabilidad. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#otherHealth)"
-    },
-    {
-      "id": "scenario.adaptability",
-      "name": "Adaptabilidad",
-      "verb": "Adaptarse a situaciones",
-      "tooltip": "Descripción no disponible."
-    },
-    {
-      "id": "scenario.respond_to_strangers",
-      "name": "Deseo por Responder a Extraños",
-      "verb": "Responder en redes sociales",
-      "tooltip": "Las personas que muestran más **búsqueda de emociones**, **simpatía**, **nivel de actividad**, **sociabilidad**, **confianza**, **moral**, **extroversión**, y **amabilidad** que otras, son más propensas a responder publicaciones en redes sociales. Las personas que muestran más **cautela** y **ansiedad** no lo son. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMrespond)"
-    },
-    {
-      "id": "scenario.retweet",
-      "name": "Retweet",
-      "verb": "Compartir publicaciones de otros en redes sociales",
-      "tooltip": "Las personas que muestran más **modestia**, **apertura a experiencias**, y **simpatía** que otras, son más propensas a divulgar información. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMretweet)"
-    },
-    {
-      "id": "scenario.click_ad",
-      "name": "Clickear una Publicidad",
-      "verb": "Clickear una publicidad",
-      "tooltip": "Las personas que muestran más **apertura a experiencias**, pero menos **rango emocional** que otras, son más propensas a clickear en una publicidad. Para el 10% más alto de estas personas, la tasa de clicks aumenta de 6.8% a 11.3%. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
-    },
-    {
-      "id": "scenario.follow_account",
-      "name": "Seguir una Cuenta",
-      "verb": "Seguir en redes sociales",
-      "tooltip": "Las personas que muestran más **apertura a experiencias** pero menos **rango emocional** que otras son más propensas a seguir una cuenta en redes. Para el 10% más alto de estas personas, la tasa de seguimiento aumenta de 4.7% a 8.8%. [¿Cómo obtuvimos esto?](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/applied.shtml#IBMtarget)"
-    }
-  ],
-  "industries": [
-    {
-      "id": "industry.retail",
-      "name": "Venta"
-    },
-    {
-      "id": "industry.food",
-      "name": "Comida"
-    },
-    {
-      "id": "industry.sports",
-      "name": "Deporte"
-    },
-    {
-      "id": "industry.finance",
-      "name": "Finanza"
-    },
-    {
-      "id": "industry.healthcare",
-      "name": "Salud"
-    },
-    {
-      "id": "industry.fitness",
-      "name": "Actividad física"
-    },
-    {
-      "id": "industry.media",
-      "name": "Medios"
-    },
-    {
-      "id": "industry.travel",
-      "name": "Viaje"
-    },
-    {
-      "id": "industry.no_industry",
-      "name": "Sin industria"
-    }
-  ],
-  "categories": [
-    {
-      "id": "category.shopping",
-      "name": "Compras"
-    },
-    {
-      "id": "category.eating",
-      "name": "Comida"
-    },
-    {
-      "id": "category.sports_leisure",
-      "name": "Deportes y Tiempo libre"
-    },
-    {
-      "id": "category.investment",
-      "name": "Inversiones"
-    },
-    {
-      "id": "category.risk",
-      "name": "Riesgo"
-    },
-    {
-      "id": "category.living",
-      "name": "Vida"
-    },
-    {
-      "id": "category.work",
-      "name": "Trabajo"
-    },
-    {
-      "id": "category.social_media",
-      "name": "Redes Sociales"
-    },
-    {
-      "id": "category.ad_targeting",
-      "name": "Segmentación de Anuncios"
-    }
-  ],
-  "personas": [
-    {
-      "id": "persona.greenie",
-      "name": "Amante Verde"
-    },
-    {
-      "id": "persona.brand_lover",
-      "name": "Amante de Marca"
-    },
-    {
-      "id": "persona.deal_seeker",
-      "name": "Buscador de Tratos"
-    },
-    {
-      "id": "persona.health_enthusiast",
-      "name": "Entusiasta de Salud"
-    },
-    {
-      "id": "persona.risk_taker",
-      "name": "Tomador de Riesgos"
-    },
-    {
-      "id": "persona.adapter",
-      "name": "Adaptador"
-    },
-    {
-      "id": "persona.responder",
-      "name": "Respondedor"
-    },
-    {
-      "id": "persona.broadcaster",
-      "name": "Anunciador"
-    },
-    {
-      "id": "persona.follower",
-      "name" : "Seguidor"
-    },
-    {
-      "id": "persona.ad_clicker",
-      "name": "Clickeador de Publicidades "
-    }
-  ]
-}
-},{}],7:[function(require,module,exports){
+'use static';
+
+module.exports = {
+
+  big5: {
+    'Openness': 'Openness to experience. Higher: Intellectually curious, emotionally-aware, sensitive to beauty and willing to try new things.\nLower: Preferring the plain, straightforward, and obvious over the complex, ambiguous, and subtle.',
+    'Conscientiousness': 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.',
+    'Extraversion': 'Higher: More energetic and pronounced engagement with the external world. Likes high group visibility, talking, and asserting themselves.\nLower: Needs less stimulation and are more independent of their social world. It does not mean they are shy, un-friendly, or antisocial.',
+    'Agreeableness': 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.',
+    'Neuroticism': '**This demo cannot diagnose a mental illness.** Higher: More likely to have negative emotions or get upset. It could mean they are going through a tough time.\nLower: More calm and less likely to get upset. It does not mean they are positive, or happy people.',
+    'Adventurousness': 'Eagerness to trying new activities and experiencing new things.',
+    'Artistic interests': 'Appreciation for art and beauty, both man-made and in nature.',
+    'Emotionality': 'Emotional availability; awareness of own feelings.',
+    'Imagination': 'Openness to creating an inner world of fantasy.',
+    'Intellect': 'Intellectual curiosity; openness to new ideas.',
+    'Liberalism': 'Openness to re-examine own values and traditions; readiness to challenge authority.',
+    'Achievement striving': 'The need for personal achievement and sense of direction.',
+    'Cautiousness': 'Tendency to think things through before acting or speaking.',
+    'Dutifulness': 'Sense of duty; amount of emphasis placed on fulfilling obligations.',
+    'Orderliness': 'Personal organization, tidiness, neatness.',
+    'Self-discipline': 'Will-power; the capacity to begin tasks and follow through to completion in spite of boredom or distractions.',
+    'Self-efficacy': 'Belief in one\'s own competence.',
+    'Activity level': 'Pace of living; level of busyness.',
+    'Assertiveness': 'Forcefulness of expression; pursuit of leadership and social ascendancy; desire to direct the activities of others.',
+    'Cheerfulness': 'Tendency to experience or express positive emotions.',
+    'Excitement-seeking': 'A need for environmental stimulation.',
+    'Friendliness': 'Interest in and friendliness towards others; socially confident.',
+    'Gregariousness': 'Fondness for the company of others; sociability.',
+    'Altruism': 'Active and genuine concern for the welfare of others.',
+    'Cooperation': 'Dislike of confrontations. Responding to interpersonal conflict with a willingness to compromise.',
+    'Modesty': 'Tendency to be unassuming and play down own achievements; humility.',
+    'Morality': 'Frank and genuine in expression; candid, blunt.',
+    'Sympathy': 'Attitude of compassion for others; kindness.',
+    'Trust': 'Level of belief in the sincerity and good intentions of others.',
+    'Anger': 'Tendency to experience–but not necessarily express–anger or frustration.',
+    'Anxiety': 'Tendency to dwell on difficulty or troubles; easily experience unease or concern.',
+    'Depression': 'Normal tendency to experience feelings of guilt, sadness, hopelessness, or loneliness. **This demo cannot diagnose a mental illness.**',
+    'Immoderation': 'Tendency to act on cravings and urges rather over resisting them or delaying gratification.',
+    'Self-consciousness': 'Concern with rejection, embarrassment; shyness.',
+    'Vulnerability': 'Difficulty in coping with stress or pressure in difficult situations.'
+  },
+
+  needs: {
+    'Structure': 'A need for organization, planning, and things that have a clear purpose.',
+    'Stability': 'A need for the sensible, tried and tested, with a good track record and a known history.',
+    'Self-expression': 'A desire to discover and assert one\'s identity.',
+    'Practicality': 'A desire for getting the job done, skill, and efficiency.',
+    'Love': 'Social contact, whether one-to-one or one-to-many.',
+    'Liberty': 'A need to escape, a desire for new experiences, new things.',
+    'Ideal': 'A desire to satisfy one\'s idea of perfection in a lifestyle or experience, oftentimes seen as pursuing a sense of community.',
+    'Harmony': 'A need to appreciate or please other people, their viewpoints, and feelings.',
+    'Excitement': 'A need to pursue experiences or lead a lifestyle that arouses enthusiasm and eagerness.',
+    'Curiosity': 'A need to pursue experiences that foster learning, exploration, and growth.',
+    'Closeness': 'A need to nurture or be nurtured; a feeling of belonging.',
+    'Challenge': 'A desire to achieve, succeed, compete, or pursue experiences that test one\'s abilities.'
+  },
+
+  values: {
+    'Conservation': 'Respect, commitment, and acceptance of the customs and ideas that one\'s culture and/or religion provides.',
+    'Openness to change': 'Excitement, novelty, and challenge in life.',
+    'Hedonism': 'Pleasure or sensuous gratification for oneself.',
+    'Self-enhancement': 'Personal success through demonstrating competence according to social standards.',
+    'Self-transcendence': 'Preserving and enhancing the welfare of those with whom one is in frequent personal contact.'
+  }
+};
+
+},{}],4:[function(require,module,exports){
+'use strict';
+/*
+ * Copyright 2015-2016 IBM Corp. All Rights Reserved.
+#
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+#
+ *      http://www.apache.org/licenses/LICENSE-2.0
+#
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use static';
+
+module.exports = {
+
+  big5: {
+    'Openness': 'Apertura a las experiencias. Más alto: Intelectualmente curiosos, emocionalmente conscientes, sensibles a la belleza, y deseosos por probar cosas nuevas. \nMás bajo: Prefieren lo común, directo, y obvio, frente a lo complicado, ambiguo y sutil.',
+    'Conscientiousness': 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.',
+    'Extraversion': 'Más alto: Más enérgico y marcado compromiso con el mundo externo. Les gusta la alta visibilidad en grupos, hablar y demostrarse a si mismos. \nMás bajo: Necesitan menos estimulación y son más independientes de su mundo social. No significa que sean tímidos, no amistosos, o antisociales.',
+    'Agreeableness': 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.',
+    'Neuroticism': '**Esta demo no puede diagnosticar una enfermedad mental.** Más alto: Más promensos a tener emociones negativas o disgustarse. Puede significar que estén pasando por un mañ momento. \nMás bajo: Más calmos y menos probables a disgustarse o alterarse. Esto no significa que sean gente positiva o feliz.',
+    'Adventurousness': 'Entusiasmo por probar nuevas actividades y experimentar nuevas cosas.',
+    'Artistic interests': 'Apreciación por el arte y la belleza, tanto humana como de la naturaleza.',
+    'Emotionality': 'Disponibilidad emocional; conciencia de los sentimientos propios.',
+    'Imagination': 'Apertira a crear un mundo interior de fantasía.',
+    'Intellect': 'Curiosidad intelectual; apertura a nuevas ideas.',
+    'Liberalism': 'Apertura a re-examinar los valores propios y tradiciones; disposición para desafiar la autoridad.',
+    'Achievement striving': 'Necesidad de realizar logros personales y sentido de la dirección.',
+    'Cautiousness': 'Tendencia a pensar las cosas antes de actuar o hablar.',
+    'Dutifulness': 'Sentido del deber; gran énfasis puesto en cumplir con las obligaciones.',
+    'Orderliness': 'Organización personal; prolijidad y pulcritud.',
+    'Self-discipline': 'Fuerza de voluntad; la capacidad de empezar tareas y seguirlas hasta el final, a pesar del aburrimiento o distracciones.',
+    'Self-efficacy': 'Creencia en la capacidad propia.',
+    'Activity level': 'Ritmo de vida; nivel de ocupación.',
+    'Assertiveness': 'Fuerza de expresión; búsqueda del liderazgo y ascendencia social; deseo por dirigir las actividades de otros.',
+    'Cheerfulness': 'Tendencia a experimentar o expresar emociones positivas.',
+    'Excitement-seeking': 'Necesidad por estimulación del entorno.',
+    'Friendliness': 'Interés y amistad hacia otros; confiado socialmente.',
+    'Gregariousness': 'Gusto por la compañía de otros; sociabilidad.',
+    'Altruism': 'Preocupación activa y genuina por el bienestar de los demás.',
+    'Cooperation': 'Disgusto por las confrontaciones; responde a los conflictos interpersonales con el deseo de compromiso.',
+    'Modesty': 'Tendencia a la sencillez, pocas pretensiones, sin alarde de los logros propios; humildad. ',
+    'Morality': 'Franqueza y expresión genuina; cándido, franco.',
+    'Sympathy': 'Actitud de compasión hacia los demás; amabilidad.',
+    'Trust': 'Nivel de creencia en la sinceridad y buenas intenciones de los demás.',
+    'Anger': 'Tendencia a experimentar –pero no necesariamente expresar– ira o frustración.',
+    'Anxiety': 'Tendencia a vivir enfocado en las dificultades y problemas; experimenta inquietud y problemas con facilidad. ',
+    'Depression': 'Tendencia normal a experimental sentimientos de culpa, tristeza, desesperanza, o soledad. **Esta demo no puede diagnosticar una enfermedad mental.**',
+    'Immoderation': 'Tendencia a actuar con ansiedad y urgencia. Tienden a los placeres y recompensas de corto plazo en lugar de consecuencias a largo plazo.',
+    'Self-consciousness': 'Temor al rechazo o vergüenza; timidez.',
+    'Vulnerability': 'Dificultad a lidiar con el estrés o la presión en situaciones complicadas.'
+  },
+
+  needs: {
+    'Structure': 'Necesidad de organización, planificación, y cosas que tengan un propósito claro.',
+    'Stability': 'Necesidad por lo tangible, probado y experimentado, con un buen prontuario e historial.',
+    'Self-expression': 'Deseo por descubrir y plasmar la identidad propia.',
+    'Practicality': 'Deseo por completar una tarea, con habilidad y eficiencia.',
+    'Love': 'Contacto social, tanto uno-a-uno como uno-a-muchos..',
+    'Liberty': 'Necesidad de escapar, deseo por nuevas experiencias y cosas nuevas.',
+    'Ideal': 'Deseo de satisfacer las ideas propias de perfección en el estilo de vida o experiencias; generalmente visto como perseguir un deseo de comunidad.',
+    'Harmony': 'Necesidad de complacer a otras personas, sus puntos de vista y sentimientos.',
+    'Excitement': 'Necesidad de perseguir experiencias o llevar un estilo de vida que muestre entusiasmo y deseo.',
+    'Curiosity': 'Necesidad de perseguir experiencias que fomenten el aprendizaje, la exploración y el crecimiento.',
+    'Closeness': 'Necesidad de cuidar y ser cuidado; sentido de pertenencia.',
+    'Challenge': 'Deseo de alcanzar, lograr, competir, o perseguir experiencias que ponen a prueba las propias habilidades.'
+  },
+
+  values: {
+    'Conservation': 'Respeto, compromiso, y aceptación de las costumbres e ideas que proveen la propia cultura y/o religión.',
+    'Openness to change': 'Independencia en las acciones, los pensamientos, sentimientos y disposición a nuevas experiencias.',
+    'Hedonism': 'Búsqueda del placer y de la gratificación de los sentidos.',
+    'Self-enhancement': 'Éxito personal a través de la demostración de competencia de acuerdo a estándares sociales.',
+    'Self-transcendence': 'Preservación y mejora del bienestar de aquellos con los que se contacta frecuentemente.'
+  }
+};
+
+},{}],5:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1019,29 +236,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _ = require('underscore'),
     contains = _.contains,
+    extend = _.extend,
     keys = _.keys;
 
-var byId = require('../utilities/list-of-objects').byId;
-
 var dictionaries = require('./dictionaries');
-
-var TypeData = function () {
-  function TypeData(type, descriptions) {
-    _classCallCheck(this, TypeData);
-
-    this._descriptions = descriptions;
-    this._type = type;
-  }
-
-  _createClass(TypeData, [{
-    key: 'id',
-    value: function id(_id) {
-      return byId(this._descriptions, _id);
-    }
-  }]);
-
-  return TypeData;
-}();
 
 var I18nData = function () {
   function I18nData(locale) {
@@ -1052,9 +250,13 @@ var I18nData = function () {
   }
 
   _createClass(I18nData, [{
-    key: 'type',
-    value: function type(_type) {
-      return new TypeData(_type, this._dictionary[_type]);
+    key: 'data',
+    value: function data() {
+      var _this = this;
+
+      return keys(this._dictionary).reduce(function (res, k) {
+        return extend(res, _this._dictionary[k]);
+      }, {});
     }
   }]);
 
@@ -1063,7 +265,7 @@ var I18nData = function () {
 
 module.exports = I18nData;
 
-},{"../utilities/list-of-objects":11,"./dictionaries":4,"underscore":15}],8:[function(require,module,exports){
+},{"./dictionaries":2,"underscore":10}],6:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1086,48 +288,22 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var I18nData = require('./i18n');
+var format = require('./utilities/format-text');
 var _ = require('underscore'),
-    union = _.union,
     extend = _.extend,
     pick = _.pick;
 
-var log = console;
-var formatText = require('./utilities/format-text');
-
-var I18nData = require('./i18n');
-var scoredScenarios = require('./scored-scenarios');
-
-function buildData(scenarios, targets) {
-  var data = {
-    _scenarios: [],
-    _scenariosById: {},
-    _industries: [],
-    _personas: [],
-    _categories: []
-  };
-  scenarios.forEach(function (s) {
-    data._categories = union(data._categories, s.categories);
-    data._industries = union(data._industries, s.industries);
-    data._personas = union(data._personas, s.persona);
-    data._scenariosById[s.id] = s;
-  });
-  data._scenarios = [].concat(scenarios);
-  data._targets = targets;
-  return data;
-}
-
-var _data = buildData(require('./data/scenarios'), require('./data/targets'));
-
-var PersonalityBehaviors = function () {
-  function PersonalityBehaviors(options) {
-    _classCallCheck(this, PersonalityBehaviors);
+module.exports = function () {
+  function _class(options) {
+    _classCallCheck(this, _class);
 
     this._options = extend(this.defaultOptions(), pick(options, 'locale', 'format'));
     this._i18n = new I18nData(this._options.locale);
-    extend(this, _data);
+    this._descriptions = this._i18n.data();
   }
 
-  _createClass(PersonalityBehaviors, [{
+  _createClass(_class, [{
     key: 'defaultOptions',
     value: function defaultOptions() {
       return {
@@ -1136,110 +312,16 @@ var PersonalityBehaviors = function () {
       };
     }
   }, {
-    key: 'behaviors',
-    value: function behaviors(profile, filterOptions) {
-      var _this = this;
-
-      return scoredScenarios(profile, this._scenarios, this._targets).map(function (s) {
-        return extend(s, _this._description('scenarios', s.id));
-      }).reduce(function (res, s) {
-        return res.concat(_this._asBehaviors(s));
-      }, []);
-    }
-  }, {
-    key: '_asBehaviors',
-    value: function _asBehaviors(scenario) {
-      var _this2 = this;
-
-      var formatOptions = this._options;
-      var behaviors = scenario.persona.map(function (p) {
-        return {
-          id: p.replace('persona.', 'behavior.'),
-          name: _this2._description('personas', p).name,
-          verb: scenario.verb,
-          description: formatText(scenario.tooltip, formatOptions),
-          score: scenario.score
-        };
-      });
-
-      return behaviors;
-    }
-  }, {
-    key: 'categories',
-    value: function categories() {
-      return this._collection('categories');
-    }
-  }, {
-    key: 'industries',
-    value: function industries() {
-      return this._collection('industries');
-    }
-  }, {
-    key: '_collection',
-    value: function _collection(type) {
-      var _this3 = this;
-
-      return this['_' + type].map(function (id) {
-        return _this3._description(type, id);
-      });
-    }
-  }, {
-    key: '_description',
-    value: function _description(type, id) {
-      return this._i18n.type(type).id(id);
+    key: 'description',
+    value: function description(traitId) {
+      return format(this._descriptions[traitId], this._options);
     }
   }]);
 
-  return PersonalityBehaviors;
+  return _class;
 }();
 
-module.exports = PersonalityBehaviors;
-
-},{"./data/scenarios":2,"./data/targets":3,"./i18n":7,"./scored-scenarios":9,"./utilities/format-text":10,"underscore":15}],9:[function(require,module,exports){
-/**
- * Copyright 2016 IBM Corp. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-'use strict';
-
-var Profile = require('./utilities/profile');
-var byId = require('./utilities/list-of-objects').byId;
-var _ = require('underscore'),
-    extend = _.extend;
-
-var scoreTrait = function scoreTrait(p, target) {
-  return eval(target.score);
-};
-
-var scenarioScore = function scenarioScore(profile, scenario, targets) {
-  return scenario.traits.reduce(function (acc, trait) {
-    return acc + scoreTrait(profile.getTrait(trait.id).percentage, byId(targets, trait.target));
-  }, 0) / scenario.traits.length;
-};
-
-var scoredScenarios = function scoredScenarios(profile, scenarios, targets) {
-  return scenarios.map(function (scenario) {
-    return extend(scenario, {
-      score: scenarioScore(new Profile(profile), scenario, targets)
-    });
-  });
-};
-
-module.exports = scoredScenarios;
-
-},{"./utilities/list-of-objects":11,"./utilities/profile":12,"underscore":15}],10:[function(require,module,exports){
+},{"./i18n":5,"./utilities/format-text":7,"underscore":10}],7:[function(require,module,exports){
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -1280,202 +362,7 @@ function formatText(text, options) {
 
 module.exports = formatText;
 
-},{"marked":13,"remove-markdown":14}],11:[function(require,module,exports){
-/**
- * Copyright 2016 IBM Corp. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-'use strict';
-
-var _ = require('underscore'),
-    keys = _.keys;
-
-function matches(query, o) {
-  return keys(query).reduce(function (conclusion, k) {
-    return conclusion && o[k] == query[k];
-  }, true);
-}
-
-function filter(ls, query) {
-  return ls.filter(function (o) {
-    return matches(query, o);
-  });
-}
-
-function byId(ls, id) {
-  return filter(ls, { id: id })[0];
-}
-
-module.exports = {
-  byId: byId,
-  filter: filter,
-  matches: matches
-};
-
-},{"underscore":15}],12:[function(require,module,exports){
-(function (global){
-"use strict";
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-!function (e) {
-  if ("object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports))) module.exports = e();else if ("function" == typeof define && define.amd) define(e);else {
-    var f;"undefined" != typeof window ? f = window : "undefined" != typeof global ? f = global : "undefined" != typeof self && (f = self), f.Profile = e();
-  }
-}(function () {
-  var define, module, exports;return function e(t, n, r) {
-    function s(o, u) {
-      if (!n[o]) {
-        if (!t[o]) {
-          var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);throw new Error("Cannot find module '" + o + "'");
-        }var f = n[o] = { exports: {} };t[o][0].call(f.exports, function (e) {
-          var n = t[o][1][e];return s(n ? n : e);
-        }, f, f.exports, e, t, n, r);
-      }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-      s(r[o]);
-    }return s;
-  }({ 1: [function (_dereq_, module, exports) {
-
-      /*
-       * Copyright 2015 IBM Corp. All Rights Reserved.
-       *
-       * Licensed under the Apache License, Version 2.0 (the "License");
-       * you may not use this file except in compliance with the License.
-       * You may obtain a copy of the License at
-       *
-       *      http://www.apache.org/licenses/LICENSE-2.0
-       *
-       * Unless required by applicable law or agreed to in writing, software
-       * distributed under the License is distributed on an "AS IS" BASIS,
-       * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       * See the License for the specific language governing permissions and
-       * limitations under the License.
-       */
-      "use strict";
-
-      var Profile;
-
-      Profile = function () {
-        function Profile(rawProfile) {
-          this.rawProfile = rawProfile;
-          this.mapped = this.mapProfile(rawProfile);
-          this.aliases = {
-            big5: "personality"
-          };
-        }
-
-        Profile.prototype.toPathId = function (trait) {
-          return trait.id.toLowerCase().replace(" ", "_");
-        };
-
-        Profile.prototype.getPaths = function (mapped, current) {
-          var innerPaths, keys;
-          mapped = mapped || this.mapped;
-          keys = Object.keys(mapped).filter(function (key) {
-            return key !== "self";
-          });
-          innerPaths = [];
-          keys.forEach(function (_this) {
-            return function (key) {
-              return innerPaths = innerPaths.concat(_this.getPaths(mapped[key], key));
-            };
-          }(this));
-          if (current != null) {
-            innerPaths = [current].concat(innerPaths.map(function (path) {
-              return current + "." + path;
-            }));
-          }
-          return innerPaths;
-        };
-
-        Profile.prototype.mapFacets = function (trait) {
-          var mapped;
-          mapped = {};
-          if (trait.children != null) {
-            trait.children.forEach(function (_this) {
-              return function (facet) {
-                mapped[_this.toPathId(facet)] = _this.mapFacets(facet);
-                return mapped[_this.toPathId(facet)].self = facet;
-              };
-            }(this));
-          }
-          return mapped;
-        };
-
-        Profile.prototype.mapTraits = function (category) {
-          var mapped;
-          mapped = {
-            trait: {},
-            facet: {}
-          };
-          category.children[0].children.forEach(function (_this) {
-            return function (trait) {
-              mapped.trait[_this.toPathId(trait)] = {
-                self: trait
-              };
-              return mapped.facet[_this.toPathId(trait)] = _this.mapFacets(trait);
-            };
-          }(this));
-          return mapped;
-        };
-
-        Profile.prototype.mapProfile = function (rawProfile) {
-          var mapped;
-          mapped = {};
-          rawProfile.tree.children.forEach(function (_this) {
-            return function (trait) {
-              return mapped[_this.toPathId(trait)] = _this.mapTraits(trait);
-            };
-          }(this));
-          return mapped;
-        };
-
-        Profile.prototype.processAliases = function (path) {
-          Object.keys(this.aliases).forEach(function (_this) {
-            return function (alias) {
-              return path = path.replace(alias, _this.aliases[alias]);
-            };
-          }(this));
-          return path;
-        };
-
-        Profile.prototype._getTrait = function (path, mapped) {
-          var parts;
-          mapped = mapped || this.mapped;
-          parts = path.split(".")[0] !== "" ? path.split(".") : [];
-          if (parts.length > 0) {
-            return this._getTrait(parts.slice(1).join("."), mapped[parts[0]]);
-          } else {
-            return mapped.self;
-          }
-        };
-
-        Profile.prototype.getTrait = function (path) {
-          return this._getTrait(this.processAliases(path));
-        };
-
-        return Profile;
-      }();
-
-      module.exports = Profile;
-    }, {}] }, {}, [1])(1);
-});
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],13:[function(require,module,exports){
+},{"marked":8,"remove-markdown":9}],8:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -2764,7 +1651,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],14:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function(md, options) {
   options = options || {};
   options.stripListLeaders = options.hasOwnProperty('stripListLeaders') ? options.stripListLeaders : true;
@@ -2814,7 +1701,7 @@ module.exports = function(md, options) {
   return output;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
