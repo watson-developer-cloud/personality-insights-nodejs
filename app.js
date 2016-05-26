@@ -16,8 +16,6 @@
 
 'use strict';
 
-require('./helpers/env.js');
-
 var express = require('express'),
     app     = express();
 
