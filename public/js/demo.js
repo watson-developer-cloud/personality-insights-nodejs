@@ -296,7 +296,26 @@ $(document).ready(function () {
         'Hedonism': 'Taking pleasure in life',
         'Self-enhancement': 'Achievement',
         'Self-transcendence': 'Helping others'
-      }
+      },    
+      'ja' : {
+          'Outgoing' : 'Warmth',
+          'Uncompromising': 'Straightforwardness',
+          'Susceptible to stress': 'Sensitivity to stress',
+          'Conservation': '保守性',
+          'Openness to change': '変化に対する許容性',
+          'Self-enhancement': '自己高揚',
+          'Conscientiousness': '良識性',
+          'Openness': '知的好奇心',
+          'Love': '愛',
+          'Practicality': '現実性',
+          'Liberty': '自由',
+          'Closeness': '親密さ',
+          'Stability': '安定',
+          'Structure': '組織',
+          'Friendliness': '友情',
+          'Artistic interests': '芸術的関心度',
+          'Emotionality': '情動性'
+        }    
     };
 
     return replacements[lang] || {};
@@ -431,6 +450,12 @@ $(document).ready(function () {
         u[key] = f(key, o[key]);
       });
       return u;
+    }
+
+    function toHtml(markdownDict) {
+      return mapObject(markdownDict, function(key, value) {
+        return renderMarkdown(value);
+      });
     }
 
     var descriptions = new PersonalityTraitDescriptions({
