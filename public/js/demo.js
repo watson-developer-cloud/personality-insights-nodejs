@@ -305,14 +305,14 @@ $(document).ready(function () {
           'Openness to change': '変化に対する許容性',
           'Self-enhancement': '自己高揚',
           'Conscientiousness': '良識性',
-          'Openness': '知的好奇心',
+          //'Openness': '知的好奇心',
           'Love': '愛',
           'Practicality': '現実性',
           'Liberty': '自由',
           'Closeness': '親密さ',
           'Stability': '安定',
           'Structure': '組織',
-          'Friendliness': '友情',
+          //'Friendliness': '友情',
           'Artistic interests': '芸術的関心度',
           'Emotionality': '情動性'
         }    
