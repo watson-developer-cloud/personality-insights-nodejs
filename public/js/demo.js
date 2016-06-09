@@ -554,6 +554,7 @@ $(document).ready(function () {
     $outputLikelyBehaviors.empty();
     $outputUnlikelyBehaviors.empty();
     $outputJSONCode.empty();
+    selectDefaultLanguage();
   }
 
   function isPositive(behavior) {
@@ -657,6 +658,7 @@ $(document).ready(function () {
   function initialize() {
     $('input[name="twitter"]:first').attr('checked', true);
     $('input[name="text-sample"]:first').attr('checked', true);
+
     globalState.selectedTwitterUser = $('input[name="twitter"]:first').val();
     showHiddenLanguages();
     preloadSampleTexts(function () {
@@ -667,6 +669,13 @@ $(document).ready(function () {
 
     if (selfAnalysis() && TWITTER_USER.handle) {
       setSelfAnalysis();
+    }
+    selectDefaultLanguage();
+  }
+
+  function selectDefaultLanguage(){
+    if (['en', 'es', 'ja', 'ar'].indexOf(globalState.userLocale) >= 0) {
+      $('#lang-' + globalState.userLocale).prop('checked', true).trigger('click');
     }
   }
 
