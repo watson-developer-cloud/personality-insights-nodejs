@@ -298,24 +298,9 @@ $(document).ready(function () {
         'Self-transcendence': 'Helping others'
       },    
       'ja' : {
-          'Outgoing' : 'Warmth',
-          'Uncompromising': 'Straightforwardness',
-          'Susceptible to stress': 'Sensitivity to stress',
-          'Conservation': '保守性',
-          'Openness to change': '変化に対する許容性',
-          'Self-enhancement': '自己高揚',
-          'Conscientiousness': '良識性',
-          'Openness': '知的好奇心',
-          'Love': '愛',
-          'Practicality': '現実性',
-          'Liberty': '自由',
-          'Closeness': '親密さ',
-          'Stability': '安定',
-          'Structure': '組織',
-          'Friendliness': '友情',
-          'Artistic interests': '芸術的関心度',
-          'Emotionality': '情動性'
-        }    
+        'Openness': '知的好奇心',
+        'Friendliness': '友好性'
+      }    
     };
 
     return replacements[lang] || {};
@@ -569,6 +554,7 @@ $(document).ready(function () {
     $outputLikelyBehaviors.empty();
     $outputUnlikelyBehaviors.empty();
     $outputJSONCode.empty();
+    selectDefaultLanguage();
   }
 
   function isPositive(behavior) {
@@ -672,6 +658,7 @@ $(document).ready(function () {
   function initialize() {
     $('input[name="twitter"]:first').attr('checked', true);
     $('input[name="text-sample"]:first').attr('checked', true);
+
     globalState.selectedTwitterUser = $('input[name="twitter"]:first').val();
     showHiddenLanguages();
     preloadSampleTexts(function () {
@@ -682,6 +669,13 @@ $(document).ready(function () {
 
     if (selfAnalysis() && TWITTER_USER.handle) {
       setSelfAnalysis();
+    }
+    selectDefaultLanguage();
+  }
+
+  function selectDefaultLanguage(){
+    if (['en', 'es', 'ja', 'ar'].indexOf(globalState.userLocale) >= 0) {
+      $('#lang-' + globalState.userLocale).prop('checked', true).trigger('click');
     }
   }
 
