@@ -34,7 +34,7 @@ function friendlyError(req, err) {
     '500' : 'error-500-enoughtweets'
   };
 
-  var message = req.__(errorMapping[err.code]);
+  var message = req.__ ? req.__(errorMapping[err.code]) : err.message ;
 
   return { code : err.code, error: message };
 }
