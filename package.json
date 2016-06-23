@@ -72,6 +72,7 @@
   },
   "devDependencies": {
     "codecov": "^1.0.1",
+    "dotenv": "^2.0.0",
     "istanbul": "^0.4.4",
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
