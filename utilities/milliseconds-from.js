@@ -14,21 +14,33 @@
  * limitations under the License.
  */
 
+
 'use strict';
 
-var urlUtils = require('../utilities/url'),
-    env = require('cfenv').getAppEnv(),
-    LOCAL_ENV_PORT = 3000;
 
-var URL = env.isLocal ? env.url.replace(/:[0-9]+/, ':' + LOCAL_ENV_PORT) : env.url;
+function milliseconds(milliseconds) {
+  return milliseconds;
+}
 
-var DOMAIN = urlUtils.domain(URL);
+
+function seconds(seconds) {
+  return milliseconds(1000*seconds);
+}
+
+
+function minutes(minutes) {
+  return seconds(60*minutes);
+}
+
+
+function hours(hours) {
+  return minutes(60*hours);
+}
+
 
 module.exports = {
-  app_name    : env.name,
-  environment : process.env.NODE_ENV,
-  port        : env.isLocal ? LOCAL_ENV_PORT : env.port,
-  url         : URL,
-  domain      : DOMAIN,
-  secure      : process.env.VCAP_APPLICATION ? true : false
+  hours        : hours,
+  minutes      : minutes,
+  seconds      : seconds,
+  milliseconds : milliseconds
 };

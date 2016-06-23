@@ -22,6 +22,7 @@ var
   passport = require('passport'),
   twitter_credentials = require('../credentials').twitter,
   app_info = require('./app-info'),
+  pick = require('underscore').pick,
   TwitterStrategy = require('passport-twitter').Strategy,
   TwitterHelper = require('../helpers/twitter-helper'),
   logger = require('winston'),
@@ -47,7 +48,7 @@ var strategy = new TwitterStrategy(
 
       return done(null, {
           credentials: [user_credential].concat(more_credentials),
-          profile: profile
+          profile: pick(profile, 'id', 'username', 'photos')
         });
     }
   );

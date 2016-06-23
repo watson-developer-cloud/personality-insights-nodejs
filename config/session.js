@@ -16,19 +16,27 @@
 
 'use strict';
 
-var urlUtils = require('../utilities/url'),
-    env = require('cfenv').getAppEnv(),
-    LOCAL_ENV_PORT = 3000;
 
-var URL = env.isLocal ? env.url.replace(/:[0-9]+/, ':' + LOCAL_ENV_PORT) : env.url;
+var cookieSession = require('cookie-session');
+var appInfo = require('./app-info');
+var hours = require('../utilities/milliseconds-from').hours;
+var extend = require('underscore').extend;
 
-var DOMAIN = urlUtils.domain(URL);
+module.exports = function (options) {
+  return cookieSession(extend({
+    name   : 'express.session',
+    keys   : [ 'user' ],
+    resave : true,
+    saveUninitialized: true,
+    overwrite: true,
 
-module.exports = {
-  app_name    : env.name,
-  environment : process.env.NODE_ENV,
-  port        : env.isLocal ? LOCAL_ENV_PORT : env.port,
-  url         : URL,
-  domain      : DOMAIN,
-  secure      : process.env.VCAP_APPLICATION ? true : false
+    domain    : appInfo.domain,
+    path      : '/',
+    secure    : appInfo.secure,
+    httpOnly  : appInfo.secure,
+    signed    : false,
+    maxAge    : hours(1),
+    expires   : new Date(Date.now() + hours(1))
+
+  }, options));
 };

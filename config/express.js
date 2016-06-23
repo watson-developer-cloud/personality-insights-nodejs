@@ -19,11 +19,12 @@
 // Module dependencies
 var express  = require('express'),
   bodyParser = require('body-parser'),
-  session    = require('express-session'),
+  session    = require('./session'),
   cookieParser = require('cookie-parser'),
   logger     = require('winston'),
-  morgan = require('morgan'),
-  i18n       = require('i18n');
+  morgan     = require('morgan'),
+  i18n       = require('i18n'),
+  appInfo = require('./app-info');
 
 module.exports = function (app) {
 
@@ -39,14 +40,15 @@ module.exports = function (app) {
 
 
   var secret = Math.random().toString(36).substring(7);
+
   app.use(cookieParser(secret));
-  app.use(session({ secret:secret }));
+  app.use(session({ secret: secret, signed: false }));
 
   require('./i18n')(app);
 
   // When running in Bluemix add rate-limitation
   // and some other features around security
-  if (process.env.VCAP_APPLICATION)
+  if (appInfo.secure)
     require('./security')(app);
 
   require('./passport')(app);

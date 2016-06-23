@@ -373,9 +373,9 @@ $(document).ready(function () {
         loadOutput(data);
       },
       error: function(err) {
+        console.error(err);
         $loading.hide();
         $error.show();
-        console.error(err);
         $errorMessage.text(getErrorMessage(err));
       }
     });
@@ -642,7 +642,7 @@ $(document).ready(function () {
     $('#your-twitter-panel .analysis-form').append([
         '<label class="base--inline-label input--radio" for="my-twitter">',
           '<img class="input--thumb" src="',
-          TWITTER_USER.image || '/images/no_image.jpg',
+          TWITTER_USER.image || '/images/no-image.png',
           '">@', TWITTER_USER.handle,
         '</label>'
       ].join(''));
