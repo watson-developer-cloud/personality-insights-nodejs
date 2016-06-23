@@ -26,7 +26,7 @@ var express  = require('express'),
   morgan     = require('morgan'),
   appInfo    = require('./app-info'),
   i18n       = require('i18n'),
-  hours      = require('../utilities/millseconds-from').hours;
+  hours      = require('../utilities/milliseconds-from').hours;
 
 module.exports = function (app) {
 
@@ -49,7 +49,8 @@ module.exports = function (app) {
     domain    : appInfo.domain,
     overwrite : false,
     secure    : appInfo.secure,
-    maxAge    : hours(24)
+    maxAge    : hours(24),
+    keys : []
   }));
 
   require('./i18n')(app);

@@ -38,7 +38,7 @@ function hours(hours) {
 }
 
 
-module.exports {
+module.exports = {
   hours        : hours,
   minutes      : minutes,
   seconds      : seconds,
