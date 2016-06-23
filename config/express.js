@@ -19,14 +19,11 @@
 // Module dependencies
 var express  = require('express'),
   bodyParser = require('body-parser'),
-  session    = require('express-session'),
-  cookieSession = require('cookie-session'),
-  cookieParser = require('cookie-parser'),
+  session    = require('./session'),
   logger     = require('winston'),
   morgan     = require('morgan'),
-  appInfo    = require('./app-info'),
   i18n       = require('i18n'),
-  hours      = require('../utilities/milliseconds-from').hours;
+  appInfo = require('./app-info');
 
 module.exports = function (app) {
 
@@ -42,16 +39,7 @@ module.exports = function (app) {
 
 
   var secret = Math.random().toString(36).substring(7);
-  app.use(cookieParser(secret));
-  //app.use(session({ secret:secret }));
-
-  app.use(cookieSession({
-    domain    : appInfo.domain,
-    overwrite : false,
-    secure    : appInfo.secure,
-    maxAge    : hours(24),
-    keys : []
-  }));
+  app.use(session(secret));
 
   require('./i18n')(app);
 
