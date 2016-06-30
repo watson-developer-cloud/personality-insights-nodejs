@@ -229,9 +229,10 @@ $(document).ready(function () {
       if (e.stopPropagation)
         e.stopPropagation();
 
-      setLoadingState();
-
       var lang = globalState.selectedSample == 'custom' ? globalState.selectedLanguage : $('input#text-'+ globalState.selectedSample).attr('data-lang');
+
+      setLoadingState();
+      
       getProfileForText($('.input--text-area').val(), { language: lang });
     });
   }
@@ -296,11 +297,11 @@ $(document).ready(function () {
         'Hedonism': 'Taking pleasure in life',
         'Self-enhancement': 'Achievement',
         'Self-transcendence': 'Helping others'
-      },    
+      },
       'ja' : {
         'Openness': '知的好奇心',
         'Friendliness': '友好性'
-      }    
+      }
     };
 
     return replacements[lang] || {};
