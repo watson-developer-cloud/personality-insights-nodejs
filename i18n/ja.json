@@ -82,7 +82,7 @@
 	"header-wdc": "Watson Developer Cloud",
 	"header-services": "Service",
 	"header-docs": "Docs",
-	"header-appgallery": "App Gallery",
+	"header-starterkit": "Starter Kits",
 	"header-community": "Community",
 	"header-title-pi": "Personality Insights",
 	"header-description": "テキストから筆者の性格を推定してみましょう。Personality Insightsは、言語学的分析とパーソナリティ理論を応用し、テキストデータから、その筆者の特徴を推測します。",
