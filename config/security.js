@@ -24,10 +24,11 @@ var rateLimit  = require('express-rate-limit'),
 
 module.exports = function (app) {
   // 1. helmet with defaults
-  app.use(helmet());
+  // app.use(helmet());
 
   // 2. allow iframes
-  app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
+  // disable iframe restriction
+  // app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
 
   // 3. rate limiting
   var limiter = rateLimit({
