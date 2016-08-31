@@ -527,14 +527,25 @@ $(document).ready(function () {
   function loadWordCount(data) {
     $('.output--word-count-number').text(data.word_count);
     $('.output--word-count-message').removeClass('show');
-    if (data.word_count > 6000)
-      $('.output--word-count-message_VERY-STRONG').addClass('show');
-    else if (data.word_count <= 6000 && data.word_count >= 3500)
-      $('.output--word-count-message_STRONG').addClass('show');
-    else if (data.word_count < 3500 && data.word_count >= 1500)
-      $('.output--word-count-message_DECENT').addClass('show');
-    else
-      $('.output--word-count-message_WEAK').addClass('show');
+    if(data.processed_lang === 'en') { 
+     if (data.word_count >= 3000)
+       $('.output--word-count-message_VERY-STRONG_NEW_MODEL').addClass('show');
+     else if (data.word_count < 3000 && data.word_count >= 1200)
+       $('.output--word-count-message_STRONG_NEW_MODEL').addClass('show');
+     else if (data.word_count < 1200 && data.word_count >= 600)
+       $('.output--word-count-message_DECENT_NEW_MODEL').addClass('show');
+     else
+       $('.output--word-count-message_WEAK_NEW_MODEL').addClass('show');
+    } else {
+     if (data.word_count > 6000)
+       $('.output--word-count-message_VERY-STRONG').addClass('show');
+     else if (data.word_count <= 6000 && data.word_count >= 3500)
+       $('.output--word-count-message_STRONG').addClass('show');
+     else if (data.word_count < 3500 && data.word_count >= 1500)
+       $('.output--word-count-message_DECENT').addClass('show');
+     else
+       $('.output--word-count-message_WEAK').addClass('show');
+    }
   }
 
   function scrollTo(element) {

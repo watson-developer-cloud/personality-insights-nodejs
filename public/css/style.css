@@ -1331,6 +1331,14 @@ pre[class*=" language-"] {
       color: #777677; }
     .output--word-count-message_WEAK {
       color: #e71d32; }
+    .output--word-count-message_VERY-STRONG_NEW_MODEL {
+      color: #00b4a0; }
+    .output--word-count-message_STRONG_NEW_MODEL {
+      color: #4b8400; }
+    .output--word-count-message_DECENT_NEW_MODEL {
+      color: #777677; }
+    .output--word-count-message_WEAK_NEW_MODEL {
+      color: #e71d32; }
   .output--word-count-tooltip_VERY-STRONG {
     position: absolute;
     background-color: #00b4a0;
