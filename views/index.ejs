@@ -56,9 +56,11 @@
                 <img class="input--thumb" src="/images/twitter/faridyu.jpg">@faridyu (<$= __("twitterlang-ja") $>)</label>
 
               <div class="input--button-container">
-                <button type="submit" class="base--button input--submit-button1"><$= __("button-analyze") $></button>
+	        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="<%= settings.env['CAPTCHA_SITE'] %>" data-callback="enableSubmit"></div>
+		<button type="submit" disabled class="base--button input--submit-button1"><$= __("button-analyze") $></button>
               </div>
             </form>
+	    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=captchaloadCallback&render=explicit"></script>
           </div>
           <div id="text-panel" class="tab-panels--tab-pane" role="tab-panel">
             <form class="input--form2">
@@ -92,8 +94,8 @@
                   <input role="radio" class="base--radio" type="radio" id="lang-ja" name="text-lang" value="ja"/>
                   <label class="base--inline-label" for="lang-ja"><$= __("lang-japanese") $></label>
                 </div>
-
-                <button type="submit" class="base--button input--submit-button2"><$= __("button-analyze") $></button>
+	        <div id="g-recaptcha-2" class="g-recaptcha"></div>
+                <button disabled type="submit" class="base--button input--submit-button2"><$= __("button-analyze") $></button>
               </div>
 
             </form>

@@ -38,6 +38,7 @@ router.get('/', function (req, res) {
   res.render('index', {
     ct: req._csrfToken,
     twitterUser: t,
+    CAPTCHA_KEY: process.env['CAPTCHA_SITE'],
     ga: process.env.GOOGLE_ANALYTICS
   });
 });

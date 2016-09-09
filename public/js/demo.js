@@ -90,6 +90,18 @@ function inString(sub, str) {
   return normalize(str).indexOf(normalize(sub)) > -1;
 }
 
+function enableSubmit(response) {
+  if (response && response.length > 0) {
+      $("button.input--submit-button1")[0].disabled = false;
+      $("button.input--submit-button2")[0].disabled = false;
+  }
+}
+
+function disableSubmit() {
+  $("button.input--submit-button1")[0].disabled = true;
+  $("button.input--submit-button2")[0].disabled = true;
+}
+
 $(document).ready(function () {
 
 
@@ -221,6 +233,9 @@ $(document).ready(function () {
         e.stopPropagation();
 
       loadTwitterUser(globalState.selectedTwitterUser, {language: globalState.selectedTwitterUserLang});
+      
+      grecaptcha.reset(button1_id);
+      disableSubmit();
     });
 
     $inputForm2.submit(function(e) {
@@ -234,6 +249,8 @@ $(document).ready(function () {
       setLoadingState();
       
       getProfileForText($('.input--text-area').val(), { language: lang });
+      grecaptcha.reset(button2_id);
+      disableSubmit();
     });
   }
 
