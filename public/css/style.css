@@ -1271,15 +1271,27 @@ pre[class*=" language-"] {
   margin-right: 1rem;
   border-radius: 50%; }
 
-.input--button-container {
-  display: block;
-  text-align: right; }
-
-.input--submit-button1[type="submit"] {
-  display: inline-block; }
-
 .input--submit-button2 {
   margin-top: 0rem; }
+
+.input--button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end; }
+
+.input--submit-button1[type="submit"], .input--submit-button2[type="submit"] {
+    display: inline-block;
+    margin: 1em; }
+
+.input--submit-button1[type="submit"]:disabled, .input--submit-button2[type="submit"]:disabled {
+    border: none;
+    background: lightgrey; }
+
+.input--submit-button1[type="submit"]:disabled:hover, .input--submit-button2[type="submit"]:disabled:hover {
+    border: none;
+    background: lightgrey; }
+
 
 .input--word-count {
   float: left;

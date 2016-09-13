@@ -9,7 +9,22 @@
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+  <script type="text/javascript">
+    var button1_id, button2_id;
+    var captchaloadCallback = function() {
+      button1_id = grecaptcha.render('g-recaptcha', { 'sitekey' : "<$= CAPTCHA_KEY $>",
+                                                          'callback' : function(response) {
+                                                                         enableSubmit(response);
+                                                                       }
+      });
+
+      button2_id = grecaptcha.render('g-recaptcha-2', { 'sitekey' : "<$= CAPTCHA_KEY $>",
+                                                            'callback' : function(response) {
+                                                                           enableSubmit(response);
+                                                                         }
+      });
+    }
+  </script>
 </head>
 
 <body>
