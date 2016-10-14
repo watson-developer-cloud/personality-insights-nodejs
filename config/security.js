@@ -48,38 +48,5 @@ module.exports = function (app) {
     next();
   });
 
-  // 5. captcha
-  var captchaKeys = {
-    site: process.env.CAPTCHA_SITE || '<captcha-site>',
-    secret: process.env.CAPTCHA_SECRET || '<captcha-secret>',
-  };
-
-  var checkCaptcha = function(req, res, next) {
-    if (req.body && req.body.recaptcha) {
-      request({
-        url: 'https://www.google.com/recaptcha/api/siteverify',
-        method: 'POST',
-        form: {
-          secret: captchaKeys.secret,
-          response: req.body.recaptcha,
-          remoteip: req.ip
-        },
-        json: true
-      }, function(error, response, body) {
-        if (body.success) {
-          limiter.resetIp(req.ip);
-          next();
-        } else {
-          next({
-            code: 'EBADCSRFTOKEN',
-            error: 'Wrong captcha'
-          });
-        }
-      });
-    } else {
-      next();
-    }
-  };
-
-  app.use('/api/', csrfProtection, checkCaptcha, limiter);
+  app.use('/api/', csrfProtection, limiter);
 };
