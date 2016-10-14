@@ -48,5 +48,5 @@ module.exports = function (app) {
     next();
   });
 
-  app.use('/api/', csrfProtection, checkCaptcha, limiter);
+  app.use('/api/', csrfProtection, limiter);
 };
