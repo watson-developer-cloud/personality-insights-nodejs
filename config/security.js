@@ -48,12 +48,6 @@ module.exports = function (app) {
     next();
   });
 
-  // 5. captcha
-  var captchaKeys = {
-    site: process.env.CAPTCHA_SITE || '<captcha-site>',
-    secret: process.env.CAPTCHA_SECRET || '<captcha-secret>',
-  };
-
   var checkCaptcha = function(req, res, next) {
     if (req.body && req.body.recaptcha) {
       request({
