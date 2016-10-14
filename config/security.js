@@ -18,7 +18,6 @@
 
 // security.js
 var rateLimit  = require('express-rate-limit'),
-    csrf       = require('csurf'),
     helmet     = require('helmet'),
     request    = require('request');
 
@@ -41,12 +40,5 @@ module.exports = function (app) {
     }),
   });
 
-  // 4. csrf
-  var csrfProtection = csrf({ cookie: true });
-  app.get('/*', csrfProtection, function(req, res, next) {
-    req._csrfToken = req.csrfToken();
-    next();
-  });
-
-  app.use('/api/', csrfProtection, limiter);
+  app.use('/api/', limiter);
 };
