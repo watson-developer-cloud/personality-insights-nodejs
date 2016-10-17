@@ -30,9 +30,33 @@ var
 var
   personality_insights = watson.personality_insights(credentials),
   getProfile = function (parameters) {
-    return to_promise(function(callback) { personality_insights.profile(sanitize(parameters), callback)});
+    return to_promise(function(callback) {
+      personality_insights.profile(sanitize(parameters), function(err,response) {
+        var v3_credentials = extend(credentials, {version_date: "2016-10-19", version: "v3"});
+        if (parameters.source_type === 'twitter') {
+          const items = parameters.contentItems.map(function (item) {
+            delete item['userid'];
+            delete item['sourceid'];
+            return item;
+          });
+          parameters.contentItems = items;
+        }
+        var v3_parameters = extend(parameters, {consumption_preferences: true});
+        var personality_insights_v3 = new watson.PersonalityInsightsV3(v3_credentials);
+        personality_insights_v3.profile(sanitize(v3_parameters), function(cperr, cpresponse) {
+          if (!cperr && cpresponse) {
+            response.consumption_preferences = cpresponse.consumption_preferences;
+          } else {
+            if (cperr) {
+              console.log(cperr);
+            }
+            response.consumption_preferences = [];
+          }
+          callback(err, response)
+        });
+      });
+    });
   };
-
 
 var sanitize = function (parameters) {
   return extend(parameters, {
@@ -48,5 +72,7 @@ var profileFromTweets = function (parameters) {
 
 module.exports = {
   profile : getProfile,
-  profile_from_tweets : profileFromTweets
+  profile_from_tweets : profileFromTweets,
 };
+
+

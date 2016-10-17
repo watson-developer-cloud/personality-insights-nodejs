@@ -111,11 +111,6 @@ $(document).ready(function () {
   var $valuesTraits = $('.output-values--traits');
   var $needsToggle = $('.output-needs--toggle');
   var $outputSummaryText = $('.output-summary--summary');
-  var $outputLikelyBehaviors = $('.output-summary--likely-behaviors');
-  var $outputLikelyBehaviorsSection = $('.output-summary--likely-behaviors--section');
-  var $outputUnlikelyBehaviors = $('.output-summary--unlikely-behaviors');
-  var $outputUnlikelyBehaviorsSection = $('.output-summary--unlikely-behaviors--section');
-  var $outputNoBehaviorsSection = $('.output-summary--no-behaviors--section');
   var $inputTextArea = $('.input--text-area');
   var $inputWordCount = $('.input--word-count-number');
   var $inputForm1 = $('.input--form1');
@@ -374,6 +369,7 @@ $(document).ready(function () {
         $output.show();
         scrollTo($outputHeader);
         loadOutput(data);
+        loadConsumptionPreferences(data);
       },
       error: function(err) {
         console.error(err);
@@ -382,6 +378,39 @@ $(document).ready(function () {
         $errorMessage.text(getErrorMessage(err));
       }
     });
+  }
+
+  function shuffleinplace(a) {
+    var j, temp;
+    for (var i = a.length; i; i--) {
+      j = Math.floor(Math.random() * i);
+      temp = a[i - 1];
+      a[i - 1] = a[j];
+      a[j] = temp;
+    }
+  }
+
+  function loadConsumptionPreferences(data) {
+    var cpsect = $(".output-summary--consumption-behaviors--section")
+    var behaviors = $(".output-summary--likely-behaviors")
+    if (data.consumption_preferences) {
+      var allcps = data.consumption_preferences.reduce(function(k,v) {
+        v.consumption_preferences.map(function(child_item) {
+          k.push(child_item.name);
+        });
+        return k;
+      },[]);
+      shuffleinplace(allcps);
+
+
+      behaviors.html(allcps.slice(0,10).reduce(function(acc,item) {
+        acc = acc + "<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\">" + item + "</div>\n";
+        return acc;
+      },""));
+      cpsect.show();
+    } else {
+      cpsect.hide();
+    }
   }
 
   function loadOutput(rawData) {
@@ -471,51 +500,10 @@ $(document).ready(function () {
       tooltips: tooltips
     }));
 
-    loadBehaviors(data, globalState.userLocale || OUTPUT_LANG || 'en');
-
     updateJSON(rawData);
 
     globalState.currentProfile = rawData;
 
-  }
-
-  function loadBehaviors(profile, lang) {
-    var behaviors_template = outputBehaviorsTemplate.innerHTML;
-
-
-    var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
-    var behaviors = personalityBehaviors.behaviors(profile);
-    behaviors = behaviors.map(function (b) {
-      b.description = renderMarkdown(b.description);
-      return b;
-    });
-
-    var likely   = behaviors.filter(isPositive),
-        unlikely = behaviors.filter(isNegative);
-
-    if (likely.length > 0) {
-      $outputLikelyBehaviors.append(_.template(behaviors_template, {
-        items: likely.sort(sortScoresDESC).filter(top3)
-      }));
-      $outputLikelyBehaviorsSection.show();
-    } else {
-      $outputLikelyBehaviorsSection.hide();
-    }
-
-    if (unlikely.length > 0) {
-      $outputUnlikelyBehaviors.append(_.template(behaviors_template, {
-        items: unlikely.sort(sortScoresASC).filter(top3)
-      }));
-      $outputUnlikelyBehaviorsSection.show();
-    } else {
-      $outputUnlikelyBehaviorsSection.hide();
-    }
-
-    if (unlikely.length == 0 && likely.length == 0) {
-      $outputNoBehaviorsSection.show();
-    } else {
-      $outputNoBehaviorsSection.hide();
-    }
   }
 
   $inputTextArea.on('propertychange change click keyup input paste', function() {
@@ -561,8 +549,6 @@ $(document).ready(function () {
     $('.output-big-5--sub-tree').hide();
     $needsMoreTraits.hide();
     $outputSummaryText.empty();
-    $outputLikelyBehaviors.empty();
-    $outputUnlikelyBehaviors.empty();
     $outputJSONCode.empty();
     selectDefaultLanguage();
   }
