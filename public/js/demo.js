@@ -380,33 +380,39 @@ $(document).ready(function () {
     });
   }
 
-  function shuffleinplace(a) {
-    var j, temp;
-    for (var i = a.length; i; i--) {
-      j = Math.floor(Math.random() * i);
-      temp = a[i - 1];
-      a[i - 1] = a[j];
-      a[j] = temp;
-    }
-  }
-
   function loadConsumptionPreferences(data) {
     var cpsect = $(".output-summary--consumption-behaviors--section")
-    var behaviors = $(".output-summary--likely-behaviors")
+    var behaviors = $(".output-summary--consumption-behaviors--section")
     if (data.consumption_preferences) {
-      var allcps = data.consumption_preferences.reduce(function(k,v) {
+      var likelycps = data.consumption_preferences.reduce(function(k,v) {
         v.consumption_preferences.map(function(child_item) {
-          k.push(child_item.name);
+          if (child_item.score === 1) {
+            k.push(child_item.name);
+          }
         });
         return k;
       },[]);
-      shuffleinplace(allcps);
 
-
-      behaviors.html(allcps.slice(0,10).reduce(function(acc,item) {
-        acc = acc + "<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\">" + item + "</div>\n";
-        return acc;
-      },""));
+      var unlikelycps = data.consumption_preferences.reduce(function(k,v) {
+        v.consumption_preferences.map(function(child_item) {
+          if (child_item.score === 0) {
+            k.push(child_item.name);
+          }
+        });
+        return k;
+      },[]);
+      behaviors.append("<h4 class=\"base--h4\">You are likely to _______ </h4>");
+      behaviors.append("<div class=\"output-summary--likely-behaviors\">");
+      likelycps.slice(0,3).map(function(item) {
+        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item + "</div>\n");
+      });
+      behaviors.append("</div>");
+      behaviors.append("<h4 class=\"base--h4\">You are unlikely to _______ </h4>");
+      behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
+      unlikelycps.slice(0,3).map(function(item) {
+        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item + "</div>\n");
+      });
+      behaviors.append("</div>");
       cpsect.show();
     } else {
       cpsect.hide();
@@ -684,7 +690,7 @@ $(document).ready(function () {
   }
 
   function updateJSON(results) {
-    $outputJSONCode.html(JSON.stringify(results, null, 2));
+    $outputJSONCode.html(JSON.stringify(results['raw_v3_response'], null, 2));
     $('.code--json').each(function (i,b) { hljs.highlightBlock(b); });
   }
 

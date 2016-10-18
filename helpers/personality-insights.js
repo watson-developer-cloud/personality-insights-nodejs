@@ -52,6 +52,7 @@ var
             }
             response.consumption_preferences = [];
           }
+          response.raw_v3_response = cpresponse;
           callback(err, response)
         });
       });
