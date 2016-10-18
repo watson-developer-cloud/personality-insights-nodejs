@@ -380,6 +380,64 @@ $(document).ready(function () {
     });
   }
 
+  function cpIdMapping(cpid) {
+    return {
+      "consumption_preferences_automobile_ownership_cost": "be sensitive to ownership cost when buying automobiles",
+        "consumption_preferences_automobile_safety": "prefer safety when buying automobiles",
+        "consumption_preferences_automobile_resale_value": "prefer resale value when buying automobiles",
+        "consumption_preferences_clothes_quality": "prefer quality when buying clothes",
+        "consumption_preferences_clothes_style": "prefer style when buying clothes",
+        "consumption_preferences_clothes_comfort": "prefer comfort when buying clothes",
+        "consumption_preferences_influence_brand_name": "be influenced by brand name when making product purchases",
+        "consumption_preferences_influence_utility": "be influenced by product utility when making product purchases",
+        "consumption_preferences_influence_online_ads": "be influenced by online ads when making product purchases",
+        "consumption_preferences_influence_social_media": "be influenced by social media during product purchases",
+        "consumption_preferences_influence_family_members": "be influenced by family when making product purchases",
+        "consumption_preferences_spur_of_moment": "indulge in spur of the moment purchases",
+        "consumption_preferences_credit_card_payment": "prefer using credit cards for shopping",
+        "consumption_preferences_eat_out": "eat out frequently",
+        "consumption_preferences_fast_food_frequency": "eat fast food frequently",
+        "consumption_preferences_gym_membership": "have a gym membership",
+        "consumption_preferences_adventurous_sports": "like adventurous sports",
+        "consumption_preferences_outdoor": "like outdoor activities",
+        "consumption_preferences_concerned_environment": "be concerned about the environment",
+        "consumption_preferences_start_business": "consider starting a business in next few years",
+        "consumption_preferences_movie_romance": "like romance movies",
+        "consumption_preferences_movie_adventure": "like adventure movies",
+        "consumption_preferences_movie_horror": "like horror movies",
+        "consumption_preferences_movie_musical": "like musical movies",
+        "consumption_preferences_movie_historical": "like historical movies",
+        "consumption_preferences_movie_science_fiction": "like science-fiction movies",
+        "consumption_preferences_movie_war": "like war movies",
+        "consumption_preferences_movie_drama": "like drama movies",
+        "consumption_preferences_movie_action": "like action movies",
+        "consumption_preferences_movie_documentary": "like documentary movies",
+        "consumption_preferences_music_rap": "like rap music",
+        "consumption_preferences_music_country": "like country music",
+        "consumption_preferences_music_r_b": "like R&B music",
+        "consumption_preferences_music_hip_hop": "like hip hop music",
+        "consumption_preferences_music_live_event": "attend live musical events",
+        "consumption_preferences_music_christian_gospel": "like Christian/gospel music",
+        "consumption_preferences_music_playing": "have experience playing music",
+        "consumption_preferences_music_latin": "like Latin music",
+        "consumption_preferences_music_rock": "like rock music",
+        "consumption_preferences_music_classical": "like classical music",
+        "consumption_preferences_read_frequency": "read often",
+        "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
+        "consumption_preferences_read_motive_information": "read for information",
+        "consumption_preferences_books_entertainment_magazines": "like entertainment magazines",
+        "consumption_preferences_books_non_fiction": "like non-fiction books",
+        "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
+        "consumption_preferences_read_motive_relaxation": "read for relaxation",
+        "consumption_preferences_books_financial_investing": "read financial investment books",
+        "consumption_preferences_books_autobiographies": "read autobiographical books",
+        "consumption_preferences_volunteer": "volunteer for social causes",
+        "consumption_preferences_volunteering_time": "have spent time volunteering",
+        "consumption_preferences_volunteer_learning": "volunteer for learning",
+    }[cpid]
+
+  }
+
   function loadConsumptionPreferences(data) {
     var cpsect = $(".output-summary--consumption-behaviors--section")
     var behaviors = $(".output-summary--consumption-behaviors--section")
@@ -387,7 +445,7 @@ $(document).ready(function () {
       var likelycps = data.consumption_preferences.reduce(function(k,v) {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 1) {
-            k.push(child_item.name);
+            k.push(cpIdMapping(item.id));
           }
         });
         return k;
@@ -396,7 +454,7 @@ $(document).ready(function () {
       var unlikelycps = data.consumption_preferences.reduce(function(k,v) {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 0) {
-            k.push(child_item.name);
+            k.push(cpIdMapping(item.id));
           }
         });
         return k;
