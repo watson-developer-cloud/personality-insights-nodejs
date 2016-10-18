@@ -401,13 +401,14 @@ $(document).ready(function () {
         });
         return k;
       },[]);
-      behaviors.append("<h4 class=\"base--h4\">You are likely to _______ </h4>");
+      behaviors.html("");
+      behaviors.append("<h4 class=\"base--h4\">You are likely to______ </h4>");
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
       likelycps.slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item + "</div>\n");
       });
       behaviors.append("</div>");
-      behaviors.append("<h4 class=\"base--h4\">You are unlikely to _______ </h4>");
+      behaviors.append("<h4 class=\"base--h4\">You are unlikely to______ </h4>");
       behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
       unlikelycps.slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item + "</div>\n");
