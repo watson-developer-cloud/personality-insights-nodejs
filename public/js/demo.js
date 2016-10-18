@@ -445,7 +445,7 @@ $(document).ready(function () {
       var likelycps = data.consumption_preferences.reduce(function(k,v) {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 1) {
-            k.push(cpIdMapping(item.id));
+            k.push(cpIdMapping(child_item.consumption_preference_id));
           }
         });
         return k;
@@ -454,7 +454,7 @@ $(document).ready(function () {
       var unlikelycps = data.consumption_preferences.reduce(function(k,v) {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 0) {
-            k.push(cpIdMapping(item.id));
+            k.push(cpIdMapping(child_item.consumption_preference_id));
           }
         });
         return k;
