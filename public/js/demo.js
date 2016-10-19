@@ -480,15 +480,15 @@ $(document).ready(function () {
         "consumption_preferences_read_frequency": "read often",
         "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
         "consumption_preferences_read_motive_information": "read for information",
-        "consumption_preferences_books_entertainment_magazines": "like entertainment magazines",
-        "consumption_preferences_books_non_fiction": "like non-fiction books",
+        "consumption_preferences_books_entertainment_magazines": "read entertainment magazines",
+        "consumption_preferences_books_non_fiction": "read non-fiction books",
         "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
         "consumption_preferences_read_motive_relaxation": "read for relaxation",
         "consumption_preferences_books_financial_investing": "read financial investment books",
         "consumption_preferences_books_autobiographies": "read autobiographical books",
         "consumption_preferences_volunteer": "volunteer for social causes",
         "consumption_preferences_volunteering_time": "have spent time volunteering",
-        "consumption_preferences_volunteer_learning": "volunteer for learning",
+        "consumption_preferences_volunteer_learning": "volunteer to learn about social causes",
     }[cpid]
 
   }
