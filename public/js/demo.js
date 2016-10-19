@@ -534,6 +534,20 @@ $(document).ready(function () {
     return accumulator;
   }
 
+  function sortIdxComparator(a, b) {
+    if (a < b) {
+      return -1;
+    }
+
+    if (a > b) {
+      return 1;
+    }
+
+    if (a === b) {
+      return 0;
+    }
+  }
+
   function loadConsumptionPreferences(data) {
     var cpsect = $(".output-summary--consumption-behaviors--section")
     var behaviors = $(".output-summary--consumption-behaviors--section")
@@ -564,13 +578,13 @@ $(document).ready(function () {
       behaviors.html("");
       behaviors.append("<h4 class=\"base--h4\">You are likely to______ </h4>");
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
-      likelycps.sort(function(l,r) { return l.idx > r.idx; }).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
+      likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append("</div>");
       behaviors.append("<h4 class=\"base--h4\">You are unlikely to______ </h4>");
       behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
-      unlikelycps.sort(function(l,r) { return l.idx > r.idx; }).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
+      unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append("</div>");
