@@ -493,6 +493,42 @@ $(document).ready(function () {
 
   }
 
+  var consumptionPrefMusic = new Set(["consumption_preferences_music_rap",
+    "consumption_preferences_music_country",
+    "consumption_preferences_music_r_b",
+    "consumption_preferences_music_hip_hop",
+    "consumption_preferences_music_live_event",
+    "consumption_preferences_music_playing",
+    "consumption_preferences_music_latin",
+    "consumption_preferences_music_rock",
+    "consumption_preferences_music_classical" ]);
+
+  var consumptionPrefMovie = new Set(["consumption_preferences_movie_romance",
+    "consumption_preferences_movie_adventure",
+    "consumption_preferences_movie_horror",
+    "consumption_preferences_movie_musical",
+    "consumption_preferences_movie_historical",
+    "consumption_preferences_movie_science_fiction",
+    "consumption_preferences_movie_war",
+    "consumption_preferences_movie_drama",
+    "consumption_preferences_movie_action",
+    "consumption_preferences_movie_documentary"]);
+
+  function addIfAllowedReducer(accumulator, toadd) {
+    if (consumptionPrefMusic.has(toadd.cpid) && accumulator.reduce(function(k,v) {
+          return consumptionPrefMusic.has(v.cpid) ? k + 1 : k;
+        },0) < 1) {
+      accumulator.push(toadd);
+    } else if (consumptionPrefMovie.has(toadd.cpid) && accumulator.reduce(function(k,v) {
+          return consumptionPrefMovie.has(v.cpid) ? k + 1 : k;
+        },0) < 1) {
+      accumulator.push(toadd);
+    } else {
+      accumulator.push(toadd);
+    }
+    return accumulator;
+  }
+
   function loadConsumptionPreferences(data) {
     var cpsect = $(".output-summary--consumption-behaviors--section")
     var behaviors = $(".output-summary--consumption-behaviors--section")
@@ -501,7 +537,9 @@ $(document).ready(function () {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 1) {
             k.push({ name: cpIdMapping(child_item.consumption_preference_id),
-              idx: cpIdSorting(child_item.consumption_preference_id) });
+              idx: cpIdSorting(child_item.consumption_preference_id),
+              cpid: child_item.consumption_preference_id
+            });
           }
         });
         return k;
@@ -511,7 +549,9 @@ $(document).ready(function () {
         v.consumption_preferences.map(function(child_item) {
           if (child_item.score === 0) {
             k.push({ name: cpIdMapping(child_item.consumption_preference_id),
-              idx: cpIdSorting(child_item.consumption_preference_id) });
+              idx: cpIdSorting(child_item.consumption_preference_id),
+              cpid: child_item.consumption_preference_id
+            });
           }
         });
         return k;
@@ -519,13 +559,13 @@ $(document).ready(function () {
       behaviors.html("");
       behaviors.append("<h4 class=\"base--h4\">You are likely to______ </h4>");
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
-      likelycps.sort(function(l,r) { return l.idx > r.idx; }).slice(0,3).map(function(item) {
+      likelycps.sort(function(l,r) { return l.idx > r.idx; }).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append("</div>");
       behaviors.append("<h4 class=\"base--h4\">You are unlikely to______ </h4>");
       behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
-      unlikelycps.sort(function(l,r) { return l.idx > r.idx; }).slice(0,3).map(function(item) {
+      unlikelycps.sort(function(l,r) { return l.idx > r.idx; }).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append("</div>");
