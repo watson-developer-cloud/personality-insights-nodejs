@@ -515,14 +515,19 @@ $(document).ready(function () {
     "consumption_preferences_movie_documentary"]);
 
   function addIfAllowedReducer(accumulator, toadd) {
-    if (consumptionPrefMusic.has(toadd.cpid) && accumulator.reduce(function(k,v) {
-          return consumptionPrefMusic.has(v.cpid) ? k + 1 : k;
-        },0) < 1) {
-      accumulator.push(toadd);
-    } else if (consumptionPrefMovie.has(toadd.cpid) && accumulator.reduce(function(k,v) {
+    if (consumptionPrefMusic.has(toadd.cpid)) {
+      if (accumulator.reduce(function(k,v) {
+            return consumptionPrefMusic.has(v.cpid) ? k + 1 : k;
+          },0) < 1) {
+        accumulator.push(toadd);
+      }
+    } else if (consumptionPrefMovie.has(toadd.cpid)) {
+
+      if(accumulator.reduce(function(k,v) {
           return consumptionPrefMovie.has(v.cpid) ? k + 1 : k;
         },0) < 1) {
-      accumulator.push(toadd);
+        accumulator.push(toadd);
+      }
     } else {
       accumulator.push(toadd);
     }
