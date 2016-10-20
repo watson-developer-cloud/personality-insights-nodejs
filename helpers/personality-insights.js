@@ -45,14 +45,20 @@ var
         var personality_insights_v3 = new watson.PersonalityInsightsV3(v3_credentials);
         personality_insights_v3.profile(sanitize(v3_parameters), function(cperr, cpresponse) {
           if (!cperr && cpresponse) {
-            response.consumption_preferences = cpresponse.consumption_preferences;
+            if (response) {
+              response.consumption_preferences = cpresponse.consumption_preferences;
+            }
           } else {
             if (cperr) {
               console.log(cperr);
             }
-            response.consumption_preferences = [];
+            if (response) {
+              response.consumption_preferences = [];
+            }
           }
-          response.raw_v3_response = cpresponse;
+          if (response) {
+            response.raw_v3_response = cpresponse;
+          }
           callback(err, response)
         });
       });
