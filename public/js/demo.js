@@ -111,11 +111,6 @@ $(document).ready(function () {
   var $valuesTraits = $('.output-values--traits');
   var $needsToggle = $('.output-needs--toggle');
   var $outputSummaryText = $('.output-summary--summary');
-  var $outputLikelyBehaviors = $('.output-summary--likely-behaviors');
-  var $outputLikelyBehaviorsSection = $('.output-summary--likely-behaviors--section');
-  var $outputUnlikelyBehaviors = $('.output-summary--unlikely-behaviors');
-  var $outputUnlikelyBehaviorsSection = $('.output-summary--unlikely-behaviors--section');
-  var $outputNoBehaviorsSection = $('.output-summary--no-behaviors--section');
   var $inputTextArea = $('.input--text-area');
   var $inputWordCount = $('.input--word-count-number');
   var $inputForm1 = $('.input--form1');
@@ -374,6 +369,7 @@ $(document).ready(function () {
         $output.show();
         scrollTo($outputHeader);
         loadOutput(data);
+        loadConsumptionPreferences(data);
       },
       error: function(err) {
         console.error(err);
@@ -382,6 +378,220 @@ $(document).ready(function () {
         $errorMessage.text(getErrorMessage(err));
       }
     });
+  }
+
+  function cpIdSorting(cpid) {
+    return ["consumption_preferences_music_rap",
+      "consumption_preferences_music_country",
+      "consumption_preferences_concerned_environment",
+      "consumption_preferences_read_frequency",
+      "consumption_preferences_music_r_b",
+      "consumption_preferences_volunteer_learning",
+      "consumption_preferences_automobile_ownership_cost",
+      "consumption_preferences_automobile_safety",
+      "consumption_preferences_volunteer",
+      "consumption_preferences_movie_romance",
+      "consumption_preferences_eat_out",
+      "consumption_preferences_music_hip_hop",
+      "consumption_preferences_movie_adventure",
+      "consumption_preferences_movie_horror",
+      "consumption_preferences_influence_brand_name",
+      "consumption_preferences_music_live_event",
+      "consumption_preferences_clothes_quality",
+      "consumption_preferences_automobile_resale_value",
+      "consumption_preferences_clothes_style",
+      "consumption_preferences_read_motive_enjoyment",
+      "consumption_preferences_music_christian_gospel",
+      "consumption_preferences_read_motive_information",
+      "consumption_preferences_books_entertainment_magazines",
+      "consumption_preferences_books_non_fiction",
+      "consumption_preferences_start_business",
+      "consumption_preferences_read_motive_mandatory",
+      "consumption_preferences_gym_membership",
+      "consumption_preferences_influence_family_members",
+      "consumption_preferences_adventurous_sports",
+      "consumption_preferences_movie_musical",
+      "consumption_preferences_movie_historical",
+      "consumption_preferences_movie_science_fiction",
+      "consumption_preferences_volunteering_time",
+      "consumption_preferences_spur_of_moment",
+      "consumption_preferences_movie_war",
+      "consumption_preferences_credit_card_payment",
+      "consumption_preferences_movie_drama",
+      "consumption_preferences_read_motive_relaxation",
+      "consumption_preferences_influence_utility",
+      "consumption_preferences_music_playing",
+      "consumption_preferences_books_financial_investing",
+      "consumption_preferences_fast_food_frequency",
+      "consumption_preferences_movie_action",
+      "consumption_preferences_influence_online_ads",
+      "consumption_preferences_books_autobiographies",
+      "consumption_preferences_influence_social_media",
+      "consumption_preferences_music_latin",
+      "consumption_preferences_music_rock",
+      "consumption_preferences_outdoor",
+      "consumption_preferences_music_classical",
+      "consumption_preferences_movie_documentary",
+      "consumption_preferences_clothes_comfort" ].indexOf(cpid);
+  }
+
+  function cpIdMapping(cpid) {
+    return {
+      "consumption_preferences_automobile_ownership_cost": "be sensitive to ownership cost when buying automobiles",
+        "consumption_preferences_automobile_safety": "prefer safety when buying automobiles",
+        "consumption_preferences_automobile_resale_value": "prefer resale value when buying automobiles",
+        "consumption_preferences_clothes_quality": "prefer quality when buying clothes",
+        "consumption_preferences_clothes_style": "prefer style when buying clothes",
+        "consumption_preferences_clothes_comfort": "prefer comfort when buying clothes",
+        "consumption_preferences_influence_brand_name": "be influenced by brand name when making product purchases",
+        "consumption_preferences_influence_utility": "be influenced by product utility when making product purchases",
+        "consumption_preferences_influence_online_ads": "be influenced by online ads when making product purchases",
+        "consumption_preferences_influence_social_media": "be influenced by social media during product purchases",
+        "consumption_preferences_influence_family_members": "be influenced by family when making product purchases",
+        "consumption_preferences_spur_of_moment": "indulge in spur of the moment purchases",
+        "consumption_preferences_credit_card_payment": "prefer using credit cards for shopping",
+        "consumption_preferences_eat_out": "eat out frequently",
+        "consumption_preferences_fast_food_frequency": "eat fast food frequently",
+        "consumption_preferences_gym_membership": "have a gym membership",
+        "consumption_preferences_adventurous_sports": "like adventurous sports",
+        "consumption_preferences_outdoor": "like outdoor activities",
+        "consumption_preferences_concerned_environment": "be concerned about the environment",
+        "consumption_preferences_start_business": "consider starting a business in next few years",
+        "consumption_preferences_movie_romance": "like romance movies",
+        "consumption_preferences_movie_adventure": "like adventure movies",
+        "consumption_preferences_movie_horror": "like horror movies",
+        "consumption_preferences_movie_musical": "like musical movies",
+        "consumption_preferences_movie_historical": "like historical movies",
+        "consumption_preferences_movie_science_fiction": "like science-fiction movies",
+        "consumption_preferences_movie_war": "like war movies",
+        "consumption_preferences_movie_drama": "like drama movies",
+        "consumption_preferences_movie_action": "like action movies",
+        "consumption_preferences_movie_documentary": "like documentary movies",
+        "consumption_preferences_music_rap": "like rap music",
+        "consumption_preferences_music_country": "like country music",
+        "consumption_preferences_music_r_b": "like R&B music",
+        "consumption_preferences_music_hip_hop": "like hip hop music",
+        "consumption_preferences_music_live_event": "attend live musical events",
+        "consumption_preferences_music_christian_gospel": "like Christian/gospel music",
+        "consumption_preferences_music_playing": "have experience playing music",
+        "consumption_preferences_music_latin": "like Latin music",
+        "consumption_preferences_music_rock": "like rock music",
+        "consumption_preferences_music_classical": "like classical music",
+        "consumption_preferences_read_frequency": "read often",
+        "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
+        "consumption_preferences_read_motive_information": "read for information",
+        "consumption_preferences_books_entertainment_magazines": "read entertainment magazines",
+        "consumption_preferences_books_non_fiction": "read non-fiction books",
+        "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
+        "consumption_preferences_read_motive_relaxation": "read for relaxation",
+        "consumption_preferences_books_financial_investing": "read financial investment books",
+        "consumption_preferences_books_autobiographies": "read autobiographical books",
+        "consumption_preferences_volunteer": "volunteer for social causes",
+        "consumption_preferences_volunteering_time": "have spent time volunteering",
+        "consumption_preferences_volunteer_learning": "volunteer to learn about social causes",
+    }[cpid]
+
+  }
+
+  var consumptionPrefMusic = new Set(["consumption_preferences_music_rap",
+    "consumption_preferences_music_country",
+    "consumption_preferences_music_r_b",
+    "consumption_preferences_music_hip_hop",
+    "consumption_preferences_music_live_event",
+    "consumption_preferences_music_playing",
+    "consumption_preferences_music_latin",
+    "consumption_preferences_music_rock",
+    "consumption_preferences_music_classical" ]);
+
+  var consumptionPrefMovie = new Set(["consumption_preferences_movie_romance",
+    "consumption_preferences_movie_adventure",
+    "consumption_preferences_movie_horror",
+    "consumption_preferences_movie_musical",
+    "consumption_preferences_movie_historical",
+    "consumption_preferences_movie_science_fiction",
+    "consumption_preferences_movie_war",
+    "consumption_preferences_movie_drama",
+    "consumption_preferences_movie_action",
+    "consumption_preferences_movie_documentary"]);
+
+  function addIfAllowedReducer(accumulator, toadd) {
+    if (consumptionPrefMusic.has(toadd.cpid)) {
+      if (accumulator.reduce(function(k,v) {
+            return consumptionPrefMusic.has(v.cpid) ? k + 1 : k;
+          },0) < 1) {
+        accumulator.push(toadd);
+      }
+    } else if (consumptionPrefMovie.has(toadd.cpid)) {
+
+      if(accumulator.reduce(function(k,v) {
+          return consumptionPrefMovie.has(v.cpid) ? k + 1 : k;
+        },0) < 1) {
+        accumulator.push(toadd);
+      }
+    } else {
+      accumulator.push(toadd);
+    }
+    return accumulator;
+  }
+
+  function sortIdxComparator(a, b) {
+    if (a < b) {
+      return -1;
+    }
+
+    if (a > b) {
+      return 1;
+    }
+
+    if (a === b) {
+      return 0;
+    }
+  }
+
+  function loadConsumptionPreferences(data) {
+    var cpsect = $(".output-summary--consumption-behaviors--section")
+    var behaviors = $(".output-summary--consumption-behaviors--section")
+    if (data.consumption_preferences) {
+      var likelycps = data.consumption_preferences.reduce(function(k,v) {
+        v.consumption_preferences.map(function(child_item) {
+          if (child_item.score === 1) {
+            k.push({ name: cpIdMapping(child_item.consumption_preference_id),
+              idx: cpIdSorting(child_item.consumption_preference_id),
+              cpid: child_item.consumption_preference_id
+            });
+          }
+        });
+        return k;
+      },[]);
+
+      var unlikelycps = data.consumption_preferences.reduce(function(k,v) {
+        v.consumption_preferences.map(function(child_item) {
+          if (child_item.score === 0) {
+            k.push({ name: cpIdMapping(child_item.consumption_preference_id),
+              idx: cpIdSorting(child_item.consumption_preference_id),
+              cpid: child_item.consumption_preference_id
+            });
+          }
+        });
+        return k;
+      },[]);
+      behaviors.html("");
+      behaviors.append("<h4 class=\"base--h4\">You are likely to______ </h4>");
+      behaviors.append("<div class=\"output-summary--likely-behaviors\">");
+      likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
+        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
+      });
+      behaviors.append("</div>");
+      behaviors.append("<h4 class=\"base--h4\">You are unlikely to______ </h4>");
+      behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
+      unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
+        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item.name + "</div>\n");
+      });
+      behaviors.append("</div>");
+      cpsect.show();
+    } else {
+      cpsect.hide();
+    }
   }
 
   function loadOutput(rawData) {
@@ -471,51 +681,10 @@ $(document).ready(function () {
       tooltips: tooltips
     }));
 
-    loadBehaviors(data, globalState.userLocale || OUTPUT_LANG || 'en');
-
     updateJSON(rawData);
 
     globalState.currentProfile = rawData;
 
-  }
-
-  function loadBehaviors(profile, lang) {
-    var behaviors_template = outputBehaviorsTemplate.innerHTML;
-
-
-    var personalityBehaviors = new PersonalityBehaviors({ locale: lang, format: 'markdown' });
-    var behaviors = personalityBehaviors.behaviors(profile);
-    behaviors = behaviors.map(function (b) {
-      b.description = renderMarkdown(b.description);
-      return b;
-    });
-
-    var likely   = behaviors.filter(isPositive),
-        unlikely = behaviors.filter(isNegative);
-
-    if (likely.length > 0) {
-      $outputLikelyBehaviors.append(_.template(behaviors_template, {
-        items: likely.sort(sortScoresDESC).filter(top3)
-      }));
-      $outputLikelyBehaviorsSection.show();
-    } else {
-      $outputLikelyBehaviorsSection.hide();
-    }
-
-    if (unlikely.length > 0) {
-      $outputUnlikelyBehaviors.append(_.template(behaviors_template, {
-        items: unlikely.sort(sortScoresASC).filter(top3)
-      }));
-      $outputUnlikelyBehaviorsSection.show();
-    } else {
-      $outputUnlikelyBehaviorsSection.hide();
-    }
-
-    if (unlikely.length == 0 && likely.length == 0) {
-      $outputNoBehaviorsSection.show();
-    } else {
-      $outputNoBehaviorsSection.hide();
-    }
   }
 
   $inputTextArea.on('propertychange change click keyup input paste', function() {
@@ -561,8 +730,6 @@ $(document).ready(function () {
     $('.output-big-5--sub-tree').hide();
     $needsMoreTraits.hide();
     $outputSummaryText.empty();
-    $outputLikelyBehaviors.empty();
-    $outputUnlikelyBehaviors.empty();
     $outputJSONCode.empty();
     selectDefaultLanguage();
   }
@@ -698,7 +865,7 @@ $(document).ready(function () {
   }
 
   function updateJSON(results) {
-    $outputJSONCode.html(JSON.stringify(results, null, 2));
+    $outputJSONCode.html(JSON.stringify(results['raw_v3_response'], null, 2));
     $('.code--json').each(function (i,b) { hljs.highlightBlock(b); });
   }
 

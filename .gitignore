@@ -6,3 +6,4 @@ npm-debug.log
 .env.js
 .env
 coverage
+.idea/*
