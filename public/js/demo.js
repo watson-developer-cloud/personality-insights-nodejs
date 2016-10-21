@@ -225,7 +225,7 @@ $(document).ready(function () {
       var lang = globalState.selectedSample == 'custom' ? globalState.selectedLanguage : $('input#text-'+ globalState.selectedSample).attr('data-lang');
 
       setLoadingState();
-      
+
       getProfileForText($('.input--text-area').val(), { language: lang });
     });
   }
@@ -435,62 +435,220 @@ $(document).ready(function () {
       "consumption_preferences_clothes_comfort" ].indexOf(cpid);
   }
 
-  function cpIdMapping(cpid) {
-    return {
-      "consumption_preferences_automobile_ownership_cost": "be sensitive to ownership cost when buying automobiles",
-        "consumption_preferences_automobile_safety": "prefer safety when buying automobiles",
-        "consumption_preferences_automobile_resale_value": "prefer resale value when buying automobiles",
-        "consumption_preferences_clothes_quality": "prefer quality when buying clothes",
-        "consumption_preferences_clothes_style": "prefer style when buying clothes",
-        "consumption_preferences_clothes_comfort": "prefer comfort when buying clothes",
-        "consumption_preferences_influence_brand_name": "be influenced by brand name when making product purchases",
-        "consumption_preferences_influence_utility": "be influenced by product utility when making product purchases",
-        "consumption_preferences_influence_online_ads": "be influenced by online ads when making product purchases",
-        "consumption_preferences_influence_social_media": "be influenced by social media during product purchases",
-        "consumption_preferences_influence_family_members": "be influenced by family when making product purchases",
-        "consumption_preferences_spur_of_moment": "indulge in spur of the moment purchases",
-        "consumption_preferences_credit_card_payment": "prefer using credit cards for shopping",
-        "consumption_preferences_eat_out": "eat out frequently",
-        "consumption_preferences_fast_food_frequency": "eat fast food frequently",
-        "consumption_preferences_gym_membership": "have a gym membership",
-        "consumption_preferences_adventurous_sports": "like adventurous sports",
-        "consumption_preferences_outdoor": "like outdoor activities",
-        "consumption_preferences_concerned_environment": "be concerned about the environment",
-        "consumption_preferences_start_business": "consider starting a business in next few years",
-        "consumption_preferences_movie_romance": "like romance movies",
-        "consumption_preferences_movie_adventure": "like adventure movies",
-        "consumption_preferences_movie_horror": "like horror movies",
-        "consumption_preferences_movie_musical": "like musical movies",
-        "consumption_preferences_movie_historical": "like historical movies",
-        "consumption_preferences_movie_science_fiction": "like science-fiction movies",
-        "consumption_preferences_movie_war": "like war movies",
-        "consumption_preferences_movie_drama": "like drama movies",
-        "consumption_preferences_movie_action": "like action movies",
-        "consumption_preferences_movie_documentary": "like documentary movies",
-        "consumption_preferences_music_rap": "like rap music",
-        "consumption_preferences_music_country": "like country music",
-        "consumption_preferences_music_r_b": "like R&B music",
-        "consumption_preferences_music_hip_hop": "like hip hop music",
-        "consumption_preferences_music_live_event": "attend live musical events",
-        "consumption_preferences_music_christian_gospel": "like Christian/gospel music",
-        "consumption_preferences_music_playing": "have experience playing music",
-        "consumption_preferences_music_latin": "like Latin music",
-        "consumption_preferences_music_rock": "like rock music",
-        "consumption_preferences_music_classical": "like classical music",
-        "consumption_preferences_read_frequency": "read often",
-        "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
-        "consumption_preferences_read_motive_information": "read for information",
-        "consumption_preferences_books_entertainment_magazines": "read entertainment magazines",
-        "consumption_preferences_books_non_fiction": "read non-fiction books",
-        "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
-        "consumption_preferences_read_motive_relaxation": "read for relaxation",
-        "consumption_preferences_books_financial_investing": "read financial investment books",
-        "consumption_preferences_books_autobiographies": "read autobiographical books",
-        "consumption_preferences_volunteer": "volunteer for social causes",
-        "consumption_preferences_volunteering_time": "have spent time volunteering",
-        "consumption_preferences_volunteer_learning": "volunteer to learn about social causes",
-    }[cpid]
+  function getLikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
 
+    if(lang == "ja")
+    {
+      //Japanese
+      return "下記のような傾向がありそうです______ ";
+    }
+    if(lang == "es")
+    {
+      //Spanish
+      return "Usted es más propenso a______ ";
+    }
+    else {
+      //Default to English
+      return "You are likely to______ ";
+    }
+  }
+
+  function getUnlikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+
+    if(lang == "ja")
+    {
+      //Japanese
+      return "下記の傾向は低そうです______ ";
+    }
+    if(lang == "es")
+    {
+      //Spanish
+      return "Usted es menos propenso a______ ";
+    }
+    else {
+      //Default to English
+      return "You are unlikely to______ ";
+    }
+  }
+
+  function cpIdMapping(cpid) {
+
+    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+
+    if(lang == "ja")
+    {
+      //Japanese
+      return {
+          "consumption_preferences_automobile_ownership_cost": "JA be sensitive to ownership cost when buying automobiles",
+          "consumption_preferences_automobile_safety": "JA prefer safety when buying automobiles",
+          "consumption_preferences_automobile_resale_value": "JA prefer resale value when buying automobiles",
+          "consumption_preferences_clothes_quality": "JA prefer quality when buying clothes",
+          "consumption_preferences_clothes_style": "JA prefer style when buying clothes",
+          "consumption_preferences_clothes_comfort": "JA prefer comfort when buying clothes",
+          "consumption_preferences_influence_brand_name": "JA be influenced by brand name when making product purchases",
+          "consumption_preferences_influence_utility": "JA be influenced by product utility when making product purchases",
+          "consumption_preferences_influence_online_ads": "JA be influenced by online ads when making product purchases",
+          "consumption_preferences_influence_social_media": "JA be influenced by social media during product purchases",
+          "consumption_preferences_influence_family_members": "JA be influenced by family when making product purchases",
+          "consumption_preferences_spur_of_moment": "JA indulge in spur of the moment purchases",
+          "consumption_preferences_credit_card_payment": "JA prefer using credit cards for shopping",
+          "consumption_preferences_eat_out": "JA eat out frequently",
+          "consumption_preferences_fast_food_frequency": "JA eat fast food frequently",
+          "consumption_preferences_gym_membership": "JA have a gym membership",
+          "consumption_preferences_adventurous_sports": "JA like adventurous sports",
+          "consumption_preferences_outdoor": "JA like outdoor activities",
+          "consumption_preferences_concerned_environment": "JA be concerned about the environment",
+          "consumption_preferences_start_business": "JA consider starting a business in next few years",
+          "consumption_preferences_movie_romance": "JA like romance movies",
+          "consumption_preferences_movie_adventure": "JA like adventure movies",
+          "consumption_preferences_movie_horror": "JA like horror movies",
+          "consumption_preferences_movie_musical": "JA like musical movies",
+          "consumption_preferences_movie_historical": "JA like historical movies",
+          "consumption_preferences_movie_science_fiction": "JA like science-fiction movies",
+          "consumption_preferences_movie_war": "JA like war movies",
+          "consumption_preferences_movie_drama": "JA like drama movies",
+          "consumption_preferences_movie_action": "JA like action movies",
+          "consumption_preferences_movie_documentary": "JA like documentary movies",
+          "consumption_preferences_music_rap": "JA like rap music",
+          "consumption_preferences_music_country": "JA like country music",
+          "consumption_preferences_music_r_b": "JA like R&B music",
+          "consumption_preferences_music_hip_hop": "JA like hip hop music",
+          "consumption_preferences_music_live_event": "JA attend live musical events",
+          "consumption_preferences_music_christian_gospel": "JA like Christian/gospel music",
+          "consumption_preferences_music_playing": "JA have experience playing music",
+          "consumption_preferences_music_latin": "JA like Latin music",
+          "consumption_preferences_music_rock": "JA like rock music",
+          "consumption_preferences_music_classical": "JA like classical music",
+          "consumption_preferences_read_frequency": "JA read often",
+          "consumption_preferences_read_motive_enjoyment": "JA read for enjoyment",
+          "consumption_preferences_read_motive_information": "JA read for information",
+          "consumption_preferences_books_entertainment_magazines": "JA read entertainment magazines",
+          "consumption_preferences_books_non_fiction": "JA read non-fiction books",
+          "consumption_preferences_read_motive_mandatory": "JA do mandatory reading only",
+          "consumption_preferences_read_motive_relaxation": "JA read for relaxation",
+          "consumption_preferences_books_financial_investing": "JA read financial investment books",
+          "consumption_preferences_books_autobiographies": "JA read autobiographical books",
+          "consumption_preferences_volunteer": "JA volunteer for social causes",
+          "consumption_preferences_volunteering_time": "JA have spent time volunteering",
+          "consumption_preferences_volunteer_learning": "JA volunteer to learn about social causes",
+      }[cpid]
+    }
+    else if (lang == "es") {
+      //Spanish
+      return {
+          "consumption_preferences_automobile_ownership_cost": "be sensitive to ownership cost when buying automobiles",
+          "consumption_preferences_automobile_safety": "prefer safety when buying automobiles",
+          "consumption_preferences_automobile_resale_value": "prefer resale value when buying automobiles",
+          "consumption_preferences_clothes_quality": "prefer quality when buying clothes",
+          "consumption_preferences_clothes_style": "prefer style when buying clothes",
+          "consumption_preferences_clothes_comfort": "prefer comfort when buying clothes",
+          "consumption_preferences_influence_brand_name": "be influenced by brand name when making product purchases",
+          "consumption_preferences_influence_utility": "be influenced by product utility when making product purchases",
+          "consumption_preferences_influence_online_ads": "be influenced by online ads when making product purchases",
+          "consumption_preferences_influence_social_media": "be influenced by social media during product purchases",
+          "consumption_preferences_influence_family_members": "be influenced by family when making product purchases",
+          "consumption_preferences_spur_of_moment": "indulge in spur of the moment purchases",
+          "consumption_preferences_credit_card_payment": "prefer using credit cards for shopping",
+          "consumption_preferences_eat_out": "eat out frequently",
+          "consumption_preferences_fast_food_frequency": "eat fast food frequently",
+          "consumption_preferences_gym_membership": "have a gym membership",
+          "consumption_preferences_adventurous_sports": "like adventurous sports",
+          "consumption_preferences_outdoor": "like outdoor activities",
+          "consumption_preferences_concerned_environment": "be concerned about the environment",
+          "consumption_preferences_start_business": "consider starting a business in next few years",
+          "consumption_preferences_movie_romance": "like romance movies",
+          "consumption_preferences_movie_adventure": "like adventure movies",
+          "consumption_preferences_movie_horror": "like horror movies",
+          "consumption_preferences_movie_musical": "like musical movies",
+          "consumption_preferences_movie_historical": "like historical movies",
+          "consumption_preferences_movie_science_fiction": "like science-fiction movies",
+          "consumption_preferences_movie_war": "like war movies",
+          "consumption_preferences_movie_drama": "like drama movies",
+          "consumption_preferences_movie_action": "like action movies",
+          "consumption_preferences_movie_documentary": "like documentary movies",
+          "consumption_preferences_music_rap": "like rap music",
+          "consumption_preferences_music_country": "like country music",
+          "consumption_preferences_music_r_b": "like R&B music",
+          "consumption_preferences_music_hip_hop": "like hip hop music",
+          "consumption_preferences_music_live_event": "attend live musical events",
+          "consumption_preferences_music_christian_gospel": "like Christian/gospel music",
+          "consumption_preferences_music_playing": "have experience playing music",
+          "consumption_preferences_music_latin": "like Latin music",
+          "consumption_preferences_music_rock": "like rock music",
+          "consumption_preferences_music_classical": "like classical music",
+          "consumption_preferences_read_frequency": "read often",
+          "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
+          "consumption_preferences_read_motive_information": "read for information",
+          "consumption_preferences_books_entertainment_magazines": "read entertainment magazines",
+          "consumption_preferences_books_non_fiction": "read non-fiction books",
+          "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
+          "consumption_preferences_read_motive_relaxation": "read for relaxation",
+          "consumption_preferences_books_financial_investing": "read financial investment books",
+          "consumption_preferences_books_autobiographies": "read autobiographical books",
+          "consumption_preferences_volunteer": "volunteer for social causes",
+          "consumption_preferences_volunteering_time": "have spent time volunteering",
+          "consumption_preferences_volunteer_learning": "volunteer to learn about social causes",
+      }[cpid]
+    }
+    else {
+      //Default to english
+      return {
+          "consumption_preferences_automobile_ownership_cost": "be sensitive to ownership cost when buying automobiles",
+          "consumption_preferences_automobile_safety": "prefer safety when buying automobiles",
+          "consumption_preferences_automobile_resale_value": "prefer resale value when buying automobiles",
+          "consumption_preferences_clothes_quality": "prefer quality when buying clothes",
+          "consumption_preferences_clothes_style": "prefer style when buying clothes",
+          "consumption_preferences_clothes_comfort": "prefer comfort when buying clothes",
+          "consumption_preferences_influence_brand_name": "be influenced by brand name when making product purchases",
+          "consumption_preferences_influence_utility": "be influenced by product utility when making product purchases",
+          "consumption_preferences_influence_online_ads": "be influenced by online ads when making product purchases",
+          "consumption_preferences_influence_social_media": "be influenced by social media during product purchases",
+          "consumption_preferences_influence_family_members": "be influenced by family when making product purchases",
+          "consumption_preferences_spur_of_moment": "indulge in spur of the moment purchases",
+          "consumption_preferences_credit_card_payment": "prefer using credit cards for shopping",
+          "consumption_preferences_eat_out": "eat out frequently",
+          "consumption_preferences_fast_food_frequency": "eat fast food frequently",
+          "consumption_preferences_gym_membership": "have a gym membership",
+          "consumption_preferences_adventurous_sports": "like adventurous sports",
+          "consumption_preferences_outdoor": "like outdoor activities",
+          "consumption_preferences_concerned_environment": "be concerned about the environment",
+          "consumption_preferences_start_business": "consider starting a business in next few years",
+          "consumption_preferences_movie_romance": "like romance movies",
+          "consumption_preferences_movie_adventure": "like adventure movies",
+          "consumption_preferences_movie_horror": "like horror movies",
+          "consumption_preferences_movie_musical": "like musical movies",
+          "consumption_preferences_movie_historical": "like historical movies",
+          "consumption_preferences_movie_science_fiction": "like science-fiction movies",
+          "consumption_preferences_movie_war": "like war movies",
+          "consumption_preferences_movie_drama": "like drama movies",
+          "consumption_preferences_movie_action": "like action movies",
+          "consumption_preferences_movie_documentary": "like documentary movies",
+          "consumption_preferences_music_rap": "like rap music",
+          "consumption_preferences_music_country": "like country music",
+          "consumption_preferences_music_r_b": "like R&B music",
+          "consumption_preferences_music_hip_hop": "like hip hop music",
+          "consumption_preferences_music_live_event": "attend live musical events",
+          "consumption_preferences_music_christian_gospel": "like Christian/gospel music",
+          "consumption_preferences_music_playing": "have experience playing music",
+          "consumption_preferences_music_latin": "like Latin music",
+          "consumption_preferences_music_rock": "like rock music",
+          "consumption_preferences_music_classical": "like classical music",
+          "consumption_preferences_read_frequency": "read often",
+          "consumption_preferences_read_motive_enjoyment": "read for enjoyment",
+          "consumption_preferences_read_motive_information": "read for information",
+          "consumption_preferences_books_entertainment_magazines": "read entertainment magazines",
+          "consumption_preferences_books_non_fiction": "read non-fiction books",
+          "consumption_preferences_read_motive_mandatory": "do mandatory reading only",
+          "consumption_preferences_read_motive_relaxation": "read for relaxation",
+          "consumption_preferences_books_financial_investing": "read financial investment books",
+          "consumption_preferences_books_autobiographies": "read autobiographical books",
+          "consumption_preferences_volunteer": "volunteer for social causes",
+          "consumption_preferences_volunteering_time": "have spent time volunteering",
+          "consumption_preferences_volunteer_learning": "volunteer to learn about social causes",
+      }[cpid]
+    }
   }
 
   var consumptionPrefMusic = new Set(["consumption_preferences_music_rap",
@@ -576,13 +734,13 @@ $(document).ready(function () {
         return k;
       },[]);
       behaviors.html("");
-      behaviors.append("<h4 class=\"base--h4\">You are likely to______ </h4>");
+      behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
       likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append("</div>");
-      behaviors.append("<h4 class=\"base--h4\">You are unlikely to______ </h4>");
+      behaviors.append("<h4 class=\"base--h4\">" + getUnlikelyToLabel() + "</h4>");
       behaviors.append("<div class=\"output-summary--unlikely-behaviors\">");
       unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_NEGATIVE\"><i class=\"icon icon-not-likely\"></i>" + item.name + "</div>\n");
@@ -694,7 +852,7 @@ $(document).ready(function () {
   function loadWordCount(data) {
     $('.output--word-count-number').text(data.word_count);
     $('.output--word-count-message').removeClass('show');
-    if(data.processed_lang === 'en') { 
+    if(data.processed_lang === 'en') {
      if (data.word_count >= 3000)
        $('.output--word-count-message_VERY-STRONG_NEW_MODEL').addClass('show');
      else if (data.word_count < 3000 && data.word_count >= 1200)
