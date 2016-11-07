@@ -14,5 +14,5 @@ deploy:
   space: demos
   on:
     repo: watson-developer-cloud/personality-insights-nodejs
-    branch: master
+    branch: release
   skip_cleanup: true
