@@ -48,7 +48,7 @@
 	"title-output": "Output",
 	"message-error": "Error!",
 	"disclaimer-1": "The scores you see are all percentiles. They are comparing one person to a broader population. For example, a 90% on Extraversion does not mean that the person is 90% extroverted. It means that for that single trait, the person is more extroverted than 90% of the people in the population.",
-	"disclaimer-2": "Our sample population consists of Twitter users who tweet in respective language",
+	"disclaimer-2": "Our sample population consists of Twitter users who tweet in their respective languages",
 	"disclaimer-3": "and whose personalities we calculated using our model.",
 	"title-personality": "Personality Portrait",
 	"label-wordsanalyzed": "words analyzed:",
