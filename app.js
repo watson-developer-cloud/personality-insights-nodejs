@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-'use strict';
-
-var express = require('express'),
-    app     = express();
+const express = require('express');
+const app = express();
 
 // Bootstrap application settings
 require('./config/express')(app);

@@ -1,6 +1,6 @@
 ---
 declared-services:
-  personality-insights-service:
+  my-pi-service:
     label: personality_insights
     plan: tiered
 
@@ -11,6 +11,4 @@ applications:
   memory: 512M
   instances: 1
   services:
-  - personality-insights-service
-  env:
-    NODE_ENV: production
+  - my-pi-service

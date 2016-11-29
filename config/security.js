@@ -17,28 +17,19 @@
 'use strict';
 
 // security.js
-var rateLimit  = require('express-rate-limit'),
-    helmet     = require('helmet'),
-    request    = require('request');
+var rateLimit = require('express-rate-limit');
+var helmet = require('helmet');
 
-module.exports = function (app) {
-  // 1. helmet with defaults
-  // app.use(helmet());
+module.exports = (app) => {
+  app.use(helmet({
+    cacheControl: false,
+    frameguard: false
+  }));
 
-  // 2. allow iframes
-  // disable iframe restriction
-  // app.use(helmet.frameguard('allow-from', 'https://example-app-name.mybluemix.net'));
-
-  // 3. rate limiting
-  var limiter = rateLimit({
+  app.use('/api/', rateLimit({
     windowMs: 30 * 1000, // seconds
     delayMs: 0,
     max: 3,
-    message: JSON.stringify({
-      error:'Too many requests, please try again in 30 seconds.',
-      code: 429
-    }),
-  });
-
-  app.use('/api/', limiter);
+    message: JSON.stringify({error: 'Too many requests, please try again in 30 seconds.', code: 429})
+  }));
 };

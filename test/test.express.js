@@ -14,16 +14,27 @@
  * limitations under the License.
  */
 
-'use strict';
+const path = require('path');
+// load default variables for testing
+require('dotenv').config({ path: path.join(__dirname, '../.env.example') });
 
-var app = require('../app');
-var request = require('supertest');
-var nock = require('nock');
+const app = require('../app');
+const request = require('supertest');
 
-describe('express', function() {
+describe('express', ()  => {
+  it('load home page when GET /', () =>
+    request(app).get('/').expect(200)
+  );
 
-  it('load home page when GET /', function(done) {
-    request(app).get('/').expect(200, done);
-  });
+  it('load terms of use when GET /terms-of-use', () =>
+    request(app).get('/terms-of-use').expect(200)
+  );
 
+  it('load sunburst when GET /sunburst', () =>
+    request(app).post('/sunburst').expect(200)
+  );
+
+  it('return 404 for not found pages', () =>
+    request(app).get('/not-found').expect(404)
+  );
 });

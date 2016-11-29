@@ -1,0 +1,5 @@
+node_modules
+coverage
+public/js/components
+public/js/vendors
+public/js/demo.js

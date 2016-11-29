@@ -1,173 +1,173 @@
-# Personality Insights Nodejs Starter Application
-[![Build Status](https://travis-ci.org/watson-developer-cloud/personality-insights-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/personality-insights-nodejs)
-[![codecov.io](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs?branch=master)
+# Personality Insights Nodejs Starter Application [![Build Status](https://travis-ci.org/watson-developer-cloud/personality-insights-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/personality-insights-nodejs) [![codecov.io](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs?branch=master)
 
   The IBM Watson [Personality Insights][service_url] service uses linguistic analysis to extract cognitive and social characteristics from input text such as email, text messages, tweets, forum posts, and more. By deriving cognitive and social preferences, the service helps users to understand, connect to, and communicate with other people on a more personalized level.
 
-## Choose your development enviroment
-- **Bluemix DevOps Sevices** - integrated agile planning, coding, building, and deploy to Bluemix  OR
-- **CLI Cloud Foundry** - lovers of command-line tools and their favorite text editor with Bluemix
 
-## Getting Started using Bluemix DevOps Services
+## Getting started
 
-1. Create a Bluemix Account
+1. You need a Bluemix account. If you don't have one, [sign up][sign_up]. Experimental Watson Services are free to use.
 
-  [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use.
-  
-2. Click [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs) ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/063c9ea15ab22e31930d4c91909186d9/badge.svg)
+1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
 
-3. LOG IN using your Bluemix Account and then click DEPLOY to deploy the app and create a private DevOps Services project for you.
+1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
-5. Click the EDIT CODE button to setup your workspace
-
-4. **Optional:** See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
-
-5. Click the GIT icon in the left column navigation toolbar to commit your changes.
-
-6. Click the BUILD & DEPLOY button to deploy your app to Bluemix
-
-
-## Getting Started using CLI Cloud Foundry
-
-1. Create a Bluemix Account
-
-  [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use.
-
-2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
-
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
-
-  ```none
+  ```yaml
   applications:
   - services:
-    - personality-insights
+    - my-service-instance
     name: <application-name>
     command: npm start
     path: .
-    memory: 256M
-  ```
-  The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
-
-4. **Optional:** See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
-
-5. Connect to Bluemix in the command line tool
-  ```sh
-  $ cf api https://api.ng.bluemix.net
-  $ cf login -u <your user ID>
+    memory: 512M
   ```
 
-6. Create the Personality Insights service in Bluemix
+1. Connect to Bluemix with the command line tool.
 
   ```sh
-  $ cf create-service personality_insights tiered personality-insights-service
+  cf api https://api.ng.bluemix.net
+  cf login
   ```
 
-7. Push it live!
+1. Create and retrieve service keys to access the [Personality Insights][service_url] service:
 
-  ```sh
-  $ cf push
+  ```none
+  cf create-service personality_insights tiered my-pi-service
+  cf create-service-key my-pi-service myKey
+  cf service-key my-pi-service myKey
   ```
 
-See the full [Getting Started][getting_started] documentation for more details, including code snippets and references.
+1. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
 
-## Running locally
-  The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/) so you will have to download and install them as part of the steps below.
+  ```none
+  cp .env.example .env
+  ```
+  You will update the `.env` with the information you retrieved in steps 5.
 
-1. Copy the credentials from your `personality-insights-service` service in Bluemix to `credentials.json`, you can see the credentials using:
+  The `.env` file will look something like the following:
 
-    ```sh
-    $ cf env <application-name>
-    ```
-    Example output:
-    ```sh
-    System-Provided:
-    {
-    "VCAP_SERVICES": {
-      "personality_insights": [{
-          "credentials": {
-            "url": "<url>",
-            "password": "<password>",
-            "username": "<username>"
-          },
-        "label": "personality_insights",
-        "name": "personality-insights-service",
-        "plan": "IBM Watson Personality Insights Monthly Plan"
-     }]
-    }
-    }
-    ```
+  ```none
+  PERSONALITY_INSIGHTS_USERNAME=<username>
+  PERSONALITY_INSIGHTS_PASSWORD=<password>
+  ```
 
-    You need to copy `username`, `password` and `url`.
+1. Install the dependencies you application need:
 
-2. See [Setting Up Twitter Application](#SettingUpTwitterApplication) section to enable live twitter crawling.
+  ```none
+  npm install
+  ```
 
-3. Install [Node.js](http://nodejs.org/)
-4. Go to the project folder in a terminal and run:
-    `npm install`
-5. Start the application
-6.  `npm start`
-7. Go to `http://localhost:3000`
+1. Start the application locally:
 
-## Setting Up Twitter Application
+  ```none
+  npm start
+  ```
 
-First you need to [Create a Twitter application][create_twitter_app] and add your application's callback URL:
-- For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
-- For Local environment: `server.local:3000/auth/twitter/callback` (be sure to configure `hosts` file so `server.local` points `127.0.0.1`)
+1. Point your browser to [http://localhost:3000](http://localhost:3000).
 
-Edit the `credentials.json` file and change the `<consumer_key>` and `<consumer_secret>` tokens with the one from your twitter's application.
+1. **Optional:** Push the application to Bluemix:
 
-```js
-{
-  ...
-  "twitter" : {
-    "application" : {
-      "consumer_key" : "<consumer_key>",
-      "consumer_secret" : "<consumer_secret>"
-    }
-  }
-  ...
-}
-```
+  ```none
+  cf push
+  ```
+
+After completing the steps above, you are ready to test your application. Start a browser and enter the URL of your application.
+
+            <your application name>.mybluemix.net
+
+
+For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
+
+### Setting Up the Twitter Application
+
+1. [Create a Twitter application][create_twitter_app].
+
+1. Add your application's callback URL:
+  - For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
+  - For Local environment: `http:localhost:3000/auth/twitter/callback`
+
+1. Update the `.env` file and add your twitter application credentials:
+
+  ```none
+  TWITTER_CONSUMER_KEY=<consumer-key>
+  TWITTER_CONSUMER_SECRET=<consumer-secret>
+  ```
+
+1. Restart the app locally or push it again to Bluemix.
+
 
 ## Troubleshooting
 
-To troubleshoot your Bluemix app the main useful source of information are the logs, to see them, run:
+* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
 
   ```sh
-  $ cf logs <application-name> --recent
+  cf logs <application-name> --recent
   ```
+
+* For more details about the service, see the [documentation][documentation] for the Personality Insights.
+
+
+
+### Directory structure
+
+```none
+.
+├── app.js                       // express entry point
+├── config                       // express configuration
+│   ├── error-handler.js
+│   ├── express.js
+│   ├── i18n.js
+│   ├── passport.js
+│   └── security.js
+├── helpers                      // utility modules
+│   ├── personality-insights.js
+│   └── twitter-helper.js
+├── i18n                         // internationalization
+│   ├── en.json
+│   ├── es.json
+│   └── ja.json
+├── manifest.yml
+├── package.json
+├── public
+│   ├── css
+│   ├── data                     // sample text and tweets
+│   ├── fonts
+│   ├── images
+│   └── js
+├── router.js                   // express routes
+├── server.js                   // application entry point
+├── test
+└── views                       // ejs views
+```
 
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).
-  This sample code uses d3 and jQuery, both distributed under MIT license.
+  This sample code is licensed under Apache 2.0.
 
 ## Contributing
 
-  See [CONTRIBUTING](CONTRIBUTING.md).
+  See [CONTRIBUTING](.github/CONTRIBUTING.md).
 
 ## Open Source @ IBM
-Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
+  Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
-### Privacy Notice
+## Privacy Notice
 
-This node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
+Sample web applications that include this package may be configured to track deployments to [IBM Bluemix](https://www.bluemix.net/) and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service on each deployment:
 
+* Node.js package version
+* Node.js repository URL
 * Application Name (`application_name`)
 * Space ID (`space_id`)
 * Application Version (`application_version`)
 * Application URIs (`application_uris`)
+* Labels of bound services
+* Number of instances for each bound service and associated plan information
 
-This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
-
-### Disabling Deployment Tracking
-
-Deployment tracking can be disabled by removing `require('cf-deployment-tracker-client').track();` from the beginning of the `server.js` file at the root of this repo.
-
+This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
-[create_twitter_app]: https://apps.twitter.com/app/new
-[service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
+[getting_started]: https://www.ibm.com/watson/developercloud/doc/getting_started/
+[documentation]: https://www.ibm.com/watson/developercloud/personality-insights.html
+[create_twitter_app]: https://apps.twitter.com/app/new
 [sign_up]: https://console.ng.bluemix.net/registration/
