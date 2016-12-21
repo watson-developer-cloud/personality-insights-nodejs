@@ -16,7 +16,6 @@
 
 'use strict';
 
-const pick = require('object.pick');
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
 
@@ -32,8 +31,6 @@ const strategy = new TwitterStrategy(strategyOptions, (token, tokenSecret, profi
     handle: profile.username,
     image: photo ? photo.value.replace('_normal', '_400x400') : undefined
   };
-
-  console.log('TwitterStrategy:', userProfile);
 
   done(null, {
     credentials: {
