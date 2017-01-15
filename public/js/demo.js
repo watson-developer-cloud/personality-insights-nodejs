@@ -684,7 +684,11 @@ $(document).ready(function() {
     return accumulator;
   }
 
-  function sortIdxComparator(a, b) {
+  function sortIdxComparator(x, y) {
+
+    var a = x.idx;
+    var b = y.idx;
+
     if (a < b) {
       return -1;
     }
@@ -726,12 +730,15 @@ $(document).ready(function() {
           }
         });
         return k;
-      }, []);
+      },[]);
       behaviors.html('');
-      behaviors.append('<h4 class="base--h4">' + getLikelyToLabel() + '</h4>');
-      behaviors.append('<div class="output-summary--likely-behaviors">');
-      likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
-        behaviors.append('<div class="output-summary--behavior output-summary--behavior_POSITIVE"><i class="icon icon-likely"></i>' + item.name + '</div>\n');
+      behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
+      behaviors.append("<div class=\"output-summary--likely-behaviors\">");
+
+
+      var likelycps_sorted = likelycps.sort(sortIdxComparator);
+      likelycps_sorted.reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
+        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append('</div>');
       behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
@@ -749,7 +756,7 @@ $(document).ready(function() {
   function loadOutput(data) {
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
 
-    //setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
+    setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
     loadWordCount(data);
 
     var statsPercent_template = outputStatsPercentTemplate.innerHTML;
