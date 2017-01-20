@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "bluebird": "^3.4.7",
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.16.0",
     "callsite": "^1.0.0",
     "cf-deployment-tracker-client": "0.1.2",
     "cfenv": "^1.0.3",
@@ -71,8 +71,8 @@
     "request": "^2.79.0",
     "twitter": "1.7.0",
     "underscore": "^1.8.3",
-    "watson-developer-cloud": "^2.14.6",
-    "winston": "^2.3.0"
+    "watson-developer-cloud": "^2.15.2",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "codecov": "^1.0.1",

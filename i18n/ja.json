@@ -92,6 +92,7 @@
 	"header-documentation": "ドキュメンテーション",
 	"header-fork": "GithubにForkする",
 	"header-forkdeploy": "Bluemix上にFork、Deployする",
+	"header-bluemix": "Bluemixで無料スタート",
 	"sunburst-title": "サンバーストチャート",
 	"sunburst-back": "戻る",
 	"error-400-minimum": "テキストが短すぎます。少なくとも100単語以上必要です。Watsonにもっと情報をください。",

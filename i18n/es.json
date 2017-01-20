@@ -96,6 +96,7 @@
 	"header-documentation": "Documentación",
 	"header-fork": "Fork en Github",
 	"header-forkdeploy": "Fork y Deploy en Bluemix",
+	"header-bluemix": "Comienza gratis en Bluemix",
 	"sunburst-title": "Visualización Circular",
 	"sunburst-back": "Volver",
 	"error-400-minimum": "Necesitamos al menos 100 palabras para realizar el análisis. A Watson no le gusta juzgar un libro por su portada.",
