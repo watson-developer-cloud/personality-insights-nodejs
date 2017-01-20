@@ -3885,3 +3885,25 @@ pre[class*=" language-"] {
 .input--tou {
   font-size: .8em;
 }
+
+
+.base--button_fill {
+  background-color: #315d80;
+  border-color: #315d80;
+  color: white;
+  font-weight: 300;
+  padding: 0.4em 2em;
+  border-radius: 10rem;
+  text-decoration: none;
+  padding: 0.2rem 1rem;
+}
+.base--button_fill:visited {
+  background-color: #315d80;
+  border-color: #315d80;
+  color: white;
+}
+.base--button_fill:hover, .base--button_fill:focus {
+  background-color: #264a60;
+  border-color: #264a60;
+  color: white;
+}
