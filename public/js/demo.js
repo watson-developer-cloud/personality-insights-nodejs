@@ -228,7 +228,7 @@ $(document).ready(function() {
   }
 
   function setTextSummary(profile, locale) {
-    var textSummary = new TextSummary(locale),
+    var textSummary = new TextSummary({ version: 'v3', locale: locale }),
       summary = textSummary.getSummary(profile);
     $('#personalitySummary').empty();
     $('#personalitySummary').append(assembleTextSummary(summary));
@@ -809,7 +809,8 @@ $(document).ready(function() {
 
     var descriptions = new PersonalityTraitDescriptions({
       format: 'markdown',
-      locale: globalState.userLocale || OUTPUT_LANG || 'en'
+      locale: globalState.userLocale || OUTPUT_LANG || 'en',
+      version: 'v3'
     });
 
     var tooltips = function(traitName) {
