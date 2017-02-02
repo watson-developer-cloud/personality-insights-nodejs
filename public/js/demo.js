@@ -632,13 +632,12 @@ $(document).ready(function() {
   **/
   function loadOutput(data) {
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
-    //const LOCALE = globalState.userLocale || OUTPUT_LANG;
 
     setTextSummary(data);
     loadWordCount(data);
 
-    var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
-    var big5HtmlElement = big5PercentTemplate.innerHTML;
+    //var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
+    //var big5HtmlElement = big5PercentTemplate.innerHTML;
 
     var big5Data_curated = data.personality.map(function(obj) {
       return {
@@ -701,22 +700,22 @@ $(document).ready(function() {
     *  Add tooltips to the each of the traits, needs and values
     */
 
-    $big5Traits.append(_.template(big5HtmlElement, {
+    $big5Traits.append(_.template(big5PercentTemplate.innerHTML, {
       items: big5Data_curated.sort(sortScores),
       tooltips: tooltips
     }));
 
-    $needsTraits.append(_.template(statsPercentHtmlElement, {
+    $needsTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       items: needsData_curated.sort(sortScores).slice(0, 5),
       tooltips: tooltips
     }));
 
-    $needsMoreTraits.append(_.template(statsPercentHtmlElement, {
+    $needsMoreTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
       tooltips: tooltips
     }));
 
-    $valuesTraits.append(_.template(statsPercentHtmlElement, {
+    $valuesTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       items: valuesData_curated.sort(sortScores),
       tooltips: tooltips
     }));
