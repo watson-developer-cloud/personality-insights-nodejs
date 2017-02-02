@@ -406,6 +406,7 @@ $(document).ready(function() {
   /**
   * Localization
   */
+  /*
   function getLikelyToLabel() {
     var lang = globalState.userLocale || OUTPUT_LANG;
 
@@ -421,10 +422,11 @@ $(document).ready(function() {
       return 'You are likely to______ ';
     }
   }
-
+  */
   /**
   * Localization
   */
+  /*
   function getUnlikelyToLabel() {
     var lang = globalState.userLocale || OUTPUT_LANG;
 
@@ -440,6 +442,7 @@ $(document).ready(function() {
       return 'You are unlikely to______ ';
     }
   }
+  */
 
   /**
   * cpIdMapping returns the description for a consumption_preference_id
@@ -603,7 +606,8 @@ $(document).ready(function() {
         return k;
       },[]);
       behaviors.html('');
-      behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
+      //behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
+      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-likely\")\ $></h4>”);
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
 
 
@@ -612,7 +616,8 @@ $(document).ready(function() {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append('</div>');
-      behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
+      //behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
+      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-unlikely\")\ $></h4>”);
       behaviors.append('<div class="output-summary--unlikely-behaviors">');
       unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
         behaviors.append('<div class="output-summary--behavior output-summary--behavior_NEGATIVE"><i class="icon icon-not-likely"></i>' + item.name + '</div>\n');
