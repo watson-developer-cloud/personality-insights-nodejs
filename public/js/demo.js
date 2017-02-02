@@ -292,6 +292,7 @@ $(document).ready(function() {
     return replacements[lang] || {};
   }
 
+  /*
   function changeProfileLabels(data) {
     var clonned = JSON.parse(JSON.stringify(data));
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
@@ -309,6 +310,7 @@ $(document).ready(function() {
 
     return clonned;
   }
+  */
 
 
   function getErrorMessage(error) {
@@ -327,11 +329,9 @@ $(document).ready(function() {
       consumption_preferences: true
     }, options || {});
 
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
-
     if (defaults.source_type !== 'twitter') {
       defaults = extend({
-        language: lang
+        language: globalState.userLocale || OUTPUT_LANG || 'en'
       }, defaults);
     }
 
