@@ -632,7 +632,7 @@ $(document).ready(function() {
   **/
   function loadOutput(data) {
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
-    const LOCALE = globalState.userLocale || OUTPUT_LANG;
+    //const LOCALE = globalState.userLocale || OUTPUT_LANG;
 
     setTextSummary(data);
     loadWordCount(data);
