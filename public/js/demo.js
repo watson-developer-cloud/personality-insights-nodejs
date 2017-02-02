@@ -776,6 +776,7 @@ $(document).ready(function() {
     selectDefaultLanguage();
   }
 
+  /*
   function isPositive(behavior) {
     return behavior.score > 0.60;
   }
@@ -787,11 +788,13 @@ $(document).ready(function() {
   function top3(behavior, index) {
     return index < 3;
   }
+  */
 
   function sortScores(obj1, obj2) {
     return obj2.score - obj1.score;
   }
 
+  /*
   function sortScoresDESC(obj1, obj2) {
     return obj2.score - obj1.score;
   }
@@ -799,6 +802,7 @@ $(document).ready(function() {
   function sortScoresASC(obj1, obj2) {
     return obj1.score - obj2.score;
   }
+  */
 
   function preloadSampleTexts(callback) {
     var shared = {
