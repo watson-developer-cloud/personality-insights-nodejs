@@ -223,15 +223,18 @@ $(document).ready(function() {
     });
   }
 
+  /*
   function assembleTextSummary(text) {
     return '<p class="base--p">' + text.split('\n').join('</p><p class="base--p">') + '</p>';
   }
+  */
 
-  function setTextSummary(profile, locale) {
-    var textSummary = new TextSummary({ version: 'v3', locale: locale }),
-      summary = textSummary.getSummary(profile);
+  function setTextSummary(profile) {
+    var textSummary = new TextSummary({ version: 'v3', locale: globalState.userLocale || OUTPUT_LANG});
+    var summary = textSummary.getSummary(profile);
     $('#personalitySummary').empty();
-    $('#personalitySummary').append(assembleTextSummary(summary));
+    //$('#personalitySummary').append(assembleTextSummary(summary));
+    $('#personalitySummary').append('<p class="base--p">' + summary.split('\n').join('</p><p class="base--p">') + '</p>');
   }
 
   /**
