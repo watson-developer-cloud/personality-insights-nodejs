@@ -88,6 +88,9 @@ function renderMarkdown(s) {
   ]);
 }
 
+
+
+
 $(document).ready(function() {
 
   var SAMPLE_TEXTS = [ 'sample1', 'sample2', 'sample3', 'ar', 'ja'];
@@ -115,6 +118,25 @@ $(document).ready(function() {
   var $outputJSONButton = $('.output--json-button');
   var $error = $('.error');
   var $errorMessage = $('.error--message');
+
+  // Instantiate external PI modules
+  const TraitNames = new PersonalityTraitNames({
+    version : 'v3',
+    locale : globalState.userLocale || OUTPUT_LANG
+  });
+
+  const TraitDescriptions = new PersonalityTraitDescriptions({
+    version: 'v3',
+    locale: globalState.userLocale || OUTPUT_LANG,
+    format: 'markdown'
+  });
+
+  const ConsumptionPreferences = new PersonalityConsumptionPreferences({
+    version: 'v3',
+    locale: globalState.userLocale || OUTPUT_LANG
+  });
+
+
 
   function setTextSample(value, readonly) {
     $('#inputText').val(value);
@@ -223,15 +245,18 @@ $(document).ready(function() {
     });
   }
 
+  /*
   function assembleTextSummary(text) {
     return '<p class="base--p">' + text.split('\n').join('</p><p class="base--p">') + '</p>';
   }
+  */
 
-  function setTextSummary(profile, locale) {
-    var textSummary = new TextSummary({ version: 'v3', locale: locale }),
-      summary = textSummary.getSummary(profile);
+  function setTextSummary(profile) {
+    var textSummary = new TextSummary({ version: 'v3', locale: globalState.userLocale || OUTPUT_LANG});
+    var summary = textSummary.getSummary(profile);
     $('#personalitySummary').empty();
-    $('#personalitySummary').append(assembleTextSummary(summary));
+    //$('#personalitySummary').append(assembleTextSummary(summary));
+    $('#personalitySummary').append('<p class="base--p">' + summary.split('\n').join('</p><p class="base--p">') + '</p>');
   }
 
   /**
@@ -269,6 +294,10 @@ $(document).ready(function() {
     getProfile(text, extend(options || {}, {source_type: 'text'}));
   }
 
+
+  /**
+  * Localization
+  */
   function replacementsForLang(lang) {
     var replacements = {
       'en': {
@@ -292,9 +321,10 @@ $(document).ready(function() {
     return replacements[lang] || {};
   }
 
+  /*
   function changeProfileLabels(data) {
     var clonned = JSON.parse(JSON.stringify(data));
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
+    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
 
     function replaceTraitName(trait) {
       trait.name = replacements[trait.name] ? replacements[trait.name] : trait.name;
@@ -309,6 +339,8 @@ $(document).ready(function() {
 
     return clonned;
   }
+  */
+
 
   function getErrorMessage(error) {
     var message = GENERIC_REQUEST_ERROR;
@@ -321,19 +353,16 @@ $(document).ready(function() {
   function defaultProfileOptions(options) {
     var defaults = extend({
       source_type: 'text',
-      accept_language: globalState.userLocale || OUTPUT_LANG || 'en',
+      accept_language: globalState.userLocale || OUTPUT_LANG,
       include_raw: false,
       consumption_preferences: true
     }, options || {});
 
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
-
     if (defaults.source_type !== 'twitter') {
       defaults = extend({
-        language: lang
+        language: globalState.userLocale || OUTPUT_LANG
       }, defaults);
     }
-
     return defaults;
   }
 
@@ -369,6 +398,58 @@ $(document).ready(function() {
         $errorMessage.text(getErrorMessage(err));
       }
     });
+  }
+
+
+
+
+  /**
+  * Localization
+  */
+  /*
+  function getLikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG;
+
+    if (lang == 'ja') {
+      //Japanese
+      return '下記のような傾向がありそうです______ ';
+    }
+    if (lang == 'es') {
+      //Spanish
+      return 'Usted es más propenso a______ ';
+    } else {
+      //Default to English
+      return 'You are likely to______ ';
+    }
+  }
+  */
+  /**
+  * Localization
+  */
+  /*
+  function getUnlikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG;
+
+    if (lang == 'ja') {
+      //Japanese
+      return '下記の傾向は低そうです______ ';
+    }
+    if (lang == 'es') {
+      //Spanish
+      return 'Usted es menos propenso a______ ';
+    } else {
+      //Default to English
+      return 'You are unlikely to______ ';
+    }
+  }
+  */
+
+  /**
+  * cpIdMapping returns the description for a consumption_preference_id
+  * Uses the personality-consumption-preferences npm module
+  */
+  function cpIdMapping(consumption_preference_id) {
+    return ConsumptionPreferences.description(consumption_preference_id);
   }
 
   function cpIdSorting(cpid) {
@@ -426,44 +507,6 @@ $(document).ready(function() {
       'consumption_preferences_movie_documentary',
       'consumption_preferences_clothes_comfort'
     ].indexOf(cpid);
-  }
-
-  function getLikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記のような傾向がありそうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es más propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are likely to______ ';
-    }
-  }
-
-  function getUnlikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記の傾向は低そうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es menos propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are unlikely to______ ';
-    }
-  }
-
-  function cpIdMapping(consumption_preference_id) {
-    var locale = globalState.userLocale || OUTPUT_LANG || 'en';
-    var preferences = new PersonalityConsumptionPreferences({ version: 'v3', locale: locale });
-    return preferences.description(consumption_preference_id);
   }
 
   var consumptionPrefMusic = new Set([
@@ -563,7 +606,8 @@ $(document).ready(function() {
         return k;
       },[]);
       behaviors.html('');
-      behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
+      //behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
+      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-likely\")\ $></h4>”);
       behaviors.append("<div class=\"output-summary--likely-behaviors\">");
 
 
@@ -572,7 +616,8 @@ $(document).ready(function() {
         behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
       behaviors.append('</div>');
-      behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
+      //behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
+      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-unlikely\")\ $></h4>”);
       behaviors.append('<div class="output-summary--unlikely-behaviors">');
       unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
         behaviors.append('<div class="output-summary--behavior output-summary--behavior_NEGATIVE"><i class="icon icon-not-likely"></i>' + item.name + '</div>\n');
@@ -584,24 +629,32 @@ $(document).ready(function() {
     }
   }
 
-  function loadOutput(data) {
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
 
-    setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
+  const replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
+
+  function loadOutput(data) {
+    //var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
+
+    setTextSummary(data);
     loadWordCount(data);
 
-    var statsPercent_template = outputStatsPercentTemplate.innerHTML;
-    var big5_template = big5PercentTemplate.innerHTML;
+    //var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
+    //var big5HtmlElement = big5PercentTemplate.innerHTML;
 
+    /*
     var big5Data_curated = data.personality.map(function(obj) {
       return {
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
-        id: obj.name,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
+        //id: obj.name,
+        id: obj.trait_id,
         score: Math.round(obj.percentile * 100),
         children: obj.children.map(function(obj2) {
           return {
-            name: replacements[obj2.name] ? replacements[obj2.name] : obj2.name,
-            id: obj2.name,
+            //name: replacements[obj2.name] ? replacements[obj2.name] : obj2.name,
+            name: TraitNames.name(obj.trait_id),
+            //id: obj2.name,
+            id: obj2.trait_id,
             score: Math.round(obj2.percentile * 100)
           }
         }).sort(function(a, b) { return b.score - a.score; })
@@ -610,20 +663,26 @@ $(document).ready(function() {
 
     var needsData_curated = data.needs.map(function(obj) {
       return {
-        id: obj.name,
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        //id: obj.name,
+        id: obj.trait_id,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
         score: Math.round(obj.percentile * 100)
       }
     });
 
     var valuesData_curated = data.values.map(function(obj) {
       return {
-        id: obj.name,
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        //id: obj.name,
+        id: obj.trait_id,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
         score: Math.round(obj.percentile * 100)
       };
     });
+    */
 
+    /*
     function mapObject(o, f) {
       var u = {};
       Object.keys(o).forEach(function(key) {
@@ -637,39 +696,102 @@ $(document).ready(function() {
         return renderMarkdown(value);
       });
     }
+    */
 
-    var descriptions = new PersonalityTraitDescriptions({
-      format: 'markdown',
-      locale: globalState.userLocale || OUTPUT_LANG || 'en',
-      version: 'v3'
-    });
-
-    var tooltips = function(traitName) {
-      return renderMarkdown(descriptions.description(traitName));
+    /*
+    var tooltips = function(traitId) {
+      return renderMarkdown(TraitDescriptions.description(traitId));
     };
+    */
 
-    $big5Traits.append(_.template(big5_template, {
-      items: big5Data_curated.sort(sortScores),
-      tooltips: tooltips
+    // Add wrapped traits data from the user profile into the html
+    $big5Traits.append(_.template(big5PercentTemplate.innerHTML, {
+      //items: big5Data_curated.sort(sortScores),
+      items: wrapTraits(data).sort(sortScores),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
-    $needsTraits.append(_.template(statsPercent_template, {
-      items: needsData_curated.sort(sortScores).slice(0, 5),
-      tooltips: tooltips
+    // Add wrapped needs data from the specified user profile into the html
+    $needsTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
+      //items: needsData_curated.sort(sortScores).slice(0, 5),
+      items: wrapNeeds(data).sort(sortScores).slice(0, 5),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
-    $needsMoreTraits.append(_.template(statsPercent_template, {
-      items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
-      tooltips: tooltips
+    // Add wrapped needs 'more' data from the specified user profile into the html
+    $needsMoreTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
+      //items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
+      items: wrapNeeds(data).sort(sortScores).slice(5, wrapNeeds(data).length),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
-    $valuesTraits.append(_.template(statsPercent_template, {
-      items: valuesData_curated.sort(sortScores),
-      tooltips: tooltips
+    // Add wrapped values data from the specified user profile into the html
+    $valuesTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
+      //items: valuesData_curated.sort(sortScores),
+      items: wrapValues(data).sort(sortScores),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
+    // NOTE: v3 update - is this necessary???  is currentProfile used?
     globalState.currentProfile = data;
+
   }
+
+
+  function wrapTraits(data){
+    return data.personality.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        id: obj.trait_id,
+        score: Math.round(obj.percentile * 100),
+        children: obj.children.map(function(obj2) {
+          const traitName2 = TraitNames.name(obj2.trait_id);
+          console.log('traitName2: ' + traitName2);
+          return {
+            name: replacements[traitName2] ? replacements[traitName2] : traitName2,
+            id: obj2.trait_id,
+            score: Math.round(obj2.percentile * 100)
+          }
+        }).sort(function(a, b) { return b.score - a.score; })
+      }
+    });
+  }
+
+  function wrapNeeds(data) {
+    return data.needs.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        id: obj.trait_id,
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        score: Math.round(obj.percentile * 100)
+      }
+    });
+  }
+
+  function wrapValues(data) {
+    return data.values.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        id: obj.trait_id,
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        score: Math.round(obj.percentile * 100)
+      };
+    });
+  }
+
+
+
+
+
 
   $inputTextArea.on('propertychange change click keyup input paste', function() {
     updateWordCount();
@@ -721,6 +843,7 @@ $(document).ready(function() {
     selectDefaultLanguage();
   }
 
+  /*
   function isPositive(behavior) {
     return behavior.score > 0.60;
   }
@@ -732,11 +855,13 @@ $(document).ready(function() {
   function top3(behavior, index) {
     return index < 3;
   }
+  */
 
   function sortScores(obj1, obj2) {
     return obj2.score - obj1.score;
   }
 
+  /*
   function sortScoresDESC(obj1, obj2) {
     return obj2.score - obj1.score;
   }
@@ -744,6 +869,7 @@ $(document).ready(function() {
   function sortScoresASC(obj1, obj2) {
     return obj1.score - obj2.score;
   }
+  */
 
   function preloadSampleTexts(callback) {
     var shared = {
