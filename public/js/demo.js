@@ -245,17 +245,10 @@ $(document).ready(function() {
     });
   }
 
-  /*
-  function assembleTextSummary(text) {
-    return '<p class="base--p">' + text.split('\n').join('</p><p class="base--p">') + '</p>';
-  }
-  */
-
   function setTextSummary(profile) {
     var textSummary = new TextSummary({ version: 'v3', locale: globalState.userLocale || OUTPUT_LANG});
     var summary = textSummary.getSummary(profile);
     $('#personalitySummary').empty();
-    //$('#personalitySummary').append(assembleTextSummary(summary));
     $('#personalitySummary').append('<p class="base--p">' + summary.split('\n').join('</p><p class="base--p">') + '</p>');
   }
 
@@ -321,27 +314,6 @@ $(document).ready(function() {
     return replacements[lang] || {};
   }
 
-  /*
-  function changeProfileLabels(data) {
-    var clonned = JSON.parse(JSON.stringify(data));
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
-
-    function replaceTraitName(trait) {
-      trait.name = replacements[trait.name] ? replacements[trait.name] : trait.name;
-      if (trait.children) {
-        trait.children.forEach(replaceTraitName);
-      }
-    }
-
-    clonned.personality.forEach(replaceTraitName)
-    clonned.needs.forEach(replaceTraitName)
-    clonned.values.forEach(replaceTraitName)
-
-    return clonned;
-  }
-  */
-
-
   function getErrorMessage(error) {
     var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
@@ -399,50 +371,6 @@ $(document).ready(function() {
       }
     });
   }
-
-
-
-
-  /**
-  * Localization
-  */
-  /*
-  function getLikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG;
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記のような傾向がありそうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es más propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are likely to______ ';
-    }
-  }
-  */
-  /**
-  * Localization
-  */
-  /*
-  function getUnlikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG;
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記の傾向は低そうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es menos propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are unlikely to______ ';
-    }
-  }
-  */
 
   /**
   * cpIdMapping returns the description for a consumption_preference_id
@@ -579,6 +507,9 @@ $(document).ready(function() {
   function loadConsumptionPreferences(data) {
     var cpsect = $('.output-summary--consumption-behaviors--section');
     var behaviors = $('.output-summary--consumption-behaviors--section');
+    var behaviors_likely = $('.output-summary--likely-behaviors');
+    var behaviors_unlikely = $('.output-summary--unlikely-behaviors');
+
     if (data.consumption_preferences) {
       var likelycps = data.consumption_preferences.reduce(function(k, v) {
         v.consumption_preferences.map(function(child_item) {
@@ -605,27 +536,20 @@ $(document).ready(function() {
         });
         return k;
       },[]);
-      behaviors.html('');
-      //behaviors.append("<h4 class=\"base--h4\">" + getLikelyToLabel() + "</h4>");
-      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-likely\")\ $></h4>”);
-      behaviors.append("<div class=\"output-summary--likely-behaviors\">");
 
-
-      var likelycps_sorted = likelycps.sort(sortIdxComparator);
-      likelycps_sorted.reduce(addIfAllowedReducer,[]).slice(0,3).map(function(item) {
-        behaviors.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
+      likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
+        behaviors_likely.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
-      behaviors.append('</div>');
-      //behaviors.append('<h4 class="base--h4">' + getUnlikelyToLabel() + '</h4>');
-      behaviors.append("<h4 class=\"base--h4\"><$= __(\"behavior-unlikely\")\ $></h4>”);
-      behaviors.append('<div class="output-summary--unlikely-behaviors">');
+
       unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
-        behaviors.append('<div class="output-summary--behavior output-summary--behavior_NEGATIVE"><i class="icon icon-not-likely"></i>' + item.name + '</div>\n');
+        behaviors_unlikely.append('<div class="output-summary--behavior output-summary--behavior_NEGATIVE"><i class="icon icon-not-likely"></i>' + item.name + '</div>\n');
       });
-      behaviors.append('</div>');
-      cpsect.show();
+
+      behaviors_likely.show();
+      behaviors_unlikely.show();
     } else {
-      cpsect.hide();
+      behaviors_likely.hide();
+      behaviors_unlikely.hide();
     }
   }
 
@@ -633,80 +557,11 @@ $(document).ready(function() {
   const replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
 
   function loadOutput(data) {
-    //var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
-
     setTextSummary(data);
     loadWordCount(data);
 
-    //var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
-    //var big5HtmlElement = big5PercentTemplate.innerHTML;
-
-    /*
-    var big5Data_curated = data.personality.map(function(obj) {
-      return {
-        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
-        name: TraitNames.name(obj.trait_id),
-        //id: obj.name,
-        id: obj.trait_id,
-        score: Math.round(obj.percentile * 100),
-        children: obj.children.map(function(obj2) {
-          return {
-            //name: replacements[obj2.name] ? replacements[obj2.name] : obj2.name,
-            name: TraitNames.name(obj.trait_id),
-            //id: obj2.name,
-            id: obj2.trait_id,
-            score: Math.round(obj2.percentile * 100)
-          }
-        }).sort(function(a, b) { return b.score - a.score; })
-      }
-    });
-
-    var needsData_curated = data.needs.map(function(obj) {
-      return {
-        //id: obj.name,
-        id: obj.trait_id,
-        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
-        name: TraitNames.name(obj.trait_id),
-        score: Math.round(obj.percentile * 100)
-      }
-    });
-
-    var valuesData_curated = data.values.map(function(obj) {
-      return {
-        //id: obj.name,
-        id: obj.trait_id,
-        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
-        name: TraitNames.name(obj.trait_id),
-        score: Math.round(obj.percentile * 100)
-      };
-    });
-    */
-
-    /*
-    function mapObject(o, f) {
-      var u = {};
-      Object.keys(o).forEach(function(key) {
-        u[key] = f(key, o[key]);
-      });
-      return u;
-    }
-
-    function toHtml(markdownDict) {
-      return mapObject(markdownDict, function(key, value) {
-        return renderMarkdown(value);
-      });
-    }
-    */
-
-    /*
-    var tooltips = function(traitId) {
-      return renderMarkdown(TraitDescriptions.description(traitId));
-    };
-    */
-
     // Add wrapped traits data from the user profile into the html
     $big5Traits.append(_.template(big5PercentTemplate.innerHTML, {
-      //items: big5Data_curated.sort(sortScores),
       items: wrapTraits(data).sort(sortScores),
       tooltips: function(traitId) {
         return renderMarkdown(TraitDescriptions.description(traitId));
@@ -715,7 +570,6 @@ $(document).ready(function() {
 
     // Add wrapped needs data from the specified user profile into the html
     $needsTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      //items: needsData_curated.sort(sortScores).slice(0, 5),
       items: wrapNeeds(data).sort(sortScores).slice(0, 5),
       tooltips: function(traitId) {
         return renderMarkdown(TraitDescriptions.description(traitId));
@@ -724,7 +578,6 @@ $(document).ready(function() {
 
     // Add wrapped needs 'more' data from the specified user profile into the html
     $needsMoreTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      //items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
       items: wrapNeeds(data).sort(sortScores).slice(5, wrapNeeds(data).length),
       tooltips: function(traitId) {
         return renderMarkdown(TraitDescriptions.description(traitId));
@@ -733,14 +586,13 @@ $(document).ready(function() {
 
     // Add wrapped values data from the specified user profile into the html
     $valuesTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      //items: valuesData_curated.sort(sortScores),
       items: wrapValues(data).sort(sortScores),
       tooltips: function(traitId) {
         return renderMarkdown(TraitDescriptions.description(traitId));
       }
     }));
 
-    // NOTE: v3 update - is this necessary???  is currentProfile used?
+    // NOTE: v3 update - is this necessary here? - should it be moved elsewhere?
     globalState.currentProfile = data;
 
   }
@@ -787,10 +639,6 @@ $(document).ready(function() {
       };
     });
   }
-
-
-
-
 
 
   $inputTextArea.on('propertychange change click keyup input paste', function() {
@@ -843,33 +691,10 @@ $(document).ready(function() {
     selectDefaultLanguage();
   }
 
-  /*
-  function isPositive(behavior) {
-    return behavior.score > 0.60;
-  }
-
-  function isNegative(behavior) {
-    return behavior.score < 0.40;
-  }
-
-  function top3(behavior, index) {
-    return index < 3;
-  }
-  */
 
   function sortScores(obj1, obj2) {
     return obj2.score - obj1.score;
   }
-
-  /*
-  function sortScoresDESC(obj1, obj2) {
-    return obj2.score - obj1.score;
-  }
-
-  function sortScoresASC(obj1, obj2) {
-    return obj1.score - obj2.score;
-  }
-  */
 
   function preloadSampleTexts(callback) {
     var shared = {
