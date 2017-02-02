@@ -88,6 +88,9 @@ function renderMarkdown(s) {
   ]);
 }
 
+
+
+
 $(document).ready(function() {
 
   var SAMPLE_TEXTS = [ 'sample1', 'sample2', 'sample3', 'ar', 'ja'];
@@ -397,6 +400,55 @@ $(document).ready(function() {
     });
   }
 
+
+
+
+  /**
+  * Localization
+  */
+  function getLikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG;
+
+    if (lang == 'ja') {
+      //Japanese
+      return '下記のような傾向がありそうです______ ';
+    }
+    if (lang == 'es') {
+      //Spanish
+      return 'Usted es más propenso a______ ';
+    } else {
+      //Default to English
+      return 'You are likely to______ ';
+    }
+  }
+
+  /**
+  * Localization
+  */
+  function getUnlikelyToLabel() {
+    var lang = globalState.userLocale || OUTPUT_LANG;
+
+    if (lang == 'ja') {
+      //Japanese
+      return '下記の傾向は低そうです______ ';
+    }
+    if (lang == 'es') {
+      //Spanish
+      return 'Usted es menos propenso a______ ';
+    } else {
+      //Default to English
+      return 'You are unlikely to______ ';
+    }
+  }
+
+  /**
+  * cpIdMapping returns the description for a consumption_preference_id
+  * Uses the personality-consumption-preferences npm module
+  */
+  function cpIdMapping(consumption_preference_id) {
+    return ConsumptionPreferences.description(consumption_preference_id);
+  }
+
   function cpIdSorting(cpid) {
     return [
       'consumption_preferences_music_rap',
@@ -452,53 +504,6 @@ $(document).ready(function() {
       'consumption_preferences_movie_documentary',
       'consumption_preferences_clothes_comfort'
     ].indexOf(cpid);
-  }
-
-
-  /**
-  * Localization
-  */
-  function getLikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG;
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記のような傾向がありそうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es más propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are likely to______ ';
-    }
-  }
-
-  /**
-  * Localization
-  */
-  function getUnlikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG;
-
-    if (lang == 'ja') {
-      //Japanese
-      return '下記の傾向は低そうです______ ';
-    }
-    if (lang == 'es') {
-      //Spanish
-      return 'Usted es menos propenso a______ ';
-    } else {
-      //Default to English
-      return 'You are unlikely to______ ';
-    }
-  }
-
-  /**
-  * cpIdMapping returns the description for a consumption_preference_id
-  * Uses the personality-consumption-preferences npm module
-  */
-  function cpIdMapping(consumption_preference_id) {
-    return ConsumptionPreferences.description(consumption_preference_id);
   }
 
   var consumptionPrefMusic = new Set([
