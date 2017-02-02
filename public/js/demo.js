@@ -302,7 +302,7 @@ $(document).ready(function() {
   /*
   function changeProfileLabels(data) {
     var clonned = JSON.parse(JSON.stringify(data));
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
+    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
 
     function replaceTraitName(trait) {
       trait.name = replacements[trait.name] ? replacements[trait.name] : trait.name;
@@ -331,14 +331,14 @@ $(document).ready(function() {
   function defaultProfileOptions(options) {
     var defaults = extend({
       source_type: 'text',
-      accept_language: globalState.userLocale || OUTPUT_LANG || 'en',
+      accept_language: globalState.userLocale || OUTPUT_LANG,
       include_raw: false,
       consumption_preferences: true
     }, options || {});
 
     if (defaults.source_type !== 'twitter') {
       defaults = extend({
-        language: globalState.userLocale || OUTPUT_LANG || 'en'
+        language: globalState.userLocale || OUTPUT_LANG
       }, defaults);
     }
     return defaults;
@@ -440,7 +440,7 @@ $(document).ready(function() {
   * Localization
   */
   function getLikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+    var lang = globalState.userLocale || OUTPUT_LANG;
 
     if (lang == 'ja') {
       //Japanese
@@ -459,7 +459,7 @@ $(document).ready(function() {
   * Localization
   */
   function getUnlikelyToLabel() {
-    var lang = globalState.userLocale || OUTPUT_LANG || 'en';
+    var lang = globalState.userLocale || OUTPUT_LANG;
 
     if (lang == 'ja') {
       //Japanese
@@ -479,7 +479,7 @@ $(document).ready(function() {
   * Uses the personality-consumption-preferences npm module
   */
   function cpIdMapping(consumption_preference_id) {
-    var locale = globalState.userLocale || OUTPUT_LANG || 'en';
+    var locale = globalState.userLocale || OUTPUT_LANG;
     var preferences = new PersonalityConsumptionPreferences({ version: 'v3', locale: locale });
     return preferences.description(consumption_preference_id);
   }
@@ -610,8 +610,8 @@ $(document).ready(function() {
   **/
   function loadOutput(data) {
     console.log("loadOutput: data is " + JSON.stringify(data,2, null));
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
-    const LOCALE = globalState.userLocale || OUTPUT_LANG || 'en';
+    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
+    const LOCALE = gglobalState.userLocale || OUTPUT_LANG;
     const TraitNames = new PersonalityTraitNames({ locale : LOCALE, version : 'v3' });
 
     setTextSummary(data, LOCALE);
@@ -679,7 +679,7 @@ $(document).ready(function() {
     */
     const TraitDescriptions = new PersonalityTraitDescriptions({
       format: 'markdown',
-      locale: globalState.userLocale || OUTPUT_LANG || 'en',
+      locale: globalState.userLocale || OUTPUT_LANG,
       version: 'v3'
     });
 
