@@ -97,6 +97,7 @@
 	"header-fork": "Fork on Github",
 	"header-bluemix": "Start free in Bluemix",
 	"header-forkdeploy": "Fork and Deploy on Bluemix",
+	"header-bluemix": "Start free in Bluemix",
 	"sunburst-title": "Sunburst Chart Visualization",
 	"sunburst-back": "Go back",
 	"error-400-minimum": "We need at least 100 words for analysis. Watson doesn't like to judge a book by its cover.",

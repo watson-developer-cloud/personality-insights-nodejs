@@ -1,10 +1,14 @@
 {
   "name": "personality-insights-nodejs",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "A sample NodeJS app that uses the Personality Insights service",
   "repository": {
     "type": "git",
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
+  },
+  "engines": {
+    "node": ">=6.0",
+    "npm": ">=3.0"
   },
   "author": "IBM Corp.",
   "contributors": [
