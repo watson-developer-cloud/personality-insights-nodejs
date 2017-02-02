@@ -116,6 +116,25 @@ $(document).ready(function() {
   var $error = $('.error');
   var $errorMessage = $('.error--message');
 
+  // Instantiate external PI modules
+  const TraitNames = new PersonalityTraitNames({
+    version : 'v3',
+    locale : globalState.userLocale || OUTPUT_LANG
+  });
+
+  const TraitDescriptions = new PersonalityTraitDescriptions({
+    version: 'v3',
+    locale: globalState.userLocale || OUTPUT_LANG,
+    format: 'markdown'
+  });
+
+  const ConsumptionPreferences = new PersonalityConsumptionPreferences({
+    version: 'v3',
+    locale: globalState.userLocale || OUTPUT_LANG
+  });
+
+
+
   function setTextSample(value, readonly) {
     $('#inputText').val(value);
     if (readonly) {
@@ -479,9 +498,7 @@ $(document).ready(function() {
   * Uses the personality-consumption-preferences npm module
   */
   function cpIdMapping(consumption_preference_id) {
-    var locale = globalState.userLocale || OUTPUT_LANG;
-    var preferences = new PersonalityConsumptionPreferences({ version: 'v3', locale: locale });
-    return preferences.description(consumption_preference_id);
+    return ConsumptionPreferences.description(consumption_preference_id);
   }
 
   var consumptionPrefMusic = new Set([
@@ -611,8 +628,8 @@ $(document).ready(function() {
   function loadOutput(data) {
     console.log("loadOutput: data is " + JSON.stringify(data,2, null));
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
-    const LOCALE = gglobalState.userLocale || OUTPUT_LANG;
-    const TraitNames = new PersonalityTraitNames({ locale : LOCALE, version : 'v3' });
+    const LOCALE = globalState.userLocale || OUTPUT_LANG;
+    //const TraitNames = new PersonalityTraitNames({ locale : LOCALE, version : 'v3' });
 
     setTextSummary(data, LOCALE);
     loadWordCount(data);
@@ -672,16 +689,6 @@ $(document).ready(function() {
         return renderMarkdown(value);
       });
     }
-
-    /**
-    * Instantiate TraitDescriptions from the personality-trait-descriptions module
-    * trait descriptions are used for tooltips
-    */
-    const TraitDescriptions = new PersonalityTraitDescriptions({
-      format: 'markdown',
-      locale: globalState.userLocale || OUTPUT_LANG,
-      version: 'v3'
-    });
 
     var tooltips = function(traitId) {
       return renderMarkdown(TraitDescriptions.description(traitId));
