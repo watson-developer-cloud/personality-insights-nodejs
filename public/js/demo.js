@@ -310,6 +310,7 @@ $(document).ready(function() {
     return clonned;
   }
 
+
   function getErrorMessage(error) {
     var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
@@ -460,6 +461,10 @@ $(document).ready(function() {
     }
   }
 
+  /**
+  * cpIdMapping returns the description for a consumption_preference_id
+  * Uses the personality-consumption-preferences npm module
+  */
   function cpIdMapping(consumption_preference_id) {
     var locale = globalState.userLocale || OUTPUT_LANG || 'en';
     var preferences = new PersonalityConsumptionPreferences({ version: 'v3', locale: locale });
@@ -584,10 +589,19 @@ $(document).ready(function() {
     }
   }
 
-  function loadOutput(data) {
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
 
-    setTextSummary(data, globalState.userLocale || OUTPUT_LANG || 'en');
+
+  /**
+  *
+  *
+  **/
+  function loadOutput(data) {
+    console.log("loadOutput: data is " + JSON.stringify(data,2, null));
+    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG || 'en');
+    const LOCALE = globalState.userLocale || OUTPUT_LANG || 'en';
+    const TraitNames = new PersonalityTraitNames({ locale : LOCALE, version : 'v3' });
+
+    setTextSummary(data, LOCALE);
     loadWordCount(data);
 
     var statsPercent_template = outputStatsPercentTemplate.innerHTML;
@@ -595,13 +609,17 @@ $(document).ready(function() {
 
     var big5Data_curated = data.personality.map(function(obj) {
       return {
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
-        id: obj.name,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
+        //id: obj.name,
+        id: obj.trait_id,
         score: Math.round(obj.percentile * 100),
         children: obj.children.map(function(obj2) {
           return {
-            name: replacements[obj2.name] ? replacements[obj2.name] : obj2.name,
-            id: obj2.name,
+            //name: replacements[obj2.name] ? replacements[obj2.name] : obj2.name,
+            name: TraitNames.name(obj.trait_id),
+            //id: obj2.name,
+            id: obj2.trait_id,
             score: Math.round(obj2.percentile * 100)
           }
         }).sort(function(a, b) { return b.score - a.score; })
@@ -610,16 +628,20 @@ $(document).ready(function() {
 
     var needsData_curated = data.needs.map(function(obj) {
       return {
-        id: obj.name,
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        //id: obj.name,
+        id: obj.trait_id,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
         score: Math.round(obj.percentile * 100)
       }
     });
 
     var valuesData_curated = data.values.map(function(obj) {
       return {
-        id: obj.name,
-        name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        //id: obj.name,
+        id: obj.trait_id,
+        //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
+        name: TraitNames.name(obj.trait_id),
         score: Math.round(obj.percentile * 100)
       };
     });
@@ -644,8 +666,8 @@ $(document).ready(function() {
       version: 'v3'
     });
 
-    var tooltips = function(traitName) {
-      return renderMarkdown(descriptions.description(traitName));
+    var tooltips = function(traitId) {
+      return renderMarkdown(descriptions.description(traitId));
     };
 
     $big5Traits.append(_.template(big5_template, {
