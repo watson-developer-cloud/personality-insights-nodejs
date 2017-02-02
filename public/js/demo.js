@@ -631,12 +631,10 @@ $(document).ready(function() {
   *
   **/
   function loadOutput(data) {
-    console.log("loadOutput: data is " + JSON.stringify(data,2, null));
     var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
     const LOCALE = globalState.userLocale || OUTPUT_LANG;
-    //const TraitNames = new PersonalityTraitNames({ locale : LOCALE, version : 'v3' });
 
-    setTextSummary(data, LOCALE);
+    setTextSummary(data);
     loadWordCount(data);
 
     var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
