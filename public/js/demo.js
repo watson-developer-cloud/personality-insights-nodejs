@@ -677,6 +677,7 @@ $(document).ready(function() {
     });
     */
 
+    /*
     function mapObject(o, f) {
       var u = {};
       Object.keys(o).forEach(function(key) {
@@ -690,6 +691,7 @@ $(document).ready(function() {
         return renderMarkdown(value);
       });
     }
+    */
 
     /*
     var tooltips = function(traitId) {
@@ -697,6 +699,7 @@ $(document).ready(function() {
     };
     */
 
+    // Add wrapped traits data from the user profile into the html
     $big5Traits.append(_.template(big5PercentTemplate.innerHTML, {
       //items: big5Data_curated.sort(sortScores),
       items: wrapTraits(data).sort(sortScores),
@@ -705,6 +708,7 @@ $(document).ready(function() {
       }
     }));
 
+    // Add wrapped needs data from the specified user profile into the html
     $needsTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       //items: needsData_curated.sort(sortScores).slice(0, 5),
       items: wrapNeeds(data).sort(sortScores).slice(0, 5),
@@ -713,6 +717,7 @@ $(document).ready(function() {
       }
     }));
 
+    // Add wrapped needs 'more' data from the specified user profile into the html
     $needsMoreTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       //items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
       items: wrapNeeds(data).sort(sortScores).slice(5, wrapNeeds(data).length),
@@ -721,6 +726,7 @@ $(document).ready(function() {
       }
     }));
 
+    // Add wrapped values data from the specified user profile into the html
     $valuesTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
       //items: valuesData_curated.sort(sortScores),
       items: wrapValues(data).sort(sortScores),
@@ -729,7 +735,9 @@ $(document).ready(function() {
       }
     }));
 
+    // NOTE: v3 update - is this necessary???  is currentProfile used?
     globalState.currentProfile = data;
+
   }
 
 
