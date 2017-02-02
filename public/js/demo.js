@@ -625,13 +625,10 @@ $(document).ready(function() {
   }
 
 
+  const replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
 
-  /**
-  *
-  *
-  **/
   function loadOutput(data) {
-    var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
+    //var replacements = replacementsForLang(globalState.userLocale || OUTPUT_LANG);
 
     setTextSummary(data);
     loadWordCount(data);
@@ -639,6 +636,7 @@ $(document).ready(function() {
     //var statsPercentHtmlElement = outputStatsPercentTemplate.innerHTML;
     //var big5HtmlElement = big5PercentTemplate.innerHTML;
 
+    /*
     var big5Data_curated = data.personality.map(function(obj) {
       return {
         //name: replacements[obj.name] ? replacements[obj.name] : obj.name,
@@ -677,6 +675,7 @@ $(document).ready(function() {
         score: Math.round(obj.percentile * 100)
       };
     });
+    */
 
     function mapObject(o, f) {
       var u = {};
@@ -692,36 +691,94 @@ $(document).ready(function() {
       });
     }
 
+    /*
     var tooltips = function(traitId) {
       return renderMarkdown(TraitDescriptions.description(traitId));
     };
-
-    /**
-    *  Add tooltips to the each of the traits, needs and values
     */
 
     $big5Traits.append(_.template(big5PercentTemplate.innerHTML, {
-      items: big5Data_curated.sort(sortScores),
-      tooltips: tooltips
+      //items: big5Data_curated.sort(sortScores),
+      items: wrapTraits(data).sort(sortScores),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
     $needsTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      items: needsData_curated.sort(sortScores).slice(0, 5),
-      tooltips: tooltips
+      //items: needsData_curated.sort(sortScores).slice(0, 5),
+      items: wrapNeeds(data).sort(sortScores).slice(0, 5),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
     $needsMoreTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
-      tooltips: tooltips
+      //items: needsData_curated.sort(sortScores).slice(5, needsData_curated.length),
+      items: wrapNeeds(data).sort(sortScores).slice(5, wrapNeeds(data).length),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
     $valuesTraits.append(_.template(outputStatsPercentTemplate.innerHTML, {
-      items: valuesData_curated.sort(sortScores),
-      tooltips: tooltips
+      //items: valuesData_curated.sort(sortScores),
+      items: wrapValues(data).sort(sortScores),
+      tooltips: function(traitId) {
+        return renderMarkdown(TraitDescriptions.description(traitId));
+      }
     }));
 
     globalState.currentProfile = data;
   }
+
+
+  function wrapTraits(data){
+    return data.personality.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        id: obj.trait_id,
+        score: Math.round(obj.percentile * 100),
+        children: obj.children.map(function(obj2) {
+          const traitName2 = TraitNames.name(obj2.trait_id);
+          console.log('traitName2: ' + traitName2);
+          return {
+            name: replacements[traitName2] ? replacements[traitName2] : traitName2,
+            id: obj2.trait_id,
+            score: Math.round(obj2.percentile * 100)
+          }
+        }).sort(function(a, b) { return b.score - a.score; })
+      }
+    });
+  }
+
+  function wrapNeeds(data) {
+    return data.needs.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        id: obj.trait_id,
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        score: Math.round(obj.percentile * 100)
+      }
+    });
+  }
+
+  function wrapValues(data) {
+    return data.values.map(function(obj) {
+      const traitName = TraitNames.name(obj.trait_id);
+      return {
+        id: obj.trait_id,
+        name: replacements[traitName] ? replacements[traitName] : traitName,
+        score: Math.round(obj.percentile * 100)
+      };
+    });
+  }
+
+
+
+
+
 
   $inputTextArea.on('propertychange change click keyup input paste', function() {
     updateWordCount();
