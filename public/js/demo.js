@@ -224,6 +224,7 @@ $(document).ready(function() {
       if (e.stopPropagation)
         e.stopPropagation();
 
+      enableAnalyzeButtons(false);
       loadTwitterUser(globalState.selectedTwitterUser, {
         language: globalState.selectedTwitterUserLang
       });
@@ -235,6 +236,7 @@ $(document).ready(function() {
       if (e.stopPropagation)
         e.stopPropagation();
 
+      enableAnalyzeButtons(false);
       var lang = globalState.selectedSample == 'custom'
         ? globalState.selectedLanguage
         : $('input#text-' + globalState.selectedSample).attr('data-lang');
@@ -339,6 +341,11 @@ $(document).ready(function() {
     return defaults;
   }
 
+  function enableAnalyzeButtons(value) {
+    $('.input--submit-button1').prop('disabled', !value);
+    $('.input--submit-button2').prop('disabled', !value);
+  }
+
   function getProfile(data, options) {
     options = defaultProfileOptions(options);
 
@@ -362,6 +369,8 @@ $(document).ready(function() {
         loadOutput(data);
         updateJSON(data);
         loadConsumptionPreferences(data);
+        enableAnalyzeButtons(true);
+
       },
       error: function(err) {
         // eslint-disable-next-line
@@ -369,6 +378,7 @@ $(document).ready(function() {
         $loading.hide();
         $error.show();
         $errorMessage.text(getErrorMessage(err));
+        enableAnalyzeButtons(true);
       }
     });
   }
