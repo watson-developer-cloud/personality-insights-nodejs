@@ -1,7 +1,7 @@
 {
   "name": "personality-insights-nodejs",
-  "version": "2.2.0",
-  "description": "A sample NodeJS app that use the Personality Insights service",
+  "version": "3.0.0",
+  "description": "A sample NodeJS app that uses the Personality Insights service",
   "repository": {
     "type": "git",
     "url": "https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
@@ -39,48 +39,37 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "npm run jshint && (npm run codecov || true)",
-    "jshint": "jshint --exclude ./node_modules/",
-    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha && codecov"
+    "test": "npm run lint && npm run test-unit",
+    "test-unit": "istanbul cover ./node_modules/mocha/bin/_mocha test",
+    "lint": "eslint .",
+    "autofix": "eslint --fix .",
+    "codecov": "npm run test && (codecov || true)"
   },
   "dependencies": {
-    "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
-    "callsite": "^1.0.0",
-    "cf-deployment-tracker-client": "0.1.2",
-    "cfenv": "^1.0.3",
-    "connect-ensure-login": "^0.1.1",
+    "cf-deployment-tracker-client": "0.1.3",
+    "cfenv": "^1.0.4",
     "cookie-parser": "^1.4.3",
-    "cookie-session": "^2.0.0-alpha.2",
-    "csurf": "^1.9.0",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.5",
-    "express": "^4.14.0",
-    "express-partials": "~0.3.0",
+    "express": "^4.14.1",
     "express-rate-limit": "^2.6.0",
     "express-secure-only": "^0.2.1",
-    "express-session": "~1.14.2",
+    "express-session": "^1.15.0",
     "helmet": "^3.4.0",
     "i18n": "^0.8.3",
-    "js-yaml": "^3.7.0",
     "morgan": "^1.7.0",
-    "nodejs-twitter-crawler": "^0.10.3",
+    "object.pick": "^1.2.0",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
-    "personality-insights-input": "^1.0.4",
-    "request": "^2.79.0",
-    "twitter": "1.7.0",
-    "underscore": "^1.8.3",
-    "watson-developer-cloud": "^2.15.2",
-    "winston": "^2.3.1"
+    "twitter": "^1.7.0",
+    "watson-developer-cloud": "^2.16.0"
   },
   "devDependencies": {
     "codecov": "^1.0.1",
-    "dotenv": "^4.0.0",
+    "eslint": "^3.14.1",
     "istanbul": "^0.4.5",
-    "jshint": "^2.9.4",
     "mocha": "^3.2.0",
-    "nock": "9.0.2",
-    "supertest": "^2.0.1"
+    "supertest": "^3.0.0"
   }
 }

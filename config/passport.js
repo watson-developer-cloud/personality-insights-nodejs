@@ -14,50 +14,44 @@
  * limitations under the License.
  */
 
-
 'use strict';
 
+const passport = require('passport');
+const TwitterStrategy = require('passport-twitter').Strategy;
+const cfenv = require('cfenv');
+const appEnv = cfenv.getAppEnv();
 
-var
-  passport = require('passport'),
-  twitter_credentials = require('../credentials').twitter,
-  app_info = require('./app-info'),
-  pick = require('underscore').pick,
-  TwitterStrategy = require('passport-twitter').Strategy,
-  TwitterHelper = require('../helpers/twitter-helper'),
-  logger = require('winston'),
-  twitter_app = twitter_credentials.application,
-  more_credentials = twitter_credentials.credentials;
+const callbackURL = appEnv.isLocal ? 'http://localhost:3000' : appEnv.url;
 
+const strategyOptions = {
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  callbackURL: `${callbackURL}/auth/twitter/callback`
+};
 
-var strategy_options = {
-      consumerKey: process.env.TWITTER_CONSUMER_KEY || twitter_app.consumer_key,
-      consumerSecret: process.env.TWITTER_CONSUMER_SECRET || twitter_app.consumer_secret,
-      callbackURL: app_info.url + '/auth/twitter/callback'
-    };
+const strategy = new TwitterStrategy(strategyOptions, (token, tokenSecret, profile, done) => {
+  const photo = profile.photos ? profile.photos[0] : undefined;
+  const userProfile = {
+    handle: profile.username,
+    image: photo ? photo.value.replace('_normal', '_400x400') : undefined
+  };
 
-var strategy = new TwitterStrategy(
-    strategy_options,
-    function (token, tokenSecret, profile, done) {
-      var user_credential = {
-         consumer_key: process.env.TWITTER_CONSUMER_KEY || twitter_app.consumer_key,
-         consumer_secret: process.env.TWITTER_CONSUMER_SECRET || twitter_app.consumer_secret,
-         access_token_key:   token,
-         access_token_secret: tokenSecret,
-      };
+  done(null, {
+    credentials: {
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+      access_token_key: token,
+      access_token_secret: tokenSecret
+    },
+    profile: userProfile
+  });
+});
 
-      return done(null, {
-          credentials: [user_credential].concat(more_credentials),
-          profile: pick(profile, 'id', 'username', 'photos')
-        });
-    }
-  );
-
-
-module.exports = function (app) {
+module.exports = (app) => {
   passport.use(strategy);
-  passport.serializeUser(function(user, next) { return next(null, user); });
-  passport.deserializeUser(function(obj, next) { return next(null, obj); });
+  passport.serializeUser((user, next)  => next(null, user));
+  passport.deserializeUser((obj, next) => next(null, obj));
+
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
-}
+};

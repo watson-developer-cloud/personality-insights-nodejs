@@ -17,14 +17,15 @@
   </div>
 
   <script src="/js/vendors/jquery-2.2.0.min.js"></script>
-  <script src="/js/vendors/d3.min.js"></script>
-  <script src="/js/components/personality-sunburst-chart.standalone.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/personality-sunburst-chart@2.0.4/dist/index.js"></script>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
 
   <script>
     var profile = <$- sunburst.profile $>;
     var imageUrl = <$- JSON.stringify(typeof sunburst.image === 'undefined' || sunburst.image === 'undefined' ? '/images/service-icon.png' : sunburst.image) $>;
-    var chart = new PersonalitySunburstChart('sunburstChart');
+    var chart = new PersonalitySunburstChart({ selector: '#sunburstChart', version: 'v3' });
     chart.show(profile, imageUrl);
   </script>
-
-<$ include partials/footer $>
+</body>
+</html>

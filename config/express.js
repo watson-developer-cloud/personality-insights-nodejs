@@ -17,41 +17,36 @@
 'use strict';
 
 // Module dependencies
-var express  = require('express'),
-  bodyParser = require('body-parser'),
-  session    = require('./session'),
-  cookieParser = require('cookie-parser'),
-  logger     = require('winston'),
-  morgan     = require('morgan'),
-  i18n       = require('i18n'),
-  appInfo = require('./app-info');
+var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+var morgan = require('morgan');
 
-module.exports = function (app) {
-
+module.exports = (app) => {
   app.set('view engine', 'ejs');
   require('ejs').delimiter = '$';
   app.enable('trust proxy');
   app.use(morgan('dev'));
 
+  app.use(cookieParser());
+  app.use(expressSession({
+    secret: 'demo-' + Math.floor(Math.random() * 2000),
+    resave: true,
+    saveUninitialized: true
+  }));
+
   // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true, limit: '15mb' }));
-  app.use(bodyParser.json({ limit: '15mb' }));
+  app.use(bodyParser.urlencoded({extended: true, limit: '15mb'}));
+  app.use(bodyParser.json({limit: '15mb'}));
   app.use(express.static(__dirname + '/../public'));
-
-
-  var secret = Math.random().toString(36).substring(7);
-
-  app.use(cookieParser(secret));
-  app.use(session({ secret: secret, signed: false }));
 
   require('./i18n')(app);
 
   // When running in Bluemix add rate-limitation
   // and some other features around security
-  if (appInfo.secure)
+  if (process.env.VCAP_APPLICATION) {
     require('./security')(app);
-
+  }
   require('./passport')(app);
-
-
 };

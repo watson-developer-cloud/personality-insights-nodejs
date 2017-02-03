@@ -1,9 +1,4 @@
 ---
-declared-services:
-  personality-insights-service:
-    label: personality_insights
-    plan: tiered
-
 applications:
 - name: personality-insights-livedemo
   command: npm start
@@ -11,6 +6,4 @@ applications:
   memory: 512M
   instances: 1
   services:
-  - personality-insights-service
-  env:
-    NODE_ENV: production
+  - my-pi-service

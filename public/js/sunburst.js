@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-function post_to_url(url) {
+/* global globalState */
+/* eslint no-unused-vars: "off" */
+
+function postSunburstRequest() {
+  postSunburst('sunburst');
+}
+
+function postSunburst(url) {
   var form = document.createElement('form');
   form.action = url;
   form.method = 'POST';
@@ -33,8 +40,4 @@ function post_to_url(url) {
   form.appendChild(imageHiddenField);
   document.body.appendChild(form);
   form.submit();
-}
-
-function postSunburstRequest() {
-  post_to_url('sunburst');
 }
