@@ -321,6 +321,8 @@ $(document).ready(function() {
     var message = GENERIC_REQUEST_ERROR;
     if (error.responseJSON && error.responseJSON.error) {
       message = error.responseJSON.error.error;
+    } else if (error.responseJSON && error.responseJSON.message) {
+      message = error.responseJSON.message
     }
     return message;
   }
