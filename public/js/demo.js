@@ -266,6 +266,7 @@ $(document).ready(function() {
     $('#your-twitter-panel .auth-form').show();
     $('#your-twitter-panel .analysis-form').hide();
     resetOutputs();
+    selectDefaultLanguage();
   });
 
   // toggleNeedsTraits
@@ -690,7 +691,6 @@ $(document).ready(function() {
     $outputSummaryText.empty();
     $outputJSONCode.empty();
     $outputJSON.hide();
-    selectDefaultLanguage();
   }
 
 
