@@ -537,10 +537,12 @@ $(document).ready(function() {
         return k;
       },[]);
 
+      behaviors_likely.empty();
       likelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
         behaviors_likely.append("<div class=\"output-summary--behavior output-summary--behavior_POSITIVE\"><i class=\"icon icon-likely\"></i>" + item.name + "</div>\n");
       });
 
+      behaviors_unlikely.empty();
       unlikelycps.sort(sortIdxComparator).reduce(addIfAllowedReducer, []).slice(0, 3).map(function(item) {
         behaviors_unlikely.append('<div class="output-summary--behavior output-summary--behavior_NEGATIVE"><i class="icon icon-not-likely"></i>' + item.name + '</div>\n');
       });
@@ -607,7 +609,6 @@ $(document).ready(function() {
         score: Math.round(obj.percentile * 100),
         children: obj.children.map(function(obj2) {
           const traitName2 = TraitNames.name(obj2.trait_id);
-          console.log('traitName2: ' + traitName2);
           return {
             name: replacements[traitName2] ? replacements[traitName2] : traitName2,
             id: obj2.trait_id,
@@ -688,6 +689,7 @@ $(document).ready(function() {
     $needsMoreTraits.hide();
     $outputSummaryText.empty();
     $outputJSONCode.empty();
+    $outputJSON.hide();
     selectDefaultLanguage();
   }
 
