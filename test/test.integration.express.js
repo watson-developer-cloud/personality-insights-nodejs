@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
+const path = require('path');
 // load default variables for testing
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const request = require('supertest');
 const fs = require('fs');
-const path = require('path');
 
 const app = require('../app');
 const filePath = path.join(__dirname, '..', '/public/data/text/sample1.txt');
 const sampleText = fs.readFileSync(filePath, 'utf-8');
+
+if (!process.env.PERSONALITY_INSIGHTS_USERNAME || process.env.PERSONALITY_INSIGHTS_USERNAME == '<username>') {
+  return;
+}
 
 describe('integration-express', function() {
   this.timeout(10000);
@@ -71,14 +75,4 @@ describe('integration-express', function() {
     }).expect(200)
   );
 
-  it('Generate profile from Twitter tweets', () =>
-    request(app).post('/api/profile/twitter')
-    .type('form')
-    .send({
-      source_type: 'twitter',
-      accept_language: 'en',
-      include_raw: false,
-      userId: 'germanatt',
-    }).expect(200)
-  );
 });

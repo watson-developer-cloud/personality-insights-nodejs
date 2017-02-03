@@ -22,7 +22,7 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 const strategyOptions = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  callbackURL: 'http://localhost:3000/auth/twitter/callback'
+  callbackURL: 'http://personality-insights-livedemo-v3:3000/auth/twitter/callback'
 };
 
 const strategy = new TwitterStrategy(strategyOptions, (token, tokenSecret, profile, done) => {

@@ -31,8 +31,11 @@ module.exports = (app) => {
       code: err.code || 500,
       error: err.error || err.message,
     };
-    // eslint-disable-next-line
-    console.error(err);
+
+    if (error.code != 404) {
+      // eslint-disable-next-line
+      console.error(err);
+    }
     res.status(error.code).json(error);
   });
 };
