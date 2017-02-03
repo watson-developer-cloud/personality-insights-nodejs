@@ -18,11 +18,15 @@
 
 const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
+const cfenv = require('cfenv');
+const appEnv = cfenv.getAppEnv();
+
+const callbackURL = appEnv.isLocal ? 'http://localhost:3000' : appEnv.url;
 
 const strategyOptions = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  callbackURL: 'http://personality-insights-livedemo-v3:3000/auth/twitter/callback'
+  callbackURL: `${callbackURL}/auth/twitter/callback`
 };
 
 const strategy = new TwitterStrategy(strategyOptions, (token, tokenSecret, profile, done) => {
