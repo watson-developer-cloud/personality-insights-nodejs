@@ -1,9 +1,4 @@
 ---
-declared-services:
-  my-pi-service:
-    label: personality_insights
-    plan: tiered
-
 applications:
 - name: personality-insights-livedemo
   command: npm start
