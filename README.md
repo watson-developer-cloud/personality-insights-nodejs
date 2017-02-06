@@ -1,141 +1,174 @@
-# Personality Insights Nodejs Starter Application
+# Personality Insights Nodejs Starter Application [![Build Status](https://travis-ci.org/watson-developer-cloud/personality-insights-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/personality-insights-nodejs) [![codecov.io](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/personality-insights-nodejs?branch=master)
 
   The IBM Watson [Personality Insights][service_url] service uses linguistic analysis to extract cognitive and social characteristics from input text such as email, text messages, tweets, forum posts, and more. By deriving cognitive and social preferences, the service helps users to understand, connect to, and communicate with other people on a more personalized level.
 
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/devops/setup/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs)
+## Getting started
 
-## Getting Started
+1. You need a Bluemix account. If you don't have one, [sign up][sign_up]. Experimental Watson Services are free to use.
 
-1. Create a Bluemix Account
+1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
 
-  [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use.
+1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
-2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
+  ```yaml
+  applications:
+  - services:
+    - my-service-instance
+    name: <application-name>
+    command: npm start
+    path: .
+    memory: 512M
+  ```
 
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
+1. Connect to Bluemix with the command line tool.
+
+  ```sh
+  cf api https://api.ng.bluemix.net
+  cf login
+  ```
+
+1. Create and retrieve service keys to access the [Personality Insights][service_url] service:
+
   ```none
-applications:
-- services:
-  - personality-insights
-  name: <application-name>
-  command: node app.js
-  path: .
-  memory: 256M
-  ```
-  The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
-
-4. Connect to Bluemix in the command line tool
-  ```sh
-  $ cf api https://api.ng.bluemix.net
-  $ cf login -u <your user ID>
+  cf create-service personality_insights tiered my-pi-service
+  cf create-service-key my-pi-service myKey
+  cf service-key my-pi-service myKey
   ```
 
-5. Create the Personality Insights service in Bluemix
+1. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
 
-  ```sh
-  $ cf create-service personality_insights tiered personality-insights-service-tiered
+  ```none
+  cp .env.example .env
+  ```
+  You will update the `.env` with the information you retrieved in steps 5.
+
+  The `.env` file will look something like the following:
+
+  ```none
+  PERSONALITY_INSIGHTS_USERNAME=<username>
+  PERSONALITY_INSIGHTS_PASSWORD=<password>
   ```
 
-6. Push it live!
+1. Install the dependencies you application need:
 
-  ```sh
-  $ cf push
+  ```none
+  npm install
   ```
 
-See the full [Getting Started][getting_started] documentation for more details, including code snippets and references.
+1. Start the application locally:
 
-## Running locally
-  The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/) so you will have to download and install them as part of the steps below.
+  ```none
+  npm start
+  ```
 
-1. Copy the credentials from your `personality-insights-service` service in Bluemix to `app.js`, you can see the credentials using:
+1. Point your browser to [http://localhost:3000](http://localhost:3000).
 
-    ```sh
-    $ cf env <application-name>
-    ```
-    Example output:
-    ```sh
-    System-Provided:
-    {
-    "VCAP_SERVICES": {
-      "personality_insights": [{
-          "credentials": {
-            "url": "<url>",
-            "password": "<password>",
-            "username": "<username>"
-          },
-        "label": "personality_insights",
-        "name": "personality-insights-service",
-        "plan": "IBM Watson Personality Insights Monthly Plan"
-     }]
-    }
-    }
-    ```
+1. **Optional:** Push the application to Bluemix:
 
-    You need to copy `username`, `password` and `url`.
+  ```none
+  cf push
+  ```
 
-2. Install [Node.js](http://nodejs.org/)
-3. Go to the project folder in a terminal and run:
-    `npm install`
-4. Start the application
-5.  `node app.js`
-6. Go to `http://localhost:3000`
+After completing the steps above, you are ready to test your application. Start a browser and enter the URL of your application.
 
-## i18n Support
+            <your application name>.mybluemix.net
 
-  The application has i18n support and is available in English and
-  Spanish. The language is automatically selected from the browser's
-  locale.
 
-  To add a new translation follow the steps below:
+For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
-  1. Translating the static text:
-  	1. Locate the `en.json` file present in the `i18n` directory. This
-       file includes all the messages and labels in English.
-  	1. Copy `en.json` and name the new file with the format `ll-CC.json` or
-       `ll.json`, where `ll` is the language code and `CC` is the country
-       code. For example, a new translation for argentinian Spanish would
-       be named after `es-AR.json`. You may omit the country code to make
-       the translation global for the language.
-	1. Translate each English string to the desired language and save it.
-  1. Translating the personality summary:
-  	1. Locate the JSON files present in `public/json/` directory.
-  	   These are:
-	     * `facets.json`
-	     * `needs.json`
-	     * `summary.json`
-	     * `traits.json`
-	     * `values.json`
-	1. Copy each file and name it with the format `<filename>_ll-CC.json`
-	   or `<filename>_ll-CC.json`. For example, a Portuguese language
-           translations for `facets.json` will result in a new file named
-           `facets_pt.json`, an UK English translation for `traits.json` will
-           result in a new file named `traits_en-UK.json`.
-	1. Translate all the strings present in the new files to the desired
-	   language and save them.
+### Setting Up the Twitter Application
+
+1. [Create a Twitter application][create_twitter_app].
+
+1. Add your application's callback URL:
+  - For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
+  - For Local environment: `http:localhost:3000/auth/twitter/callback`
+
+1. Update the `.env` file and add your twitter application credentials:
+
+  ```none
+  TWITTER_CONSUMER_KEY=<consumer-key>
+  TWITTER_CONSUMER_SECRET=<consumer-secret>
+  ```
+
+1. Restart the app locally or push it again to Bluemix.
+
 
 ## Troubleshooting
 
-To troubleshoot your Bluemix app the main useful source of information are the logs, to see them, run:
+* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
 
   ```sh
-  $ cf logs <application-name> --recent
+  cf logs <application-name> --recent
   ```
+
+* For more details about the service, see the [documentation][documentation] for the Personality Insights.
+
+
+
+### Directory structure
+
+```none
+.
+├── app.js                       // express entry point
+├── config                       // express configuration
+│   ├── error-handler.js
+│   ├── express.js
+│   ├── i18n.js
+│   ├── passport.js
+│   └── security.js
+├── helpers                      // utility modules
+│   ├── personality-insights.js
+│   └── twitter-helper.js
+├── i18n                         // internationalization
+│   ├── en.json
+│   ├── es.json
+│   └── ja.json
+├── manifest.yml
+├── package.json
+├── public
+│   ├── css
+│   ├── data                     // sample text and tweets
+│   ├── fonts
+│   ├── images
+│   └── js
+├── router.js                   // express routes
+├── server.js                   // application entry point
+├── test
+└── views                       // ejs views
+```
 
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).  
-  This sample code uses d3 and jQuery, both distributed under MIT license.
+  This sample code is licensed under Apache 2.0.
 
 ## Contributing
 
-  See [CONTRIBUTING](CONTRIBUTING.md).
+  See [CONTRIBUTING](.github/CONTRIBUTING.md).
 
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
-[service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
+## Privacy Notice
+
+Sample web applications that include this package may be configured to track deployments to [IBM Bluemix](https://www.bluemix.net/) and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service on each deployment:
+
+* Node.js package version
+* Node.js repository URL
+* Application Name (`application_name`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+* Labels of bound services
+* Number of instances for each bound service and associated plan information
+
+This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
+
+[deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
-[sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
+[getting_started]: https://www.ibm.com/watson/developercloud/doc/getting_started/
+[documentation]: https://www.ibm.com/watson/developercloud/personality-insights.html
+[create_twitter_app]: https://apps.twitter.com/app/new
+[sign_up]: https://console.ng.bluemix.net/registration/

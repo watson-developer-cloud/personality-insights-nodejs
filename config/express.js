@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 IBM Corp. All Rights Reserved.
+ * Copyright 2015 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,20 +17,36 @@
 'use strict';
 
 // Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
+var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+var morgan = require('morgan');
 
-module.exports = function (app) {
+module.exports = (app) => {
   app.set('view engine', 'ejs');
+  require('ejs').delimiter = '$';
   app.enable('trust proxy');
+  app.use(morgan('dev'));
+
+  app.use(cookieParser());
+  app.use(expressSession({
+    secret: 'demo-' + Math.floor(Math.random() * 2000),
+    resave: true,
+    saveUninitialized: true
+  }));
 
   // Configure Express
-  app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
-  app.use(bodyParser.json({ limit: '5mb' }));
+  app.use(bodyParser.urlencoded({extended: true, limit: '15mb'}));
+  app.use(bodyParser.json({limit: '15mb'}));
   app.use(express.static(__dirname + '/../public'));
 
-  // Only loaded when SECURE_EXPRESS is `true`
-  if (process.env.SECURE_EXPRESS)
-    require('./security')(app);
+  require('./i18n')(app);
 
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION) {
+    require('./security')(app);
+  }
+  require('./passport')(app);
 };

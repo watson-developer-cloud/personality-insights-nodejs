@@ -1,3 +1,6 @@
 node_modules
-VCAP_SERVICES.json
-run.sh
+coverage
+npm-debug.log
+.DS_Store
+.env
+.idea/*

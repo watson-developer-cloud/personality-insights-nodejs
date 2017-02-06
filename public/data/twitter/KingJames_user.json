@@ -1,0 +1,99 @@
+{
+  "id": 23083404,
+  "id_str": "23083404",
+  "name": "LeBron James",
+  "screen_name": "KingJames",
+  "location": "Amongst La Familia! ",
+  "profile_location": null,
+  "description": "EST. AKRON - ST.V/M Class of '03  http://t.co/IneJylUd1m #IPROMISE",
+  "url": "http://t.co/TuET0GeB2Z",
+  "entities": {
+    "url": {
+      "urls": [
+        {
+          "url": "http://t.co/TuET0GeB2Z",
+          "expanded_url": "http://LeBronJames.com",
+          "display_url": "LeBronJames.com",
+          "indices": [
+            0,
+            22
+          ]
+        }
+      ]
+    },
+    "description": {
+      "urls": [
+        {
+          "url": "http://t.co/IneJylUd1m",
+          "expanded_url": "http://LeBronJamesFamilyFoundation.org",
+          "display_url": "LeBronJamesFamilyFoundation.org",
+          "indices": [
+            34,
+            56
+          ]
+        }
+      ]
+    }
+  },
+  "protected": false,
+  "followers_count": 25082176,
+  "friends_count": 165,
+  "listed_count": 39507,
+  "created_at": "Fri Mar 06 16:25:53 +0000 2009",
+  "favourites_count": 48,
+  "utc_offset": -18000,
+  "time_zone": "Quito",
+  "geo_enabled": false,
+  "verified": true,
+  "statuses_count": 4863,
+  "lang": "en",
+  "status": {
+    "created_at": "Fri Nov 13 23:10:17 +0000 2015",
+    "id": 665305711577071600,
+    "id_str": "665305711577071617",
+    "text": "As I get ready for my game I can't help but to think of the tragedy in Paris! My God what's up with people. Prayers sent to all the familes!",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweet_count": 17116,
+    "favorite_count": 26503,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  "contributors_enabled": false,
+  "is_translator": false,
+  "is_translation_enabled": true,
+  "profile_background_color": "000000",
+  "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000104492008/d11e7b1d2751298ff3f81494ad045d9d.jpeg",
+  "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000104492008/d11e7b1d2751298ff3f81494ad045d9d.jpeg",
+  "profile_background_tile": false,
+  "profile_image_url": "http://pbs.twimg.com/profile_images/624316600091480064/oEfoeQdZ_normal.jpg",
+  "profile_image_url_https": "https://pbs.twimg.com/profile_images/624316600091480064/oEfoeQdZ_normal.jpg",
+  "profile_banner_url": "https://pbs.twimg.com/profile_banners/23083404/1415281274",
+  "profile_link_color": "FBAF41",
+  "profile_sidebar_border_color": "000000",
+  "profile_sidebar_fill_color": "DDEEF6",
+  "profile_text_color": "333333",
+  "profile_use_background_image": true,
+  "has_extended_profile": false,
+  "default_profile": false,
+  "default_profile_image": false,
+  "following": false,
+  "follow_request_sent": false,
+  "notifications": false
+}

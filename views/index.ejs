@@ -1,179 +1,379 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<$ include partials/header $>
+  <div class="_demo--container">
+    <div class="_content input">
+      <h2 class="base--h2">
+        <$= __("intro-title") $>
+      </h2>
+      <p class="base--p">
+        <$= __("intro-1") $>
+      </p>
+      <p class="base--p">
+        <$= __("intro-4") $>
+      </p>
+      <div class="tab-panels" role="tabpanel">
+        <span class="input--reset icon-hyperlink">
+          <span class="icon icon-reset"></span>
+        <button class="base--a icon-hyperlink--button icon-hyperlink--button_BLANK input--reset-button" href="" type="reset">
+            <$= __("button-reset") $>
+          </button> |
+        <a class="base--a" href="/terms-of-use">
+          <$= __("button-terms") $>
+        </a>
+        </span>
+        <ul class="tab-panels--tab-list" role="tablist">
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a active" href="#twitter-panel" aria-controls="twitter-panel" role="tab">
+              <$= __("tab-tweets") $>
+            </a>
+          </li>
+          <li class="tab-panels--tab-list-item base--li" role="presentation">
+            <a class="tab-panels--tab base--a" href="#text-panel" aria-controls="text-panel" role="tab">
+              <$= __("tab-body") $>
+            </a>
+          </li>
+          <li class="tab-panels--tab-list-item base--li" style="<% if (showTwitterButton) { %>display: none;<% } %>" role="presentation">
+            <a class="tab-panels--tab base--a" id="self-analysis-tab" href="#your-twitter-panel" aria-controls="text-panel" role="tab">
+              <$= __("tab-twitter") $>
+            </a>
+          </li>
+        </ul>
+        <div class="tab-panels--tab-content">
+          <div id="twitter-panel" class="tab-panels--tab-pane active" role="tab-panel">
+            <form class="input--form1">
 
-<head>
-  <title>Personality Insights</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="ct" content="<%= ct %>">
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/watson-bootstrap-dark.css">
-  <link rel="stylesheet" href="/css/banner.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
-</head>
+              <div class="base--h5 input--choose">
+                <$= __("option-choose") $>
+              </div>
 
-<body>
-  <div class="row service-container">
-    <div class="col-lg-12 service-header">
-      <div class="row top-nav navbar-fixed-top">
-        <div class="container">
-          <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/" class="top-nav--logo-link">
-            <h3 class="heading left">IBM
-              <span class="top-nav--logo-wdc">Watson Developer Cloud</span>
-            </h3>
-          </a>
-          <nav class="top-nav--nav">
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/services-catalog.html">Services</a></li>
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/">Docs</a></li>
-            <li class="top-nav--nav-item"><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/gallery.html">App Gallery</a></li>
-            <li class="top-nav--nav-item"><a href="http://developer.ibm.com/watson/">Community</a></li>
-          </nav>
-        </div>
-      </div>
-      <div class="row header">
-        <div class="container">
-          <div class="avatar img-container col-lg-2 col-md-2 col-sm-2 hidden-xs">
-            <img src="/images/app.png" class="service-icon">
+              <input role="radio" class="base--radio" type="radio" id="twitter-Oprah" name="twitter" value="Oprah" data-lang="en">
+              <label class="base--inline-label input--radio" for="twitter-Oprah">
+                <img class="input--thumb" src="/images/twitter/oprah.png">@Oprah (<$= __("twitterlang-en") $>)</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-KingJames" name="twitter" value="KingJames" data-lang="en">
+              <label class="base--inline-label input--radio" for="twitter-KingJames">
+                <img class="input--thumb" src="/images/twitter/kingjames.jpg">@KingJames (<$= __("twitterlang-en") $>)</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-DonFranciscoTV" name="twitter" value="DonFranciscoTV" data-lang="es">
+              <label class="base--inline-label input--radio" for="twitter-DonFranciscoTV">
+                <img class="input--thumb" src="/images/twitter/DonFranciscoTV.jpg">@DonFranciscoTV (<$= __("twitterlang-es") $>)</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-pontifex_es" name="twitter" value="pontifex_es" data-lang="es">
+              <label class="base--inline-label input--radio" for="twitter-pontifex_es">
+                <img class="input--thumb" src="/images/twitter/pontifex_es.jpg">@pontifex_es (<$= __("twitterlang-es") $>)</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-trikaofficial" name="twitter" value="trikaofficial" data-lang="ar">
+              <label class="base--inline-label input--radio" for="twitter-trikaofficial">
+                <img class="input--thumb" src="/images/twitter/trikaofficial.jpg">@trikaofficial (<$= __("twitterlang-ar") $>)</label>
+
+              <input role="radio" class="base--radio" type="radio" id="twitter-faridyu" name="twitter" value="faridyu" data-lang="ja">
+              <label class="base--inline-label input--radio" for="twitter-faridyu">
+                <img class="input--thumb" src="/images/twitter/faridyu.jpg">@faridyu (<$= __("twitterlang-ja") $>)</label>
+
+              <div class="input--button-container">
+                <button type="submit" class="base--button input--submit-button1"><$= __("button-analyze") $></button>
+              </div>
+            </form>
           </div>
-          <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 dialog-description">
-            <h1 style="font-size:50px;" class="service-title">Personality Insights</h1>
-            <p>The IBM Watson Personality Insights service uses linguistic analytics to extract a spectrum of cognitive and social characteristics from the text data that a person generates through blogs, tweets, forum posts, and more.</p>
-            <div class="resource">
-              <img src="/images/link.svg" class="link-icon">
-              <strong>Resources:</strong>
-            </div>
-            <div class="resource-item-container"><a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights/api" class="resource-item">API Reference</a><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/"
-              class="resource-item">Documentation</a><a href="https://github.com/watson-developer-cloud/personality-insights-nodejs" class="resource-item">Fork on Github</a><a href="http://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/personality-insights-nodejs.git"
-              class="resource-item">Fork and Deploy on Bluemix</a></div>
+          <div id="text-panel" class="tab-panels--tab-pane" role="tab-panel">
+            <form class="input--form2">
+
+              <div class="base--h5 input--choose">
+                <$= __("option-choose") $>
+              </div>
+
+              <input role="radio" class="base--radio" type="radio" id="text-sample1" name="text-sample" data-file="sample1" data-lang="en" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample1"><$= __("text-obama-en") $></label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-sample2" name="text-sample" data-file="sample2" data-lang="en" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-sample2"><$= __("text-gandhi-en") $></label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-ja" name="text-sample" data-file="ja" data-lang="ja" data-orientation="" />
+              <label class="base--inline-label input--radio" for="text-ja"><$= __("text-natsume-ja") $></label>
+
+              <input role="radio" class="base--radio" type="radio" id="text-custom" name="text-sample" style="display:none" />
+              <label class="base--inline-label input--radio smartphone-hidden" for="text-custom"><$= __("text-own") $></label>
+
+              <textarea id="inputText" class="base--textarea input--text-area" placeholder="<$= __(" text-placeholder ") $>">
+              </textarea>
+              <div class="input--button-container">
+                <div id="languageChooser" class="input--language-chooser smartphone-hidden" style="display:none">
+                  <div class="base--h5 input--choose">
+                    <$= __("option-chooselang") $>
+                  </div>
+
+                  <input role="radio" class="base--radio" type="radio" id="lang-en" name="text-lang" value="en" />
+                  <label class="base--inline-label" for="lang-en"><$= __("lang-english") $></label>
+                  <input role="radio" class="base--radio" type="radio" id="lang-es" name="text-lang" value="es" />
+                  <label class="base--inline-label" for="lang-es"><$= __("lang-spanish") $></label>
+                  <input role="radio" class="base--radio" type="radio" id="lang-ar" name="text-lang" value="ar" />
+                  <label class="base--inline-label" for="lang-ar"><$= __("lang-arabic") $></label>
+                  <input role="radio" class="base--radio" type="radio" id="lang-ja" name="text-lang" value="ja" />
+                  <label class="base--inline-label" for="lang-ja"><$= __("lang-japanese") $></label>
+                </div>
+                <button type="submit" class="base--button input--submit-button2"><$= __("button-analyze") $></button>
+              </div>
+
+            </form>
+          </div>
+          <div id="your-twitter-panel" class="tab-panels--tab-pane" role="tab-panel">
+            <form class="input--form3 auth-form" method='get' action='/auth/twitter'>
+              <p class="base--p" style="text-align:center"><button type="submit" class="base--button input--submit-button3"><$= __("button-analyzetwitter") $></button></p>
+              <p class="base--p"><strong><$= __("note-title") $></strong>
+                <$= __("note-twitter") $>
+                  <p>
+            </form>
+            <form class="input-form4 analysis-form" style="display:none">
+              <div class="base--h5 input--choose">
+                <$= __("analysis-title") $>
+              </div>
+              <input role="radio" class="base--radio" type="radio" id="my-twitter" name="twitter" value="myself">
+              <label class="base--inline-label input--radio" for="my-twitter">
+                <img class="input--thumb" src="/images/no-image.png">@<$= __("label-myself") $></label>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 col-xs-12">
-        <h2>Input Text</h2>
-        <p>We need a minimum of 3500 words and ideally 6000 words or more to compute statistically significant results. See <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml">the science behind the service</a>.</p>
-        <p>Ideally, the text should contain words we use in every day life relating to personal experiences, thoughts and responses. See <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/guidance.shtml#optimal">usage guidance</a>          for details.</p>
-        <div class="well">
-          <div class="form-group row">
-            <div style="padding:0px;" class="col-lg-12 col-xs-12">
-              <label class="col-lg-6 col-md-6 col-xs-6 control-label">Choose Language:</label>
-              <div class="col-lg-6 col-md-6 col-xs-6 sample-radio-list">
-                <div class="sample-radio-container">
-                  <label>
-                    <input id="english_radio" type="radio" name="sample_text" value="en" checked class="sample-radio">
-                    <span>English</span>
-                  </label>
+
+  <div class="_demo--bg-container">
+    <div class="_demo--container">
+      <div class="_content">
+        <h3 class="base--h3 output--header"><$= __("title-output") $></h3>
+        <div class="loading">
+          <div class="loading--icon">
+            <img src="images/loading-indicator.gif" width="100%" alt="">
+          </div>
+        </div>
+        <div class="error">
+          <p class="error--message">
+            <$= __("message-error") $>
+          </p>
+        </div>
+        <div class="output">
+          <p class="base--p">
+            <$= __("disclaimer-1") $>
+          </p>
+          <p class="base--p">
+            <a class="base--a" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/inout.shtml#outputStats" target="_blank">
+              <$= __("disclaimer-2") $>
+            </a>
+            <$= __("disclaimer-3") $>
+          </p>
+          <h2 class="base--h2"><$= __("title-personality") $></h2>
+          <h4 class="base--h4 output--word-count-header"><span class="output--word-count-number">0</span> <$= __("label-wordsanalyzed") $>
+            <div class="output--word-count-message output--word-count-message_VERY-STRONG"><$= __("analysis-verystrong") $>
+              <div class="output--word-count-tooltip_VERY-STRONG tooltip"><$= __("analysis-verystrong-desc") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_STRONG"><$= __("analysis-strong") $>
+              <div class="output--word-count-tooltip_STRONG tooltip"><$= __("analysis-strong-desc") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_DECENT"><$= __("analysis-decent") $>
+              <div class="output--word-count-tooltip_DECENT tooltip"><$= __("analysis-decent-desc") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_WEAK"><$= __("analysis-weak") $>
+              <div class="output--word-count-tooltip_WEAK tooltip"><$= __("analysis-weak-desc") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_VERY-STRONG_NEW_MODEL"><$= __("analysis-verystrong") $>
+              <div class="output--word-count-tooltip_VERY-STRONG tooltip"><$= __("analysis-verystrong-desc-new-model") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_STRONG_NEW_MODEL"><$= __("analysis-strong") $>
+              <div class="output--word-count-tooltip_STRONG tooltip"><$= __("analysis-strong-desc-new-model") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_DECENT_NEW_MODEL"><$= __("analysis-decent") $>
+              <div class="output--word-count-tooltip_DECENT_NEW_MODEL tooltip"><$= __("analysis-decent-desc-new-model") $></div>
+            </div>
+            <div class="output--word-count-message output--word-count-message_WEAK_NEW_MODEL"><$= __("analysis-weak") $>
+              <div class="output--word-count-tooltip_WEAK tooltip"><$= __("analysis-weak-desc-new-model") $></div>
+            </div>
+          </h4>
+          <div class="output-summary">
+            <div class="output-summary--left">
+              <h4 class="base--h4"><$= __("title-summary") $></h4>
+              <div id="personalitySummary" class="output-summary--summary">
+                <p class="base--p">
+                  <$= __("label-summary") $>
+                </p>
+              </div>
+              <a class="base--a output-summary--summary-link" href="http://www.ibm.com/watson/developercloud/doc/personality-insights/science.shtml" target="_blank"><$= __("button-how") $></a>
+            </div>
+            <div class="output-summary--right">
+              <div class="output-summary--consumption-behaviors--section">
+                <h4 class="base--h4"><$= __("behavior-likely") $></h4>
+                <div class="output-summary--likely-behaviors">
                 </div>
-                <div class="sample-radio-container">
-                  <label>
-                    <input type="radio" name="sample_text" value="es" class="sample-radio">
-                    <span>Spanish</span>
-                  </label>
+                <h4 class="base--h4"><$= __("behavior-unlikely") $></h4>
+                <div class="output-summary--unlikely-behaviors">
                 </div>
               </div>
-              <textarea rows="12" required="true" name="text" placeholder="Please enter English text to analyze (minimum of 100 words)..." class="content form-control"></textarea>
-              <div class="text-right wordsCountFootnote">
-                <span class="wordsCount small"></span>
-                <span class="small"> words</span>
+            </div>
+          </div>
+          <div class="output--stats-row">
+            <div class="output-big-5 output-stats-column">
+              <h4 class="base--h4"><$= __("results-personality") $></h4>
+              <div class="output-stats-column--percentile-label">*% =
+                <$= __("label-percentile") $>
               </div>
+              <div class="output-big-5--traits output-stats-column--traits"></div>
+            </div>
+            <div class="output-needs output-stats-column">
+              <h4 class="base--h4"><$= __("results-needs") $></h4>
+              <div class="output-stats-column--percentile-label">*% =
+                <$= __("label-percentile") $>
+              </div>
+              <div class="output-needs--traits output-stats-column--traits"></div>
+              <div class="output-needs--more-traits"></div>
+              <a class="output-needs--toggle output-stats-column--toggle base--a" href="javascript:void(0);">>></a>
+            </div>
+            <div class="output-values output-stats-column">
+              <h4 class="base--h4"><$= __("results-values") $></h4>
+              <div class="output-stats-column--percentile-label">*% =
+                <$= __("label-percentile") $>
+              </div>
+              <div class="output-values--traits output-stats-column--traits"></div>
             </div>
           </div>
-          <div class="form-group row buttons-container">
-            <div class="col-lg-4 col-xs-4">
-              <button type="button" class="btn btn-block clear-btn">Clear</button>
-            </div>
-            <div class="col-lg-4 col-lg-push-4 col-xs-4 col-xs-push-4">
-              <button type="button" class="btn btn-block analysis-btn">Analyze</button>
-            </div>
+          <span class="icon-hyperlink output--json-hyperlink">
+            <span class="icon icon-code"></span>
+          <button class="base--a icon-hyperlink--button icon-hyperlink--button_BLANK output--json-button" href="">
+              <$= __("button-json") $>
+            </button>
+          </span>
+          <div class="output--json">
+            <h3 class="base--h3"><$= __("label-json") $></h3>
+            <pre class="base--pre language-javascript output--json-pre"><code class="base--code language-javascript output--json-code code--json"></code></pre>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-12 col-xs-12">
-        <div style="display:none;" class="form-group row loading text-center loading">
-          <h2>&nbsp;</h2>
-          <img src="images/watson.gif">
-        </div>
-        <div style="display: none;" class="form-group row error">
-          <h2>&nbsp;</h2>
-          <div class="well">
-            <p class="errorMsg"></p>
-            <div style="display:none;margin-bottom:10px;" class="captcha">
-              <div data-sitekey="6LcRbQkTAAAAAGUFVbnuqDfse-XZASLZwoC34oJV" class="g-recaptcha"></div>
-            </div>
-          </div>
-        </div>
-        <div style="display: none;" class="results">
-          <h2>Your Personality*</h2>
-          <div class="well">
-            <div class="summary-div"></div>
-            <div style="color: gray" class="text-right">
-              <em class="small">*Compared to most people who participated in our surveys.</em>
-            </div>
-            <div style="color: gray" class="text-right">
-              <em class="small outputMessageFootnote"></em>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="display: none;" class="results">
-        <div class="row">
-          <div class="col-lg-5 col-md-12 col-xs-12">
-            <h3>Data Behind Your Personality</h3>
-            <div style="display: none;" class="col555px well traits"></div>
-          </div>
-          <div class="col-lg-7 col-xs-12 col-md-12">
-            <h3>Visualization of Personality Data</h3>
-            <div id="vizcontainer" class="well"></div>
-          </div>
-        </div>
-      </div>
-      <div class="hidden">
-        <div id="header-template">
-          <div class="row theader">
-            <div class="col-lg-7 col-xs-7">
-              <span>Name</span>
-            </div>
-            <div class="col-lg-5 col-xs-5 text-right">
-              <span>Value</span>
-            </div>
-          </div>
-        </div>
-        <div id="trait-template">
-          <div class="row">
-            <div class="tname col-lg-7 col-xs-7">
-              <span></span>
-            </div>
-            <div class="tvalue col-lg-5 col-xs-5 text-right">
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div id="model-template">
-          <div class="row">
-            <div class="col-lg-12 col-xs-12 text-center">
-              <span></span>
-            </div>
-          </div>
+          <p class="base--p output--more-science">
+            <$= __("label-whatelse") $>
+              <br>
+              <a class="base--a" onclick="postSunburstRequest()" href="javascript:void(0);">
+                <$= __("button-sunburst") $>
+              </a>.
+              <br>
+              <a class="base--a" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/personality-insights/science.shtml" target="_blank">
+                <$= __("button-science") $>
+              </a>.
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
-  <script type="text/javascript" src="/js/demo.js"></script>
-  <script type="text/javascript" src="/js/personality.js"></script>
-  <script type="text/javascript" src="/js/string-utils.js"></script>
-  <script type="text/javascript" src="/js/i18n.js"></script>
-  <script type="text/javascript" src="/js/textsummary.js"></script>
+
+
+  <script type="text/html" id="big5PercentTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <% if (typeof list[key - 1] != 'undefined' && (list[key - 1].score >= 50 && item.score < 50)) { %>
+        <hr class="base--hr output-stats-column--hr">
+        <% } %>
+          <div class="percent-bar-and-score">
+            <div class="percent-bar-and-score--label output-big-5--trait-label <%= (item.score >= 50) ? 'output-big-5--trait-label_POSITIVE' : 'output-big-5--trait-label_NEGATIVE' %>">
+              <%= item.name %>
+                <i class="icon icon-down-arrow percent-bar-and-score--toggle-icon"></i>
+                <div class="tooltip">
+                  <%= tooltips(item.id) || '<$= __('tooltip-not-available') $>' %>
+                </div>
+            </div>
+            <div class="percent-bar percent-bar-and-score--percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
+                <div class="percent-bar--ball <%= (item.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                <div class="percent-bar-and-score--number">
+                  <%= item.score %>%</div>
+              </div>
+            </div>
+          </div>
+          <div class="output-big-5--sub-tree">
+            <% _.each(item.children, function(item2, key, list) { %>
+              <div class="percent-bar-and-score">
+                <div class="percent-bar-and-score--label output-big-5--sub-trait-label <%= (item2.score >= 50) ? 'output-big-5--sub-trait-label_POSITIVE' : 'output-big-5--sub-trait-label_NEGATIVE' %>">
+                  <%= item2.name %>
+                    <div class="tooltip">
+                      <%= tooltips(item2.id) || '<$= __('tooltip-not-available') $>' %>
+                    </div>
+                </div>
+                <div class="percent-bar percent-bar-and-score--percent-bar">
+                  <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item2.score %>%)">
+                    <div class="percent-bar--ball <%= (item2.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                    <div class="percent-bar-and-score--number">
+                      <%= item2.score %>%</div>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+          <% });%>
+  </script>
+
+  <script type="text/html" id="outputStatsPercentTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <% if (typeof list[key - 1] != 'undefined' && (list[key - 1].score >= 50 && item.score < 50)) { %>
+        <hr class="base--hr output-stats-column--hr">
+        <% } %>
+          <div class="percent-bar-and-score">
+            <div class="percent-bar-and-score--label <%= (item.score >= 50) ? 'percent-bar-and-score--label_POSITIVE' : 'percent-bar-and-score--label_NEGATIVE' %>">
+              <%= item.name %>
+                <div class="tooltip">
+                  <%= tooltips(item.id) || '<$= __('tooltip-not-available') $>' %>
+                </div>
+            </div>
+            <div class="percent-bar percent-bar-and-score--percent-bar">
+              <div class="percent-bar--meter" style="-webkit-transform: translate(<%= item.score %>%); transform: translate(<%= item.score %>%)">
+                <div class="percent-bar--ball <%= (item.score >= 50) ? 'percent-bar--ball_POSITIVE-FILL' : 'percent-bar--ball_NEGATIVE-FILL' %>"></div>
+                <div class="percent-bar-and-score--number">
+                  <%= item.score %>%</div>
+              </div>
+            </div>
+          </div>
+          <% });%>
+  </script>
+
+
+  <script type="text/html" id="outputBehaviorsTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <div class="output-summary--behavior <%= item.score > 0.5 ? 'output-summary--behavior_POSITIVE' : 'output-summary--behavior_NEGATIVE' %>">
+        <i class="icon <%= item.score > 0.5 ? 'icon-likely' : 'icon-not-likely' %>"></i>
+        <%= item.verb %>
+          <div class="tooltip">
+            <%= item.description %>
+              <div class="tooltip--hover-fix"></div>
+          </div>
+      </div>
+    <% }); %>
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/5.0.2/markdown-it.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+
+  <script type="text/javascript" src="js/vendors/q.js"></script>
+  <script type="text/javascript" src="js/components/q_util.js"></script>
+  <script type="text/javascript" src="js/components/tab-panels.js"></script>
+
+  <script type="text/javascript" src="https://unpkg.com/personality-text-summary@2.1.1/dist/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/personality-trait-info@3.0.0/dist/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/personality-trait-descriptions@2.0.4/dist/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/personality-trait-names@2.0.4/dist/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/personality-consumption-preferences@0.0.2/dist/index.js"></script>
+  <script type="text/javascript" src="js/sunburst.js"></script>
+
+  <script type="text/javascript" src="js/demo.js"></script>
+
   <script type="text/javascript">
-    textSummary.init('json');
+    var TWITTER_USER = <$- JSON.stringify(twitterUser) $>;
+    var GENERIC_REQUEST_ERROR = '<$= __('error-request') $>';
+    var OUTPUT_LANG = '<$= locale $>';
+  </script>
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59827755-8', 'auto');
+    ga('send', 'pageview');
   </script>
 </body>
-
 </html>
