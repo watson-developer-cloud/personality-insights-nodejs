@@ -46,15 +46,20 @@ const toContentItem = (tweet) => {
 };
 
 const getProfile = (params) =>
-  new Promise((resolve, reject) =>
-    personalityInsights.profile(params, (err, profile) => {
+  new Promise((resolve, reject) => {
+    if (params.language) {
+      params.headers = {
+        'Content-Language': params.language,
+      };
+    }
+    return personalityInsights.profile(params, (err, profile) => {
       if (err) {
         reject(err);
       } else {
         resolve(profile);
       }
-    })
-  );
+    });
+  });
 
 const profileFromTweets = (params) => (tweets) => {
   params.content_items = tweets.map(toContentItem);
