@@ -395,19 +395,19 @@ $(document).ready(function() {
 
   function cpIdSortingLikely(cpid, lang) {
      var sortArray;
-     if(lang == 'en') sortArray = cfSortLikely_en;
-     if(lang == 'es') sortArray = cfSortLikely_es;
-     if(lang == 'ja') sortArray = cfSortLikely_ja;
-     if(lang == 'ar') sortArray = cfSortLikely_ar;
+     if(lang == 'en') sortArray = enSortLikely;
+     if(lang == 'es') sortArray = esSortLikely;
+     if(lang == 'ja') sortArray = jaSortLikely;
+     if(lang == 'ar') sortArray = arSortLikely;
      return sortArray.indexOf(cpid);
   }
   
   function cpIdSortingUnlikely(cpid, lang) {
      var sortArray;
-     if(lang == 'en') sortArray = cfSortUnlikely_en;
-     if(lang == 'es') sortArray = cfSortUnlikely_es;
-     if(lang == 'ja') sortArray = cfSortUnlikely_ja;
-     if(lang == 'ar') sortArray = cfSortUnlikely_ar;
+     if(lang == 'en') sortArray = enSortUnlikely;
+     if(lang == 'es') sortArray = esSortUnlikely;
+     if(lang == 'ja') sortArray = jaSortUnlikely;
+     if(lang == 'ar') sortArray = arSortUnlikely;
      return sortArray.indexOf(cpid);
   }
 

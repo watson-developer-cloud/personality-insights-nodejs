@@ -1,6 +1,4 @@
-
-
-var cfSortLikely_en = [
+var enSortLikely = [
   'consumption_preferences_movie_musical',
   'consumption_preferences_automobile_ownership_cost',
   'consumption_preferences_volunteering_time',
@@ -54,7 +52,7 @@ var cfSortLikely_en = [
   'consumption_preferences_music_hip_hop'
 ];
 
-var cfSortLikely_es = [
+var esSortLikely = [
   'consumption_preferences_movie_musical',
   'consumption_preferences_volunteer',
   'consumption_preferences_read_motive_enjoyment',
@@ -107,7 +105,7 @@ var cfSortLikely_es = [
   'consumption_preferences_music_hip_hop'
 ];
 
-var cfSortLikely_ja = [
+var jaSortLikely = [
   'consumption_preferences_movie_musical',
   'consumption_preferences_automobile_ownership_cost',
   'consumption_preferences_music_playing',
@@ -161,6 +159,6 @@ var cfSortLikely_ja = [
   'consumption_preferences_music_hip_hop'
 ];
 
-var cfSortLikely_ar = cfSortLikely_en;
+var arSortLikely = enSortLikely;
 
 

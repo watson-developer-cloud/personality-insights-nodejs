@@ -1,4 +1,4 @@
-var cfSortUnlikely_en = [
+var enSortUnlikely = [
   'consumption_preferences_credit_card_payment',
   'consumption_preferences_read_motive_mandatory',
   'consumption_preferences_music_country',
@@ -52,7 +52,7 @@ var cfSortUnlikely_en = [
   'consumption_preferences_books_non_fiction'
 ];
 
-var cfSortUnlikely_es = [
+var esSortUnlikely = [
   'consumption_preferences_movie_horror',
   'consumption_preferences_gym_membership',
   'consumption_preferences_influence_online_ads',
@@ -105,7 +105,7 @@ var cfSortUnlikely_es = [
   'consumption_preferences_music_latin'
 ];
 
-var cfSortUnlikely_ja = [
+var jaSortUnlikely = [
   'consumption_preferences_influence_family_members',
   'consumption_preferences_read_motive_information',
   'consumption_preferences_influence_utility',
@@ -159,6 +159,6 @@ var cfSortUnlikely_ja = [
   'consumption_preferences_music_live_event'
 ];
 
-var cfSortUnlikely_ar = cfSortUnlikely_en;
+var arSortUnlikely = enSortUnlikely;
 
 

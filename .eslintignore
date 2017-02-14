@@ -3,5 +3,5 @@ coverage
 public/js/components
 public/js/vendors
 public/js/demo.js
-public/js/consumptionPrefSort_likely.js
-public/js/consumptionPrefSort_Unlikely.js
+public/js/consumption-preferences-likely-sort.js
+public/js/consumption-preferences-unlikely-sort.js
