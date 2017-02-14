@@ -21,7 +21,7 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 const cfenv = require('cfenv');
 const appEnv = cfenv.getAppEnv();
 
-const callbackURL = appEnv.isLocal ? 'http://localhost:3000' : appEnv.url;
+const callbackURL = CF_APP_URL || (appEnv.isLocal ? 'http://localhost:3000' : appEnv.url);
 
 const strategyOptions = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
