@@ -393,61 +393,22 @@ $(document).ready(function() {
     return ConsumptionPreferences.description(consumption_preference_id);
   }
 
-  function cpIdSorting(cpid) {
-    return [
-      'consumption_preferences_music_rap',
-      'consumption_preferences_music_country',
-      'consumption_preferences_concerned_environment',
-      'consumption_preferences_read_frequency',
-      'consumption_preferences_music_r_b',
-      'consumption_preferences_volunteer_learning',
-      'consumption_preferences_automobile_ownership_cost',
-      'consumption_preferences_automobile_safety',
-      'consumption_preferences_volunteer',
-      'consumption_preferences_movie_romance',
-      'consumption_preferences_eat_out',
-      'consumption_preferences_music_hip_hop',
-      'consumption_preferences_movie_adventure',
-      'consumption_preferences_movie_horror',
-      'consumption_preferences_influence_brand_name',
-      'consumption_preferences_music_live_event',
-      'consumption_preferences_clothes_quality',
-      'consumption_preferences_automobile_resale_value',
-      'consumption_preferences_clothes_style',
-      'consumption_preferences_read_motive_enjoyment',
-      'consumption_preferences_music_christian_gospel',
-      'consumption_preferences_read_motive_information',
-      'consumption_preferences_books_entertainment_magazines',
-      'consumption_preferences_books_non_fiction',
-      'consumption_preferences_start_business',
-      'consumption_preferences_read_motive_mandatory',
-      'consumption_preferences_gym_membership',
-      'consumption_preferences_influence_family_members',
-      'consumption_preferences_adventurous_sports',
-      'consumption_preferences_movie_musical',
-      'consumption_preferences_movie_historical',
-      'consumption_preferences_movie_science_fiction',
-      'consumption_preferences_volunteering_time',
-      'consumption_preferences_spur_of_moment',
-      'consumption_preferences_movie_war',
-      'consumption_preferences_credit_card_payment',
-      'consumption_preferences_movie_drama',
-      'consumption_preferences_read_motive_relaxation',
-      'consumption_preferences_influence_utility',
-      'consumption_preferences_music_playing',
-      'consumption_preferences_books_financial_investing',
-      'consumption_preferences_fast_food_frequency',
-      'consumption_preferences_movie_action',
-      'consumption_preferences_influence_online_ads',
-      'consumption_preferences_books_autobiographies',
-      'consumption_preferences_influence_social_media',
-      'consumption_preferences_music_latin',
-      'consumption_preferences_music_rock',
-      'consumption_preferences_outdoor',
-      'consumption_preferences_music_classical',
-      'consumption_preferences_movie_documentary',
-      'consumption_preferences_clothes_comfort'
-    ].indexOf(cpid);
+  function cpIdSortingLikely(cpid, lang) {
+     var sortArray;
+     if(lang == 'en') sortArray = enSortLikely;
+     if(lang == 'es') sortArray = esSortLikely;
+     if(lang == 'ja') sortArray = jaSortLikely;
+     if(lang == 'ar') sortArray = arSortLikely;
+     return sortArray.indexOf(cpid);
+  }
+  
+  function cpIdSortingUnlikely(cpid, lang) {
+     var sortArray;
+     if(lang == 'en') sortArray = enSortUnlikely;
+     if(lang == 'es') sortArray = esSortUnlikely;
+     if(lang == 'ja') sortArray = jaSortUnlikely;
+     if(lang == 'ar') sortArray = arSortUnlikely;
+     return sortArray.indexOf(cpid);
   }
 
   var consumptionPrefMusic = new Set([
@@ -522,6 +483,7 @@ $(document).ready(function() {
     var behaviors = $('.output-summary--consumption-behaviors--section');
     var behaviors_likely = $('.output-summary--likely-behaviors');
     var behaviors_unlikely = $('.output-summary--unlikely-behaviors');
+    var lang = data.processed_language;
 
     if (data.consumption_preferences) {
       var likelycps = data.consumption_preferences.reduce(function(k, v) {
@@ -529,7 +491,7 @@ $(document).ready(function() {
           if (child_item.score === 1) {
             k.push({
               name: cpIdMapping(child_item.consumption_preference_id),
-              idx: cpIdSorting(child_item.consumption_preference_id),
+              idx: cpIdSortingLikely(child_item.consumption_preference_id,lang),
               cpid: child_item.consumption_preference_id
             });
           }
@@ -542,7 +504,7 @@ $(document).ready(function() {
           if (child_item.score === 0) {
             k.push({
               name: cpIdMapping(child_item.consumption_preference_id),
-              idx: cpIdSorting(child_item.consumption_preference_id),
+              idx: cpIdSortingUnlikely(child_item.consumption_preference_id,lang),
               cpid: child_item.consumption_preference_id
             });
           }
