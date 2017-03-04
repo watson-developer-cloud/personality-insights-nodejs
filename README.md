@@ -84,7 +84,7 @@ For more details about developing applications that use Watson Developer Cloud s
 
 1. Add your application's callback URL:
   - For Bluemix environment: `<application-name>.mybluemix.net/auth/twitter/callback`
-  - For Local environment: `http:localhost:3000/auth/twitter/callback`
+  - For Local environment: `http://localhost:3000/auth/twitter/callback`
 
 1. Update the `.env` file and add your twitter application credentials:
 
