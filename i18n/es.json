@@ -14,6 +14,11 @@
 	"text-obama-en": "2012 Debate - Barack Obama (Inglés)",
 	"text-gandhi-en": "Reflexión - Gandhi (Inglés)",
 	"text-natsume-ja": "Michikusa - Natsume (Japonés)",
+        "text-ko1": "Dok-Do Speech (Ko)",
+        "text-ko2": "New Year's Speech (Ko)",
+        "text-ko3": "Inaugral Speech (Ko)",
+        "text-ko4": "My Wish (Ko)",
+        "text-ko8": "Inaugral Speech (Ko)",
 	"text-own": "Su propio texto",
 	"text-placeholder": "Por favor, ingrese texto para analizar (mínimo 100 palabras)...",
 	"option-chooselang": "Seleccione lenguaje:",
@@ -40,6 +45,7 @@
 	"lang-spanish": "Español",
 	"lang-arabic": "Árabe",
 	"lang-japanese": "Japonés",
+	"lang-ko": "coreano",
 	"button-analyzetwitter": "Analizar mi Personalidad de Twitter",
 	"note-title": "Nota:",
 	"note-twitter": "Será redirigido a la página de autorización de Twitter y luego será redirigido de regreso a esta aplicación para completar el análisis.",
@@ -121,5 +127,6 @@
 	"twitterlang-es": "Español",
 	"twitterlang-ar": "Árabe",
 	"twitterlang-ja": "Japonés",
+	"twitterlang-ko": "coreano",
 	" text-placeholder ": " text-placeholder "
 }

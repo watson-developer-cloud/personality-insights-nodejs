@@ -44,7 +44,8 @@ const initializeI18n = (app) => {
       'es-ES': 'es',
       'es-UY': 'es',
       'es-VE': 'es',
-      'ja-JP': 'ja'
+      'ja-JP': 'ja',
+      'ko-KR': 'en'
     },
     directory: __dirname + '/../i18n',
     defaultLocale: 'en'
