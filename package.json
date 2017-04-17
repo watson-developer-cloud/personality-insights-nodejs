@@ -62,6 +62,10 @@
     "object.pick": "^1.2.0",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
+    "personality-consumption-preferences": "0.0.2",
+    "personality-text-summary": "^2.1.1",
+    "personality-trait-descriptions": "^2.0.4",
+    "personality-trait-info": "^3.0.0",
     "twitter": "^1.7.0",
     "watson-developer-cloud": "^2.16.0"
   },

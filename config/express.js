@@ -40,6 +40,8 @@ module.exports = (app) => {
   app.use(bodyParser.urlencoded({extended: true, limit: '15mb'}));
   app.use(bodyParser.json({limit: '15mb'}));
   app.use(express.static(__dirname + '/../public'));
+  // make things in node_modules available (basically a replacement for unpkg.com)
+  app.use('/vendor', express.static(__dirname + '/../node_modules'));
 
   require('./i18n')(app);
 
