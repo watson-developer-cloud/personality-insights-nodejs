@@ -399,6 +399,7 @@ $(document).ready(function() {
      if(lang == 'es') sortArray = esSortLikely;
      if(lang == 'ja') sortArray = jaSortLikely;
      if(lang == 'ar') sortArray = arSortLikely;
+     if(lang == 'ko') sortArray = koSortLikely;
      return sortArray.indexOf(cpid);
   }
   
@@ -408,6 +409,7 @@ $(document).ready(function() {
      if(lang == 'es') sortArray = esSortUnlikely;
      if(lang == 'ja') sortArray = jaSortUnlikely;
      if(lang == 'ar') sortArray = arSortUnlikely;
+     if(lang == 'ko') sortArray = koSortUnlikely;
      return sortArray.indexOf(cpid);
   }
 
