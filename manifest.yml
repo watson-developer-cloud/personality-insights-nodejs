@@ -3,7 +3,7 @@ applications:
 - name: personality-insights-livedemo
   command: npm start
   path: .
-  memory: 512M
+  memory: 256M
   instances: 1
   services:
   - my-pi-service
