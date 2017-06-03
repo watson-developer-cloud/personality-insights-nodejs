@@ -26,7 +26,7 @@ stages:
       application: ${CF_APP}
     script: |-
       #!/bin/bash
-      cf create-service personality_insights tiered my-pi-service
+      cf create-service personality_insights lite my-pi-service
       # Push app
       export CF_APP_NAME="$CF_APP"
       cf push "${CF_APP_NAME}"
