@@ -32,7 +32,7 @@
 5. Create and retrieve service keys to access the [Personality Insights][service_url] service:
 
   ```none
-  cf create-service personality_insights tiered my-pi-service
+  cf create-service personality_insights lite my-pi-service
   cf create-service-key my-pi-service myKey
   cf service-key my-pi-service myKey
   ```
