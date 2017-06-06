@@ -159,8 +159,6 @@ var jaSortUnlikely = [
   'consumption_preferences_music_live_event'
 ];
 
-<<<<<<< HEAD
-=======
 var koSortUnlikely = [
   'consumption_preferences_outdoor',
   'consumption_preferences_gym_membership',
@@ -215,7 +213,4 @@ var koSortUnlikely = [
   'consumption_preferences_movie_science_fiction'
 ];
 
->>>>>>> internal/master
 var arSortUnlikely = enSortUnlikely;
-
-
