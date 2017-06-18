@@ -1,6 +1,6 @@
 ---
 applications:
-- name: personality-insights-livedemo
+- name: anti-TRAITORONIZAR
   command: npm start
   path: .
   memory: 256M
