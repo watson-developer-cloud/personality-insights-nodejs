@@ -21,7 +21,7 @@ var i18n = require('i18n');
 const initializeI18n = (app) => {
   i18n.configure({
     locales: [
-      'en', 'es', 'ja'
+      'en', 'es', 'ja','ko'
     ],
     fallbacks: {
       'en-US': 'en',
@@ -45,7 +45,7 @@ const initializeI18n = (app) => {
       'es-UY': 'es',
       'es-VE': 'es',
       'ja-JP': 'ja',
-      'ko-KR': 'en'
+      'ko-KR': 'ko'
     },
     directory: __dirname + '/../i18n',
     defaultLocale: 'en'
