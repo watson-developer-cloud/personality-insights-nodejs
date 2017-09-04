@@ -50,5 +50,8 @@ module.exports = (app) => {
   if (process.env.VCAP_APPLICATION) {
     require('./security')(app);
   }
-  require('./passport')(app);
+
+  if (process.env.TWITTER_CONSUMER_KEY && process.env.TWITTER_CONSUMER_SECRET) {
+    require('./passport')(app);
+  }    
 };

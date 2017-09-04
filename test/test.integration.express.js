@@ -34,45 +34,45 @@ describe('integration-express', function() {
 
   it('Generate profile from valid text', () =>
     request(app).post('/api/profile/text')
-    .type('form')
-    .send({
-      language: 'en',
-      source_type: 'text',
-      accept_language: 'en',
-      include_raw: false,
-      text: sampleText
-    }).expect(200)
+      .type('form')
+      .send({
+        language: 'en',
+        source_type: 'text',
+        accept_language: 'en',
+        include_raw: false,
+        text: sampleText
+      }).expect(200)
   );
 
   it('Generate error if insufficient text', () =>
     request(app).post('/api/profile/text')
-    .type('form')
-    .send({
-      language: 'en',
-      source_type: 'text',
-      accept_language: 'en',
-      include_raw: false,
-      text: sampleText.substring(0, 100)
-    }).expect(400)
+      .type('form')
+      .send({
+        language: 'en',
+        source_type: 'text',
+        accept_language: 'en',
+        include_raw: false,
+        text: sampleText.substring(0, 100)
+      }).expect(400)
   );
 
   it('Generate profile if only text is specified', () =>
     request(app).post('/api/profile/text')
-    .type('form')
-    .send({
-      text: sampleText
-    }).expect(200)
+      .type('form')
+      .send({
+        text: sampleText
+      }).expect(200)
   );
 
   it('Generate profile from static tweets', () =>
     request(app).post('/api/profile/twitter')
-    .type('form')
-    .send({
-      source_type: 'twitter',
-      accept_language: 'en',
-      include_raw: false,
-      userId: 'Oprah',
-    }).expect(200)
+      .type('form')
+      .send({
+        source_type: 'twitter',
+        accept_language: 'en',
+        include_raw: false,
+        userId: 'Oprah',
+      }).expect(200)
   );
 
 });
