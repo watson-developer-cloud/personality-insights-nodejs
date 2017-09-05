@@ -5,3 +5,4 @@ public/js/vendors
 public/js/demo.js
 public/js/consumption-preferences-likely-sort.js
 public/js/consumption-preferences-unlikely-sort.js
+public/js/analytics.js

@@ -168,7 +168,7 @@ This data is collected from the `package.json` file in the sample application an
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/watson/developercloud/doc/common/index.html
-[documentation]: https://www.ibm.com/watson/developercloud/personality-insights.html
+[getting_started]: https://console.bluemix.net/docs/services/watson/index.html#about
+[documentation]: https://console.bluemix.net/docs/services/personality-insights/getting-started.html
 [create_twitter_app]: https://apps.twitter.com/app/new
 [sign_up]: https://console.ng.bluemix.net/registration/
