@@ -97,7 +97,6 @@
 	"header-fork": "Github에서 작업합니다.",
 	"header-bluemix": "Bluemix에서 무료로 시작하십시오",
 	"header-forkdeploy": "Bluemix에서 작업하고 배포하십시오",
-	"header-bluemix": "Bluemix에서 무료로 시작하십시오",
 	"sunburst-title": "선버스트 차트 시각화",
 	"sunburst-back": "이전으로",
 	"error-400-minimum": "분석을 위해 최소 100개의 단어가 필요합니다. Watson은 성급하게 판단하지 않습니다.",
@@ -115,7 +114,6 @@
 	"trait-replacement-suceptible": "스트레스에 대한 민감성",
 	"trait-replacement-conservation": "전통",
 	"trait-replacement-openness": "자극",
-	"trait-replacement-hedonism": "Taking pleasure in life",
 	"trait-replacement-hedonism": "인생의 즐거움을 가지고 옴",
 	"trait-replacement-selfenhacement": "성취",
 	"trait-replacement-selftranscendence": "다른사람들을 도와줌",
@@ -124,5 +122,8 @@
 	"twitterlang-ar": "AR",
 	"twitterlang-ja": "JA",
 	"twitterlang-ko": "KO",
-	" text-placeholder ": " 자리표시 문자 "
+	" text-placeholder ": " 자리표시 문자 ",
+	"text-ko2": "text-ko2",
+	"text-ko8": "text-ko8",
+	"lang-ko": "lang-ko"
 }
