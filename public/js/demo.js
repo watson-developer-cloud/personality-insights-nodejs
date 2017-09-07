@@ -48,6 +48,7 @@ var QUERY_PARAMS = (function(a) {
 })(window.location.search.substr(1).split('&'));
 
 function getBrowserLang() {
+  console.log('getBrowserLang() called: ' + navigator.languages);
   if (navigator.languages != undefined)
     return navigator.languages[0];
   else
@@ -93,7 +94,7 @@ function renderMarkdown(s) {
 
 $(document).ready(function() {
 
-  var SAMPLE_TEXTS = [ 'sample1', 'sample2', 'sample3', 'ar', 'ja'];
+  var SAMPLE_TEXTS = [ 'sample1', 'sample2', 'sample3', 'ar', 'ja', 'ko1','ko2','ko3','ko4','ko5','ko6','ko7','ko8','ko9','ko10','ko11'];
   var textCache = {};
 
   globalState.selectedSample = SAMPLE_TEXTS[0];
@@ -250,6 +251,9 @@ $(document).ready(function() {
   function setTextSummary(profile) {
     var textSummary = new TextSummary({ version: 'v3', locale: globalState.userLocale || OUTPUT_LANG});
     var summary = textSummary.getSummary(profile);
+    /* eslint-disable no-console */
+    console.log("globalState: " + globalState.userLocale);
+    console.log("OUTPUT_LANG: " + OUTPUT_LANG);
     $('#personalitySummary').empty();
     $('#personalitySummary').append('<p class="base--p">' + summary.split('\n').join('</p><p class="base--p">') + '</p>');
   }
@@ -402,7 +406,7 @@ $(document).ready(function() {
      if(lang == 'ko') sortArray = koSortLikely;
      return sortArray.indexOf(cpid);
   }
-  
+
   function cpIdSortingUnlikely(cpid, lang) {
      var sortArray;
      if(lang == 'en') sortArray = enSortUnlikely;
@@ -764,7 +768,7 @@ $(document).ready(function() {
   }
 
   function selectDefaultLanguage() {
-    if (['en', 'es', 'ja', 'ar'].indexOf(globalState.userLocale) >= 0) {
+    if (['en', 'es', 'ja', 'ar', 'ko'].indexOf(globalState.userLocale) >= 0) {
       $('#lang-' + globalState.userLocale).prop('checked', true).trigger('click');
     }
   }
