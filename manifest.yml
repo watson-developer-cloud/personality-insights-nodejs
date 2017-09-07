@@ -1,9 +1,9 @@
 ---
 applications:
-- name: personality-insights-livedemo
+- name: personality-insights-demo-korean
   command: npm start
   path: .
   memory: 256M
   instances: 1
   services:
-  - my-pi-service
+  - pi-service-demo-korean

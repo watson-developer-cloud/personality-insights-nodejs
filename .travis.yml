@@ -10,7 +10,7 @@ cache:
   - node_modules
 env:
   global:
-  - CF_APP=personality-insights-livedemo
+  - CF_APP=personality-insights-demo-korean
   - CF_API=https://api.ng.bluemix.net
   - CF_ORGANIZATION=WatsonPlatformServices
   - CF_SPACE=demos
