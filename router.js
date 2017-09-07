@@ -58,7 +58,8 @@ module.exports = (app) => {
   app.get('/', (req, res) =>
     res.render('index', {
       twitterUser: req.query.source ==='myself' && req.user ? req.user.profile : {},
-      showTwitterButton: !!process.env.TWITTER_CONSUMER_KEY
+      showTwitterButton: !!process.env.TWITTER_CONSUMER_KEY,
+      bluemixAnalytics: !!process.env.BLUEMIX_ANALYTICS
     })
   );
 
