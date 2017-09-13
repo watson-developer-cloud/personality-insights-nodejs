@@ -22,7 +22,6 @@ const tweetsFor = (user) =>
 const getLocalTweets = (user) =>
   new Promise((resolve) => {
     try {
-	console.log(user);
       resolve(tweetsFor(user));
     } catch(error) {
       resolve(null);
@@ -36,7 +35,6 @@ const getLocalTweets = (user) =>
 */
 const getTweetsFromTwitter = (user) =>
   new Promise((resolve, reject) => {
-    console.log(user);
     if (!user || !user.credentials) {
       return reject(new Error('User credentials cannot be null'));
     }
