@@ -26,35 +26,4 @@
     "hidden"   : false,
     "orientation": "right-to-left"
   },
-  {
-    "name"     : "Dok-Do Speech (Ko)",
-    "language" : "ko",
-    "file"     : "ko1",
-    "hidden"   : false
-  },
-  {
-    "name"     : "New Year's Speech (Ko)",
-    "language" : "ko",
-    "file"     : "ko2",
-    "hidden"   : false
-  },
-  {
-    "name"     : "Inaugral Speech (Ko)",
-    "language" : "ko",
-    "file"     : "ko3",
-    "hidden"   : false
-  },
-  {
-    "name"     : "Statement of Reason to Appeal (Ko)",
-    "language" : "ko",
-    "file"     : "ko8",
-    "hidden"   : false
-  }
-  {
-    "name"     : "My Wish (Ko)",
-    "language" : "ko",
-    "file"     : "ko4",
-    "hidden"   : false
-  },
-
 ]
