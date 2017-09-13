@@ -21,7 +21,7 @@ deploy:
   - cf-blue-green-travis
   on:
     branch: master
-    repo: aprilwebster/personality-insights-nodejs
+    repo: watson-developer-cloud/personality-insights-nodejs
   skip_cleanup: true
 notifications:
   email: false
