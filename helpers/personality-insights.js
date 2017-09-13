@@ -22,6 +22,7 @@ const personalityInsights = new PersonalityInsightsV3({
   // VCAP_SERVICES environment property
   // username: '<username>',
   // password: '<password>',
+  url: 'https://gateway-s.watsonplatform.net/personality-insights/api',
   version_date: '2016-10-19',
 });
 

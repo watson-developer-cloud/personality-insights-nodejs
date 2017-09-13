@@ -1,6 +1,6 @@
 ---
 applications:
-- name: personality-insights-demo-korean
+- name: personality-insights-livedemo
   command: npm start
   path: .
   memory: 256M
