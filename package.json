@@ -1,5 +1,5 @@
 {
-  "name": "personality-insights-livedemo",
+  "name": "personality-insights-nodejs",
   "version": "3.0.0",
   "description": "A sample NodeJS app that uses the Personality Insights service",
   "repository": {
