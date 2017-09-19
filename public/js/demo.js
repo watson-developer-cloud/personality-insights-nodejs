@@ -399,15 +399,17 @@ $(document).ready(function() {
      if(lang == 'es') sortArray = esSortLikely;
      if(lang == 'ja') sortArray = jaSortLikely;
      if(lang == 'ar') sortArray = arSortLikely;
+     if(lang == 'ko') sortArray = koSortLikely;
      return sortArray.indexOf(cpid);
   }
-  
+
   function cpIdSortingUnlikely(cpid, lang) {
      var sortArray;
      if(lang == 'en') sortArray = enSortUnlikely;
      if(lang == 'es') sortArray = esSortUnlikely;
      if(lang == 'ja') sortArray = jaSortUnlikely;
      if(lang == 'ar') sortArray = arSortUnlikely;
+     if(lang == 'ko') sortArray = koSortUnlikely;
      return sortArray.indexOf(cpid);
   }
 
@@ -726,7 +728,6 @@ $(document).ready(function() {
   }
 
   function setSelfAnalysis() {
-    console.log('Analyzing twitter user ', '@' + TWITTER_USER);
     globalState.twitterUserId = TWITTER_USER.handle;
     globalState.twitterUserImage = TWITTER_USER.image;
     loadTwitterUser(TWITTER_USER.handle, {live_crawling: true});
@@ -762,7 +763,7 @@ $(document).ready(function() {
   }
 
   function selectDefaultLanguage() {
-    if (['en', 'es', 'ja', 'ar'].indexOf(globalState.userLocale) >= 0) {
+    if (['en', 'es', 'ja', 'ar', 'ko'].indexOf(globalState.userLocale) >= 0) {
       $('#lang-' + globalState.userLocale).prop('checked', true).trigger('click');
     }
   }

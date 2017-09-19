@@ -40,6 +40,7 @@
 	"lang-spanish": "Español",
 	"lang-arabic": "Árabe",
 	"lang-japanese": "Japonés",
+	"lang-ko": "Coreano",
 	"button-analyzetwitter": "Analizar mi Personalidad de Twitter",
 	"note-title": "Nota:",
 	"note-twitter": "Será redirigido a la página de autorización de Twitter y luego será redirigido de regreso a esta aplicación para completar el análisis.",
@@ -121,5 +122,6 @@
 	"twitterlang-es": "Español",
 	"twitterlang-ar": "Árabe",
 	"twitterlang-ja": "Japonés",
+	"twitterlang-ko": "Coreano",
 	" text-placeholder ": " text-placeholder "
 }
