@@ -10,15 +10,15 @@ cache:
   - node_modules
 env:
   global:
-  - CF_APP=personality-insights-livedemo
-  - CF_API=https://api.ng.bluemix.net
-  - CF_ORGANIZATION=WatsonPlatformServices
-  - CF_SPACE=demos
-before_deploy: npm install -g https://github.com/germanattanasio/cf-blue-green
+  - BX_APP=personality-insights-livedemo
+  - BX_API=https://api.ng.bluemix.net
+  - BX_ORGANIZATION=WatsonPlatformServices
+  - BX_SPACE=demos
+before_deploy: npm install -g https://github.com/andresfvilla/bx-blue-green
 deploy:
   provider: script
   script:
-  - cf-blue-green-travis
+  - bx-blue-green-travis
   on:
     branch: master
     repo: watson-developer-cloud/personality-insights-nodejs

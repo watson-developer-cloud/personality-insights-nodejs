@@ -40,6 +40,7 @@
 	"lang-spanish": "Spanish",
 	"lang-arabic": "Arabic",
 	"lang-japanese": "Japanese",
+	"lang-ko": "Korean",
 	"button-analyzetwitter": "Analyze my Twitter Personality",
 	"note-title": "Note:",
 	"note-twitter": "You will be redirected to Twitter's authorization page and then redirected to this application to complete the analysis.",
@@ -97,7 +98,6 @@
 	"header-fork": "Fork on Github",
 	"header-bluemix": "Start free in Bluemix",
 	"header-forkdeploy": "Fork and Deploy on Bluemix",
-	"header-bluemix": "Start free in Bluemix",
 	"sunburst-title": "Sunburst Chart Visualization",
 	"sunburst-back": "Go back",
 	"error-400-minimum": "We need at least 100 words for analysis. Watson doesn't like to judge a book by its cover.",
@@ -122,5 +122,7 @@
 	"twitterlang-es": "ES",
 	"twitterlang-ar": "AR",
 	"twitterlang-ja": "JA",
-	" text-placeholder ": " text-placeholder "
+	"twitterlang-ko": "KO",
+	" text-placeholder ": " text-placeholder ",
+	"lang-korean": "lang-korean"
 }

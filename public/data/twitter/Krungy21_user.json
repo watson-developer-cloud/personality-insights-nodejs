@@ -1,0 +1,165 @@
+{
+    "contributors_enabled": false, 
+    "created_at": "Mon Sep 17 09:51:13 +0000 2012", 
+    "default_profile": false, 
+    "default_profile_image": false, 
+    "description": "\ud22c\uc560\ub2c8\uc6d0\uc758 \uc0c1\ud07c\ud55c\ubcf4\uceec & \uc2e0\uc778\uc5ec\ubc30\uc6b0 2NE1's fresh vocal & Pambansang krungkrung ng Pilipinas & Actress", 
+    "entities": {
+        "description": {
+            "urls": []
+        }
+    }, 
+    "favourites_count": 108, 
+    "follow_request_sent": false, 
+    "followers_count": 4051115, 
+    "following": false, 
+    "friends_count": 184, 
+    "geo_enabled": false, 
+    "has_extended_profile": false, 
+    "id": 828742454, 
+    "id_str": "828742454", 
+    "is_translation_enabled": true, 
+    "is_translator": false, 
+    "lang": "ko", 
+    "listed_count": 6599, 
+    "location": "", 
+    "name": "Sandara Park", 
+    "notifications": false, 
+    "profile_background_color": "FAEC50", 
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme18/bg.gif", 
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme18/bg.gif", 
+    "profile_background_tile": false, 
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/828742454/1419408764", 
+    "profile_image_url": "http://pbs.twimg.com/profile_images/850368318858969088/7o1ttpSc_normal.jpg", 
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/850368318858969088/7o1ttpSc_normal.jpg", 
+    "profile_link_color": "038543", 
+    "profile_location": null, 
+    "profile_sidebar_border_color": "C0DEED", 
+    "profile_sidebar_fill_color": "DDEEF6", 
+    "profile_text_color": "333333", 
+    "profile_use_background_image": false, 
+    "protected": false, 
+    "screen_name": "krungy21", 
+    "status": {
+        "contributors": null, 
+        "coordinates": null, 
+        "created_at": "Fri Apr 07 11:48:34 +0000 2017", 
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        0, 
+                        13
+                    ], 
+                    "text": "DARASCHEDULE"
+                }
+            ], 
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/3KAbbvoyXW", 
+                    "expanded_url": "https://twitter.com/krungy21/status/850314351823134722/photo/1", 
+                    "id": 850314329479983104, 
+                    "id_str": "850314329479983104", 
+                    "indices": [
+                        51, 
+                        74
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/C8zsYKQUMAAGJ3o.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/C8zsYKQUMAAGJ3o.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 2048, 
+                            "resize": "fit", 
+                            "w": 2048
+                        }, 
+                        "medium": {
+                            "h": 1200, 
+                            "resize": "fit", 
+                            "w": 1200
+                        }, 
+                        "small": {
+                            "h": 680, 
+                            "resize": "fit", 
+                            "w": 680
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "https://t.co/3KAbbvoyXW"
+                }
+            ], 
+            "symbols": [], 
+            "urls": [], 
+            "user_mentions": []
+        }, 
+        "extended_entities": {
+            "media": [
+                {
+                    "display_url": "pic.twitter.com/3KAbbvoyXW", 
+                    "expanded_url": "https://twitter.com/krungy21/status/850314351823134722/photo/1", 
+                    "id": 850314329479983104, 
+                    "id_str": "850314329479983104", 
+                    "indices": [
+                        51, 
+                        74
+                    ], 
+                    "media_url": "http://pbs.twimg.com/media/C8zsYKQUMAAGJ3o.jpg", 
+                    "media_url_https": "https://pbs.twimg.com/media/C8zsYKQUMAAGJ3o.jpg", 
+                    "sizes": {
+                        "large": {
+                            "h": 2048, 
+                            "resize": "fit", 
+                            "w": 2048
+                        }, 
+                        "medium": {
+                            "h": 1200, 
+                            "resize": "fit", 
+                            "w": 1200
+                        }, 
+                        "small": {
+                            "h": 680, 
+                            "resize": "fit", 
+                            "w": 680
+                        }, 
+                        "thumb": {
+                            "h": 150, 
+                            "resize": "crop", 
+                            "w": 150
+                        }
+                    }, 
+                    "type": "photo", 
+                    "url": "https://t.co/3KAbbvoyXW"
+                }
+            ]
+        }, 
+        "favorite_count": 4415, 
+        "favorited": false, 
+        "geo": null, 
+        "id": 850314351823134722, 
+        "id_str": "850314351823134722", 
+        "in_reply_to_screen_name": null, 
+        "in_reply_to_status_id": null, 
+        "in_reply_to_status_id_str": null, 
+        "in_reply_to_user_id": null, 
+        "in_reply_to_user_id_str": null, 
+        "is_quote_status": false, 
+        "lang": "ko", 
+        "place": null, 
+        "possibly_sensitive": false, 
+        "retweet_count": 1256, 
+        "retweeted": false, 
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", 
+        "text": "#DARASCHEDULE 4\uc6d4 9\uc77c (\uc77c) \uc624\ud6c4 4\uc2dc 50\ubd84 SBS \ub7f0\ub2dd\ub9e8  - \ub2e4\ub77c \ucd9c\uc5f0 https://t.co/3KAbbvoyXW", 
+        "truncated": false
+    }, 
+    "statuses_count": 5496, 
+    "time_zone": null, 
+    "translator_type": "none", 
+    "url": null, 
+    "utc_offset": null, 
+    "verified": true
+}

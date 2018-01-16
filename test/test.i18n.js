@@ -61,3 +61,16 @@ describe('i18n-ja', function() {
       })
   );
 });
+
+describe('i18n-ko', function() {
+  it('Korean localized page should contain specific text when GET /', () =>
+    request(app)
+      .get('/')
+      .set('Accept-language', 'ko')
+      .expect(200)
+      .expect(function containsString(res) {
+        if (res.text.indexOf('서비스를 시도해 보십시오.') == -1)
+          throw new Error('Invalid translation string');
+      })
+  );
+});
