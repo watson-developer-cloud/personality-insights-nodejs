@@ -396,7 +396,7 @@ body {
 .base--STYLED h1 {
   font-size: 2.44141em;
   font-weight: 700;
-  color: #325c80; }
+  color: #3C3838; }
   @media (min-width: 500px) {
     .base--h1,
     .base--STYLED h1 {
@@ -406,7 +406,7 @@ body {
 .base--STYLED h2 {
   font-size: 1.95312em;
   font-weight: 700;
-  color: #d74108; }
+  color:  #F08080; }
 
 .base--h3,
 .base--STYLED h3 {
@@ -3858,6 +3858,8 @@ pre[class*=" language-"] {
   margin-top: 0;
   padding: 0 1rem 2rem;
   background-color: #f4f4f4;
+   background-image: url("../images/1.jpg");
+
   border-bottom: 2px solid #ececec; }
 
 ._content {
