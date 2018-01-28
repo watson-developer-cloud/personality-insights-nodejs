@@ -93,7 +93,7 @@ function renderMarkdown(s) {
 
 $(document).ready(function() {
 
-  var SAMPLE_TEXTS = [ 'sample1', 'sample2', 'sample3', 'ar', 'ja'];
+  var SAMPLE_TEXTS = [ 'sampletxt1', 'sampletxt2', 'sampletxt3'];
   var textCache = {};
 
   globalState.selectedSample = SAMPLE_TEXTS[0];

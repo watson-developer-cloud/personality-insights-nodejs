@@ -1,0 +1,11 @@
+I have always loved numbers. That’s why I became a financial analyst. But here I was, one week into my first real job at a bank, feeling like I was grinding really hard to make slow progress. It wasn’t my boss or my co-workers or even the tasks I was assigned to do. It was the way I was doing my job.
+
+I was charged with preparing financial analyses for potential major capital expenditures—anything that would cost more than $100,000. The way it had been done for years, was to manually enter mountains of data into numerous spreadsheets for review by senior managers. While this system worked, it was extremely time-consuming and mind numbing for me as well as difficult for the decision-makers who had to analyze the data and determine which factors were most important for the ultimate decision. There had to be a better way.
+
+I went to talk with our IT staff, and found out that we had a database report writing tool that could generate custom reports with the data I needed—which could replace the manual spreadsheet process. But there was a catch. I would have to learn how to create the reports myself because they were stretched too thin. No problem! I love learning new things.
+
+The second obstacle was getting the decision-makers to agree to a common set of metrics. Unfortunately, they wouldn’t. So after several meetings, I proposed that I create a universal analysis report with all the metrics we could collectively think of. Then managers could use the specific factors they thought best for particular situations. Consensus!
+
+While this approach required an up-front investment of time and experimentation, the result was a well-received system that could produce robust capital expenditure reports in a few hours versus a few days.
+
+Along the way, I rediscovered my love of numbers and realized that solving problems by building complex financial models was my passion.
