@@ -1,6 +1,6 @@
 ---
 applications:
-- name: personality-insights-livedemo
+- name: watson-career-insights
   command: npm start
   path: .
   memory: 256M
