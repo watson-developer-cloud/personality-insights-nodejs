@@ -2,7 +2,7 @@
   <div class="_demo--container">
     <div class="_content input">
       <h2 class="base--h2">
-        <$= __("intro-title") $>
+        <$= __("intro-title2") $>
       </h2>
       <p class="base--p">
         <$= __("intro-1") $>
@@ -22,8 +22,8 @@
         </span>
         <ul class="tab-panels--tab-list" role="tablist">
           <li class="tab-panels--tab-list-item base--li" role="presentation">
-            <a class="tab-panels--tab base--a active" href="#twitter-panel" aria-controls="twitter-panel" role="tab">
-              <$= __("tab-tweets") $>
+          <!--  <a class="tab-panels--tab base--a active" href="#twitter-panel" aria-controls="twitter-panel" role="tab"> 
+              <$= __("tab-tweets") $>-->
             </a>
           </li>
           <li class="tab-panels--tab-list-item base--li" role="presentation">
@@ -32,16 +32,16 @@
             </a>
           </li>
           <li class="tab-panels--tab-list-item base--li" style="<% if (showTwitterButton) { %>display: none;<% } %>" role="presentation">
-            <a class="tab-panels--tab base--a" id="self-analysis-tab" href="#your-twitter-panel" aria-controls="text-panel" role="tab">
-              <$= __("tab-twitter") $>
+         <!--   <a class="tab-panels--tab base--a" id="self-analysis-tab" href="#your-twitter-panel" aria-controls="text-panel" role="tab"> 
+              <$= __("tab-twitter") $> -->
             </a>
           </li>
         </ul>
         <div class="tab-panels--tab-content">
           <div id="twitter-panel" class="tab-panels--tab-pane active" role="tab-panel">
-            <form class="input--form1">
+           <form class="input--form1">
 
-              <div class="base--h5 input--choose">
+            <!--  <div class="base--h5 input--choose">
                 <$= __("option-choose") $>
               </div>
 
@@ -70,11 +70,11 @@
                 <img class="input--thumb" src="/images/twitter/faridyu.jpg">@faridyu (<$= __("twitterlang-ja") $>)</label>
               <input role="radio" class="base--radio" type="radio" id="twitter-Krungy21" name="twitter" value="Krungy21" data-lang="ko">
               <label class="base--inline-label input--radio" for="twitter-Krungy21">
-                <img class="input--thumb" src="/images/twitter/Krungy21.jpg">@Krungy21 (<$= __("twitterlang-ko") $>)</label>
+                <img class="input--thumb" src="/images/twitter/Krungy21.jpg">@Krungy21 (<$= __("twitterlang-ko") $>)</label> -->
               <div class="input--button-container">
                 <button type="submit" class="base--button input--submit-button1"><$= __("button-analyze") $></button>
               </div>
-            </form>
+            </form> 
           </div>
           <div id="text-panel" class="tab-panels--tab-pane" role="tab-panel">
             <form class="input--form2">
@@ -84,13 +84,13 @@
               </div>
 
               <input role="radio" class="base--radio" type="radio" id="text-sample1" name="text-sample" data-file="sample1" data-lang="en" data-orientation="" />
-              <label class="base--inline-label input--radio" for="text-sample1"><$= __("text-obama-en") $></label>
+              <label class="base--inline-label input--radio" for="text-sample1"><$= __("Financial Passion") $></label>
 
               <input role="radio" class="base--radio" type="radio" id="text-sample2" name="text-sample" data-file="sample2" data-lang="en" data-orientation="" />
-              <label class="base--inline-label input--radio" for="text-sample2"><$= __("text-gandhi-en") $></label>
+              <label class="base--inline-label input--radio" for="text-sample2"><$= __("Adventure in Marketing") $></label>
 
               <input role="radio" class="base--radio" type="radio" id="text-ja" name="text-sample" data-file="ja" data-lang="ja" data-orientation="" />
-              <label class="base--inline-label input--radio" for="text-ja"><$= __("text-natsume-ja") $></label>
+              <label class="base--inline-label input--radio" for="text-ja"><$= __("Curiosity") $></label>
               <input role="radio" class="base--radio" type="radio" id="text-ko2" name="text-sample" data-file="ko2" data-lang="ko" data-orientation="" />
 
               <input role="radio" class="base--radio" type="radio" id="text-custom" name="text-sample" style="display:none" />

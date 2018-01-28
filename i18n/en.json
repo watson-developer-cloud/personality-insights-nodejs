@@ -1,6 +1,7 @@
 {
-	"intro-title": "Try the service",
-	"intro-1": "You need text written by the person whose personality you're interested in. It should contain words about every day experiences, thoughts, and responses.",
+	"intro-title": "Watson Career Insights",
+	"intro-title2": "Analyze your Cover Letters with Watson!",
+	"intro-1": "Are you wondering what your coverletters say about you ?? Use Personality Insights to get analysis of your personality through your cover letter!",
 	"intro-2": "For statistically significant results,",
 	"intro-3": "you need at least 3500 words and ideally 6000",
 	"intro-4": "You can play with the demo with as little as 100 words, but for a more accurate analysis, you need more words.",
@@ -83,7 +84,7 @@
 	"button-sunburst": "View personality traits in sunburst visualization",
 	"button-science": "See the science behind the service",
 	"tooltip-not-available": "Tooltip not available",
-	"page-title-pi": "Personality Insights",
+	"page-title-pi": "Career Personality ",
 	"header-ibm": "IBM",
 	"header-wdc": "Watson Developer Cloud",
 	"header-services": "Services",
@@ -91,7 +92,7 @@
 	"header-starterkit": "Starter Kits",
 	"header-community": "Community",
 	"header-title-pi": "Personality Insights",
-	"header-description": "Gain insight into how and why people think, act, and feel the way they do. This service applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.",
+	"header-description": "Use Watson to Gain Insights about your Career Profile!",
 	"header-resources": "Resources:",
 	"header-apiref": "API Reference",
 	"header-documentation": "Documentation",
@@ -124,5 +125,12 @@
 	"twitterlang-ja": "JA",
 	"twitterlang-ko": "KO",
 	" text-placeholder ": " text-placeholder ",
-	"lang-korean": "lang-korean"
+	"lang-korean": "lang-korean",
+	"Career Insights": "Career Insights",
+	"text-financial": "text-financial",
+	"text-marketing": "text-marketing",
+	"text-curiosity": "text-curiosity",
+	"Financial Passion": "Financial Passion",
+	"Adventure in Marketing": "Adventure in Marketing",
+	"Curiosity": "Curiosity"
 }

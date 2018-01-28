@@ -1,9 +1,10 @@
 ---
 applications:
-- name: personality-insights-livedemo
+- name: watson-career-insights
   command: npm start
   path: .
   memory: 256M
   instances: 1
   services:
-  - pi-service-demo-korean
+ 
+
