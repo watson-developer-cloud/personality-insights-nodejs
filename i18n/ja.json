@@ -117,7 +117,7 @@
 	"twitterlang-en": "英語",
 	"twitterlang-es": "スペイン語",
 	"twitterlang-ar": "アラビア語",
-	"twitterlang-ja": "韓国語",
+	"twitterlang-ja": "日本語",
 	"analysis-verystrong-desc-new-model": "3000語以上のテキストが入力され、精度の高い性格推定結果です。これは、本サービスのテキストベースでの解析における、最も精度の高い推定結果です。",
 	"analysis-strong-desc-new-model": "推奨される量のテキストが入力され、かなり精度の高い性格推定結果です。もう少し書き込みを増やし3000語以上になると、さらに精度の高い性格推定が可能になります。",
 	"analysis-decent-desc-new-model": "この推定結果は、あなたの全体的な印象を表しています。テキストの量が1200語以上になると、さらに強力な解析が可能になります",
