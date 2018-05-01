@@ -91,6 +91,7 @@
 	"header-community": "커뮤니티",
 	"header-title-pi": "성격 인사이트",
 	"header-description": "사람들이 어떻게 그리고 왜 생각하고 행동하고 느끼는지에 대해 통찰력을 얻으십시오. 본 서비스는 사람의 구조화 되지 않은 텍스트로부터의 속성을 추론하여 언어분석 및 성격이론을 적용합니다.",
+	"gdpr-description": "*This system is for demonstration purposes only and is not intended to process Personal Data. No Personal Data is to be entered into this system as it may not have the necessary controls in place to meet the requirements of the General Data Protection Regulation (EU) 2016/679.",
 	"header-resources": "자원:",
 	"header-apiref": "API 참조",
 	"header-documentation": "문서화",

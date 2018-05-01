@@ -92,6 +92,7 @@
 	"header-community": "Comunidad",
 	"header-title-pi": "Personality Insights",
 	"header-description": "Obtenga conocimiento sobre cómo y por qué las personas piensan, actúan y sienten del modo que lo hacen. Este servicio aplica análisis lingüístico y teoría de la personalidad para inferir ciertos atributos a partir de texto desestructurado de la persona.",
+	"gdpr-description": "*This system is for demonstration purposes only and is not intended to process Personal Data. No Personal Data is to be entered into this system as it may not have the necessary controls in place to meet the requirements of the General Data Protection Regulation (EU) 2016/679.",
 	"header-resources": "Recursos:",
 	"header-apiref": "Referencia API",
 	"header-documentation": "Documentación",
