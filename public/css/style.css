@@ -1127,6 +1127,10 @@ pre[class*=" language-"] {
       display: inline-block;
       margin-right: 1rem; } }
 
+.banner--gdpr-description {
+  margin-top: 0.5rem;
+  font-size: 80%}
+
 .tab-panels {
   background-color: #f4f4f4;
   border: 2px solid #ececec;
