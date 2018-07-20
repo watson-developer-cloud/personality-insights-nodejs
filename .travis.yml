@@ -16,7 +16,7 @@ env:
   - BX_SPACE=demos
 before_deploy: npm install -g bx-blue-green
 deploy:
-  provider: script
+- provider: script
   script:
   - bx-blue-green-travis
   on:
