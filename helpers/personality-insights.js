@@ -22,7 +22,7 @@ const personalityInsights = new PersonalityInsightsV3({
   // VCAP_SERVICES environment property
   // username: '<username>',
   // password: '<password>',
-  version_date: '2016-10-19',
+  version: '2017-10-13',
 });
 
 const parentId = function(tweet) {

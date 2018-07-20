@@ -1,7 +1,7 @@
 language: node_js
 dist: trusty
 sudo: required
-node_js: 6
+node_js: 8
 script:
 - npm run test
 
@@ -23,5 +23,8 @@ deploy:
     branch: master
     repo: watson-developer-cloud/personality-insights-nodejs
   skip_cleanup: true
-notifications:
-  email: false
+- provider: script
+  skip_cleanup: true
+  script: npx semantic-release
+  on:
+    node: 8

@@ -1,5 +1,5 @@
 {
-  "name": "personality-insights-nodejs",
+  "name": "@ibm-watson/personality-insights-nodejs",
   "version": "3.0.0",
   "description": "A sample NodeJS app that uses the Personality Insights service",
   "repository": {
@@ -62,11 +62,11 @@
     "personality-trait-descriptions": "^2.1.0",
     "personality-trait-info": "^3.0.5",
     "twitter": "^1.7.1",
-    "watson-developer-cloud": "^3.5.0"
+    "watson-developer-cloud": "^3.7.0"
   },
   "devDependencies": {
-    "codecov": "^3.0.2",
-    "eslint": "^4.19.1",
+    "codecov": "^3.0.4",
+    "eslint": "^5.1.0",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0"
   }
