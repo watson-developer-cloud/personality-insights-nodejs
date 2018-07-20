@@ -69,5 +69,9 @@
     "eslint": "^5.1.0",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
