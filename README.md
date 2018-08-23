@@ -104,7 +104,7 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
     ibmcloud app push
     ```
 
-1. View the application online at the app URL.
+1. View the application online at the app URL.  
 For example: https://my-app-name.mybluemix.net
 
 
