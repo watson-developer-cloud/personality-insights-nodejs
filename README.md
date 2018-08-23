@@ -155,3 +155,4 @@ Find more open source projects on the
 [IBM Github Page](http://ibm.github.io/).
 
 [service_url]: https://www.ibm.com/watson/services/personality-insights/
+[create_twitter_app]: https://apps.twitter.com/app/new
