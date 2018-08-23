@@ -104,7 +104,7 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
     ibmcloud app push
     ```
 
-1. View the application online at the app URL.  
+1. View the application online at the app URL.
 For example: https://my-app-name.mybluemix.net
 
 
@@ -155,3 +155,4 @@ Find more open source projects on the
 [IBM Github Page](http://ibm.github.io/).
 
 [service_url]: https://www.ibm.com/watson/services/personality-insights/
+[create_twitter_app]: https://apps.twitter.com/app/new
