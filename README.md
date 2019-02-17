@@ -15,6 +15,8 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
 
 ## Prerequisites
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/watson-developer-cloud/personality-insights-nodejs.svg)](https://greenkeeper.io/)
+
 1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
 1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
 1. Create an instance of the Personality Insights service and get your credentials:
