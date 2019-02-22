@@ -15,10 +15,10 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
 
 ## Prerequisites
 
-1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
-1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Sign up for an [IBM Cloud account](https://cloud.ibm.com/registration/).
+1. Download the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview).
 1. Create an instance of the Personality Insights service and get your credentials:
-    - Go to the [Personality Insights](https://console.bluemix.net/catalog/services/personality-insights) page in the IBM Cloud Catalog.
+    - Go to the [Personality Insights](https://cloud.ibm.com/catalog/services/personality-insights) page in the IBM Cloud Catalog.
     - Log in to your IBM Cloud account.
     - Click **Create**.
     - Click **Show** to view the service credentials.
@@ -84,7 +84,7 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
 
 ## Deploying to IBM Cloud as a Cloud Foundry Application
 
-1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
 
     ```
     ibmcloud login
