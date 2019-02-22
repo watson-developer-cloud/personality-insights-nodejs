@@ -45,6 +45,7 @@
     "body-parser": "^1.18.3",
     "cfenv": "^1.2.0",
     "cookie-parser": "^1.4.4",
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-rate-limit": "^3.4.0",
