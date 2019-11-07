@@ -22,7 +22,7 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
     - Log in to your IBM Cloud account.
     - Click **Create**.
     - Click **Show** to view the service credentials.
-    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `apikey` value.
     - Copy the `url` value.
 
 ## Configuring the application
@@ -40,16 +40,6 @@ The IBM Watson [Personality Insights][service_url] service uses linguistic analy
     ```
     PERSONALITY_INSIGHTS_IAM_APIKEY=X4rbi8vwZmKpXfowaS3GAsA7vdy17Qh7km5D6EzKLHL2
     PERSONALITY_INSIGHTS_URL=https://gateway-wdc.watsonplatform.net/personality-insights/api
-    ```
-
-    - If your service instance uses `username` and `password` credentials, add the `PERSONALITY_INSIGHTS_USERNAME` and `PERSONALITY_INSIGHTS_PASSWORD` variables to the *.env* file.
-
-    Example *.env* file that configures the `username`, `password`, and `url` for a Personality Insights service instance hosted in the Sydney region:
-
-    ```
-    PERSONALITY_INSIGHTS_USERNAME=522be-7b41-ab44-dec3-g1eab2ha73c6
-    PERSONALITY_INSIGHTS_PASSWORD=A4Z5BdGENrwu8
-    PERSONALITY_INSIGHTS_URL=https://gateway-syd.watsonplatform.net/personality-insights/api
     ```
 ### Setting Up the Twitter Application
 
