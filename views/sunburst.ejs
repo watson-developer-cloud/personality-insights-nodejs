@@ -23,7 +23,7 @@
 
   <script>
     var profile = <$- sunburst.profile $>;
-    var imageUrl = <$- JSON.stringify(typeof sunburst.image === 'undefined' || sunburst.image === 'undefined' ? '/images/service-icon.png' : sunburst.image) $>;
+    var imageUrl = <$- JSON.stringify(typeof sunburst.image === 'undefined' || sunburst.image === 'undefined' ? '/images/service-icon.svg' : sunburst.image) $>;
     var chart = new PersonalitySunburstChart({ selector: '#sunburstChart', version: 'v3' });
     chart.show(profile, imageUrl);
   </script>

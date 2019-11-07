@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp. All Rights Reserved.
+ * Copyright 2015-2020 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -283,11 +283,11 @@ $(document).ready(function() {
   });
 
   function getProfileForTwitterUser(userId, options) {
-    getProfile(userId, extend(options || {}, { source_type: 'twitter' }));
+    getProfile(userId, extend(options || {}, { sourceType: 'twitter' }));
   }
 
   function getProfileForText(text, options) {
-    getProfile(text, extend(options || {}, {source_type: 'text'}));
+    getProfile(text, extend(options || {}, {sourceType: 'text'}));
   }
 
 
@@ -329,13 +329,13 @@ $(document).ready(function() {
 
   function defaultProfileOptions(options) {
     var defaults = extend({
-      source_type: 'text',
-      accept_language: globalState.userLocale || OUTPUT_LANG,
-      include_raw: false,
-      consumption_preferences: true
+      sourceType: 'text',
+      acceptLanguage: globalState.userLocale || OUTPUT_LANG,
+      rawScores: false,
+      consumptionPreferences: true
     }, options || {});
 
-    if (defaults.source_type !== 'twitter') {
+    if (defaults.sourceType !== 'twitter') {
       defaults = extend({
         language: globalState.userLocale || OUTPUT_LANG
       }, defaults);
@@ -352,19 +352,28 @@ $(document).ready(function() {
     options = defaultProfileOptions(options);
 
     var payload = clone(options),
-      url = '/api/profile/' + options.source_type;
+      url = '/api/profile/' + options.sourceType;
 
-    if (options.source_type === 'twitter')
+    if (options.sourceType === 'twitter') {
       payload.userId = data;
-    else
-      payload.text = data;
+      payload.contentType = 'application/json';
+    }
+    else {
+      payload.content = data;
+      payload.contentType = 'text/plain';
+    }
+    if (payload.language) {
+      payload.contentLanguage = payload.language;
+      delete payload.language;
+    }
 
     $.ajax({
       type: 'POST',
       data: payload,
       url: url,
       dataType: 'json',
-      success: function(data) {
+      success: function(response) {
+        const data = response.result;
         $loading.hide();
         $output.show();
         scrollTo($outputHeader);
