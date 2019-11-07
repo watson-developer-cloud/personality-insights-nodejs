@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp. All Rights Reserved.
+ * Copyright 2015-2020 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-const PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+const PersonalityInsightsV3 = require('ibm-watson/personality-insights/v3');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
 const personalityInsights = new PersonalityInsightsV3({
-  // If unspecified here, the PERSONALITY_INSIGHTS_USERNAME and
-  // PERSONALITY_INSIGHTS_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided
-  // VCAP_SERVICES environment property
-  // username: '<username>',
-  // password: '<password>',
-  version: '2017-10-13',
+  version: '2019-10-13',
+  authenticator: new IamAuthenticator({
+    apikey: process.env.PERSONALITY_INSIGHTS_IAM_APIKEY,
+  }),
+  url: process.env.PERSONALITY_INSIGHTS_URL,
 });
+
+console.log(process.env.PERSONALITY_INSIGHTS_IAM_APIKEY);
+console.log(process.env.PERSONALITY_INSIGHTS_URL);
 
 const parentId = function(tweet) {
   if (tweet.in_reply_to_screen_name != null) {
@@ -45,25 +48,13 @@ const toContentItem = (tweet) => {
   };
 };
 
-const getProfile = (params) =>
-  new Promise((resolve, reject) => {
-    if (params.language) {
-      params.headers = {
-        'Content-Language': params.language,
-      };
-    }
-    return personalityInsights.profile(params, (err, profile) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(profile);
-      }
-    });
-  });
+const getProfile = (params) => {
+  return personalityInsights.profile(params);
+};
 
 const profileFromTweets = (params) => (tweets) => {
-  params.content_items = tweets.map(toContentItem);
-  return getProfile(params);
+  params.content = { contentItems: tweets.map(toContentItem)};
+  return personalityInsights.profile(params);
 };
 
 module.exports = {

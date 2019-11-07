@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp. All Rights Reserved.
+ * Copyright 2015-2020 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ const app = require('../app');
 const filePath = path.join(__dirname, '..', '/public/data/text/sample1.txt');
 const sampleText = fs.readFileSync(filePath, 'utf-8');
 
-if (!process.env.PERSONALITY_INSIGHTS_USERNAME || process.env.PERSONALITY_INSIGHTS_USERNAME == '<username>') {
+if (!process.env.PERSONALITY_INSIGHTS_IAM_APIKEY) {
   return;
 }
 
@@ -37,10 +37,12 @@ describe('integration-express', function() {
       .type('form')
       .send({
         language: 'en',
-        source_type: 'text',
-        accept_language: 'en',
-        include_raw: false,
-        text: sampleText
+        sourceType: 'text',
+        acceptLanguage: 'en',
+        rawScores: false,
+        consumptionPreferences: true,
+        content: sampleText,
+        contentType: 'text/plain'
       }).expect(200)
   );
 
@@ -49,10 +51,11 @@ describe('integration-express', function() {
       .type('form')
       .send({
         language: 'en',
-        source_type: 'text',
-        accept_language: 'en',
-        include_raw: false,
-        text: sampleText.substring(0, 100)
+        sourceType: 'text',
+        acceptLanguage: 'en',
+        rawScores: false,
+        contentType: 'text/plain',
+        content: sampleText.substring(0, 100)
       }).expect(400)
   );
 
@@ -60,7 +63,8 @@ describe('integration-express', function() {
     request(app).post('/api/profile/text')
       .type('form')
       .send({
-        text: sampleText
+        contentType: 'text/plain',
+        content: sampleText
       }).expect(200)
   );
 
@@ -68,9 +72,10 @@ describe('integration-express', function() {
     request(app).post('/api/profile/twitter')
       .type('form')
       .send({
-        source_type: 'twitter',
-        accept_language: 'en',
-        include_raw: false,
+        sourceType: 'twitter',
+        acceptLanguage: 'en',
+        contentType: 'application/json',
+        rawScores: false,
         userId: 'Oprah',
       }).expect(200)
   );
