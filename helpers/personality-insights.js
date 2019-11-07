@@ -25,9 +25,6 @@ const personalityInsights = new PersonalityInsightsV3({
   url: process.env.PERSONALITY_INSIGHTS_URL,
 });
 
-console.log(process.env.PERSONALITY_INSIGHTS_IAM_APIKEY);
-console.log(process.env.PERSONALITY_INSIGHTS_URL);
-
 const parentId = function(tweet) {
   if (tweet.in_reply_to_screen_name != null) {
     return tweet.in_reply_to_user_id;
